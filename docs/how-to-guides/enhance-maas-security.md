@@ -11,7 +11,7 @@ Learn more about [TLS termination](https://canonical.com/maas/docs/ensuring-secu
 
 Manage TLS settings in MAAS with `config-tls`. 
 
-```nohighlight
+```text
 usage: maas config-tls [-h] COMMAND ...
 
 Configure MAAS Region TLS.
@@ -31,7 +31,7 @@ the following arguments are required: COMMAND
 
 TLS requires both a private key and a corresponding X509 certificate, both in PEM format:
 
-```nohighlight
+```text
 usage: maas config-tls enable [-h] [--cacert CACERT] [-p PORT] key cert
 
 positional arguments:
@@ -50,7 +50,7 @@ The default HTTPS port is 5443; customize this with the `--port` option. Specify
 
 High availability requires that every MAAS instance use the same certificate.  Create one certificate with multiple domain names or IP addresses, for example:
 
-```nohighlight
+```text
 X509v3 Subject Alternative Name:
                 DNS:example.com, IP Address:10.211.55.9
 ```
@@ -59,7 +59,7 @@ X509v3 Subject Alternative Name:
 
 When you disable TLS, MAAS API and UI will use HTTP over port 5240:
 
-```nohighlight
+```text
 usage: maas config-tls disable [-h]
 
 optional arguments:
@@ -81,7 +81,7 @@ This section of the UI will warn you if TLS is disabled.
 
 Login to the MAAS API with an https URL when using TLS:
 
-```nohighlight
+```text
 maas login <profile_name> https://mymaas:5443/MAAS <api_key>
 
 usage: maas login [-h] [--cacerts CACERTS] [-k] profile-name url [credentials]
@@ -111,7 +111,7 @@ Certificates provided via `--cacerts` will be stored in your profile for future 
 
 Renew a certificate the same way you enable TLS:
 
-```nohighlight
+```text
 $ ​​sudo maas config-tls enable new-server-key.pem new-server.pem --port 5443
 ```
 
@@ -126,7 +126,7 @@ You can setup your own Certificate Authority (CA) server that supports the ACME 
 
 If you have a CA server with ACME protocol support, you can use any ACME client for an automated certificate renewal and use crontab to renew on a desired time interval. For example, [acme.sh](https://github.com/acmesh-official/acme.sh): 
 
-```nohighlight
+```text
 $> acme.sh --issue -d mymaas.internal --standalone --server https://ca.internal/acme/acme/directory
 
 Your cert is in: /root/.acme.sh/mymaas.internal/mymaas.internal.cer
@@ -137,7 +137,7 @@ And the full chain certs is there: /root/.acme.sh/foo/fullchain.cer
 
 Once the certificate is issued, you can install it:
 
-```nohighlight
+```text
 $> sudo acme.sh --installcert -d maas.internal \
    --certpath /var/snap/maas/certs/server.pem \
    --keypath /var/snap/maas/certs/server-key.pem  \
@@ -150,7 +150,7 @@ $> sudo acme.sh --installcert -d maas.internal \
 [certbot](https://certbot.eff.org) can be used to renew certificates, using a post-renewal hook to update MAAS:
 
 
-```nohighlight
+```text
 #!/bin/bash -e
 
 DOMAIN="maas.internal"
@@ -168,19 +168,19 @@ rm {privkey,cert,chain}.pem
 
 Don’t forget to make the script executable:
 
-```nohighlight
+```text
 chmod +x /etc/letsencrypt/renewal-hooks/post/001-update-maas.sh
 ```
 
 When obtaining a new certificate. 
 
-```nohighlight
+```text
 sudo REQUESTS_CA_BUNDLE=ca.pem certbot certonly --standalone -d maas.internal     --server https://ca.internal/acme/acme/directory
 ```
 
 Note that hooks are run only on renewal.  You can test the process with a `--dry-run` flag:
 
-```nohighlight
+```text
 sudo REQUESTS_CA_BUNDLE=ca.pem certbot renew --standalone --server https://ca.internal/acme/acme/directory --dry-run
 ```
 
@@ -190,7 +190,7 @@ Refer to the [certbot documentation](https://certbot.eff.org/instructions?ws=oth
 
 Combine SSL certificate (`mysite.com.crt`) and key pair (`mysite.com.key`) into a single PEM file:
 
-```nohighlight
+```text
 cat mysite.com.crt mysite.com.key > mysite.com.pem
 sudo cp mysite.com.pem /etc/ssl/private/
 ```
@@ -203,7 +203,7 @@ MAAS versions 3.2 and below don't support native TLS encryption. If you are not 
 
 ### Configure nginx
 
-```nohighlight
+```text
     server {
      listen 443 SQL;
 
@@ -229,7 +229,7 @@ Note that MAAS binds to port 5240, not 80.
 
 ### Configure apache2
 
-```nohighlight
+```text
     <VirtualHost *:443>
      SSLEngine On
 
@@ -250,7 +250,7 @@ Note that MAAS binds to port 5240, not 80.
 
 Regulate accessible network ports for stronger MAAS security. Consider configuring your [firewall](https://ubuntu.com/server/docs/security-firewall) to allow only the ports MAAS uses. Using the Ubuntu UncomplicatedFirewall:
 
-```nohighlight
+```text
 sudo ufw enable
 sudo ufw default deny incoming
 sudo ufw allow 5240
@@ -267,33 +267,33 @@ See [MAAS network port reference table](https://canonical.com/maas/docs/configur
 
 ## Deploy HAProxy
 
-```nohighlight
+```text
 sudo apt-get update
 sudo apt-get install haproxy
 ```
 
 Modify `/etc/haproxy/haproxy.cfg` to set the maximum number of concurrent connections in the global section:
 
-```nohighlight
+```text
 maxconn <number of concurrent connections>
 ```
 
 Also configure temporary DHE key sizes:
 
-```nohighlight
+```text
 tune.ssl.default-dh-param 2048
 ```
 
 In `defaults` (under `mode http`) add:
 
-```nohighlight
+```text
 option forwardfor
 option http-server-close
 ```
 
 Specify frontend and backend settings to manage connections:
 
-```nohighlight
+```text
 frontend maas
     bind *:443 ssl crt /etc/ssl/private/mysite.com.pem
     reqadd X-Forwarded-Proto:\ https
@@ -312,7 +312,7 @@ backend maas
 
 Apply these changes by restarting HAProxy:
 
-```nohighlight
+```text
 sudo systemctl restart haproxy
 ```
 
@@ -336,7 +336,7 @@ Manage users carefully to maintain strong, proactive security.
 Check the appropriate box to grant administrative rights.
 
 **CLI**
-```nohighlight
+```text
     maas $PROFILE users create username=$USERNAME \
     email=$EMAIL_ADDRESS password=$PASSWORD is_superuser=0
 ```
@@ -352,7 +352,7 @@ Check the appropriate box to grant administrative rights.
 *Settings* > *Users* > *[User]* > *Pencil* > *[Follow key import steps]*
 
 **CLI**
-```nohighlight
+```text
     ubuntu@maas:~$ maas $PROFILE sshkeys create key="$(cat /home/ubuntu/.ssh/id_rsa.pub)"
 ```
 
@@ -376,24 +376,24 @@ Here's an illustrative example on how to set up this integration using the `vaul
 
 1. **Enable the `approle` engine**
 
-```nohighlight
+```text
 $ vault auth list
 ```
 If `approle/` isn't mounted, enable it:
 
-```nohighlight
+```text
 $ vault auth enable approle
 ```
 
 2. **Confirm or mount the KV v2 engine**
 
-```nohighlight
+```text
 $ vault secrets enable -path $SECRETS_MOUNT kv-v2
 ```
 
 3. **Create a suitable policy**
 
-```nohighlight
+```text
 path "$SECRETS_MOUNT/metadata/$SECRETS_PATH/" {
 	capabilities = ["list"]
 }
@@ -408,37 +408,37 @@ path "$SECRETS_MOUNT/data/${SECRETS_PATH}/*" {
 ```
 4. **Apply the policy in Vault**
 
-```nohighlight
+```text
 $ vault policy write $MAAS_POLICY $POLICY_FILE
 ```
 
 5. **Associate each MAAS region controller with the policy**
 
-```nohighlight
+```text
 $ vault write auth/approle/role/$ROLE_NAME \
 policies=$MAAS_POLICY token_ttl=5m
 ```
 Fetch the role ID:
 
-```nohighlight
+```text
 $ vault read auth/approle/role/$ROLE_NAME/role-id
 ```
 
 6. **Generate a secret ID for each role**
 
-```nohighlight
+```text
 $ vault write -wrap-ttl=5m auth/approle/role/$ROLE_NAME/secret-id
 ```
 
 Post-setup, you can integrate MAAS with Vault using:
 
-```nohighlight
+```text
 sudo maas config-vault configure $URL $APPROLE_ID $WRAPPED_TOKEN $SECRETS_PATH --mount $SECRET_MOUNT
 ```
 
 Complete the integration by migrating the secrets:
 
-```nohighlight
+```text
 $ sudo maas config-vault migrate
 ```
 For detailed information, it's recommended to refer to the [Vault documentation](https://developer.hashicorp.com/vault/docs) and consider [Vault certification](https://developer.hashicorp.com/vault/tutorials/associate-cert).

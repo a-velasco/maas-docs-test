@@ -18,7 +18,7 @@ The configuration contains two main sections:
 - `mounts`, which lists the desired filesystem mount points.
   As an example:
 
-```nohighlight
+```text
 "mounts": {
   "/": {
     "device": "sda2",
@@ -35,7 +35,7 @@ The configuration contains two main sections:
 
 A complete `$MAAS_STORAGE_CONFIG_FILE` would look like this:
 
-```nohighlight
+```text
 {
     "layouts": {
         "sda": {
@@ -61,7 +61,7 @@ The following device types are supported in the `"layout"` section:
 
 ## Disk
 
-```nohighlight
+```text
 "sda": {
   "type": "disk",
   "ptable": "gpt",
@@ -84,7 +84,7 @@ The following details can be specified:
 
 ## LVM
 
-```nohighlight
+```text
 "lvm0": {
   "type": "lvm",
   "members": [
@@ -111,7 +111,7 @@ Those are defined similarly to partitions, with a name and size (and optionally 
 
 ## Bcache
 
-```nohighlight
+```text
 "bcache0": {
   "type": "bcache",
   "cache-device": "sda",
@@ -126,7 +126,7 @@ Optionally the `cache-mode` for the Bcache can be specified.
 
 ## RAID
 
-```nohighlight
+```text
 "myraid": {
   "type": "raid",
   "level": 5,
@@ -154,7 +154,7 @@ Here's a few examples of custom storage layout configurations that a script coul
 Note that there's no need to add entries for those devices in the `layout` section if the disks are not explicitly partitioned, but just used by other devices (e.g. RAID or LVM).
 
 ## Simple single-disk layout with GPT partitioning
-```nohighlight
+```text
 {
   "layout": {
     "sda": {
@@ -206,7 +206,7 @@ Note that there's no need to add entries for those devices in the `layout` secti
 In the `mounts` section, options for mount points can be specified. For swap, an entry must be present (with any unique name that doesn't start with a `/`), otherwise the swap will be created but not activated.
 
 ## RAID 5 setup (with spare devices)
-```nohighlight
+```text
 {
   "layout": {
     "storage": {
@@ -234,7 +234,7 @@ In the `mounts` section, options for mount points can be specified. For swap, an
 Both full disks and partitions can be used as RAID members.
 
 ## LVM with pre-defined volumes
-```nohighlight
+```text
 {
   "layout": {
     "storage": {
@@ -272,7 +272,7 @@ Both full disks and partitions can be used as RAID members.
 If no volumes are specified, the volume group is still created.
 
 ## Bcache
-```nohighlight
+```text
 {
   "layout": {
      "data1": {
@@ -302,7 +302,7 @@ If no volumes are specified, the volume group is still created.
 The same cache set can be used by different bcaches by specifying the same `backing-device` for them.
 
 ## LVM on top of RAID with Bcache
-```nohighlight
+```text
 {
   "layout": {
     "bcache0": {

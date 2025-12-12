@@ -156,7 +156,7 @@ The following commands will help you use auditing productively.
 
 To get a list of MAAS audit events, you can use the following MAAS CLI command:
 
-```nohighlight
+```text
 $ maas $PROFILE events query level=AUDIT
 ```
 
@@ -166,7 +166,7 @@ This command will list all audit events. The output will include details such as
 
 To filter audit events by a specific hostname, use the following MAAS CLI command:
 
-```nohighlight
+```text
 $ maas $PROFILE events query level=AUDIT hostname=your-hostname
 ```
 
@@ -176,7 +176,7 @@ Replace `your-hostname` with the desired hostname. This command will list audit 
 
 If you want to filter audit events by a specific MAC address, use this MAAS CLI command:
 
-```nohighlight
+```text
 $ maas $PROFILE events query level=AUDIT mac_address=00:11:22:33:44:55
 ```
 
@@ -186,7 +186,7 @@ Replace `00:11:22:33:44:55` with the MAC address you want to filter by. This com
 
 To filter audit events by a specific system ID, use the following MAAS CLI command:
 
-```nohighlight
+```text
 $ maas $PROFILE events query level=AUDIT id=system-id
 ```
 
@@ -196,7 +196,7 @@ Replace `system-id` with the desired system ID. This command will list audit eve
 
 If you want to filter audit events by a specific zone, use the following MAAS CLI command:
 
-```nohighlight
+```text
 $ maas $PROFILE events query level=AUDIT zone=your-zone
 ```
 
@@ -206,7 +206,7 @@ Replace `your-zone` with the desired zone name. This command will display audit 
 
 To filter audit events by the owner of the machine, use this MAAS CLI command:
 
-```nohighlight
+```text
 $ maas $PROFILE events query level=AUDIT owner=owner-username
 ```
 
@@ -216,7 +216,7 @@ Replace `owner-username` with the username of the machine's owner. This command 
 
 You can limit the number of audit events displayed using the `limit` parameter. For example:
 
-```nohighlight
+```text
 $ maas $PROFILE events query level=AUDIT limit=10
 ```
 
@@ -226,7 +226,7 @@ This command will limit the output to the last 10 audit events. You can adjust t
 
 To display audit events occurring after a specific event ID, you can use the `after` parameter. For example:
 
-```nohighlight
+```text
 $ maas $PROFILE events query level=AUDIT after=event-id
 ```
 
@@ -236,7 +236,7 @@ Replace `event-id` with the ID of the event you want to start from. This command
 
 To audit a machine's life cycle, you can collect audit data for a specific machine over time. First, collect a significant amount of audit data for the machine using the hostname filter:
 
-```nohighlight
+```text
 $ maas $PROFILE events query level=AUDIT hostname=your-hostname limit=1000 > /tmp/audit-data
 ```
 

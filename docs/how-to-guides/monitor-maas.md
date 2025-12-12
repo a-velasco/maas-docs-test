@@ -30,7 +30,7 @@ In monitoring MAAS, you'll need to follow three key steps: set up your tool stac
 
 Create a VM with the following script to install all required software.
 
-```nohighlight
+```text
 export LXD_NET=virbr0
 export GRAFANA_REPOS=https://packages.grafana.com/oss/deb
 export GRAFANA_KEY=https://packages.grafana.com/gpg.key
@@ -82,7 +82,7 @@ Next, you have to configure and start four services, include Prometheus, Loki, A
 
 Create the Prometheus configuration.
 
-```nohighlight
+```text
 cat > /opt/prometheus/prometheus.yaml <<EOF
 global:
   evaluation_interval: 1m
@@ -98,7 +98,7 @@ EOF
 
 MAAS has a git repository of curated alert rules for Prometheus. Checkout this repository, compile the rules and copy them to prometheus directory.
 
-```nohighlight
+```text
 git clone https://github.com/canonical/maas-prometheus-alert-rules.git
 cd maas-prometheus-alert-rules
 make python-deps groups
@@ -109,7 +109,7 @@ cp group.yml /var/lib/prometheus/rules/maas/
 
 Start the Prometheus service. You should enable the *Remote-Write Receiver* function.
 
-```nohighlight
+```text
 systemd-run -u prometheus /opt/prometheus/prometheus \
     --config.file=/opt/prometheus/prometheus.yaml \
     --web.enable-remote-write-receiver
@@ -119,7 +119,7 @@ systemd-run -u prometheus /opt/prometheus/prometheus \
 
 Create the Loki configuration.
 
-```nohighlight
+```text
 cat > /opt/loki/loki.yaml <<EOF
 auth_enabled: false
 server:
@@ -159,7 +159,7 @@ EOF
 
 MAAS has a git repository of curated alert rules for Loki. Checkout this repository, compile the rules and copy them to Loki directory.
 
-```nohighlight
+```text
 git clone https://github.com/canonical/maas-loki-alert-rules.git
 cd maas-loki-alert-rules
 make groups
@@ -170,7 +170,7 @@ cp rules/bundle.yml /var/lib/loki/rules/fake/
 
 Start the Loki service.
 
-```nohighlight
+```text
 systemd-run -u loki /opt/loki/loki-linux-amd64 \
     --config.file=/opt/loki/loki.yaml
     -validation.allow-structured-metadata=false
@@ -180,7 +180,7 @@ systemd-run -u loki /opt/loki/loki-linux-amd64 \
 
 The default configuration is enough for receiving alerts from Prometheus and Loki. You should read the project documentation to change it to forward notifications to somewhere useful.
 
-```nohighlight
+```text
 systemd-run -u alertmanager /opt/alertmanager/alertmanager \
     --config.file=/opt/alertmanager/alertmanager.yml
 ```
@@ -191,7 +191,7 @@ You can access the AlertManager dashboard at `http://<VM_IP>:9093`
 
 Grafana works out-of-the-box with the default configuration.
 
-```nohighlight
+```text
 systemctl enable grafana-server
 systemctl start grafana-server
 ```
@@ -202,7 +202,7 @@ You can access the dashboard at `http://<VM_IP>:3000`, the default user/password
 
 The Grafana Agent should be installed in the same host as MAAS.
 
-```nohighlight
+```text
 export O11y_IP=<O11y_IP>
 export GRAFANA_AGENT_PKG=https://github.com/grafana/agent/releases/download/v0.44.2/grafana-agent-linux-amd64.zip
 wget -q "${GRAFANA_AGENT_PKG}" -O /tmp/agent.zip
@@ -237,7 +237,7 @@ systemd-run -u telemetry \
 
 Next, enable log forwarding in MAAS.
 
-```nohighlight
+```text
 # set the TCP port the Grafana Agent is listening for syslog messages
 # this port must match the one in /opt/agent/agent.yml
 maas $ADMIN maas set-config name=promtail_port value=5238
@@ -267,7 +267,7 @@ In monitoring MAAS, you'll need to follow three key steps: set up your tool stac
 
 Create a VM with the following script to install all required software.
 
-```nohighlight
+```text
 export LXD_NET=virbr0
 export GRAFANA_REPOS=https://packages.grafana.com/oss/deb
 export GRAFANA_KEY=https://packages.grafana.com/gpg.key
@@ -319,7 +319,7 @@ Next, you have to configure and start four services, include Prometheus, Loki, A
 
 Create the Prometheus configuration.
 
-```nohighlight
+```text
 cat > /opt/prometheus/prometheus.yaml <<EOF
 global:
   evaluation_interval: 1m
@@ -335,7 +335,7 @@ EOF
 
 MAAS has a git repository of curated alert rules for Prometheus. Checkout this repository, compile the rules and copy them to prometheus directory.
 
-```nohighlight
+```text
 git clone https://github.com/canonical/maas-prometheus-alert-rules.git
 cd maas-prometheus-alert-rules
 make python-deps groups
@@ -346,7 +346,7 @@ cp group.yml /var/lib/prometheus/rules/maas/
 
 Start the Prometheus service. You should enable the *Remote-Write Receiver* function.
 
-```nohighlight
+```text
 systemd-run -u prometheus /opt/prometheus/prometheus \
     --config.file=/opt/prometheus/prometheus.yaml \
     --enable-feature=remote-write-receiver
@@ -356,7 +356,7 @@ systemd-run -u prometheus /opt/prometheus/prometheus \
 
 Create the Loki configuration.
 
-```nohighlight
+```text
 cat > /opt/loki/loki.yaml <<EOF
 auth_enabled: false
 server:
@@ -396,7 +396,7 @@ EOF
 
 MAAS has a git repository of curated alert rules for Loki. Checkout this repository, compile the rules and copy them to Loki directory.
 
-```nohighlight
+```text
 git clone https://github.com/canonical/maas-loki-alert-rules.git
 cd maas-loki-alert-rules
 make groups
@@ -407,7 +407,7 @@ cp rules/bundle.yml /var/lib/loki/rules/fake/
 
 Start the Loki service.
 
-```nohighlight
+```text
 systemd-run -u loki /opt/loki/loki-linux-amd64 \
     --config.file=/opt/loki/loki.yaml
 ```
@@ -416,7 +416,7 @@ systemd-run -u loki /opt/loki/loki-linux-amd64 \
 
 The default configuration is enough for receiving alerts from Prometheus and Loki. You should read the project documentation to change it to forward notifications to somewhere useful.
 
-```nohighlight
+```text
 systemd-run -u alertmanager /opt/alertmanager/alertmanager \
     --config.file=/opt/alertmanager/alertmanager.yml
 ```
@@ -427,7 +427,7 @@ You can access the AlertManager dashboard at `http://<VM_IP>:9093`
 
 Grafana works out-of-the-box with the default configuration.
 
-```nohighlight
+```text
 systemctl enable grafana-server
 systemctl start grafana-server
 ```
@@ -438,7 +438,7 @@ You can access the dashboard at `http://<VM_IP>:3000`, the default user/password
 
 The Grafana Agent should be installed in the same host as MAAS.
 
-```nohighlight
+```text
 # Set this to the address of the VM running Loki and Prometheus
 export O11y_IP=<VM_IP>
 export GRAFANA_AGENT_PKG=https://github.com/grafana/agent/releases/download/v0.22.0/agent-linux-amd64.zip
@@ -450,7 +450,7 @@ chmod a+x /opt/agent/agent-linux-amd64
 
 Copy the agent example configuration from MAAS and start the agent. Adapt the environment variable values to your setup. For example, if you're using a snap, the `MAAS_LOGS` variable would be as shown (`/var/snap/maas/common/log`):
 
-```nohighlight
+```text
 mkdir -p /var/lib/grafana-agent/positions \
          /var/lib/grafana-agent/wal
 cp /snap/maas/current/usr/share/maas/grafana_agent/agent.yaml.example /opt/agent/agent.yml
@@ -472,7 +472,7 @@ systemd-run -u telemetry \
 
 On the other hand, if you're using packages, the `MAAS_LOGS` would be `/var/log/maas`, as shown below:
 
-```nohighlight
+```text
     ...
     -E MAAS_LOGS="/var/log/maas" \
     ...
@@ -482,7 +482,7 @@ Be sure to adjust the values of the other environment variables to suit your sit
 
 Next, enable log forwarding in MAAS.
 
-```nohighlight
+```text
 # set the TCP port the Grafana Agent is listening for syslog messages
 # this port must match the one in /opt/agent/agent.yml
 maas $ADMIN maas set-config name=promtail_port value=5238

@@ -5,13 +5,13 @@ We are happy to announce the release of MAAS 3.0. This release provides new feat
 
 MAAS 3.0 can be installed fresh (recommended) with:
 
-```nohighlight
+```text
 sudo snap install --channel=3.0/stable maas
 ```
 
 MAAS 3.0 can be installed from packages by adding the `3.0` PPA:
 
-```nohighlight
+```text
 sudo add-apt-repository ppa:maas/3.0
 sudo apt update
 sudo apt install maas
@@ -19,13 +19,13 @@ sudo apt install maas
 
 You can then either install MAAS 3.0 fresh (recommended) with:
 
-```nohighlight
+```text
 sudo apt-get -y install maas
 ```
 
 Or, if you prefer to upgrade, you can do so with:
 
-```nohighlight
+```text
 sudo apt upgrade maas
 ```
 
@@ -59,7 +59,7 @@ Individual boot methods may now be disabled. When a boot method is disabled MAAS
 
 To allow different boot methods to be in different states on separate physical networks using the same VLAN ID configuration is done on the subnet in the UI or API. When using the API boot methods to be disabled may be specified using the MAAS internal name or [boot architecture code](https://www.iana.org/assignments/dhcpv6-parameters/dhcpv6-parameters.xhtml#processor-architecture) in octet or hex form. For example the following disabled i386/AMD64 PXE, AMD64 UEFI TFTP, and AMD64 UEFI HTTP
 
-```nohighlight
+```text
 maas $PROFILE subnet update $SUBNET disabled_boot_architectures="0x00 uefi_amd64_tftp 00:10"
 ```
 
@@ -81,7 +81,7 @@ The MAAS CLI will now give you help in more places, supporting a more exploratio
 
 Say you're trying to find out how to list the details of a machine in MAAS e.g.
 
- ```nohighlight
+ ```text
 $ PROFILE=foo
 $ maas login $PROFILE http://$MY_MAAS:5240/MAAS/ $APIKEY
 $ maas $PROFILE

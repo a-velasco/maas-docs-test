@@ -15,7 +15,7 @@ Pebble logs to `stdout`, redirecting the services to `stdout` if run with `--ver
 
 #### Log entry format
 
-```nohighlight
+```text
 2023-07-24T11:12:25.495Z [pebble] GET /v1/services?names=bind9 57.716µs
 2023-07-24T11:12:26.392Z [SERVICE_NAME] SERVICE STDOUT
 ```
@@ -24,13 +24,13 @@ Pebble logs to `stdout`, redirecting the services to `stdout` if run with `--ver
 
 To access only the Pebble logs:
 
-```nohighlight
+```text
 journalctl -u snap.maas.pebble.service --case-sensitive -g "^[0-9TZ:.-]{24} \[pebble\]"
 ```
 
 To access Pebble and its services logs:
 
-```nohighlight
+```text
 journalctl -u snap.maas.pebble.service
 ```
 
@@ -40,19 +40,19 @@ Regiond logs to `stdout`, redirected to journalctl by Pebble.
 
 #### Own log format
 
-```nohighlight
+```text
 2023-07-25 07:23:28 maasserver.rpc.regionservice: [info] Message
 ```
 
 #### Pebble-proxied log format
 
-```nohighlight
+```text
 2023-07-25T07:23:28.730Z [regiond] 2023-07-25 07:23:28 maasserver.rpc.regionservice: [info] Message
 ```
 
 #### Commands to access the log
 
-```nohighlight
+```text
 journalctl -u snap.maas.pebble.service --case-sensitive -g "^[0-9TZ:.-]{24} \[regiond\]"
 ```
 
@@ -62,19 +62,19 @@ Rackd logs to `stdout`, redirected to journalctl by Pebble.
 
 #### Own log format
 
-```nohighlight
+```text
 2023-06-23 13:54:46 provisioningserver.rpc.clusterservice: [info] Message
 ```
 
 #### Pebble-proxied log format
 
-```nohighlight
+```text
 2023-06-23T13:54:46.391Z [rackd] 2023-06-23 13:54:46 provisioningserver.rpc.clusterservice: [info] Message
 ```
 
 #### Commands to access the log
 
-```nohighlight
+```text
 journalctl -u snap.maas.pebble.service --case-sensitive -g "^[0-9TZ:.-]{24} \[rackd\]"
 ```
 
@@ -84,19 +84,19 @@ The API server logs to `stdout`, redirected to journalctl by Pebble.
 
 #### Own log format
 
-```nohighlight
+```text
 INFO:     Started server process [24428]
 ```
 
 #### Pebble-proxied log format
 
-```nohighlight
+```text
 2023-07-24T10:25:37.602Z [apiserver] INFO:     Started server process [24428]
 ```
 
 #### Commands to access the log
 
-```nohighlight
+```text
 journalctl -u snap.maas.pebble.service --case-sensitive -g "^[0-9TZ:.-]{24} \[apiserver\]"
 ```
 
@@ -106,19 +106,19 @@ HTTP logs to its own files (`/var/snap/maas/common/log/http/(access|error).log`)
 
 #### Pebble-proxied log format
 
-```nohighlight
+```text
 2023-06-23T13:54:46.391Z [http] nginx: [alert] could not open error log file
 ```
 
 ##### Own logs
 
-```nohighlight
+```text
 less /var/snap/maas/common/log/http/access.log (or error.log)
 ```
 
 ##### `stdout` redirected by Pebble:
 
-```nohighlight
+```text
 journalctl -u snap.maas.pebble.service --case-sensitive -g "^[0-9TZ:.-]{24} \[http\]"
 ```
 
@@ -129,19 +129,19 @@ The squid proxy logs to its own files (`/var/snap/maas/common/log/proxy/(access|
 #### Pebble proxied log format:
 
 
-```nohighlight
+```text
 2023-06-23T13:54:41.114Z [proxy] 2023/06/23 13:54:41| Starting Squid Cache version 5.2
 ```
 
 ##### Own logs
 
-```nohighlight
+```text
 less /var/snap/maas/common/log/proxy/access.log (or other log)
 ```
 
 ##### `stdout` redirected by Pebble:
 
-```nohighlight
+```text
 journalctl -u snap.maas.pebble.service --case-sensitive -g "^[0-9TZ:.-]{24} \[proxy\]"
 ```
 
@@ -152,20 +152,20 @@ At first glance, `chrony` seems to have a separate directory for log files (`/va
 #### Pebble proxied log format:
 
 
-```nohighlight
+```text
 2023-06-26T12:48:01.272Z [ntp] 2023-06-26T12:48:01Z chronyd version 4.2 starting
 ```
 
 #### Own log format
 
 
-```nohighlight
+```text
 2023-06-26T12:48:01Z chronyd version 4.2 starting
 ```
 
 ##### `stdout` redirected by Pebble:
 
-```nohighlight
+```text
 journalctl -u snap.maas.pebble.service --case-sensitive -g "^[0-9TZ:.-]{24} \[ntp\]"
 ```
 
@@ -176,19 +176,19 @@ DNS logs everything to `stdout`, ignoring any configuration parameters defined i
 #### Pebble proxied log format:
 
 
-```nohighlight
+```text
 2023-06-23T13:54:43.268Z [bind9] 23-Jun-2023 13:54:43.264 BIND 9 is maintained by Internet Systems Consortium
 ```
 
 #### Own log format
 
-```nohighlight
+```text
 23-Jun-2023 13:54:43.264 BIND 9 is maintained by Internet Systems Consortium
 ```
 
 #### Commands to access the log
 
-```nohighlight
+```text
 journalctl -u snap.maas.pebble.service --case-sensitive -g "^[0-9TZ:.-]{24} \[bind9\]"
 ```
 
@@ -199,25 +199,25 @@ Syslog logs machines enlistment and boot syslogs to `/var/snap/maas/common/log/r
 #### Pebble proxied log format:
 
 
-```nohighlight
+```text
 2023-07-24T05:38:56.522Z [syslog] Message
 ```
 
 #### Own log format
 
-```nohighlight
+```text
 <some message>
 ```
 
 ##### Own logs
 
-```nohighlight
+```text
 less /var/snap/maas/common/log/rsyslog/PATH/TO/LOG
 ```
 
 ##### `stdout` redirected by Pebble:
 
-```nohighlight
+```text
 journalctl -u snap.maas.pebble.service --case-sensitive -g "^[0-9TZ:.-]{24} \[syslog\]"
 ```
 
@@ -225,32 +225,32 @@ journalctl -u snap.maas.pebble.service --case-sensitive -g "^[0-9TZ:.-]{24} \[sy
 
 DHCP logs everything through `syslogd`, while `stdout` (redirected by Pebble) contains init messages.  There is no particularly easy way to differentiate between `dhcpd` and `dhcpd6`, although you can `grep` for a “PID file: /var/snap/maas/common/maas/dhcp/dhcpd6?\.pid ” message, and then use the PID to filter logs in journal, like this:
 
-```nohighlight
+```text
 journalctl -et dhcpd -u snap.maas.pebble.service SYSLOG_PID=25799
 ```
 
 #### Pebble proxied log format:
 
 
-```nohighlight
+```text
 2023-06-27T11:24:47.674Z [dhcpd] Internet Systems Consortium DHCP Server 4.4.1
 ```
 
 #### Own log format 
 
-```nohighlight
+```text
 <plain old DHCP message>
 ```
 
 ##### Own logs
 
-```nohighlight
+```text
 journalctl -t dhcpd -u snap.maas.pebble.service
 ```
 
 ##### `stdout` redirected by Pebble:
 
-```nohighlight
+```text
 journalctl -u snap.maas.pebble.service --case-sensitive -g "^[0-9TZ:.-]{24} \[dhcpd\]"
 ```
 
@@ -264,7 +264,7 @@ To enable remote logging, choose *Settings* > *Network services* > *Syslog*; add
 
 ## Remote syslog (CLI)
 
-```nohighlight
+```text
 maas $PROFILE maas set-config name="remote_syslog" value="$SYSLOG_FQDN"
 # Example for setting syslog server to 192.168.100.11:
 maas $PROFILE maas set-config name="remote_syslog" value=192.168.100.11
@@ -298,7 +298,7 @@ The most efficient way to review events is using the `events query` CLI sub-comm
 
 ## Basic queries
 
-```nohighlight
+```text
 maas $PROFILE events query
 ```
 
@@ -308,7 +308,7 @@ This command returns a lengthy JSON output, which can be simplified using `jq` a
 
 A `jq` command example for readable output:
 
-```nohighlight
+```text
 maas $PROFILE events query limit=20 | jq -r '(["USERNAME","NODE","HOSTNAME","LEVEL","DATE","TYPE","EVENT"] | (., map(length*"-"))), (.events[] | [.username,.node,.hostname,.level,.created,.type,.description]) | @tsv' | column -t -s$'\t'
 ```
 

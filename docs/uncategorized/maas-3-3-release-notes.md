@@ -429,7 +429,7 @@ In addition, the new document explains how these event types tend to overlap whe
 
 Since the MAAS CLI returns JSON -- which is hard to humans to parse -- we've included some exemplary `jq` predicates of the form:
 
-```nohighlight
+```text
 maas $PROFILE events query limit=20 \
 | jq -r '(["USERNAME","NODE","HOSTNAME","LEVEL","DATE","TYPE","EVENT"] | 
 (., map(length*"-"))),
@@ -448,13 +448,13 @@ And finally, we provided some detailed usage examples. For instance, we walked a
 
 We used this example command:
 
-```nohighlight
+```text
  maas $PROFILE events query level=INFO hostname=fun-zebra limit=1000 | jq -r '(["USERNAME","NODE","HOSTNAME","LEVEL","DATE","TYPE","EVENT"] | (., map(length*"-"))),(.events[] | [.username,.node,.hostname,.level,.created,.type,.description]) | @tsv' | column -t -s\t'
 ```
 
 This gave us a reasonably thorough report of what happened to the machine:
 
-```nohighlight
+```text
 USERNAME  NODE    HOSTNAME   LEVEL  DATE                        TYPE                   EVENT
 --------  ----    --------   -----  ----                        ----                   -----
 unknown   bk7mg8  fun-zebra  INFO   Thu, 29 Sep. 2022 21:29:53  Exited rescue mode     
@@ -510,13 +510,13 @@ As you may know, an audit event is just a [MAAS event](/explanation/events) tagg
 
 Audit events are examined using the MAAS CLI with the `level=AUDIT` parameter set:
 
-```nohighlight
+```text
 $ maas $PROFILE events query level=AUDIT
 ```
 
 You'll probably get better results by appending a `jq` filter, to prettify the output:
 
-```nohighlight
+```text
 $ maas $PROFILE events query level=AUDIT after=0 limit=20 \
 | jq -r '(["USERNAME","HOSTNAME","DATE","EVENT"] | 
 (., map(length*"-"))),
@@ -526,7 +526,7 @@ $ maas $PROFILE events query level=AUDIT after=0 limit=20 \
 
 By itself, such a command might produce output similar to this:
 
-```nohighlight
+```text
 USERNAME  HOSTNAME     DATE                        EVENT
 --------  --------     ----                        -----
 unknown   valued-moth  Thu, 21 Apr. 2022 19:45:14  pci device 2 was updated on node 8wmfx3
@@ -573,7 +573,7 @@ Later on in the documentation, we walk through a sample of audit events and demo
 
 As part of the updates to our "[How to work with audit event logs](/)", we've tried to offer you some finesse in reconstructing machine life-cycles. We've shown how to combine various levels of MAAS event queries with standard command line utilities to produce clear audit trails such as this one:
 
-```nohighlight
+```text
 418606  ERROR    Marking node broken               Wed, 17 Nov. 2021 00:02:52  A Physical Interface requires a MAC address.
 418607  DEBUG    Node changed status               Wed, 17 Nov. 2021 00:02:52  From 'New' to 'Broken'
 418608  DEBUG    Marking node fixed                Wed, 17 Nov. 2021 00:04:24  
@@ -758,12 +758,12 @@ These two steps will lead you through two similar <code>apt</code> install seque
 
 If you are running MAAS 3.2 or lower, you can upgrade directly to MAAS 3.3. You must first make sure that the target system is running Ubuntu 22.04 LTS by executing the following command:
 
-```nohighlight
+```text
 lsb_release -a
 ```
 The response should look something like this:
 
-```nohighlight
+```text
 Distributor ID:	Ubuntu
 Description:	Ubuntu xx.yy
 Release:	xx.yy
@@ -776,7 +776,7 @@ If you are currently running Ubuntu focal 20.04 LTS, you can upgrade to jammy 22
 
 Upgrade the release:
 
-```nohighlight
+```text
 sudo do-release-upgrade --allow-third-party
 ```
 
@@ -786,13 +786,13 @@ Reboot the machine when requested.
 
 Check whether the upgrade was successful:
 
-```nohighlight
+```text
 lsb_release -a
 ```
 
 A successful upgrade should respond with output similar to the following:
 
-```nohighlight
+```text
 Distributor ID:	Ubuntu
 Description:	Ubuntu 20.04(.nn) LTS
 Release:	20.04
@@ -805,25 +805,25 @@ Back up your MAAS server completely; the tools and media are left entirely to yo
 
 Add the MAAS 3.3 PPA to your repository list with the following command, ignoring any apparent error messages:
 
-```nohighlight
+```text
 sudo apt-add-repository ppa:maas/3.3
 ```
 
 Run the release upgrade like this, answering any questions with the given default values:
 
-```nohighlight
+```text
 sudo do-release-upgrade --allow-third-party
 ```
 
 Check whether your upgrade has been successful by entering:
 
-```nohighlight
+```text
 lsb_release -a
 ```
 
 If the ugprade was successful, this command should yield output similar to the following:
 
-```nohighlight
+```text
 No LSB modules are available.
 Distributor ID:	Ubuntu
 Description:	Ubuntu 20.04(.nn) LTS

@@ -2485,7 +2485,7 @@ Ensure that your subnets don't overlap to avoid deployment failures. Check and d
 
 If you need to modify your MAAS server's IP, simply re-run the setup:
 
-```nohighlight
+```text
 sudo dpkg-reconfigure maas-region-controller
 ```
 
@@ -2497,7 +2497,7 @@ IBM Power servers with OPAL firmware utilise Petitboot for PXE interactions. For
 
 If both MAAS and LXD are managing DNS, disable LXD's DNS and DHCP:
 
-```nohighlight
+```text
 lxc network set $LXD_BRIDGE_NAME dns.mode=none
 lxc network set $LXD_BRIDGE_NAME ipv4.dhcp=false
 lxc network set $LXD_BRIDGE_NAME ipv6.dhcp=false
@@ -2517,14 +2517,14 @@ When you try to run `packer` or execute a `make` command, you may encounter an e
 
 ## Error with `packer`:
 
-```nohighlight
+```text
 stormrider@neuromancer:~$ packer
 Command 'packer' not found...
 ```
 
 ## Error with `make`:
 
-```nohighlight
+```text
 stormrider@neuromancer:~/mnt/Dropbox/src/git/packer-maas/ubuntu$ make
 sudo: packer: command not found...
 ```
@@ -2533,7 +2533,7 @@ sudo: packer: command not found...
 
 Should you see an error like the one below, you've forgotten to [install a needed dependency](https://canonical.com/maas/docs/how-to-build-custom-images#p-17423-gather-components).
 
-```nohighlight
+```text
 make: *** No rule to make target '/usr/share/OVMF/OVMF_VARS.fd'...
 ```
 
@@ -2541,7 +2541,7 @@ make: *** No rule to make target '/usr/share/OVMF/OVMF_VARS.fd'...
 
 Encountering the following error means you're missing a dependency. Refer to [this section](https://canonical.com/maas/docs/how-to-build-custom-images#p-17423-gather-components) for resolution.
 
-```nohighlight
+```text
 Failed creating Qemu driver: exec: "qemu-img": executable file not found in $PATH
 ```
 
@@ -2581,7 +2581,7 @@ The timeout duration resets every time there's activity from the user. To extend
 
 Sometimes, you may face the following Django error:
 
-```nohighlight
+```text
 django.core.exceptions.ValidationError: ['Subarchitecture(<value>) must be generic when setting hwe_kernel.']
 ```
 
@@ -2591,7 +2591,7 @@ To solve this, try specifying a different commissioning kernel—perhaps upgradi
 
 If you forget your MAAS admin password but have sudo privileges, you can reset it like so:
 
-```nohighlight
+```text
 sudo maas changepassword $PROFILE
 ```
 
@@ -2612,7 +2612,7 @@ Ephemeral images boot nodes during MAAS activities. If you need emergency access
 
 Download the appropriate image and extract its files:
 
-```nohighlight
+```text
 wget https://cloud-images.ubuntu.com/xenial/current/xenial-server-cloudimg-amd64-root.tar.gz
 mkdir xenial
 sudo tar -C xenial -xpSf xenial-server-cloudimg-amd64-root.tar.gz --numeric-owner --xattrs "--xattrs-include=*"
@@ -2622,7 +2622,7 @@ sudo tar -C xenial -xpSf xenial-server-cloudimg-amd64-root.tar.gz --numeric-owne
 
 Create a SHA-512 hashed password:
 
-```nohighlight
+```text
 python3 -c 'import crypt; print(crypt.crypt("ubuntu", crypt.mksalt(crypt.METHOD_SHA512)))'
 ```
 
@@ -2632,7 +2632,7 @@ Modify the `xenial/etc/shadow` file to insert this hash.
 
 Create a new SquashFS file with your changes:
 
-```nohighlight
+```text
 sudo mksquashfs xenial/ xenial-customized.squashfs -xattrs -comp xz
 ```
 
@@ -2642,7 +2642,7 @@ Replace the existing MAAS image with this customised one.
 
 For snap-based MAAS in 'all' mode, you can migrate to a local PostgreSQL:
 
-```nohighlight
+```text
 sudo /snap/maas/current/helpers/migrate-vd Snapatabase
 ```
 
@@ -2650,7 +2650,7 @@ sudo /snap/maas/current/helpers/migrate-vd Snapatabase
 
 To manually move your MAAS database, run:
 
-```nohighlight
+```text
 export PGPASS=$(sudo awk -F':\\s+' '$1 == "database_pass" {print $2}' \
     /var/snap/maas/current/regiond.conf)
 sudo pg_dump -U maas -h /var/snap/maas/common/postgres/sockets \
@@ -2674,7 +2674,7 @@ Or swap the token manually:
 
 Query the database to identify machines with hardware sync enabled:
 
-```nohighlight
+```text
 select system_id 
 from maasserver_node 
 where enable_hw_sync = true;
@@ -2682,7 +2682,7 @@ where enable_hw_sync = true;
 
 Rotate API keys on any affected machines. To verify an API key belongs to an admin, perform this database query:
 
-```nohighlight
+```text
 select u.username, u.email 
 from auth_user u
 left join piston3_consumer c 

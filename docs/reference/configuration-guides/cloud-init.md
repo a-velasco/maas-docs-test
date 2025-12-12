@@ -41,7 +41,7 @@ How you can test it:
 
 To login, you'll want to use a command of this form:
 
-```nohighlight
+```text
 ssh -i /.ssh/id_rsa maas_user@10.192.226.195
 ```
 
@@ -78,12 +78,12 @@ How to test it:
 
 1. Depending on what you ran last on your host, you might need to update the `known_hosts` file like this:
 
-```nohighlight
+```text
 ssh-keygen -f "/path/to/.ssh/known_hosts" -R "<ip_address>"
 
 2. You'll login as before, with a command like this:
 
-```nohighlight
+```text
 ssh -i /.ssh/id_rsa maas_user@10.192.226.195
 ```
 3. When logged in, you can try a few commands that require `sudo` to verify that your `cloud-init` was successful.

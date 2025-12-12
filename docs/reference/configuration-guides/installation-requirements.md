@@ -17,7 +17,7 @@ From version 3.5, MAAS [requires PostgreSQL 14](https://discourse.maas.io/t/post
 
 You can count PostgreSQL connections with this SQL query:
 
-```nohighlight
+```text
 SELECT 
   max_conn, 
   used
@@ -31,7 +31,7 @@ FROM
 
 ### Getting information via configuration file
 
-```nohighlight
+```text
 grep 'max_connections' /var/lib/pgsql/{version_number}/data/postgresql.conf
 ```
 
@@ -43,7 +43,7 @@ If `max_connections` is `100`, you need to increase that number. Refer to [these
 
 Too few database connections tend do produce errors:
 
-```nohighlight
+```text
 > FATAL: sorry, too many clients already
 > FATAL:  remaining connection slots are reserved for non-replication superuser connections
 > pq: remaining connection slots are reserved for non-replication superuser connections

@@ -93,14 +93,14 @@ In order to enlist a deployed machine, you have two options:
 
 Via the API/CLI, you can create a machine, passing the deployed flag:
 
-```nohighlight
+```text
 $ maas $profile machines create deployed=true hostname=mymachine \   
 architecture=amd64 mac_addresses=00:16:3e:df:35:bb power_type=manual
 ```
 
 On the machine itself (the recommended way, if the machine is running Ubuntu), you can download and run a helper script from MAAS:
 
-```nohighlight
+```text
 $ wget http://$MAAS_IP:5240/MAAS/maas-run-scripts
 $ chmod 755 maas-run-scripts
 $ ./maas-run-scripts register-machine --hostname mymachine \
@@ -113,7 +113,7 @@ Now you have enlisted a deployed machine, with no hardware information yet.
 
 To update hardware information for a deployed machine, we recommend that you download and run the maas-run-scripts script on the machine:
 
-```nohighlight
+```text
 $ wget http://$MAAS_IP:5240/MAAS/maas-run-scripts
 $ chmod 755 maas-run-scripts
 $ ./maas-run-scripts report-results --config mymachine-creds.yaml
@@ -121,7 +121,7 @@ $ ./maas-run-scripts report-results --config mymachine-creds.yaml
 
 If you created the machine with the maas-run-scripts, you should have such a mymachine-creds.yaml file already. If not, it should look like this:
 
-```nohighlight
+```text
 reporting:
           maas:
             consumer_key: $CONSUMER_KEY
@@ -132,7 +132,7 @@ reporting:
 
 You may get the needed credentials from the MAAS API, for example:
 
-```nohighlight
+```text
 $ maas $profile machine get-token wxwwga
 Success.
 Machine-readable output follows:
@@ -189,7 +189,7 @@ As a user, you want to track of deployed static images. The standard MAAS dashbo
 
 Custom Ubuntu images can be uploaded with the MAAS CLI by creating a boot-resource:
 
-```nohighlight                                                                                                        	 
+```text                                                                                                        	 
 	maas $PROFILE boot-resources create \
         name='custom/ubuntu-custom'  \
         architecture=amd64/generic \
@@ -318,7 +318,7 @@ If you choose "Generate new certificate", as shown above, you'll come to a scree
 
 You can still choose to use the LXD trust password (entered when you ran `lxd init` during LXD installation). You can also, though, choose to use the certificate MAAS has just generated for you. To do that, select the entire contents of the text box, copy it, and paste it into a terminal window -- then hit "Enter":
 
-```nohighlight
+```text
 $ lxc config trust add - <<EOF
 > -----BEGIN CERTIFICATE-----
 > MIIErTCCApUCEQCGa86XdjYUGm8h8YOh4HAEMA0GCSqGSIb3DQEBDQUAMAAwHhcN
@@ -384,13 +384,13 @@ There is nothing required of our users to experience this improved sync performa
 
 MAAS 3.1 can be installed fresh from snaps (recommended) with:
 
-```nohighlight
+```text
 sudo snap install --channel=3.1 maas
 ```
 
 MAAS 3.1 can also be installed via packages, by adding the `3.1` PPA:
 
-```nohighlight
+```text
 sudo add-apt-repository ppa:maas/3.1
 sudo apt update
 sudo apt install maas
@@ -398,13 +398,13 @@ sudo apt install maas
 
 You can then install MAAS 3.1 fresh (recommended) with:
 
-```nohighlight
+```text
 sudo apt-get -y install maas
 ```
 
 Or, if you prefer to upgrade, you can:
 
-```nohighlight
+```text
 sudo apt upgrade maas
 ```
 

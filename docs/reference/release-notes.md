@@ -664,7 +664,7 @@ MAAS now supports machine release scripts -- scripts that will be run when relea
 
 Release scripts are the same type of scripts that you can create for commissioning or testing, with one difference: `script_type: release`.  Here's a sample release script:
 
-```nohighlight
+```text
 #!/usr/bin/env python3
 #
 # hello-maas - Simple release script.
@@ -706,13 +706,13 @@ s.close()
 
 You can upload release scripts via API or CLI with a command similar to this one:
 
-```nohighlight
+```text
 maas $PROFILE node-scripts create type=release name='hello-maas' script@=/home/ubuntu/hello-maas.py
 ```
 
 You can check your uploaded release scripts like this:
 
-```nohighlight
+```text
 maas $PROFILE node-scripts read type=release
 ```
 
@@ -720,13 +720,13 @@ Among listed scripts you might see one named `wipe-disks`. This is the script th
 
 Once you have your script uploaded to MAAS, you can pass it as a parameter to the MAAS CLI:
 
-```nohighlight
+```text
 maas $PROFILE machine release $SYSTEM_ID scripts=hello-maas
 ```
 
 You can inspect release script results via the MAAS CLI:
 
-```nohighlight
+```text
 maas $PROFILE node-script-results read $SYSTEM_ID type=release
 ```
  

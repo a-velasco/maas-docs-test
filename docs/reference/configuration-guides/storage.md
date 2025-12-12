@@ -109,7 +109,7 @@ There is no need to add entries for those devices in the `layout` section if the
 ### GPT partitioning
 Here is an example of a simple single-disk layout with GPT partitioning.
 
-```nohighlight
+```text
 {
   "layout": {
     "sda": {
@@ -163,7 +163,7 @@ In the `mounts` section, options for mount points can be specified. For swap, an
 ### RAID 5 
 This example describes the reference setup for a RAID 5 configuration with spare devices.
 
-```nohighlight
+```text
 {
   "layout": {
     "storage": {
@@ -193,7 +193,7 @@ Both full disks and partitions can be used as RAID members.
 ### Pre-defined LVM
 In this reference example, you can find an LVM with pre-defined volumes.
 
-```nohighlight
+```text
 {
   "layout": {
     "storage": {
@@ -233,7 +233,7 @@ If no volumes are specified, the volume group is still created.
 ### Bcache
 Here is an example of a custom `bcache` setup.
 
-```nohighlight
+```text
 {
   "layout": {
      "data1": {
@@ -265,7 +265,7 @@ The same cache set can be used by different bcaches by specifying the same `back
 ### LVM RAID with bcache
 This more complex reference example describes an LVM on top of RAID with bcache enabled for read-intensive operations.
 
-```nohighlight
+```text
 {
   "layout": {
     "bcache0": {

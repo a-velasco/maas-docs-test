@@ -6,7 +6,7 @@
 
 MAAS 2.8.4 has been released, replacing the `2.8/stable` channel in snap and the [ppa:maas/2.8](https://launchpad.net/~maas/+archive/ubuntu/2.8) . You can update your 2.8 release to 2.8.4 with the command:
 
-```nohighlight
+```text
     snap refresh --channel=2.8/stable
 ```
 
@@ -16,7 +16,7 @@ or by using the aforementioned PPA. 2.8.4 has a single [bug fix - LP:1917372 ](h
 
 MAAS 2.8.3 has been released, replacing the `2.8/stable` channel in snap and the [ppa:maas/2.8](https://launchpad.net/~maas/+archive/ubuntu/2.8). You can update your 2.8 release to 2.8.3 with the command:
 
-```nohighlight
+```text
     snap refresh --channel=2.8/stable
 ```
 
@@ -34,13 +34,13 @@ Here's a summary of the bugs that were fixed in 2.8.3:
 
 - [cannot use release API on stuck observed IPs](https://bugs.launchpad.net/maas/+bug/1898122): The CLI/API provide commands for forcing the release of an IP, but MAAS 2.8.2 was not allowing these commands to run successfully. This was fixed. There is also a workaround for those who cannot upgrade to 2.8.3 right away:
 
-```nohighlight
+```text
     $ sudo -u postgres psql $MAAS_DB -c "UPDATE maasserver_staticipaddress SET alloc_type=5 WHERE ip = '$IP_ADDRESS' AND alloc_type=6;"
     $ maas $PROFILE ipaddresses release ip='$IP_ADDRESS' force=true
 ```
 - [MAAS is unable to handle duplicate UUIDs](https://bugs.launchpad.net/maas/+bug/1893690): The firmware for Dell servers (and possibly others) has a bug whereby they use the service number for the UUID, which is not guaranteed to be unique. This caused MAAS commissioning to fail. The code was modified in 2.8.3 to detect and remove duplicate UUIDs, allowing MAAS to fall back to the MAC address. There is also a database workaround for those who cannot upgrade to 2.8.3 right away:
 
-```nohighlight
+```text
      $ sudo -u postgres psql $MAAS_DB -c "UPDATE maasserver_node SET hardware_uuid=NULL where hardware_uuid='$DUPLICATE_UUID'";
 ```
 - [Ubuntu 20.04 pxe installation fails...](https://bugs.launchpad.net/curtin/+bug/1876258):
@@ -58,7 +58,7 @@ When trying to PXE install Ubuntu 20.04, the installation fails with "no such fi
 
 Note that there is a workaround for those not ready to upgrade to 2.8.3, specifically, using the CLI to commission machines without testing them:
 
-```nohighlight
+```text
     maas $PROFILE machine commission $SYSTEM_ID testing_scripts=none
 ```
 
@@ -75,7 +75,7 @@ This was fixed in 2.9 and backported to 2.8.3.
 
 On 1 September 2020, MAAS 2.8.2 was released, replacing the `2.8/stable` channel in snap and the [ppa:maas/2.8](https://launchpad.net/~maas/+archive/ubuntu/2.8). You can update your 2.8 release to 2.8.2 with the command:
 
-```nohighlight
+```text
 snap refresh --channel=2.8/stable
 ```
 

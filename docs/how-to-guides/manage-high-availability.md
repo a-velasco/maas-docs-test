@@ -70,12 +70,12 @@ Region controllers coordinate racks and present the API/UI.
 
 ### Add a region controller
 On a secondary host:
-```nohighlight
+```text
 sudo apt install maas-region-api
 ```
 
 Copy `regiond.conf` from the primary API server, set ownership, and point it to the primary PostgreSQL database:
-```nohighlight
+```text
 sudo systemctl stop maas-regiond
 sudo scp ubuntu@$PRIMARY_API_SERVER:regiond.conf /etc/maas/regiond.conf
 sudo chown root:maas /etc/maas/regiond.conf

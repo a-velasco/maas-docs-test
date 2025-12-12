@@ -20,7 +20,7 @@ Find red flags in UFW and iptables logs by looking for key patterns:
 
 - Be wary of traffic probing unused ports, which may indicate an active port scanner:
   
-```nohighlight
+```text
     blocked incoming tcp connection request from 96.39.208.43:8240 to 128.17.92.85:6002
 ```
 
@@ -28,13 +28,13 @@ Find red flags in UFW and iptables logs by looking for key patterns:
 
 - Look for repeated, failed access attempts from the same domain, IP, or subnet:
 
-```nohighlight
+```text
     blocked incoming tcp connection request from 96.39.208.43:49343 to 64.242.119.18:31337
 ```
     
 - Examine repeated, errant messages from within your network, which may indicate a Trojan horse:.
 
-```nohighlight
+```text
     blocked outgoing tcp packet from 192.168.23.100:5240 to 96.38.231.18:443 as FIN:ACK received, but there is no active connection.
 ```
 
@@ -56,7 +56,7 @@ Use a log analysis tool, or inspect raw logs stored in paths like `/var/log/http
 
 For example, a legitimate login request might resemble:
 
-```nohighlight
+```text
     2020-03-31 21:17:56 regiond: [info] 10.132.172.1 GET /MAAS/accounts/login/ HTTP/1.1 --> 200 OK
 ```
 

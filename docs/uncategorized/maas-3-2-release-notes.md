@@ -147,7 +147,7 @@ If the machine uses either IPMI or Redfish for its BMC, the ephemeral environmen
 
 You can check whether or not a machine can communicate via Redfish, with the command: 
 
-```nohighlight
+```text
 dmidecode -t 42
 ```
 
@@ -179,13 +179,13 @@ MAAS 3.2 rounds out the feature set with a few more items:
 
 MAAS 3.2 can be installed fresh from snaps (recommended) with:
 
-```nohighlight
+```text
 sudo snap install --channel=3.2 maas
 ```
 
 MAAS 3.2 can be installed from packages by adding the `ppa:maas/3.2` PPA:
 
-```nohighlight
+```text
 sudo add-apt-repository ppa:maas/3.2
 sudo apt update
 sudo apt install maas
@@ -193,13 +193,13 @@ sudo apt install maas
 
 You can then install MAAS 3.2 fresh (recommended) with:
 
-```nohighlight
+```text
 sudo apt-get -y install maas
 ```
 
 Or, if you prefer to upgrade, you can:
 
-```nohighlight
+```text
 sudo apt upgrade maas
 ```
 

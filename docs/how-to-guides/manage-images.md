@@ -24,7 +24,7 @@ UI
   - Candidate: `http://images.maas.io/ephemeral-v3/candidate`
 
 CLI
-```nohighlight
+```text
 BOOT_SOURCE_ID=$(maas $PROFILE boot-sources read)
 ```
 
@@ -37,7 +37,7 @@ UI
 - *Main menu* > *Images* > *Select/Unselect* > *Save selection*
 
 CLI
-```nohighlight
+```text
 maas $PROFILE boot-sources read  # list boot sources
 maas $PROFILE boot-source-selections create $SOURCE_ID     os="ubuntu" release="$SERIES" arches="$ARCH"     subarches="$KERNEL" labels="*" # select boot sources
 maas $PROFILE boot-resources read # list images
@@ -48,17 +48,17 @@ maas $PROFILE boot-resources import # select images
 ## Additional CLI management
 
 ### Delete a boot source
-```nohighlight
+```text
 maas $PROFILE boot-source delete $SOURCE_ID
 ```
 
 ### Update a boot source
-```nohighlight
+```text
 maas $PROFILE boot-source update $SOURCE_ID     url=$URL keyring_filename=$KEYRING_FILE
 ```
 
 ### Add a new boot source
-```nohighlight
+```text
 maas $PROFILE boot-sources create     url=$URL keyring_filename=$KEYRING_FILE
 ```
 💡 Use `/usr/share/keyrings/ubuntu-cloudimage-keyring.gpg` if the new source mirrors the official streams.
@@ -77,19 +77,19 @@ UI
 A local SimpleStreams mirror improves sync performance.
 
 ### Install SimpleStreams
-```nohighlight
+```text
 sudo apt install simplestreams
 ```
 
 ### Define helper variables
-```nohighlight
+```text
 KEYRING_FILE=/usr/share/keyrings/ubuntu-cloudimage-keyring.gpg
 IMAGE_SRC=https://images.maas.io/ephemeral-v3/stable
 IMAGE_DIR=/var/www/html/maas/images/ephemeral-v3/stable
 ```
 
 ### Mirror kernels
-```nohighlight
+```text
 sudo sstream-mirror --keyring=$KEYRING_FILE $IMAGE_SRC $IMAGE_DIR 'arch=amd64' 'release~(bionic|focal)' --max=1 --progress
 sudo sstream-mirror --keyring=$KEYRING_FILE $IMAGE_SRC $IMAGE_DIR 'os~(grub*|pxelinux)' --max=1 --progress
 ```
@@ -102,7 +102,7 @@ sudo sstream-mirror --keyring=$KEYRING_FILE $IMAGE_SRC $IMAGE_DIR 'os~(grub*|pxe
 - Schedule regular updates with `cron`.
 
 ### Configure MAAS to use your mirror
-```nohighlight
+```text
 URL=https://$MIRROR/maas/images/ephemeral-v3/stable/
 KEYRING_FILE=/usr/share/keyrings/ubuntu-cloudimage-keyring.gpg
 ```

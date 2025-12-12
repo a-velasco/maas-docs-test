@@ -5,7 +5,7 @@
 
 On 24 August 2020, MAAS 2.7.3 was released, replacing the `2.7/stable` channel in snap and the [ppa:maas/2.7](https://launchpad.net/~maas/+archive/ubuntu/2.7). You can update your 2.7 release to 2.7.3 by with:
 
-```nohighlight
+```text
     snap refresh --channel=2.7/stable
 ```
 
@@ -17,7 +17,7 @@ Thanks to everyone who reported the issues with previous 2.7 releases and helped
 
 On 30 July 2020, MAAS 2.7.2 was released, replacing the `2.7/stable` channel in snap and the [ppa:maas/2.7](https://launchpad.net/~maas/+archive/ubuntu/2.7). You can update your 2.7 release to 2.7.2 by with:
 
-```nohighlight
+```text
     snap refresh --channel=2.7/stable
 ```
 
@@ -29,7 +29,7 @@ Thanks to everyone who reported the issues with previous 2.7 releases and helped
 
 If you are using the MAAS 2.6 snap, which had to be installed with `--devmode`, you can update to 2.7 with the following parameters:
 
-```nohighlight
+```text
     snap refresh maas --devmode --channel=2.7
 ```
 
@@ -37,13 +37,13 @@ Be aware that you will still be in `--devmode`, which means the snap won't autom
 
 An alternative to avoid devmode would be to do a clean install of MAAS 2.7, that is, removing 2.6 with `snap remove maas` and reinstalling MAAS 2.7 with:
 
-```nohighlight
+```text
     snap install --channel=2.7 maas
 ```
 
 Note that you can check the devmode status of your snap with:
 
-```nohighlight
+```text
     snap list maas
 ```
 

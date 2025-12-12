@@ -79,7 +79,7 @@ After deployment, execute these commands on the host to confirm RT kernel activa
     You should see `realtime-kernel` as enabled.
   
 2. Confirm kernel version
-```nohighlight
+```text
     uname -a
 ```
 

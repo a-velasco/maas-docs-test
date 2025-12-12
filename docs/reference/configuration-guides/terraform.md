@@ -14,7 +14,7 @@ To connect MAAS with Terraform, you'll need both a standard HCL provider block a
 
 Here's what the provider block might look like:
 
-```nohighlight
+```text
 terraform {
   required_providers {
     maas = {
@@ -33,7 +33,7 @@ The provider API block includes credentials for MAAS access:
 
 Example:
 
-```nohighlight
+```text
 provider "maas" {
   api_version = "2.0"
   api_key = "<YOUR API KEY>"
@@ -55,7 +55,7 @@ Each data source comes with an HCL block that manages its corresponding MAAS ele
 
 The `fabric` data source reveals minimal details, usually the fabric ID:
 
-```nohighlight
+```text
 data "maas_fabric" "default" {
   name = "maas"
 }
@@ -65,7 +65,7 @@ data "maas_fabric" "default" {
 
 The `subnet` data source provides extensive attributes for an existing MAAS subnet. To declare one:
 
-```nohighlight
+```text
 data "maas_subnet" "vid10" {
   cidr = "10.10.0.0/16"
 }
@@ -75,7 +75,7 @@ data "maas_subnet" "vid10" {
 
 The `VLAN` data source focuses on an existing MAAS VLAN. For instance:
 
-```nohighlight
+```text
 data "maas_vlan" "vid10" {
   fabric = data.maas_fabric.default.id
   vlan = 10

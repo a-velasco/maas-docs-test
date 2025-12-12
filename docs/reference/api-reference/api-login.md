@@ -17,7 +17,7 @@ Split this key into its components and pass them to your client library or tool.
 ## Python example
 This example uses the `fades` library, but you can also use `requests_oauthlib` and `oauthlib`. Replace `<MAAS_SERVER_IP>` and `<API-KEY>` with your own values.
 
-```nohighlight
+```text
 from oauthlib.oauth1 import SIGNATURE_PLAINTEXT
 from requests_oauthlib import OAuth1Session
 
@@ -33,7 +33,7 @@ print(nodes.json())
 
 ## Ruby example
 
-```nohighlight
+```text
 require 'oauth'
 require 'oauth/signature/plaintext'
 
@@ -48,14 +48,14 @@ response = perform_API_request("http://server:5240/MAAS/api/2.0", "/nodes/?op=li
 
 ## cURL example
 
-```nohighlight
+```text
 curl --header "Authorization: OAuth oauth_version=1.0, oauth_signature_method=PLAINTEXT, oauth_consumer_key=$API_KEY[1], oauth_token=$API_KEY[2], oauth_signature=&$API_KEY[3], oauth_nonce=$(uuidgen), oauth_timestamp=$(date +%s)" $MAAS_URL/MAAS/api/2.0/users/
 ```
 
 
 ## HTTPie + fish shell example
 
-```nohighlight
+```text
 set API_KEY (string split : $API_KEY)
 http $MAAS_URL/api/2.0/users/ Authorization:"OAuth oauth_version=1.0, oauth_signature_method=PLAINTEXT, oauth_consumer_key=$API_KEY[1], oauth_token=$API_KEY[2], oauth_signature=&$API_KEY[3], oauth_nonce=$(uuidgen), oauth_timestamp=$(date +%s)"
 ```

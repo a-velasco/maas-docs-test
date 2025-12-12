@@ -29,7 +29,7 @@ Starting from 3.5, MAAS will require `maas` user to be the owner of the `maasdb`
 
 You can change database owner with the following command:
 
-```nohighlight
+```text
 sudo -u postgres \
     psql -c "ALTER DATABASE maasdb OWNER TO maas"
 ```

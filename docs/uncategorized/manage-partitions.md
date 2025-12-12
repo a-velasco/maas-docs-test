@@ -7,11 +7,11 @@ You can manipulate storage partitions via the MAAS CLI.  Note that partitions ca
 
 To view all the partitions on a block device, use the 'partitions read' API call:
 
-```nohighlight
+```text
 maas admin partitions read <node-id> 10
 ```
 
-```nohighlight
+```text
 Success.
 Machine-readable output follows:
 [
@@ -38,7 +38,7 @@ Machine-readable output follows:
 
 To view the metadata for a specific partition on a block device, rather than all partitions, use the singular 'partition' API call with an endpoint:
 
-```nohighlight
+```text
 maas admin partition read <node-id> 10 9
 ```
 
@@ -46,13 +46,13 @@ maas admin partition read <node-id> 10 9
 
 To create a new partition on a block device, use the 'create' API call:
 
-```nohighlight
+```text
 maas admin partitions create <node-id> 10 size=5360320512
 ```
 
 In addition to bytes, as shown above, the 'size' of a partition can also be defined with a 'G' for gigabytes or 'M' for megabytes. The output from the previous command will look like this:
 
-```nohighlight
+```text
 Success.
 Machine-readable output follows:
 {
@@ -72,13 +72,13 @@ Machine-readable output follows:
 
 Partitions can be deleted from a block device with the 'delete' API call. Make sure you double check the partition details as the partition is deleted immediately, with no further confirmation:
 
-```nohighlight
+```text
 maas admin partition delete <node-id> 10 9
 ```
 
 Successful output from the 'delete' command will look like this:
 
-```nohighlight
+```text
 Success.
 Machine-readable output follows:
 ```
@@ -87,13 +87,13 @@ Machine-readable output follows:
 
 Partitions can be formatted in a similar way to block devices:
 
-```nohighlight
+```text
 maas admin partition format <node-id> 10 9 fstype=ext4
 ```
 
 The output from the 'format' command will be similar to the following:
 
-```nohighlight
+```text
 Success.
 Machine-readable output follows:
 {
@@ -121,11 +121,11 @@ Machine-readable output follows:
 
 You can also remove the filesystem from a partition with the 'unformat' API call:
 
-```nohighlight
+```text
 maas admin partition unformat <node-id> 10 10 fstype=ext4
 ```
 
-```nohighlight
+```text
 Success.
 Machine-readable output follows:
 {
@@ -145,13 +145,13 @@ Machine-readable output follows:
 
 A formatted partition can be mounted at a given mount point with the 'mount' command.
 
-```nohighlight
+```text
 maas admin partition mount <node-id> 10 10 mount_point=/srv
 ```
 
 The mount point and the filesystem is visible in the output from the command:
 
-```nohighlight
+```text
 Success.
 Machine-readable output follows:
 {
@@ -177,13 +177,13 @@ Machine-readable output follows:
 
 A previous mounted partition can be unmounted with the 'unmount' command:
 
-```nohighlight
+```text
 maas admin partition unmount 4y3h8a 10 10
 ```
 
 After successfully running this command, the mount point will show as 'null' in the output:
 
-```nohighlight
+```text
 Success.
 Machine-readable output follows:
 {

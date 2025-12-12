@@ -30,7 +30,7 @@ As MAAS runs these tests, it gives you real-time updates. Navigate to the 'Hardw
 
 You can create your own test scripts; here's a simple example:
 
-```nohighlight
+```text
 #!/bin/bash -e
 # --- Start MAAS 1.0 script metadata ---
 # name: stress-ng-cpu-test

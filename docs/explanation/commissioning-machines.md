@@ -108,7 +108,7 @@ Script return results specified by metadata fields:
 
 Here is an example of "degrade detection":
 
-```nohighlight
+```text
 !/usr/bin/env python3
 
  --- Start MAAS 1.0 script metadata ---
@@ -144,21 +144,21 @@ if result_path is not None:
 
 Tags make scripts easier to manage. These tags group together commissioning and testing scripts:
 
-```nohighlight
+```text
 maas $PROFILE node-script add-tag $SCRIPT_NAME tag=$TAG
 maas $PROFILE node-script remove-tag $SCRIPT_NAME tag=$TAG
 ```
 
 MAAS runs all commissioning scripts by default, but you can select custom commissioning scripts by name or tag:
 
-```nohighlight
+```text
 maas $PROFILE machine commission \
 commissioning_scripts=$SCRIPT_NAME,$SCRIPT_TAG
 ```
 
 You can also select testing scripts by name or tag:
 
-```nohighlight
+```text
 maas $PROFILE machine commission \
 testing_scripts=$SCRIPT_NAME,$SCRIPT_TAG
 ```

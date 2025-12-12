@@ -9,11 +9,11 @@ A VMware VMFS datastore is created on one or more block devices or partitions.
 
 To create a VMFS Datastores on a machine use the 'vmfs-datastores create' API call:
 
-```nohighlight
+```text
 maas $PROFILE vmfs-datastores create $SYSTEM_ID name=$VMFS_NAME block_devices=$BLOCK_ID_1,$BLOCK_ID_2 partitions=$PARTITION_ID_1,$PARTITION_ID_2
 ```
 
-```nohighlight
+```text
 {
     "system_id": "b66fn6",
     "devices": [
@@ -55,11 +55,11 @@ maas $PROFILE vmfs-datastores create $SYSTEM_ID name=$VMFS_NAME block_devices=$B
 
 To edit an existing VMFS Datastores on a machine use the 'vmfs-datastore update' API call:
 
-```nohighlight
+```text
 maas $PROFILE vmfs-datastore update $SYSTEM_ID $VMFS_ID name=$NEW_VMFS_NAME add_block_devices=$NEW_BLOCK_ID_1,$NEW_BLOCK_ID_2 add_partitions=$NEW_PARTITION_ID_1,$NEW_PARTITION_ID_2 remove_partitions=$EXISTING_PARTITION_ID1,$EXISTING_PARTITION_ID2
 ```
 
-```nohighlight
+```text
 {
     "uuid": "2711566c-2df4-4cc4-8c06-7392bb1f9532",
     "name": "datastore42",
@@ -121,7 +121,7 @@ maas $PROFILE vmfs-datastore update $SYSTEM_ID $VMFS_ID name=$NEW_VMFS_NAME add_
 
 To delete a VMFS Datastores on a machine use the 'vmfs-datastore delete' API call:
 
-```nohighlight
+```text
 maas $PROFILE vmfs-datastore delete $SYSTEM_ID $VMFS_ID
 ```
 
@@ -129,11 +129,11 @@ maas $PROFILE vmfs-datastore delete $SYSTEM_ID $VMFS_ID
 
 To view all VMFS Datastores on a machine, use the 'vmfs-datastores read' API call:
 
-```nohighlight
+```text
 maas $PROFILE vmfs-datastores read $SYSTEM_ID
 ```
 
-```nohighlight
+```text
 [
     {
         "human_size": "45.8 GB",
@@ -197,11 +197,11 @@ maas $PROFILE vmfs-datastores read $SYSTEM_ID
 
 To view a specific VMFS Datastores on a machine, use the 'vmfs-datastore read' API call:
 
-```nohighlight
+```text
 maas $PROFILE vmfs-datastore read $SYSTEM_ID $VMFS_DATASTORE_ID
 ```
 
-```nohighlight
+```text
 {
     "uuid": "fb6fedc2-f711-40de-ab83-77eddc3e19ac",
     "name": "datastore1",

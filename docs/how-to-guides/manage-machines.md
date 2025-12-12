@@ -75,7 +75,7 @@ Provide architecture, MAC address, and power settings.
   ```
 
 Disable auto-commissioning if needed:
-```nohighlight
+```text
 maas $PROFILE maas set-config name=enlist_commissioning value=false
 ```
 

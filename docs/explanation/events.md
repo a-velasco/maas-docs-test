@@ -34,14 +34,14 @@ For a machine called `fun-zebra`:
 
 Log file (`maas.log`)
 
-```nohighlight
+```text
 maas.log:2022-09-29T15:04:07.795515-05:00 neuromancer maas.node: [info] fun-zebra: Status transition from COMMISSIONING to TESTING
 maas.log:2022-09-29T15:04:17.288763-05:00 neuromancer maas.node: [info] fun-zebra: Status transition from TESTING to READY
 ```
 
 CLI output (`events query`)
 
-```nohighlight
+```text
 {
     "username": "unknown",
     "node": "bk7mg8",

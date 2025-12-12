@@ -35,7 +35,7 @@ With respect to `machine.read`, both the RESTful API and Websocket API add the f
 
 With respect to `config.list`, there is a new WebSocket Response result (new “hardware_sync_interval” option):
 
-```nohighlight
+```text
 [{
    name: "hardware_sync_interval",
    value: String in systemd time span format  e.g. “15m”
