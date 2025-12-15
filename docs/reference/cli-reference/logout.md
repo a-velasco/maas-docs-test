@@ -6,14 +6,14 @@ Log out of a remote API, purging any stored credentials.
 maas logout [-h] profile-name 
 ```
 
-#### Positional arguments
+## Positional arguments
 
 | Argument     | Effect                                                      |
 |--------------|-------------------------------------------------------------|
 | profile-name | The name with which a remote server and its credentials are |
 |              | referred to within this tool.                               |
 
-#### Command-line options
+## Command-line options
 
 | Option     | Effect                          |
 |------------|---------------------------------|

@@ -8,11 +8,11 @@ Enter keyword arguments in the form `key=value`.
 maas $PROFILE zone delete [--help] [-d] [-k] name [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - name
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -26,11 +26,11 @@ maas $PROFILE zone delete [--help] [-d] [-k] name [data ...]
 maas $PROFILE zone read [--help] [-d] [-k] name [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - name
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -44,21 +44,21 @@ maas $PROFILE zone read [--help] [-d] [-k] name [data ...]
 maas $PROFILE zone update [--help] [-d] [-k] name [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - name
 
 Note that only 'name' and 'description' parameters are honored. Others, such as 'resource-uri' or 'id' will be ignored.
 
-#### Keyword "description"
+### Keyword "description"
 
 Optional String. A brief description of | the | new zone. |
 
-#### Keyword "name"
+### Keyword "name"
 
 Optional String. The zone's new name.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -72,15 +72,15 @@ Optional String. The zone's new name.
 maas $PROFILE zones create [--help] [-d] [-k] [data ...] 
 ```
 
-#### Keyword "name" Required. The new zone's name
+### Keyword "name" Required. The new zone's name
 
 Type: String.
 
-#### Keyword "description"
+### Keyword "description"
 
 Optional String. A brief description of | the | new zone. |
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -96,7 +96,7 @@ Note that there is always at least one zone called "default."
 maas $PROFILE zones read [--help] [-d] [-k] [data ...] 
 ```
 
-#### Command-line options | Option | Effect |
+### Command-line options | Option | Effect |
 
 |-----|-----|
 | --help, -h | Show this help message and exit. |

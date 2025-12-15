@@ -10,14 +10,14 @@ maas config-tls enable [-h] [--cacert CACERT] [-p PORT] [--yes] key cert
 maas config-tls disable [-h] 
 ```
 
-#### Positional arguments
+## Positional arguments
 
 | Argument | Effect                            |
 |----------|-----------------------------------|
 | key      | path to the private key           |
 | cert     | path to certificate in PEM format |
 
-#### Command-line options
+## Command-line options
 
 | Option               | Effect                                                |
 |----------------------|-------------------------------------------------------|

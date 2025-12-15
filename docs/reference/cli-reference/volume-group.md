@@ -10,26 +10,26 @@ maas $PROFILE volume-group create-logical-volume [--help] [-d] [-k] system_id id
 
 Create a logical volume
 
-#### Positional arguments
+### Positional arguments
 
 - system_id
 - id
 
 Create a logical volume in the volume group with the given id on the machine with the given system_id.
 
-#### Keyword "name"
+### Keyword "name"
 
 Required String. Name of the logical volume.
 
-#### Keyword "uuid"
+### Keyword "uuid"
 
 Optional String. (optional) UUID of the logical volume.
 
-#### Keyword "size"
+### Keyword "size"
 
 Optional String. (optional) Size of the logical volume. Must be larger than or equal to 4,194,304 bytes. E.g. ``4194304``. Will default to free space in the volume group if not given.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -43,14 +43,14 @@ Optional String. (optional) Size of the logical volume. Must be larger than or e
 maas $PROFILE volume-group delete [--help] [-d] [-k] system_id id [data ...]
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - system_id
 - id
 
 Delete a volume group with the given id from the machine with the given system_id.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -66,7 +66,7 @@ maas $PROFILE volume-group delete-logical-volume [--help] [-d] [-k] system_id id
 
 Delete a logical volume
 
-#### Positional arguments
+### Positional arguments
 
 - system_id
 - id
@@ -75,11 +75,11 @@ Delete a logical volume in the volume group with the given id on the machine wit
 
 Note: this operation returns HTTP status code 204 even if the logical volume id does not exist.
 
-#### Keyword "id"
+### Keyword "id"
 
 Required Int. The logical volume id.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -93,14 +93,14 @@ Required Int. The logical volume id.
 maas $PROFILE volume-group read [--help] [-d] [-k] system_id id [data ...]
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - system_id
 - id
 
 Read a volume group with the given id on the machine with the given system_id.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -114,38 +114,38 @@ Read a volume group with the given id on the machine with the given system_id.
 maas $PROFILE volume-group update [--help] [-d] [-k] system_id id [data ...]
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - system_id
 - id
 
 Update a volume group with the given id on the machine with the given system_id.
 
-#### Keyword "name"
+### Keyword "name"
 
 Optional String. Name of the volume group.
 
-#### Keyword "uuid"
+### Keyword "uuid"
 
 Optional String. UUID of the volume group.
 
-#### Keyword "add_block_devices"
+### Keyword "add_block_devices"
 
 Optional String. Block devices to add to the volume group.
 
-#### Keyword "remove_block_devices"
+### Keyword "remove_block_devices"
 
 Optional String. Block devices to remove from the volume group.
 
-#### Keyword "add_partitions"
+### Keyword "add_partitions"
 
 Optional String. Partitions to add to the volume group.
 
-#### Keyword "remove_partitions"
+### Keyword "remove_partitions"
 
 Optional String. Partitions to remove from the volume group.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -159,7 +159,7 @@ Optional String. Partitions to remove from the volume group.
 maas $PROFILE volume-groups create [--help] [-d] [-k] system_id [data ...]
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - system_id
 
@@ -167,23 +167,23 @@ Create a volume group belonging to a machine with the given system_id.
 
 Note that at least one valid block device or partition is required.
 
-#### Keyword "name"
+### Keyword "name"
 
 Required String. Name of the volume group.
 
-#### Keyword "uuid"
+### Keyword "uuid"
 
 Optional String. (optional) UUID of the volume group.
 
-#### Keyword "block_devices"
+### Keyword "block_devices"
 
 Optional String. Block devices to add to the volume group.
 
-#### Keyword "partitions"
+### Keyword "partitions"
 
 Optional String. Partitions to add to the volume group.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -197,13 +197,13 @@ Optional String. Partitions to add to the volume group.
 maas $PROFILE volume-groups read [--help] [-d] [-k] system_id [data ...]
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - system_id
 
 List all volume groups belonging to a machine with the given system_id.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|

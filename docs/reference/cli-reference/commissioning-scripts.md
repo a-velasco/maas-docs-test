@@ -10,11 +10,11 @@ Enter keyword arguments in the form `key=value`.
 maas $PROFILE commissioning-script delete [--help] [-d] [-k] name [data ...]
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - name
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -30,11 +30,11 @@ maas $PROFILE commissioning-script delete [--help] [-d] [-k] name [data ...]
 maas $PROFILE commissioning-script read [--help] [-d] [-k] name [data ...]
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - name
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -50,11 +50,11 @@ maas $PROFILE commissioning-script read [--help] [-d] [-k] name [data ...]
 maas $PROFILE commissioning-script update [--help] [-d] [-k] name [data ...]
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - name
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -78,15 +78,15 @@ Scripts built into MAAS will have names starting with "00-maas" or "99-maas" to 
 
 Usually a commissioning script will be just that, a script.  Ideally a script should be ASCII text to avoid any confusion over encoding.  But in some cases a commissioning script might consist of a binary tool provided by a hardware vendor.  Either way, the script gets passed to the commissioning machine in the exact form in which it was uploaded.
 
-#### Keyword "name"
+### Keyword "name"
 
 Unique identifying name for the script.  Names should follow the pattern of "25-burn-in-hard-disk" (all ASCII, and with numbers greater than zero, and generally no "weird" characters).
 
-#### Keyword "content"
+### Keyword "content"
 
 A script file, to be uploaded in binary form.  Note: this is not a normal parameter, but a file upload.  Its filename is ignored; MAAS will know it by the name you pass to the request.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -102,7 +102,7 @@ A script file, to be uploaded in binary form.  Note: this is not a normal parame
 maas $PROFILE commissioning-scripts read [--help] [-d] [-k] [data ...] 
 ```
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|

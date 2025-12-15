@@ -11,7 +11,7 @@ maas config [-h] [--show] [--show-database-password] [--show-secret] \
 [--enable-debug-queries] [--disable-debug-queries] [--parsable]
 ```
 
-#### Command-line options
+## Command-line options
 
 | Option                                    | Effect                                                 |
 |-------------------------------------------|--------------------------------------------------------|

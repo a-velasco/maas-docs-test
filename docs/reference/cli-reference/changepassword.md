@@ -6,14 +6,14 @@ Change a MAAS user's password.
 maas changepassword [-h] [--database DATABASE] [username] 
 ```
 
-#### Positional arguments
+## Positional arguments
 
 | Argument | Effect                                                |
 |----------|-------------------------------------------------------|
 | username | Username to change password for; by default, it's the |
 |          | current username.                                     |
 
-#### Command-line options
+## Command-line options
 
 | Option              | Effect                                               |
 |---------------------|------------------------------------------------------|

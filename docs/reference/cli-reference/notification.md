@@ -8,13 +8,13 @@ Enter keyword arguments in the form `key=value`.
 maas $PROFILE notification delete [--help] [-d] [-k] id [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - id
 
 Delete a notification with a given id.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -28,13 +28,13 @@ Delete a notification with a given id.
 maas $PROFILE notification dismiss [--help] [-d] [-k] id [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - id
 
 Dismiss a notification with the given id. It is safe to call multiple times for the same notification.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -48,13 +48,13 @@ Dismiss a notification with the given id. It is safe to call multiple times for 
 maas $PROFILE notification read [--help] [-d] [-k] id [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - id
 
 Read a notification with the given id.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -68,45 +68,45 @@ Read a notification with the given id.
 maas $PROFILE notification update [--help] [-d] [-k] id [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - id
 
 Update a notification with a given id. This is available to admins *only*. One of the ``user``, ``users`` or ``admins`` parameters must be set to True for the notification to be visible to anyone.
 
-#### Keyword "message"
+### Keyword "message"
 
 Required String.  The message for this notification. May contain basic HTML, such as formatting. This string will be sanitised before display so that it doesn't break MAAS HTML.
 
-#### Keyword "context"
+### Keyword "context"
 
 Optional String.  Optional JSON context. The root object *must* be an object (i.e. a mapping). The values herein can be referenced by ``message`` with Python's "format" (not %) codes.
 
-#### Keyword "category"
+### Keyword "category"
 
 Optional String. Choose from: ``error``, ``warning``, ``success``, or ``info``. Defaults to ``info``.
 
-#### Keyword "ident"
+### Keyword "ident"
 
 Optional String. Unique identifier for this notification.
 
-#### Keyword "user"
+### Keyword "user"
 
 Optional String.  User ID this notification is intended for. By default it will not be targeted to any individual user.
 
-#### Keyword "users"
+### Keyword "users"
 
 Optional Boolean. True to notify all users, defaults to false, i.e. not targeted to all users.
 
-#### Keyword "admins"
+### Keyword "admins"
 
 Optional Boolean. True to notify all admins, defaults to false, i.e. not targeted to all admins.
 
-#### Keyword "dismissable"
+### Keyword "dismissable"
 
 Optional Boolean. True to allow users dimissing the notification. Defaults to true.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -122,35 +122,35 @@ maas $PROFILE notifications create [--help] [-d] [-k] [data ...]
 
 Create a new notification.  This is available to admins *only*. One of the ``user``, ``users`` or ``admins`` parameters must be set to True for the notification to be visible to anyone.
 
-#### Keyword "message"
+### Keyword "message"
 
 Required String.  The message for this notification. May contain basic HTML, such as formatting. This string will be sanitised before display so that it doesn't break MAAS HTML.
 
-#### Keyword "context"
+### Keyword "context"
 
 Optional String.  Optional JSON context. The root object *must* be an object (i.e. a mapping). The values herein can be referenced by ``message`` with Python's "format" (not %) codes.
 
-#### Keyword "category"
+### Keyword "category"
 
 Optional String. Choose from: ``error``, ``warning``, ``success``, or ``info``. Defaults to ``info``.
 
-#### Keyword "ident"
+### Keyword "ident"
 
 Optional String. Unique identifier for this notification.
 
-#### Keyword "user"
+### Keyword "user"
 
 Optional.  User ID this notification is intended for. By default it will not be targeted to any individual user.
 
-#### Keyword "users"
+### Keyword "users"
 
 Optional Boolean. True to notify all users, defaults to false, i.e. not targeted to all users.
 
-#### Keyword "admins"
+### Keyword "admins"
 
 Optional Boolean. True to notify all admins, defaults to false, i.e. not targeted to all admins.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -166,7 +166,7 @@ maas $PROFILE notifications read [--help] [-d] [-k] [data ...]
 
 List notifications relevant to the invoking user.  Notifications that have been dismissed are *not* returned.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|

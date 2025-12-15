@@ -8,14 +8,14 @@ Enter keyword arguments in the form `key=value`.
 maas $PROFILE raid delete [--help] [-d] [-k] system_id id [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - system_id
 - id
 
 Delete a RAID with the given id on a machine with the given system_id.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -29,14 +29,14 @@ Delete a RAID with the given id on a machine with the given system_id.
 maas $PROFILE raid read [--help] [-d] [-k] system_id id [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - system_id
 - id
 
 Read RAID with the given id on a machine with the given system_id.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -50,54 +50,54 @@ Read RAID with the given id on a machine with the given system_id.
 maas $PROFILE raid update [--help] [-d] [-k] system_id id [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - system_id
 - id
 
 Update a RAID with the given id on a machine with the given system_id.
 
-#### Keyword "name"
+### Keyword "name"
 
 Optional String. Name of the RAID.
 
-#### Keyword "uuid"
+### Keyword "uuid"
 
 Optional String. UUID of the RAID.
 
-#### Keyword "add_block_devices"
+### Keyword "add_block_devices"
 
 Optional String. Block devices to add to the RAID.
 
-#### Keyword "remove_block_devices"
+### Keyword "remove_block_devices"
 
 Optional String. Block devices to remove from the RAID.
 
-#### Keyword "add_spare_devices"
+### Keyword "add_spare_devices"
 
 Optional String. Spare block devices to add to the RAID.
 
-#### Keyword "remove_spare_devices"
+### Keyword "remove_spare_devices"
 
 Optional String. Spare block devices to remove from the RAID.
 
-#### Keyword "add_partitions"
+### Keyword "add_partitions"
 
 Optional String. Partitions to add to the RAID.
 
-#### Keyword "remove_partitions"
+### Keyword "remove_partitions"
 
 Optional String. Partitions to remove from the RAID.
 
-#### Keyword "add_spare_partitions"
+### Keyword "add_spare_partitions"
 
 Optional String. Spare partitions to add to the RAID.
 
-#### Keyword "remove_spare_partitions"
+### Keyword "remove_spare_partitions"
 
 Optional String. Spare partitions to remove from the RAID.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -111,41 +111,41 @@ Optional String. Spare partitions to remove from the RAID.
 maas $PROFILE raids create [--help] [-d] [-k] system_id [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - system_id
 
 Set up a RAID on a machine with the given system_id.
 
-#### Keyword "name"
+### Keyword "name"
 
 Optional String. Name of the RAID.
 
-#### Keyword "uuid"
+### Keyword "uuid"
 
 Optional String. UUID of the RAID.
 
-#### Keyword "level"
+### Keyword "level"
 
 Required Int. RAID level.
 
-#### Keyword "block_devices"
+### Keyword "block_devices"
 
 Optional String. Block devices to add to the RAID.
 
-#### Keyword "spare_devices"
+### Keyword "spare_devices"
 
 Optional String. Spare block devices to add to the RAID.
 
-#### Keyword "partitions"
+### Keyword "partitions"
 
 Optional String. Partitions to add to the RAID.
 
-#### Keyword "spare_partitions"
+### Keyword "spare_partitions"
 
 Optional String. Spare partitions to add to the RAID.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -159,13 +159,13 @@ Optional String. Spare partitions to add to the RAID.
 maas $PROFILE raids read [--help] [-d] [-k] system_id [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - system_id
 
 List all RAIDs belonging to a machine with the given system_id.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|

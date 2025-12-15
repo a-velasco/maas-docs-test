@@ -8,26 +8,26 @@ Enter keyword arguments in the form `key=value`.
 maas $PROFILE partitions create [--help] [-d] [-k] system_id device_id [data ...]
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - system_id
 - device_id
 
 Create a partition on a block device.
 
-#### Keyword "size"
+### Keyword "size"
 
 Optional Int. The size of the partition in bytes. If not specified, all available space will be used.
 
-#### Keyword "uuid"
+### Keyword "uuid"
 
 Optional String. UUID for the partition. Only used if the partition table type for the block device is GPT.
 
-#### Keyword "bootable"
+### Keyword "bootable"
 
 Optional Boolean. If the partition should be marked bootable.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -41,14 +41,14 @@ Optional Boolean. If the partition should be marked bootable.
 maas $PROFILE partitions read [--help] [-d] [-k] system_id device_id [data ...]
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - system_id
 - device_id
 
 List partitions on a device with the given system_id and device_id.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                       |
 |----------------|----------------------------------------------|
@@ -62,7 +62,7 @@ List partitions on a device with the given system_id and device_id.
 maas $PROFILE partition format [--help] [-d] [-k] system_id device_id id [data ...]
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - system_id
 - device_id
@@ -70,19 +70,19 @@ maas $PROFILE partition format [--help] [-d] [-k] system_id device_id id [data .
 
 Format the partition on machine system_id and device device_id with the given partition id.
 
-#### Keyword "fstype"
+### Keyword "fstype"
 
 Required String. Type of filesystem.
 
-#### Keyword "uuid"
+### Keyword "uuid"
 
 Optional String. The UUID for the filesystem.
 
-#### Keyword "label"
+### Keyword "label"
 
 Optional String. The label for the filesystem.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -96,7 +96,7 @@ Optional String. The label for the filesystem.
 maas $PROFILE partition mount [--help] [-d] [-k] system_id device_id id [data ...]
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - system_id
 - device_id
@@ -104,15 +104,15 @@ maas $PROFILE partition mount [--help] [-d] [-k] system_id device_id id [data ..
 
 Mount a filesystem on machine system_id, device device_id and partition id.
 
-#### Keyword "mount_point"
+### Keyword "mount_point"
 
 Required String. Path on the filesystem to mount.
 
-#### Keyword "mount_options"
+### Keyword "mount_options"
 
 Optional String. Options to pass to mount(8).
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -126,7 +126,7 @@ Optional String. Options to pass to mount(8).
 maas $PROFILE partition read [--help] [-d] [-k] system_id device_id id [data ...]
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - system_id
 - device_id
@@ -134,7 +134,7 @@ maas $PROFILE partition read [--help] [-d] [-k] system_id device_id id [data ...
 
 Read the partition from machine system_id and device device_id with the given partition id.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -148,7 +148,7 @@ Read the partition from machine system_id and device device_id with the given pa
 maas $PROFILE partition remove-tag [--help] [-d] [-k] system_id device_id id [data ...]
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - system_id
 - device_id
@@ -156,11 +156,11 @@ maas $PROFILE partition remove-tag [--help] [-d] [-k] system_id device_id id [da
 
 Remove a tag from a partition on machine system_id, device device_id and partition id.
 
-#### Keyword "tag"
+### Keyword "tag"
 
 Required String. The tag being removed.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -175,7 +175,7 @@ Required String. The tag being removed.
 maas $PROFILE partition unformat [--help] [-d] [-k] system_id device_id id [data ...]
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - system_id
 - device_id
@@ -183,7 +183,7 @@ maas $PROFILE partition unformat [--help] [-d] [-k] system_id device_id id [data
 
 Unformat the partition on machine system_id and device device_id with the given partition id.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -197,7 +197,7 @@ Unformat the partition on machine system_id and device device_id with the given 
 maas $PROFILE partition unmount [--help] [-d] [-k] system_id device_id id [data ...]
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - system_id
 - device_id
@@ -205,7 +205,7 @@ maas $PROFILE partition unmount [--help] [-d] [-k] system_id device_id id [data 
 
 Unmount a filesystem on machine system_id, device device_id and partition id.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|

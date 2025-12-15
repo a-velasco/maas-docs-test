@@ -8,13 +8,13 @@ Enter keyword arguments in the form `key=value`.
 maas $PROFILE iprange delete [--help] [-d] [-k] id [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - id
 
 Delete an IP range with the given id.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -28,13 +28,13 @@ Delete an IP range with the given id.
 maas $PROFILE iprange read [--help] [-d] [-k] id [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - id
 
 Read an IP range with the given id.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -48,25 +48,25 @@ Read an IP range with the given id.
 maas $PROFILE iprange update [--help] [-d] [-k] id [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - id
 
 Update an IP range with the given id.
 
-#### Keyword "start_ip"
+### Keyword "start_ip"
 
 Optional String. Start IP address of this range (inclusive).
 
-#### Keyword "end_ip"
+### Keyword "end_ip"
 
 Optional String. End IP address of this range (inclusive).
 
-#### Keyword "comment"
+### Keyword "comment"
 
 Optional String. A description of this range. (optional)
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -82,27 +82,27 @@ maas $PROFILE ipranges create [--help] [-d] [-k] [data ...]
 
 Create a new IP range.
 
-#### Keyword "type"
+### Keyword "type"
 
 Required String. Type of this range. (``dynamic`` or ``reserved``)
 
-#### Keyword "start_ip"
+### Keyword "start_ip"
 
 Required String. Start IP address of this range (inclusive).
 
-#### Keyword "end_ip"
+### Keyword "end_ip"
 
 Required String. End IP address of this range (inclusive).
 
-#### Keyword "subnet"
+### Keyword "subnet"
 
 Required Int. Subnet associated with this range.
 
-#### Keyword "comment"
+### Keyword "comment"
 
 Optional String. A description of this range.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -118,7 +118,7 @@ maas $PROFILE ipranges read [--help] [-d] [-k] [data ...]
 
 List all available IP ranges.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|

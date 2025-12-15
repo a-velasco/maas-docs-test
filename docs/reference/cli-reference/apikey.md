@@ -6,7 +6,7 @@ Manage a user's API keys. Shows existing keys unless --generate or --delete is p
 maas apikey [-h] [--username USERNAME] [--generate] [--delete DELETE] [--update UPDATE] [--name API_KEY_NAME] [--with-names]
 ```
 
-#### Command-line options
+## Command-line options
 
 | Option              | Effect                                               |
 |---------------------|------------------------------------------------------|

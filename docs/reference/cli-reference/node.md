@@ -8,13 +8,13 @@ Enter keyword arguments in the form `key=value`.
 maas $PROFILE node delete [--help] [-d] [-k] system_id [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - system_id
 
 Deletes a node with a given system_id.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -28,7 +28,7 @@ Deletes a node with a given system_id.
 maas $PROFILE node details [--help] [-d] [-k] system_id [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - system_id
 
@@ -38,7 +38,7 @@ Returns a ``{detail_type: xml, ...}`` map, where ``detail_type`` is something li
 
 Note that this is returned as BSON and not JSON. This is for efficiency, but mainly because JSON can't do binary content without applying additional encoding like base-64. The example output below is represented in ASCII using ``bsondump example.bson`` and is for demonstrative purposes.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -52,7 +52,7 @@ Note that this is returned as BSON and not JSON. This is for efficiency, but mai
 maas $PROFILE node power-parameters [--help] [-d] [-k] system_id [data ...]
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - system_id
 
@@ -60,7 +60,7 @@ Gets power parameters for a given system_id, if any. For some types of power con
 
 Note that this method is reserved for admin users and returns a 403 if the user is not one.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -74,13 +74,13 @@ Note that this method is reserved for admin users and returns a 403 if the user 
 maas $PROFILE node read [--help] [-d] [-k] system_id [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - system_id
 
 Reads a node with the given system_id.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|

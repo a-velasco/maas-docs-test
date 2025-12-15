@@ -8,14 +8,14 @@ Enter keyword arguments in the form `key=value`.
 maas $PROFILE network list-connected-macs [--help] [-d] [-k] name [data ...]
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - name
 
 Only MAC addresses for nodes visible to the requesting user are
 returned.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -31,11 +31,11 @@ This operation has been deprecated in favour of `subnet read`.
 maas $PROFILE network read [--help] [-d] [-k] name [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - name
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -49,13 +49,13 @@ maas $PROFILE network read [--help] [-d] [-k] name [data ...]
 maas $PROFILE networks read [--help] [-d] [-k] [data ...] 
 ```
 
-#### Keyword "node"
+### Keyword "node"
 
 Optionally, nodes which must be attached to any returned networks.  If more thanone node is given, the result will be restricted to networks that these nodes have in common.
 
 This operation has been deprecated in favour of `subnets read`.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|

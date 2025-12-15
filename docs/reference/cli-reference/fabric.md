@@ -8,13 +8,13 @@ Enter keyword arguments in the form `key=value`.
 maas $PROFILE fabric delete [--help] [-d] [-k] id [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - id
 
 Delete a fabric with the given id.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -28,13 +28,13 @@ Delete a fabric with the given id.
 maas $PROFILE fabric read [--help] [-d] [-k] id [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - id
 
 Read a fabric with the given id.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -48,25 +48,25 @@ Read a fabric with the given id.
 maas $PROFILE fabric update [--help] [-d] [-k] id [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - id
 
 Update a fabric with the given id.
 
-#### Keyword "name"
+### Keyword "name"
 
 Optional String. Name of the fabric.
 
-#### Keyword "description"
+### Keyword "description"
 
 Optional String. Description of the fabric.
 
-#### Keyword "class_type"
+### Keyword "class_type"
 
 Optional String. Class type of the fabric.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -82,19 +82,19 @@ maas $PROFILE fabrics create [--help] [-d] [-k] [data ...]
 
 Create a fabric.
 
-#### Keyword "name"
+### Keyword "name"
 
 Optional String. Name of the fabric.
 
-#### Keyword "description"
+### Keyword "description"
 
 Optional String. Description of the fabric.
 
-#### Keyword "class_type"
+### Keyword "class_type"
 
 Optional String. Class type of the fabric.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -110,7 +110,7 @@ maas $PROFILE fabrics read [--help] [-d] [-k] [data ...]
 
 List all fabrics.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|

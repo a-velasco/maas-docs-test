@@ -8,17 +8,17 @@ Enter keyword arguments in the form `key=value`.
 maas $PROFILE sslkey delete [--help] [-d] [-k] id [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - id
 
 Deletes the SSL key with the given ID.
 
-#### Keyword "id"
+### Keyword "id"
 
 Required Int. An SSH key ID.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -32,17 +32,17 @@ Required Int. An SSH key ID.
 maas $PROFILE sslkey read [--help] [-d] [-k] id [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - id
 
 Retrieves an SSL key with the given ID.
 
-#### Keyword "id"
+### Keyword "id"
 
 Required Int. An SSL key ID.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|

@@ -8,13 +8,13 @@ Enter keyword arguments in the form `key=value`.
 maas $PROFILE space delete [--help] [-d] [-k] id [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - id
 
 Deletes a space with the given ID.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -28,13 +28,13 @@ Deletes a space with the given ID.
 maas $PROFILE space read [--help] [-d] [-k] id [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - id
 
 Gets a space with the given ID.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -48,21 +48,21 @@ Gets a space with the given ID.
 maas $PROFILE space update [--help] [-d] [-k] id [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - id
 
 Updates a space with the given ID.
 
-#### Keyword "name"
+### Keyword "name"
 
 Required String. The name of the new space.
 
-#### Keyword "description"
+### Keyword "description"
 
 Optional String. A description of the new space.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -78,15 +78,15 @@ maas $PROFILE spaces create [--help] [-d] [-k] [data ...]
 
 Create a new space.
 
-#### Keyword "name"
+### Keyword "name"
 
 Required String. The name of the new space.
 
-#### Keyword "description"
+### Keyword "description"
 
 Optional String. A description of the new space.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -102,7 +102,7 @@ maas $PROFILE spaces read [--help] [-d] [-k] [data ...]
 
 Generates a list of all spaces.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|

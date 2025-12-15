@@ -6,13 +6,13 @@ Initialize MAAS in the specified run mode.
 maas init [-h] {region+rack,region,rack} ... 
 ```
 
-#### Command-line options
+## Command-line options
 
 | Option     | Effect                          |
 |------------|---------------------------------|
 | -h, --help | show this help message and exit |
 
-#### Run modes
+## Run modes
 
 | Mode        | Effect                           |
 |-------------|----------------------------------|

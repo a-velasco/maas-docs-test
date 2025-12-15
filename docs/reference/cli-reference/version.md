@@ -8,7 +8,7 @@ maas $PROFILE version read [--help] [-d] [-k] [data ...]
 
 Read version and capabilities of this MAAS instance.
 
-#### Command-line options
+## Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|

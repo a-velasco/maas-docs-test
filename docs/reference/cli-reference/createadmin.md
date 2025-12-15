@@ -6,7 +6,7 @@ Create a MAAS administrator account.
 maas createadmin [-h] [--username USERNAME] [--password PASSWORD] [--email EMAIL] [--ssh-import SSH_IMPORT]
 ```
 
-#### Command-line options | Option | Effect |
+## Command-line options | Option | Effect |
 
 |-------------------------|-------------------------------------------------------|
 | -h, --help              | show this help message and exit                       |

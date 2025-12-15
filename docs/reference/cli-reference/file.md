@@ -8,13 +8,13 @@ Enter keyword arguments in the form `key=value`.
 maas $PROFILE file delete [--help] [-d] [-k] filename [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - filename
 
 Delete a file with the given file name.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -28,13 +28,13 @@ Delete a file with the given file name.
 maas $PROFILE file read [--help] [-d] [-k] filename [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - filename
 
 Reads a stored file with the given file name. The content of the file is base64-encoded.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -48,13 +48,13 @@ Reads a stored file with the given file name. The content of the file is base64-
 maas $PROFILE file delete [--help] [-d] [-k] filename [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - filename
 
 Delete a file with the given file name.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -70,11 +70,11 @@ maas $PROFILE files get [--help] [-d] [-k] [data ...]
 
 Get a named file from the file storage.
 
-#### Keyword "filename"
+### Keyword "filename"
 
 Required String. The name of the file.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -90,11 +90,11 @@ maas $PROFILE files get-by-key [--help] [-d] [-k] [data ...]
 
 Get a file from the file storage with the given key.
 
-#### Keyword "key"
+### Keyword "key"
 
 Required String. The file's key.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -110,11 +110,11 @@ maas $PROFILE files read [--help] [-d] [-k] [data ...]
 
 List the files from the file storage. The returned files are ordered by file name and the content is excluded.
 
-#### Keyword "prefix"
+### Keyword "prefix"
 
 Optional String. Prefix used to filter returned files.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|

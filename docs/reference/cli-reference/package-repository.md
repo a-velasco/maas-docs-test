@@ -10,47 +10,47 @@ maas $PROFILE package-repositories create [--help] [-d] [-k] [data ...]
 
 Create a new package repository.
 
-#### Keyword "name"
+### Keyword "name"
 
 Required String. The name of the package repository.
 
-#### Keyword "url"
+### Keyword "url"
 
 Required String. The url of the package repository.
 
-#### Keyword "distributions"
+### Keyword "distributions"
 
 Optional String. Which package distributions to include.
 
-#### Keyword "disabled_pockets"
+### Keyword "disabled_pockets"
 
 Optional String. The list of pockets to disable.
 
-#### Keyword "disabled_components"
+### Keyword "disabled_components"
 
 Optional String.  The list of components to disable. Only applicable to the default Ubuntu repositories.
 
-#### Keyword "components"
+### Keyword "components"
 
 Optional String. The list of components to enable. Only applicable to custom repositories.
 
-#### Keyword "arches"
+### Keyword "arches"
 
 Optional String. The list of supported architectures.
 
-#### Keyword "key"
+### Keyword "key"
 
 Optional String. The authentication key to use with the repository.
 
-#### Keyword "disable_sources"
+### Keyword "disable_sources"
 
 Optional Boolean. Disable deb-src lines.
 
-#### Keyword "enabled"
+### Keyword "enabled"
 
 Optional Boolean. Whether or not the repository is enabled.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -66,7 +66,7 @@ maas $PROFILE package-repositories read [--help] [-d] [-k] [data ...]
 
 List all available package repositories.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -80,13 +80,13 @@ List all available package repositories.
 maas $PROFILE package-repository delete [--help] [-d] [-k] id [data ...]
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - id
 
 Delete a package repository with the given id.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -100,13 +100,13 @@ Delete a package repository with the given id.
 maas $PROFILE package-repository read [--help] [-d] [-k] id [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - id
 
 Read a package repository with the given id.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -120,53 +120,53 @@ Read a package repository with the given id.
 maas $PROFILE package-repository update [--help] [-d] [-k] id [data ...]
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - id
 
 Update the package repository with the given id.
 
-#### Keyword "name"
+### Keyword "name"
 
 Optional String. The name of the package repository.
 
-#### Keyword "url"
+### Keyword "url"
 
 Optional String. The url of the package repository.
 
-#### Keyword "distributions"
+### Keyword "distributions"
 
 Optional String. Which package distributions to include.
 
-#### Keyword "disabled_pockets"
+### Keyword "disabled_pockets"
 
 Optional String. The list of pockets to disable.
 
-#### Keyword "disabled_components"
+### Keyword "disabled_components"
 
 Optional String.  The list of components to disable. Only applicable to the default Ubuntu repositories.
 
-#### Keyword "components"
+### Keyword "components"
 
 Optional String. The list of components to enable. Only applicable to custom repositories.
 
-#### Keyword "arches"
+### Keyword "arches"
 
 Optional String. The list of supported architectures.
 
-#### Keyword "key"
+### Keyword "key"
 
 Optional String. The authentication key to use with the repository.
 
-#### Keyword "disable_sources"
+### Keyword "disable_sources"
 
 Optional Boolean. Disable deb-src lines.
 
-#### Keyword "enabled"
+### Keyword "enabled"
 
 Optional Boolean. Whether or not the repository is enabled.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -180,13 +180,13 @@ Optional Boolean. Whether or not the repository is enabled.
 maas $PROFILE package-repository delete [--help] [-d] [-k] id [data ...]
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - id
 
 Delete a package repository with the given id.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|

@@ -6,7 +6,7 @@ Perform migrations on connected database.
 maas migrate [-h] 
 ```
 
-#### Command-line options
+## Command-line options
 
 | Option     | Effect                          |
 |------------|---------------------------------|

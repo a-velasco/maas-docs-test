@@ -8,13 +8,13 @@ Enter keyword arguments in the form `key=value`.
 maas $PROFILE dnsresource-record delete [--help] [-d] [-k] id [data ...]
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - id
 
 Delete a DNS resource record with the given id.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -28,11 +28,11 @@ Delete a DNS resource record with the given id.
 maas $PROFILE dnsresource-record read [--help] [-d] [-k] id [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - id
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -46,21 +46,21 @@ maas $PROFILE dnsresource-record read [--help] [-d] [-k] id [data ...]
 maas $PROFILE dnsresource-record update [--help] [-d] [-k] id [data ...]
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - id
 
 Update a DNS resource record with the given id.
 
-#### Keyword "rrtype"
+### Keyword "rrtype"
 
 Optional String. Resource type.
 
-#### Keyword "rrdata"
+### Keyword "rrdata"
 
 Optional String. Resource data (everything to the right of type.)
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -76,27 +76,27 @@ maas $PROFILE dnsresource-records create [--help] [-d] [-k] [data ...]
 
 Create a new DNS resource record.
 
-#### Keyword "fqdn"
+### Keyword "fqdn"
 
 Optional String.  Hostname (with domain) for the dnsresource.  Either ``fqdn`` or ``name`` and  ``domain`` must be specified.  ``fqdn`` is ignored if either name or domain is given (e.g. <www.your-maas.maas>).
 
-#### Keyword "name"
+### Keyword "name"
 
 Optional String. The name (or hostname without a domain) of the DNS resource record (e.g. <www.your-maas>)
 
-#### Keyword "domain"
+### Keyword "domain"
 
 Optional String. The domain (name or id) where to create the DNS resource record (Domain (e.g. 'maas')
 
-#### Keyword "rrtype"
+### Keyword "rrtype"
 
 Optional String. The resource record type (e.g ``cname``, ``mx``, ``ns``, ``srv``, ``sshfp``, ``txt``).
 
-#### Keyword "rrdata"
+### Keyword "rrdata"
 
 Optional String. The resource record data (e.g. 'your-maas', '10 mail.your-maas.maas')
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -112,19 +112,19 @@ maas $PROFILE dnsresource-records read [--help] [-d] [-k] [data ...]
 
 List all DNS resource records.
 
-#### Keyword "domain"
+### Keyword "domain"
 
 Optional String. Restricts the listing to entries for the domain.
 
-#### Keyword "name"
+### Keyword "name"
 
 Optional String. Restricts the listing to entries of the given name.
 
-#### Keyword "rrtype"
+### Keyword "rrtype"
 
 Optional String. Restricts the listing to entries which have records of the given rrtype.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -140,19 +140,19 @@ maas $PROFILE dnsresource-records read [--help] [-d] [-k] [data ...]
 
 List all DNS resource records.
 
-#### Keyword "domain"
+### Keyword "domain"
 
 Optional String. Restricts the listing to entries for the domain.
 
-#### Keyword "name"
+### Keyword "name"
 
 Optional String. Restricts the listing to entries of the given name.
 
-#### Keyword "rrtype"
+### Keyword "rrtype"
 
 Optional String. Restricts the listing to entries which have records of the given rrtype.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|

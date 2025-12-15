@@ -8,7 +8,7 @@ maas refresh [-h]
 
 This retrieves the latest version of the help information for each profile.  Use it to update your command-line client's information after an upgrade to the MAAS server.
 
-#### Command-line options
+## Command-line options
 
 | Option    | Effect                          |
 |-----------|---------------------------------|

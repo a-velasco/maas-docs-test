@@ -8,11 +8,11 @@ Enter keyword arguments in the form `key=value`.
 maas $PROFILE resource-pool delete [--help] [-d] [-k] id [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - id
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -26,11 +26,11 @@ maas $PROFILE resource-pool delete [--help] [-d] [-k] id [data ...]
 maas $PROFILE resource-pool read [--help] [-d] [-k] id [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - id
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -44,21 +44,21 @@ maas $PROFILE resource-pool read [--help] [-d] [-k] id [data ...]
 maas $PROFILE resource-pool update [--help] [-d] [-k] id [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - id
 
 Note that any other given parameters are silently ignored.
 
-#### Keyword "description"
+### Keyword "description"
 
 Optional String. A brief description of the resource pool.
 
-#### Keyword "name"
+### Keyword "name"
 
 Optional String. The resource pool's new name.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -72,15 +72,15 @@ Optional String. The resource pool's new name.
 maas $PROFILE resource-pools create [--help] [-d] [-k] [data ...] 
 ```
 
-#### Keyword "name" Required.  The new resource pool's name
+### Keyword "name" Required.  The new resource pool's name
 
 Type: String.
 
-#### Keyword "description"
+### Keyword "description"
 
 Optional String. A brief description of the new resource pool.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -96,7 +96,7 @@ maas $PROFILE resource-pools read [--help] [-d] [-k] [data ...]
 
 Note that there is always at least one resource pool: default.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|

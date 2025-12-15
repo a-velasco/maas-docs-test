@@ -14,7 +14,7 @@ maas config-vault migrate [-h]
 maas config-vault status [-h] 
 ```
 
-#### Positional arguments
+## Positional arguments
 
 | Argument      | Effect                                           |
 |---------------|--------------------------------------------------|
@@ -23,7 +23,7 @@ maas config-vault status [-h]
 | wrapped_token | Vault wrapped token for the AppRole secret_id    |
 | secrets_path  | Path prefix for MAAS secrets in Vault KV storage |
 
-#### Command-line options
+## Command-line options
 
 | Option        | Effect                                         |
 |---------------|------------------------------------------------|

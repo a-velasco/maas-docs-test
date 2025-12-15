@@ -6,7 +6,7 @@ Log in to a remote API, and remember its description and credentials.
 maas login [-h] [--cacerts CACERTS] [-k] profile-name url [credentials] 
 ```
 
-#### Positional arguments
+## Positional arguments
 
 | Argument     | Effect                                                   |
 |--------------|----------------------------------------------------------|
@@ -21,7 +21,7 @@ maas login [-h] [--cacerts CACERTS] [-k] profile-name url [credentials]
 |              | long random-looking string composed of three parts,      |
 |              | separated by colons                                      |
 
-#### Command-line options
+## Command-line options
 
 | Option            | Effect                            |
 |-------------------|-----------------------------------|

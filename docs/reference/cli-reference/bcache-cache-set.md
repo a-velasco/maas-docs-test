@@ -8,14 +8,14 @@ Enter keyword arguments in the form `key=value`.
 maas $PROFILE bcache-cache-set delete [--help] [-d] [-k] system_id id [data ...]
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - system_id
 - id
 
 Delete bcache cache set on a machine.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -29,14 +29,14 @@ Delete bcache cache set on a machine.
 maas $PROFILE bcache-cache-set read [--help] [-d] [-k] system_id id [data ...]
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - system_id
 - id
 
 Read bcache cache set on a machine.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -50,7 +50,7 @@ Read bcache cache set on a machine.
 maas $PROFILE bcache-cache-set update [--help] [-d] [-k] system_id id [data ...]
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - system_id
 - id
@@ -59,15 +59,15 @@ Update bcache cache set on a machine.
 
 Note: specifying both a cache_device and a cache_partition is not allowed.
 
-#### Keyword "cache_device"
+### Keyword "cache_device"
 
 Optional String. Cache block device to replace current one.
 
-#### Keyword "cache_partition"
+### Keyword "cache_partition"
 
 Optional String. Cache partition to replace current one.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -81,7 +81,7 @@ Optional String. Cache partition to replace current one.
 maas $PROFILE bcache-cache-sets create [--help] [-d] [-k] system_id [data ...]
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - system_id
 
@@ -89,15 +89,15 @@ Creates a bcache cache set.
 
 Note: specifying both a cache_device and a cache_partition is not allowed.
 
-#### Keyword "cache_device"
+### Keyword "cache_device"
 
 Optional String. Cache block device.
 
-#### Keyword "cache_partition"
+### Keyword "cache_partition"
 
 Optional String.  Cache partition.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -111,13 +111,13 @@ Optional String.  Cache partition.
 maas $PROFILE bcache-cache-sets read [--help] [-d] [-k] system_id [data ...]
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - system_id
 
 List all bcache cache sets belonging to a machine.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|

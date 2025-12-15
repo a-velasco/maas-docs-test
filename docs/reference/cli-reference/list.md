@@ -6,7 +6,7 @@ List remote APIs that have been logged-in to.
 maas list [-h] 
 ```
 
-#### Command-line options
+## Command-line options
 
 | Option     | Effect                          |
 |------------|---------------------------------|

@@ -8,7 +8,7 @@ Enter keyword arguments in the form `key=value`.
 maas $PROFILE region-controller delete [--help] [-d] [-k] system_id [data ...]
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - system_id
 
@@ -16,11 +16,11 @@ Deletes a region controller with the given system_id.
 
 A region controller cannot be deleted if it hosts pod virtual machines. Use `force` to override this behavior. Forcing deletion will also remove hosted pods.
 
-#### Keyword "force"
+### Keyword "force"
 
 Optional Boolean. Tells MAAS to override disallowing deletion of region controllers that host pod virtual machines.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -34,7 +34,7 @@ Optional Boolean. Tells MAAS to override disallowing deletion of region controll
 maas $PROFILE region-controller details [--help] [-d] [-k] system_id [data ...]
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - system_id
 
@@ -44,7 +44,7 @@ Returns a ``{detail_type: xml, ...}`` map, where ``detail_type`` is something li
 
 Note that this is returned as BSON and not JSON. This is for efficiency, but mainly because JSON can't do binary content without applying additional encoding like base-64. The example output below is represented in ASCII using ``bsondump example.bson`` and is for demonstrative purposes.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -58,7 +58,7 @@ Note that this is returned as BSON and not JSON. This is for efficiency, but mai
 maas $PROFILE region-controller power-parameters [--help] [-d] [-k] system_id [data ...]
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - system_id
 
@@ -66,7 +66,7 @@ Gets power parameters for a given system_id, if any. For some types of power con
 
 Note that this method is reserved for admin users and returns a 403 if the user is not one.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -80,13 +80,13 @@ Note that this method is reserved for admin users and returns a 403 if the user 
 maas $PROFILE region-controller read [--help] [-d] [-k] system_id [data ...]
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - system_id
 
 Reads a node with the given system_id.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -100,29 +100,29 @@ Reads a node with the given system_id.
 maas $PROFILE region-controller update [--help] [-d] [-k] system_id [data ...]
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - system_id
 
 Updates a region controller with the given system_id.
 
-#### Keyword "description"
+### Keyword "description"
 
 Optional String. The new description for this given region controller.
 
-#### Keyword "power_type"
+### Keyword "power_type"
 
 Optional String.  The new power type for this region controller. If you use the default value, power_parameters will be set to the empty string.  Available to admin users.  See the `Power types`_ section for a list of the available power types.
 
-#### Keyword "power_parameters_skip_check"
+### Keyword "power_parameters_skip_check"
 
 Optional String.  Whether or not the new power parameters for this region controller should be checked against the expected power parameters for the region controller's power type ('true' or 'false').  The default is 'false'.
 
-#### Keyword "zone"
+### Keyword "zone"
 
 Optional String. Name of a valid physical zone in which to place this region controller.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -136,13 +136,13 @@ Optional String. Name of a valid physical zone in which to place this region con
 maas $PROFILE region-controller read [--help] [-d] [-k] system_id [data ...]
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - system_id
 
 Reads a node with the given system_id.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -158,15 +158,15 @@ maas $PROFILE region-controllers set-zone [--help] [-d] [-k] [data ...]
 
 Assigns a given node to a given zone.
 
-#### Keyword "zone"
+### Keyword "zone"
 
 Required String. The zone name.
 
-#### Keyword "nodes"
+### Keyword "nodes"
 
 Required String. The node to add.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|

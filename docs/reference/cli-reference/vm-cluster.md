@@ -8,17 +8,17 @@ Enter keyword arguments in the form `key=value`.
 maas $PROFILE vm-cluster delete [--help] [-d] [-k] id [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - id
 
 Deletes a VM cluster with the given ID.
 
-#### Keyword "decompose"
+### Keyword "decompose"
 
 Optional Boolean. Whether to also decompose all machines in the VM cluster on removal. If not provided, machines will not be removed.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -32,11 +32,11 @@ Optional Boolean. Whether to also decompose all machines in the VM cluster on re
 maas $PROFILE vm-cluster read [--help] [-d] [-k] id [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - id
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -50,25 +50,25 @@ maas $PROFILE vm-cluster read [--help] [-d] [-k] id [data ...]
 maas $PROFILE vm-cluster update [--help] [-d] [-k] id [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - id
 
 Update a specific VM cluster by ID.
 
-#### Keyword "name"
+### Keyword "name"
 
 Optional String. The VM cluster's name.
 
-#### Keyword "pool"
+### Keyword "pool"
 
 Optional String. The name of the resource pool associated with this VM Cluster -- this change is propagated to VM hosts
 
-#### Keyword "zone"
+### Keyword "zone"
 
 Optional String. The VM cluster's zone.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|

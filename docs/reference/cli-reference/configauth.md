@@ -6,7 +6,7 @@ Configure external authentication.
 maas configauth [-h] [--candid-agent-file CANDID_AGENT_FILE] [--candid-domain CANDID_DOMAIN] [--candid-admin-group CANDID_ADMIN_GROUP] [--rbac-url RBAC_URL]  [--rbac-service-name RBAC_SERVICE_NAME] [--json]
 ```
 
-#### Command-line options
+## Command-line options
 
 | Option                                  | Effect                                                |
 |-----------------------------------------|-------------------------------------------------------|

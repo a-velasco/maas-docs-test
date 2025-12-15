@@ -8,13 +8,13 @@ Enter keyword arguments in the form `key=value`.
 maas $PROFILE tag delete [--help] [-d] [-k] name [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - name
 
 Deletes a tag by name.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -28,13 +28,13 @@ Deletes a tag by name.
 maas $PROFILE tag devices [--help] [-d] [-k] name [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - name
 
 Get a JSON list containing device objects that match the given tag name.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -48,13 +48,13 @@ Get a JSON list containing device objects that match the given tag name.
 maas $PROFILE tag machines [--help] [-d] [-k] name [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - name
 
 Get a JSON list containing machine objects that match the given tag name.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -68,13 +68,13 @@ Get a JSON list containing machine objects that match the given tag name.
 maas $PROFILE tag nodes [--help] [-d] [-k] name [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - name
 
 Get a JSON list containing node objects that match the given tag name.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -88,13 +88,13 @@ Get a JSON list containing node objects that match the given tag name.
 maas $PROFILE tag rack-controllers [--help] [-d] [-k] name [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - name
 
 Get a JSON list containing rack-controller objectsthat match the given tag name.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -108,13 +108,13 @@ Get a JSON list containing rack-controller objectsthat match the given tag name.
 maas $PROFILE tag read [--help] [-d] [-k] name [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - name
 
 Returns a JSON object containing information about a specific tag.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -128,13 +128,13 @@ Returns a JSON object containing information about a specific tag.
 maas $PROFILE tag rebuild [--help] [-d] [-k] name [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - name
 
 Tells MAAS to rebuild the tag-to-node mappings. This is a maintenance operation and should not be necessary under normal circumstances. Adding nodes or updating a tag definition should automatically trigger the mapping rebuild.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -148,13 +148,13 @@ Tells MAAS to rebuild the tag-to-node mappings. This is a maintenance operation 
 maas $PROFILE tag region-controllers [--help] [-d] [-k] name [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - name
 
 Get a JSON list containing region-controller objects that match the given tag name.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -168,25 +168,25 @@ Get a JSON list containing region-controller objects that match the given tag na
 maas $PROFILE tag update [--help] [-d] [-k] name [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - name
 
 Update elements of a given tag.
 
-#### Keyword "name"
+### Keyword "name"
 
 Optional String. The new tag name. Because the name will be used in urls, it should be short.
 
-#### Keyword "comment"
+### Keyword "comment"
 
 Optional String. A description of what the the tag will be used for in natural language.
 
-#### Keyword "definition"
+### Keyword "definition"
 
 Optional String. An XPATH query that is evaluated against the hardware_details stored for all nodes (i.e. the output of ``lshw -xml``).
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -200,29 +200,29 @@ Optional String. An XPATH query that is evaluated against the hardware_details s
 maas $PROFILE tag update-nodes [--help] [-d] [-k] name [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - name
 
 Add or remove nodes associated with the given tag.  Note that you must supply either the ``add`` or ``remove`` parameter.
 
-#### Keyword "add"
+### Keyword "add"
 
 Optional String. The system_id to tag.
 
-#### Keyword "remove"
+### Keyword "remove"
 
 Optional String. The system_id to untag.
 
-#### Keyword "definition"
+### Keyword "definition"
 
 Optional String. If given, the definition (XPATH expression) will be validated against the current definition of the tag. If the value does not match, MAAS assumes the worker is out of date and will drop the update.
 
-#### Keyword "rack_controller"
+### Keyword "rack_controller"
 
 Optional String.  The system ID of the rack controller that processed the given tag initially. If not given, the requester must be a MAAS admin. If given, the requester must be the rack controller.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -238,7 +238,7 @@ maas $PROFILE tags read [--help] [-d] [-k] [data ...]
 
 Outputs a JSON object containing an array of all currently defined tag objects.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|

@@ -8,14 +8,14 @@ Enter keyword arguments in the form `key=value`.
 maas $PROFILE vlan delete [--help] [-d] [-k] fabric_id vid [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - fabric_id
 - vid
 
 Delete VLAN on a given fabric.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -29,14 +29,14 @@ Delete VLAN on a given fabric.
 maas $PROFILE vlan read [--help] [-d] [-k] fabric_id vid [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - fabric_id
 - vid
 
 Retrieves a VLAN on a given fabric_id.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -50,46 +50,46 @@ Retrieves a VLAN on a given fabric_id.
 maas $PROFILE vlan update [--help] [-d] [-k] fabric_id vid [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - fabric_id
 - vid
 
 Updates a given VLAN.
 
-#### Keyword "name"
+### Keyword "name"
 
 Optional String. Name of the VLAN.
 
-#### Keyword "description"
+### Keyword "description"
 
 Optional String. Description of the VLAN.
 
-#### Keyword "mtu"
+### Keyword "mtu"
 
 Optional Int. The MTU to use on the VLAN.
 
-#### Keyword "dhcp_on"
+### Keyword "dhcp_on"
 
 Optional Boolean. Whether or not DHCP should be managed on the VLAN.
 
-#### Keyword "primary_rack"
+### Keyword "primary_rack"
 
 Optional String. The primary rack controller managing the VLAN (system_id).
 
-#### Keyword "secondary_rack"
+### Keyword "secondary_rack"
 
 Optional String. The secondary rack controller managing the VLAN (system_id).
 
-#### Keyword "relay_vlan"
+### Keyword "relay_vlan"
 
 Optional Int. Relay VLAN ID. Only set when this VLAN will be using a DHCP relay to forward DHCP requests to another VLAN that MAAS is managing. MAAS will not run the DHCP relay itself, it must be configured to proxy requests to the primary and/or secondary rack controller interfaces for the VLAN specified in this field.
 
-#### Keyword "space"
+### Keyword "space"
 
 Optional String. The space this VLAN should be placed in. Passing in an empty string (or the string 'undefined') will cause the VLAN to be placed in the 'undefined' space.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -103,33 +103,33 @@ Optional String. The space this VLAN should be placed in. Passing in an empty st
 maas $PROFILE vlans create [--help] [-d] [-k] fabric_id [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - fabric_id
 
 Creates a new VLAN.
 
-#### Keyword "name"
+### Keyword "name"
 
 Optional String. Name of the VLAN.
 
-#### Keyword "description"
+### Keyword "description"
 
 Optional String. Description of the new VLAN.
 
-#### Keyword "vid"
+### Keyword "vid"
 
 Required Int. VLAN ID of the new VLAN.
 
-#### Keyword "mtu"
+### Keyword "mtu"
 
 Optional Int. The MTU to use on the VLAN.
 
-#### Keyword "space"
+### Keyword "space"
 
 Optional String. The space this VLAN should be placed in. Passing in an empty string (or the string 'undefined') will cause the VLAN to be placed in the 'undefined' space.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -143,13 +143,13 @@ Optional String. The space this VLAN should be placed in. Passing in an empty st
 maas $PROFILE vlans read [--help] [-d] [-k] fabric_id [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - fabric_id
 
 List all VLANs belonging to given fabric.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|

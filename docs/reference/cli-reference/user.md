@@ -8,17 +8,17 @@ Enter keyword arguments in the form `key=value`.
 maas $PROFILE user delete [--help] [-d] [-k] username [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - username
 
 Deletes a given username.
 
-#### Keyword "transfer_resources_to"
+### Keyword "transfer_resources_to"
 
 Optional String.  An optional username. If supplied, the allocated resources of the user being deleted will be transferred to this user. A user can't be removed unless its resources (machines, IP addresses, ...), are released or transfered to another user.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -32,13 +32,13 @@ Optional String.  An optional username. If supplied, the allocated resources of 
 maas $PROFILE user read [--help] [-d] [-k] username [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - username
 
 Retrieve a user's details.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -54,23 +54,23 @@ maas $PROFILE users create [--help] [-d] [-k] [data ...]
 
 Creates a MAAS user account.  This is not safe: the password is sent in plaintext.  Avoid it for production, unless you are confident that you can prevent eavesdroppers from observing the request.
 
-#### Keyword "username"
+### Keyword "username"
 
 Required String. Identifier-style username for the new user.
 
-#### Keyword "email"
+### Keyword "email"
 
 Required String. Email address for the new user.
 
-#### Keyword "password"
+### Keyword "password"
 
 Required String. Password for the new user.
 
-#### Keyword "is_superuser"
+### Keyword "is_superuser"
 
 Required Boolean. Whether the new user is to be an administrator. ('0' == False, '1' == True)
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -86,7 +86,7 @@ maas $PROFILE users read [--help] [-d] [-k] [data ...]
 
 List users
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
@@ -102,7 +102,7 @@ maas $PROFILE users whoami [--help] [-d] [-k] [data ...]
 
 Returns the currently logged-in user.
 
-#### Command-line options
+### Command-line options
 
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|

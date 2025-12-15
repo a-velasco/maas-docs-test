@@ -10,11 +10,11 @@ maas $PROFILE maas get-config [--help] [-d] [-k] [data ...]
 
 Get a configuration value.
 
-#### Keyword "name"
+### Keyword "name"
 
 Required String.  The name of the configuration item to be retrieved.  See "Available configuration items" for the list of names & descriptions.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -30,15 +30,15 @@ maas $PROFILE maas set-config [--help] [-d] [-k] [data ...]
 
 Set a configuration value.
 
-#### Keyword "value"
+### Keyword "value"
 
 Optional String. The value of the configuration item to be set.
 
-#### Keyword "name"
+### Keyword "name"
 
 Required.  The name of the configuration item to be set. See "Available configuration items" for the list of names & descriptions.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|

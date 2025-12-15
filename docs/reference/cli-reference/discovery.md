@@ -12,7 +12,7 @@ Lists all discovered devices with an unknown IP address.  Filters the list of di
 
 Discoveries are listed in the order they were last observed on the network (most recent first).
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -30,7 +30,7 @@ Lists all discovered devices completely unknown to MAAS. Filters the list of dis
 
 Discoveries are listed in the order they were last observed on the network (most recent first).
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -48,7 +48,7 @@ Filters the list of discovered devices by excluding any discoveries where an int
 
 Discoveries are listed in the order they were last observed on the network (most recent first).
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -64,19 +64,19 @@ maas $PROFILE discoveries clear [--help] [-d] [-k] [data ...]
 
 Deletes all discovered neighbours and/or mDNS entries. Note: One of ``mdns``, ``neighbours``, or ``all`` parameters must be supplied.
 
-#### Keyword "mdns"
+### Keyword "mdns"
 
 Optional Boolean. Delete all mDNS entries.
 
-#### Keyword "neighbours"
+### Keyword "neighbours"
 
 Optional Boolean. Delete all neighbour entries.
 
-#### Keyword "all"
+### Keyword "all"
 
 Optional Boolean. Delete all discovery data.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -92,15 +92,15 @@ maas $PROFILE discoveries clear-by-mac-and-ip [--help] [-d] [-k] [data ...]
 
 Deletes all discovered neighbours (and associated reverse DNS entries) associated with the given IP address and MAC address.
 
-#### Keyword "ip"
+### Keyword "ip"
 
 Required String. IP address
 
-#### Keyword "mac"
+### Keyword "mac"
 
 Required String. MAC address
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -116,7 +116,7 @@ maas $PROFILE discoveries read [--help] [-d] [-k] [data ...]
 
 Lists all the devices MAAS has discovered. Discoveries are listed in the order they were last observed on the network (most recent first).
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -152,27 +152,27 @@ If the call is a success, this method will return a dictionary of results with t
 
 ``rpc_call_timed_out_on``: A list of rack system_id values where the RPC connection was made, but the call timed out before a ten second timeout elapsed.
 
-#### Keyword "cidr"
+### Keyword "cidr"
 
 Optional String.  The subnet CIDR(s) to scan (can be specified multiple times). If not specified, defaults to all networks.
 
-#### Keyword "force"
+### Keyword "force"
 
 Optional Boolean.  If True, will force the scan, even if all networks are specified. (This may not be the best idea, depending on acceptable use agreements, and the politics of the organization that owns the network.) Note that this parameter is required if all networks are specified. Default: False.
 
-#### Keyword "always_use_ping"
+### Keyword "always_use_ping"
 
 Optional String. If True, will force the scan to use 'ping' even if 'nmap' is installed. Default: False.
 
-#### Keyword "slow"
+### Keyword "slow"
 
 Optional String.  If True, and 'nmap' is being used, will limit the scan to nine packets per second. If the scanner is 'ping', this option has no effect. Default: False.
 
-#### Keyword "threads"
+### Keyword "threads"
 
 Optional String.  The number of threads to use during scanning. If 'nmap' is the scanner, the default is one thread per 'nmap' process. If 'ping' is the scanner, the default is four threads per CPU.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
@@ -186,13 +186,13 @@ Optional String.  The number of threads to use during scanning. If 'nmap' is the
 maas $PROFILE discovery read [--help] [-d] [-k] discovery_id [data ...] 
 ```
 
-#### Positional arguments
+### Positional arguments
 
 - discovery_id
 
 Read a discovery with the given discovery_id.
 
-#### Command-line options
+### Command-line options
 
 | Option | Effect |
 |-----|-----|
