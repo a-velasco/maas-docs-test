@@ -1,4 +1,3 @@
-(how-to-guides-build-ubuntu-images)=
 # Build Ubuntu images
 
 You can build and deploy your own customized Ubuntu images using [Packer](https://developer.hashicorp.com/packer).
@@ -19,5 +18,5 @@ If you only need Ubuntu images, start in the `ubuntu/` directory of the reposito
 That folder provides a ready-made template and `Makefile` for building Ubuntu images.
 
 For more background, see:
-- [Packer documentation](https://developer.hashicorp.com/packer/docs)
 
+- [Packer documentation](https://developer.hashicorp.com/packer/docs)

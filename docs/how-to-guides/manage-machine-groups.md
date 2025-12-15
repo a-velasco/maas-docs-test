@@ -1,4 +1,3 @@
-(how-to-guides-manage-machine-groups)=
 # Manage machine groups
 
 At scale, a MAAS deployment can quickly turn into a forest of machines that are hard to track. Grouping helps make sense of that sprawl. The goal isn’t just tidiness; groups give you practical handles for filtering, access control, and high-availability strategies.  For more information about these labels, refer to [About machine groups](https://canonical.com/maas/docs/about-machine-groups).
@@ -13,6 +12,7 @@ Availability zones (AZs) help you group machines for any desired purposes that d
 *Main menu* > *AZs* > *Add AZ* > Enter *Name*, *Description* > *Add AZ*.
 
 **CLI**
+
 ```sh
 maas $PROFILE zones create name=$ZONE_NAME description=$ZONE_DESCRIPTION
 ```
@@ -23,6 +23,7 @@ maas $PROFILE zones create name=$ZONE_NAME description=$ZONE_DESCRIPTION
 *Main menu* > *AZs* > Select AZ > *Edit* > Update *Name*, *Description* > *Update AZ*.
 
 **CLI**
+
 ```sh
 maas $PROFILE zone update $OLD_ZONE_NAME name=$NEW_ZONE_NAME \
 description=$ZONE_DESCRIPTION
@@ -34,6 +35,7 @@ description=$ZONE_DESCRIPTION
 *Main menu* > *AZs* > Select zone > *Delete AZ* > *Delete AZ*.
 
 **CLI**
+
 ```sh
 maas $PROFILE zone delete $ZONE_NAME
 ```
@@ -44,6 +46,7 @@ maas $PROFILE zone delete $ZONE_NAME
 *Main menu* > *AZs*
 
 **CLI**
+
 ```sh
 maas $PROFILE zones read \
 | jq -r '(["ZONE","NAME","DESCRIPTION"]
@@ -52,6 +55,7 @@ maas $PROFILE zones read \
 ```
 
 Example output:
+
 ```sh
 ZONE  NAME         DESCRIPTION
 5     BizOffice
@@ -73,11 +77,13 @@ ZONE  NAME         DESCRIPTION
 **CLI**
 
 First, find the machine's system ID:
+
 ```sh
 maas $PROFILE machines read | jq '.[] | .hostname, .system_id'
 ```
 
 Then assign it to a zone:
+
 ```sh
 maas admin machine update $SYSTEM_ID zone=$ZONE_NAME
 ```
@@ -90,6 +96,7 @@ Select *Machines*.
 Use the filter at the top of the table to select the desired Zone. The list updates in real time to show only machines in matching zones.
 
 **CLI**
+
 ```sh
 maas $PROFILE machines read | jq -r '.[] | select(.zone == "ZONE_NAME") | [.hostname, .system_id] | @tsv'
 ```
@@ -97,17 +104,20 @@ maas $PROFILE machines read | jq -r '.[] | select(.zone == "ZONE_NAME") | [.host
 This returns a list of all machines currently assigned to that availability zone.
 
 ## Manage resource pools
+
 Resource pools allow you to group machines for access control and organizational purposes. In MAAS, you can create, update, delete, and assign machines to pools.  You can also search for machines matching full or partial resource pool name.
 
 ### Create a resource pool
 
 **UI**
+
 1. From the main menu, select **Pools**.
 2. Click **Add pool**.
 3. Enter a **Name** and (optionally) a **Description**.
 4. Click **Add pool**.
 
 **CLI**
+
 ```sh
 maas $PROFILE resource-pools create name=$POOL_NAME description=$POOL_DESCRIPTION
 ```
@@ -118,6 +128,7 @@ maas $PROFILE resource-pools create name=$POOL_NAME description=$POOL_DESCRIPTIO
 Select *Pools* > [pool to edit] > *Edit* > update *Name* and/or *Description* > *Update pool*
 
 **CLI**
+
 ```sh
 maas $PROFILE resource-pool update $POOL_ID name=$NEW_NAME description=$NEW_DESCRIPTION
 ```
@@ -128,6 +139,7 @@ maas $PROFILE resource-pool update $POOL_ID name=$NEW_NAME description=$NEW_DESC
 *Pools* > [select pool to delete] > *Delete pool* > *Delete pool*
 
 **CLI**
+
 ```sh
 maas $PROFILE resource-pool delete $POOL_ID
 ```
@@ -138,6 +150,7 @@ maas $PROFILE resource-pool delete $POOL_ID
 *Pools*
 
 **CLI**
+
 ```sh
 maas $PROFILE resource-pools read \
 | jq -r '(["ID","NAME","DESCRIPTION"]
@@ -181,6 +194,7 @@ From the main menu, select *Machines*.
 Use the filter at the top of the table to select the desired Pool.  The list updates to show only machines in matching pools..
 
 **CLI**
+
 ```sh
 maas $PROFILE machines read | jq -r '.[] | select(.pool.id == POOL_ID) | [.hostname, .system_id] | @tsv'
 ```
@@ -190,6 +204,7 @@ maas $PROFILE machines read | jq -r '.[] | select(.pool.id == POOL_ID) | [.hostn
 Tags are persistent labels that remain associated with machines until you remove them. They can be created manually or automatically (via XPath expressions) and are useful for filtering, commissioning, deployment, and even attaching kernel options.
 
 ### Naming rules for tags
+
 - Tag names can include: alphabetic letters (a–z, A–Z), numbers (0–9), dashes (-), and underscores (_).
 - Tag names cannot include spaces.
 - Maximum length: 256 characters.
@@ -201,6 +216,7 @@ Tags are persistent labels that remain associated with machines until you remove
 *Organisation* > *Tags* > *Create new tag* > Enter *Name*, *Comment*, *Xpath expression* > *Save*
 
 **Cli**
+
 ```
 maas $PROFILE tags create name=$TAG_NAME comment="$TAG_COMMENT"
 ```
@@ -211,6 +227,7 @@ maas $PROFILE tags create name=$TAG_NAME comment="$TAG_COMMENT"
 *Organization* > *Tags* > *Create new tag* or [Click the pencil icon to edit a tag] > *Kernel options* > [Enter desired kernel options] > *Save*
 
 **CLI**
+
 ```
 maas $PROFILE tags create name="$TAG_NAME"     comment="$TAG_COMMENT" kernel_opts="$KERNEL_OPTIONS"
 ```
@@ -221,9 +238,11 @@ maas $PROFILE tags create name="$TAG_NAME"     comment="$TAG_COMMENT" kernel_opt
 *Machines* > [Select machine(s)] > *Take action* > *Tag* > [add or Remove tags] > *Save*
 
 **UI (MAAS 3.1 and earlier)**
+
 - Use the **Tags box** on the machine’s page. Remove tags by clicking the **X**.
 
 **CLI**
+
 ```
 maas $PROFILE machines read | jq '.[] | .hostname, .system_id'
 maas $PROFILE tag update-nodes $TAG_NAME add=$SYSTEM_ID
@@ -233,11 +252,13 @@ maas $PROFILE tag update-nodes $TAG_NAME remove=$SYSTEM_ID
 ### Remove or delete tags
 
 **UI**
+
 - Delete from all machines: *Machines* > *Tags* > [Trash can icon] > *Confirm*
 
 - Remove from selected machines: *Machines* > [Select machines] > *Take action* > *Tag* > *Remove* > *Save*.
 
 **CLI**
+
 ```
 maas $PROFILE tag delete $TAG_NAME
 ```
@@ -248,6 +269,7 @@ maas $PROFILE tag delete $TAG_NAME
 *Organisation* > *Tags* > [pencil icon] > Update *Name*, *Comment*, *Definition*, *Kernel options* > *Save*
 
 **CLI**
+
 ```
 maas $PROFILE tag update $TAG_NAME comment="$TAG_COMMENT"
 ```
@@ -258,6 +280,7 @@ maas $PROFILE tag update $TAG_NAME comment="$TAG_COMMENT"
 *Organisation* > *Tags*
 
 **CLI**
+
 ```
 maas $PROFILE tags read | jq -r '(["tag_name","tag_comment"]
 |(.,map(length*"-"))),(.[]|[.name,.comment]) | @tsv' | column -t
@@ -266,10 +289,10 @@ maas $PROFILE tags read | jq -r '(["tag_name","tag_comment"]
 ### Rebuild a tag
 
 **CLI only**
+
 ```
 maas $PROFILE tag rebuild $TAG_NAME
 ```
-
 
 ### Manage automatic tags
 
@@ -277,13 +300,14 @@ maas $PROFILE tag rebuild $TAG_NAME
 *Organisation* > *Tags* > *Create new tag* > [Fill in the form] > *Save*
 
 **Update automatic tags**
+
 - Edit the tag definition (pencil icon) and save.
 - MAAS re-tags matching machines in the background.
 
 **Update kernel options on automatic tags**
+
 - UI only: Edit the tag, change kernel options, and save.
 - Options apply at boot; redeploy machines for changes to take effect.
-
 
 ### VM host tags
 
@@ -291,6 +315,7 @@ maas $PROFILE tag rebuild $TAG_NAME
 *KVM* > [VM host type] > [VM host] > *KVM host settings* > *Tags* > *Add* / *Edit* / *Delete*
 
 **CLI**
+
 ```
 maas $PROFILE vmhosts read | jq -r '(["vm_host_name","id"]
 |(.,map(length*"-"))),(.[]|[.name,.id]) | @tsv' | column -t
@@ -310,6 +335,7 @@ maas $PROFILE vmhost read $VMHOST_ID | jq -r '(["name","id","tags"]
 Filter will gradually winnow down to only those machines carrying the tags you picked.  You can actually combine other items in this filter (pool, zone, status...).
 
 **CLI**
+
 ```
 maas $PROFILE machines read | jq -r '.[] | select(.tags[]? == "TAG_NAME") | [.hostname,.system_id] | @tsv'
 ```
@@ -321,12 +347,14 @@ Notes are longer, persistent descriptions attached to a machine. They remain wit
 ### Add or modify notes
 
 **UI**
+
 1. Go to **Machines > (Machine)**.
 2. Select **Configuration > Edit**.
 3. Enter or edit the **Note** field.
 4. Click **Save changes**.
 
 **CLI**
+
 ```
 maas $PROFILE machines read | jq -r '(["hostname","system_id"]
 |(.,map(length*"-"))),(.[]|[.hostname,.system_id]) | @tsv' | column -t
@@ -340,6 +368,7 @@ maas $PROFILE machine update $SYSTEM_ID description="$NOTE"
 *Machines* > [Select machine] > *Configuration* > *Edit* > [Erase the note field] > *Save changes*
 
 **CLI**
+
 ```
 maas $PROFILE machine update $SYSTEM_ID description=""
 ```
@@ -347,6 +376,7 @@ maas $PROFILE machine update $SYSTEM_ID description=""
 ### Search for machines with notes
 
 **CLI**
+
 ```
 maas $PROFILE machines read | jq -r '.[] | select(.description != null and .description != "") | [.hostname,.system_id,.description] | @tsv'
 ```
@@ -360,6 +390,7 @@ Dynamic annotations are ephemeral, key–value metadata attached to machines. Th
 ### Identify eligible machines
 
 **CLI only**
+
 ```
 maas $PROFILE machines read | jq -r '(["hostname","system_id","status"]
 |(.,map(length*"-"))),(.[]|[.hostname,.system_id,.status_name]) | @tsv' | column -t
@@ -368,6 +399,7 @@ maas $PROFILE machines read | jq -r '(["hostname","system_id","status"]
 ### Set an annotation
 
 **CLI only**
+
 ```
 maas $PROFILE machine set-owner-data $SYSTEM_ID KEY=VALUE
 ```
@@ -375,6 +407,7 @@ maas $PROFILE machine set-owner-data $SYSTEM_ID KEY=VALUE
 ### Update an annotation
 
 **CLI only**
+
 ```
 maas $PROFILE machine set-owner-data $SYSTEM_ID KEY=NEW_VALUE
 ```
@@ -382,6 +415,7 @@ maas $PROFILE machine set-owner-data $SYSTEM_ID KEY=NEW_VALUE
 ### Remove an annotation
 
 **CLI only**
+
 ```
 maas $PROFILE machine set-owner-data $SYSTEM_ID KEY=""
 ```
@@ -389,6 +423,7 @@ maas $PROFILE machine set-owner-data $SYSTEM_ID KEY=""
 ### List annotations
 
 **CLI only**
+
 ```
 maas $PROFILE machines read | jq -r '(["hostname","system_id","owner_data"]
 |(.,map(length*"-"))),(.[]|[.hostname,.system_id,.owner_data]) | @tsv'
@@ -397,6 +432,7 @@ maas $PROFILE machines read | jq -r '(["hostname","system_id","owner_data"]
 ### Search for machines with a specific annotation
 
 **CLI only**
+
 ```
 maas $PROFILE machines read | jq -r '.[] | select(.owner_data.KEY == "VALUE") | [.hostname,.system_id] | @tsv'
 ```
@@ -422,4 +458,3 @@ If you’re trying to decide which grouping mechanism to use, it helps to think 
 | **Resource pools**   | One per machine. Just a label in plain MAAS, often used for org or project grouping.   | Juju does not use pools.                                                            | OpenStack does not use pools.                                                        | Pools are the main grouping mechanism tied to RBAC. Assigning a pool restricts which users or teams can access those machines. |
 
 In short: tags = many-to-many flexible filters, zones = one-to-many failover domains, pools = one-to-many access control.
-

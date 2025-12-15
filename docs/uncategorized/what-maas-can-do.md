@@ -1,4 +1,3 @@
-(uncategorized-what-maas-can-do)=
 # What MAAS can do
 
 Metal as a Service (MAAS) is an open-source tool from Canonical that brings cloud-like agility to physical servers. In essence, MAAS lets you treat a data center of bare-metal machines as if it were a cloud, enabling on-demand provisioning, automated configuration, and life-cycle management of physical servers. It provides fast self-service provisioning for a wide range of operating systems – including Ubuntu, Windows, CentOS, RHEL, SUSE, and even VMware ESXi – allowing users to deploy or re-image machines with a few clicks or API calls. By implementing many of the standard features of public cloud on bare metal (such as user metadata and cloud-init for automation), MAAS gives end-users full control of deployed physical machines as if they were cloud instances.
@@ -74,4 +73,3 @@ Before and after deployment, MAAS can run various tests on machines to ensure th
 ---
 
 With these capabilities, MAAS serves as a Software-Defined Data Center (SDDC) provisioner that covers everything from power-on to OS install to networking and storage setup. It ties together all the low-level pieces – PXE, DHCP, DNS, IPMI/BMC control, imaging – into one cohesive system with a clean UI and API. In the following sections, we explore how these features come to life in different environments and use-case scenarios, demonstrating what MAAS can do for various categories of technical users.
-

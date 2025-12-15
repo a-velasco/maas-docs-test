@@ -1,4 +1,3 @@
-(uncategorized-is-maas-for-me)=
 # Is MAAS for me?
 
 When you first hear about **MAAS (Metal as a Service)**, it sounds powerful: bare-metal provisioning at scale, just a few clicks or commands away. But is MAAS the right tool for your environment? This page will help you decide.
@@ -34,4 +33,3 @@ Just because MAAS can be installed on a single machine doesn’t mean that’s w
 ## Bottom line
 
 Think of MAAS as **infrastructure plumbing**: it’s there to automate and standardize how bare-metal hardware gets provisioned and networked. If your challenges live at that layer, MAAS is exactly what you need. If your challenges are elsewhere—apps, updates, desktops, or lightweight dev machines—there are better tools.
-

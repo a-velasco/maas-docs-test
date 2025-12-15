@@ -1,6 +1,4 @@
-(explanation-events)=
 # Events
-
 
 Events in MAAS record what’s happening inside the system — from machine state changes to user actions and configuration updates. Understanding them helps you:
 
@@ -9,10 +7,10 @@ Events in MAAS record what’s happening inside the system — from machine stat
 - Maintain an audit trail for compliance and governance.
 
 Events can be triggered by:
+
 - Internal processes (e.g., a machine moving from commissioning to testing).
 - External conditions (e.g., a controller restarting).
 - User actions (e.g., acquiring or deleting a machine).
-
 
 ## Ways to view events
 
@@ -26,7 +24,6 @@ You can explore events in three different ways, depending on how much detail you
 
 - UI Event Log (summary view)
   A user-friendly log of major events, easy to read at a glance.
-
 
 ## Examples
 
@@ -71,7 +68,6 @@ UI event log
 | Thu, 29 Sep. 2022 20:04:17 | Node changed status – From *Testing* to *Ready* |
 | Thu, 29 Sep. 2022 20:04:07 | Node changed status – From *Commissioning* to *Testing* |
 
-
 ## About audit events
 
 In addition to standard events, MAAS generates audit events (`AUDIT` level) that focus on:
@@ -81,10 +77,10 @@ In addition to standard events, MAAS generates audit events (`AUDIT` level) that
 - System settings (DHCP snippets, scripts, and more).
 
 Audit logs are especially valuable for:
+
 - Compliance and governance.
 - Tracing historical changes.
 - Reconstructing the timeline of a problem.
-
 
 ## Working with audit events
 
@@ -130,7 +126,6 @@ maas $PROFILE events query username=jane level=AUDIT | grep "Deleted "
 
 Filters can be combined for precise queries.
 
-
 ## Summary
 
 - Events show what’s happening inside MAAS.
@@ -139,6 +134,6 @@ Filters can be combined for precise queries.
 - Filtering and parsing make large event sets manageable.
 
 ## Next steps
+
 - Discover [how to use logging](https://canonical.com/maas/docs/how-to-use-logging)
 - Scan the [MAAS logging reference](https://canonical.com/maas/docs/maas-logging-reference) to discover the various types of logs available in MAAS
-

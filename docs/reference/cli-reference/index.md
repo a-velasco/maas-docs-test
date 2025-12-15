@@ -1,4 +1,3 @@
-(reference-cli-reference-index)=
 # Cli-Reference
 
 ```{toctree}

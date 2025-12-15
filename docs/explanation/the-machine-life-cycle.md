@@ -1,8 +1,6 @@
-(explanation-the-machine-life-cycle)=
 # The machine life-cycle
 
 Once MAAS has discovered a machine, it begins a structured life-cycle that reflects the real stages of bringing hardware into service, operating it, and eventually returning it to the pool. Understanding this flow is essential to managing machines effectively.
-
 
 ## Enlistment: when MAAS first meets a machine
 
@@ -11,7 +9,6 @@ When a machine is configured to network boot (PXE/iPXE) on a subnet controlled b
 - New – visible to admins, but not yet trusted for workloads.
 
 Admins can also manually add machines. In that case MAAS skips the “new” stage and immediately commissions them.
-
 
 ## Commissioning: gathering the details
 
@@ -30,7 +27,6 @@ Outcomes:
 
 At this point MAAS has a complete hardware inventory for scheduling and can deploy the machine.
 
-
 ## Allocation and ownership
 
 To prevent conflicts in multi-user environments, machines must be allocated before they can be deployed:
@@ -38,7 +34,6 @@ To prevent conflicts in multi-user environments, machines must be allocated befo
 - Allocated – a “ready” machine has been reserved by a user or project. Other users can’t deploy it until it’s released.
 
 Allocation does not change the machine’s state on the wire — it still sits idle — but it locks the record in MAAS for one user.
-
 
 ## Deployment: making the machine useful
 
@@ -55,7 +50,6 @@ The states:
 
 From here, the machine is fully usable as a server.
 
-
 ## Releasing: returning to the pool
 
 When the workload is finished, a machine can be released:
@@ -65,7 +59,6 @@ When the workload is finished, a machine can be released:
 
 Disk erasure ensures sensitive data isn’t passed to the next user.
 
-
 ## Exceptional and maintenance states
 
 Some states occur outside the normal cycle:
@@ -74,12 +67,10 @@ Some states occur outside the normal cycle:
 - Broken – an admin can mark a machine as broken when it has hardware issues; it cannot be deployed until repaired and recommissioned.
 - Failed – an automatic state assigned when commissioning or deployment did not succeed. Machines must be recommissioned before use.
 
-
 ## Advanced features
 
 - Cloning configurations (3.1+): admins can copy storage and network layouts from one machine to others, provided their hardware is compatible.
 - Adding live machines (3.1+): MAAS can import machines that are already running workloads. These appear as “deployed” immediately, bypassing the usual commissioning sequence.
-
 
 ## Key takeaway
 
@@ -93,4 +84,3 @@ Understanding the transitions — what MAAS is doing, what the admin can do, and
 
 - Dig into [the commissioning process](https://canonical.com/maas/docs/about-commissioning-machines) to understand the kinds of hardware knowledge MAAS needs to deploy a machine successfully.
 - Take a deep dive into [machine deployment](https://canonical.com/maas/docs/about-deploying-machines); this is how MAAS provisions machines to run workloads.
-

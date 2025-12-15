@@ -1,4 +1,3 @@
-(uncategorized-deploying-maas-best-practices)=
 # Deploying MAAS: Best practices
 
 Installing MAAS is straightforward: add the snap, run `maas init`, and you’re up and running. But if you’ve ever watched a seasoned MAAS operator set up a region or rack, you’ll notice they make different choices than someone new to the tool. This page collects those best practices — lessons learned in real deployments — to help you get off on the right foot.
@@ -44,4 +43,3 @@ Installing MAAS is straightforward: add the snap, run `maas init`, and you’re 
 ## Bottom line
 
 Anyone can follow the quick-start guide and get MAAS running. The difference between a test install and a production-grade deployment is in the details: network planning, separation of roles, automation, and disciplined operating practices. Think like an infrastructure engineer, not just a software installer, and MAAS will serve you reliably at scale.
-

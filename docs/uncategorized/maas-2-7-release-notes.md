@@ -1,4 +1,3 @@
-(uncategorized-maas-2-7-release-notes)=
 # MAAS 2.7 release notes
 
 ## MAAS 2.7.3 released
@@ -25,7 +24,7 @@ or by using the aforementioned PPA. The focus for this release has been [bug-fix
 
 Thanks to everyone who reported the issues with previous 2.7 releases and helped us with the logs.
 
-## Upgrade from 2.6 snap 
+## Upgrade from 2.6 snap
 
 If you are using the MAAS 2.6 snap, which had to be installed with `--devmode`, you can update to 2.7 with the following parameters:
 
@@ -46,7 +45,6 @@ Note that you can check the devmode status of your snap with:
 ```text
     snap list maas
 ```
-
 
 ---
 
@@ -121,4 +119,3 @@ MAAS has switched hardware information gathering from lshw/lsblk to lxd output d
 ### Bug fixes
 
 A number of bug fixes (see the [list in Launchpad](https://bugs.launchpad.net/maas/+bugs?field.milestone%3Alist=87757&field.milestone%3Alist=89662&field.milestone%3Alist=89714&field.milestone%3Alist=89840&field.milestone%3Alist=89954&field.milestone%3Alist=89682&field.status%3Alist=FIXRELEASED)).
-

@@ -1,4 +1,3 @@
-(how-to-guides-set-up-air-gapped-maas)=
 # Set up air-gapped MAAS
 
 Operating MAAS without internet access is possible, but requires planning. Four key elements must be in place for a seamless experience:
@@ -46,15 +45,14 @@ For non-MAAS OS like CentOS or RHEL, you have two options:
 
 ## Using `user_data`
 
-Custom `user_data` can configure CentOS or RHEL to use specific mirrors. 
+Custom `user_data` can configure CentOS or RHEL to use specific mirrors.
 
 ## Transparent proxies
 
 To avoid altering MAAS or Ubuntu settings, establish a transparent proxy:
- 
+
 1. Redirect Ubuntu and MAAS package requests via HTTP.
 2. Create local mirrors for `archive.ubuntu.com` and `images.maas.io`.
 3. Adjust DNS settings to point to these local mirrors.
 
 This way, your existing configurations remain untouched.
-

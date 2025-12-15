@@ -1,4 +1,3 @@
-(explanation-commissioning-scripts)=
 # Commissioning scripts
 
 Commissioning scripts are small programs that MAAS runs when a machine is first commissioned. They detect hardware, configure settings, and prepare machines for deployment. MAAS comes with a number of built-in scripts, but you can also create your own to extend or customise commissioning.
@@ -13,7 +12,6 @@ When MAAS commissions a machine, it needs reliable data about:
 
 Commissioning scripts gather this information and can also run hardware-specific configuration tasks. Well-written scripts ensure that MAAS knows exactly what resources are available and that machines are ready to deploy workloads.
 
-
 ## Standard commissioning scripts
 
 MAAS provides a set of standard commissioning scripts out of the box. These scripts:
@@ -25,7 +23,6 @@ MAAS provides a set of standard commissioning scripts out of the box. These scri
 - Apply firmware updates or controller settings on specific hardware.
 
 Each built-in script has a name and a title (friendly name shown in the UI). You can inspect these in the MAAS interface under *Settings → Scripts* or via the CLI.
-
 
 ## Script structure
 
@@ -43,7 +40,6 @@ hardware_type: storage
 
 After the metadata, you write the executable code. MAAS handles execution, logging, and result collection.
 
-
 ## Naming conventions
 
 Scripts are sorted alphabetically by name. To control execution order:
@@ -56,7 +52,6 @@ For example:
 - `00-maas-01-power-info` (built-in).
 - `50-my-storage-check` (custom).
 
-
 ## Key metadata fields
 
 The metadata block supports several important fields:
@@ -68,7 +63,6 @@ The metadata block supports several important fields:
 - may_reboot: If true, MAAS tolerates up to 20 minutes of downtime during reboots.
 - tags: Labels for searching and filtering scripts.
 - hardware_type / for_hardware: Restrict execution to specific hardware classes or devices.
-
 
 ## Parameters and results
 
@@ -95,7 +89,6 @@ echo "Model: $1"
 echo "Serial: $2"
 ```
 
-
 ## Environment variables
 
 MAAS sets a number of environment variables to help your script:
@@ -105,7 +98,6 @@ MAAS sets a number of environment variables to help your script:
 - `RESULT_PATH` – location for writing result YAML.
 
 Use these to return structured results and logs that MAAS can display in the UI.
-
 
 ## Example: vendor-specific configuration
 
@@ -120,7 +112,6 @@ echo "$output" > $RESULT_PATH
 
 This script interacts with vendor tools to configure hardware during commissioning.
 
-
 ## Best practices
 
 - Keep scripts simple and focused. One task per script.
@@ -129,8 +120,6 @@ This script interacts with vendor tools to configure hardware during commissioni
 - Name scripts carefully. Use prefixes (`50-`, `60-`) to control order.
 - Test iteratively. Run your script manually in a commissioning environment before uploading.
 
-
 ## Key takeaway
 
 Commissioning scripts are the extensibility point of MAAS: they let you adapt commissioning to your hardware and environment. By understanding script metadata, naming rules, and built-in behaviours, you can write your own scripts to make MAAS commissioning as thorough and reliable as your fleet demands.
-

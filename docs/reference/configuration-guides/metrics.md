@@ -1,4 +1,3 @@
-(reference-configuration-guides-metrics)=
 # Metrics
 
 This page provides a MAAS metrics reference, categorised into two sections: "Cluster metrics" and "Performance metrics."
@@ -14,6 +13,7 @@ The number of machines known by MAAS, by status
 * Type: Gauge
 * Unit: Count of machines
 * [details="Labels"]
+
    | Label | Description |
    | --- | --- |
    | maas_id | MAAS cluster UUID |
@@ -666,4 +666,3 @@ Time required to transfer a file to a machine using TFTP
    | maas_id | MAAS cluster UUID |
    | filename | file requested |
    [/details]
-

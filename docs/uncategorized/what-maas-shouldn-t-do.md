@@ -1,4 +1,3 @@
-(uncategorized-what-maas-shouldn-t-do)=
 # What MAAS shouldn't do
 
 MAAS is powerful for what it was designed for: bare-metal lifecycle management and provisioning of servers. But when a tool is this flexible, it’s tempting to push it into spaces it wasn’t built to handle. This page lists common anti-patterns and misuses of MAAS, with guidance on what to do instead.
@@ -75,4 +74,3 @@ If you find yourself trying to bend MAAS into one of these roles, stop and ask:
 MAAS is an excellent tool for what it’s built to do: discover bare-metal servers, commission them, and hand them off ready for use. It is not a desktop imaging tool, a patch management service, a corporate DNS/DHCP backbone, or a monitoring system.
 
 Stay inside its design boundaries and MAAS will serve you well. Try to use it for everything, and you’ll quickly discover its limits.
-

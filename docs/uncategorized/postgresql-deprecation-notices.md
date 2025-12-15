@@ -1,9 +1,8 @@
-(uncategorized-postgresql-deprecation-notices)=
 # PostgreSQL deprecation notices
 
 ## Use of PostgreSQL 12 deprecated in MAAS 3.3
 
-| Since | Removed | 
+| Since | Removed |
 |:---:|:---:|
 | 3.3.0 | 3.5.0 |
 
@@ -33,4 +32,3 @@ You can change database owner with the following command:
 sudo -u postgres \
     psql -c "ALTER DATABASE maasdb OWNER TO maas"
 ```
-

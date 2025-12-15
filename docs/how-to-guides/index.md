@@ -1,4 +1,3 @@
-(how-to-guides-index)=
 # How-To-Guides
 
 This section provides practical, step-by-step guidance for getting the most out of MAAS — from planning your deployment to integrating with automation tools. Use this guide when you're ready to apply MAAS in real-world scenarios and want clear, operational documentation.
@@ -94,7 +93,6 @@ Finally, make MAAS part of your larger automation pipeline. Learn how to use the
 <!-- * Integrating MAAS into a cloud-provisioning workflow -->
 <!-- * Scripting with the MAAS CLI -->
 <!-- * Charmed MAAS -->
-
 
 ```{toctree}
 :titlesonly:

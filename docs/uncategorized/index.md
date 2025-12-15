@@ -1,4 +1,3 @@
-(uncategorized-index)=
 # Uncategorized
 
 ```{toctree}

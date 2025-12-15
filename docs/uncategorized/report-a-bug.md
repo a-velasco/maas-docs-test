@@ -1,4 +1,3 @@
-(uncategorized-report-a-bug)=
 # Report a bug
 
 Bugs are inevitable in complex systems. A well-written bug report makes it faster for developers and support engineers to reproduce, diagnose, and fix your issue.
@@ -22,7 +21,6 @@ Before you open Launchpad, collect the essentials:
 * Logs – See below.
 
 Keep these details in a text editor so you can paste them quickly into the bug form.
-
 
 ## Step 2 – Gather logs
 
@@ -63,7 +61,6 @@ sudo sos report -o maas --all-logs
 
 ⚠️ Check for sensitive data before attaching to a public bug.
 
-
 ## Step 3 – Submit the bug
 
 1. Open the [Launchpad MAAS bug page](https://bugs.launchpad.net/maas/+filebug).
@@ -76,7 +73,6 @@ sudo sos report -o maas --all-logs
 
 Example: see [sample bug report](https://bugs.launchpad.net/maas/+bugs/).
 
-
 ## Step 4 – Review and respond
 
 Once submitted:
@@ -85,15 +81,12 @@ Once submitted:
 * Update your report instead of creating duplicates.
 * Mark duplicates if you find similar reports.
 
-
 ## Safety nets
 
 * Missing logs? Reproduce the issue and rerun the log collection step.
 * Confidential data? Strip or redact before posting.
 * Can’t access Launchpad? Contact Canonical support if you have a subscription.
 
-
 ## Next steps
 
 * [Troubleshooting MAAS](https://canonical.com/maas/docs/maas-troubleshooting-guide)
-

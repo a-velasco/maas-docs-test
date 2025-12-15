@@ -1,4 +1,3 @@
-(reference-configuration-guides-terraform)=
 # Terraform
 
 To use MAAS with [Terraform](https://www.terraform.io/), a [provider is available](https://github.com/maas/terraform-provider-maas). This guide gives an overview of data sources and resources accessible via this provider, without delving into the mechanics of Terraform or the MAAS Terraform provider.
@@ -85,4 +84,3 @@ data "maas_vlan" "vid10" {
 ## Resources
 
 For full details, refer to the [Terraform HCL documentation](https://www.terraform.io/language).
-

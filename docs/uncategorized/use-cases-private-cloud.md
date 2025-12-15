@@ -1,4 +1,3 @@
-(uncategorized-use-cases-private-cloud)=
 # Use cases: Private cloud
 
 Here are two large sets of MAAS use cases for private cloud.
@@ -27,7 +26,7 @@ Idle servers in a data center consume power and rack space without doing useful 
 
 MAAS is suitable for mission-critical environments. Enterprises can deploy MAAS in highly available configurations – e.g. two region controllers and multiple rack controllers – so that provisioning services have no single point of failure. This is important for environments like banking or telecom data centers where downtime in provisioning could delay critical operations. Additionally, MAAS’s role-based access control (RBAC) and logging features (when used with Ubuntu Pro or similar subscriptions) allow fine-grained permissions, so different teams or tenants can be limited to certain pools of machines. Companies can integrate MAAS with their existing change management or ITSM processes via its API, ensuring that automated provisioning still aligns with corporate governance. Finally, because MAAS is vendor-agnostic and supports all major server brands, enterprises gain a single pane of glass to manage hardware from Dell, HP, Cisco, Lenovo, etc., without being locked into proprietary management tools – this is particularly valuable in large organizations with diverse hardware.
 
-## Enterprise example use cases:
+## Enterprise example use cases
 
 ### On-premises cloud for dev/test
 
@@ -49,7 +48,7 @@ A retailer with seasonal traffic spikes keeps a baseline of on-prem servers and 
 
 Cloud integrators, Managed Service Providers (MSPs), and IT consulting firms often build custom infrastructure solutions for their clients – such as private clouds, hybrid clouds, or specialized on-prem deployments. MAAS is a powerful ally for these integrators and service providers, as it provides a dependable bare-metal automation layer that can be integrated into larger cloud stacks or offered as a service. Here’s what MAAS can do in the context of cloud integration and services:
 
-## Foundation for private cloud deployments:
+## Foundation for private cloud deployments
 
 Many private cloud frameworks (OpenStack, VMware alternatives, Kubernetes clusters, etc.) require a mechanism to provision and manage the underlying physical servers. MAAS fills this role seamlessly. For example, Canonical’s OpenStack reference architecture uses MAAS as the bare-metal provisioning backend for OpenStack nodes. An integrator can use MAAS to deploy the necessary Ubuntu (or other OS) on all hardware, then layer OpenStack services on top (often automated with Juju charms). MAAS and Juju together allow standing up a full OpenStack cloud on bare metal with minimal manual intervention. The same goes for Kubernetes or Ceph clusters – MAAS provisions the machines (ensuring each has the correct OS, network config, and even firmware settings), then higher-level automation installs the Kubernetes control plane or storage services. This approach drastically cuts down deployment time for complex environments. Cloud integrators can effectively treat MAAS as “IPMI + Kickstart on steroids”, abstracting away hardware quirks and presenting a clean API on which to build clouds. The benefit is repeatability: an integrator can deploy a similar architecture at multiple client sites using MAAS scripts, achieving consistent results.
 
@@ -92,4 +91,3 @@ A consulting firm integrates MAAS into an Infrastructure-as-Code pipeline for a 
 A telecom-oriented integrator uses MAAS to deploy edge computing clusters in dozens of telecom sites for a CSP (Communications Service Provider). Each site has 5-10 servers. The integrator sets up a MAAS rack controller at each site (often installed on one of the servers or a management VM) and a central region controller in the telco’s main data center. Through this architecture, they can centrally manage provisioning at all sites. For each new site rollout, they simply rack the hardware and connect it; MAAS (from the central region) boots the machines and installs the desired OS and software. This centralized bare-metal automation saves the integrator from having to send engineers to each remote location for manual installs. Additionally, because MAAS can run on slim hardware, the integrator even explored running MAAS on the top-of-rack switch at very small sites (using the switch’s OS to host a lightweight MAAS controller) – providing an “invisible” infrastructure node that orchestrates the rest. In the end, the telco gets a consistent, automated rollout of edge infrastructure managed via API, which can then host their network functions or edge applications.
 
 For cloud integrators and service providers, MAAS is a force multiplier: it abstracts the messy hardware provisioning layer behind a clean interface, so they can deliver solutions faster and with fewer errors. It allows them to commoditize the operations of bare-metal setup – as one Canonical article put it, shifting from custom artisanal provisioning to standardized, automated, repeatable processes. This consistency is crucial when replicating solutions across many clients or sites. By incorporating MAAS, integrators can focus on higher-level architecture and application delivery, confident that the foundational hardware is handled in an efficient, scalable way.
-

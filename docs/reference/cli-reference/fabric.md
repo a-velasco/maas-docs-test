@@ -1,4 +1,3 @@
-(reference-cli-reference-fabric)=
 # fabric
 
 Enter keyword arguments in the form `key=value`.
@@ -10,11 +9,13 @@ maas $PROFILE fabric delete [--help] [-d] [-k] id [data ...]
 ```
 
 #### Positional arguments
+
 - id
 
 Delete a fabric with the given id.
 
 #### Command-line options
+
 | Option | Effect |
 |-----|-----|
 | --help, -h | Show this help message and exit. |
@@ -28,11 +29,13 @@ maas $PROFILE fabric read [--help] [-d] [-k] id [data ...]
 ```
 
 #### Positional arguments
+
 - id
 
 Read a fabric with the given id.
 
 #### Command-line options
+
 | Option | Effect |
 |-----|-----|
 | --help, -h | Show this help message and exit. |
@@ -46,21 +49,25 @@ maas $PROFILE fabric update [--help] [-d] [-k] id [data ...]
 ```
 
 #### Positional arguments
-- id
 
+- id
 
 Update a fabric with the given id.
 
 #### Keyword "name"
+
 Optional String. Name of the fabric.
 
 #### Keyword "description"
+
 Optional String. Description of the fabric.
 
 #### Keyword "class_type"
+
 Optional String. Class type of the fabric.
 
 #### Command-line options
+
 | Option | Effect |
 |-----|-----|
 | --help, -h | Show this help message and exit. |
@@ -76,15 +83,19 @@ maas $PROFILE fabrics create [--help] [-d] [-k] [data ...]
 Create a fabric.
 
 #### Keyword "name"
+
 Optional String. Name of the fabric.
 
 #### Keyword "description"
+
 Optional String. Description of the fabric.
 
 #### Keyword "class_type"
+
 Optional String. Class type of the fabric.
 
 #### Command-line options
+
 | Option | Effect |
 |-----|-----|
 | --help, -h | Show this help message and exit. |
@@ -97,12 +108,12 @@ Optional String. Class type of the fabric.
 maas $PROFILE fabrics read [--help] [-d] [-k] [data ...] 
 ```
 
-List all fabrics. 
+List all fabrics.
 
 #### Command-line options
+
 | Option | Effect |
 |-----|-----|
 | --help, -h | Show this help message and exit. |
 | -d, --debug | Display more information about API responses. |
 | -k, --insecure | Disable SSL certificate check |
-

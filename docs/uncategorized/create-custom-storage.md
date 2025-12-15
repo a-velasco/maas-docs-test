@@ -1,4 +1,3 @@
-(uncategorized-create-custom-storage)=
 # Create custom storage
 
 This page explains how to configure custom storage layouts for MAAS-deployed machines.  Note that custom storage is only available for MAAS versions 3.1 and higher.
@@ -13,6 +12,7 @@ MAAS version 3.1 and higher allow you to define a custom storage layout for a ma
 ## Config format
 
 The configuration contains two main sections:
+
 - `layout`, which lists the desired storage layout in terms of disks and volumes, along with their setup (partitions, volumes, ...).
   This consists of a dictionary of device names and their configuration. Each device must have a `type` property (see below for supported types).
 - `mounts`, which lists the desired filesystem mount points.
@@ -55,8 +55,6 @@ A complete `$MAAS_STORAGE_CONFIG_FILE` would look like this:
 }
 ```
 
-
-
 The following device types are supported in the `"layout"` section:
 
 ## Disk
@@ -76,8 +74,10 @@ The following device types are supported in the `"layout"` section:
   ]
 }
 ```
+
 A `disk` entry defines a physical disk.
 The following details can be specified:
+
 - the partition table type (`ptable`), which can be `gpt` or `mbr`
 - whether it should be selected as `boot` disk
 - optionally, a list of partitions to create, with their `size` and filesystem type (`fs`)
@@ -145,8 +145,6 @@ Optionally the `cache-mode` for the Bcache can be specified.
 A `raid` entry defines a RAID with a set of member devices.
 Spare devices can also be specified.
 
-
-
 ## Config examples
 
 Here's a few examples of custom storage layout configurations that a script could output to the `$MAAS_STORAGE_CONFIG_FILE`. The examples assumes that the machine has 5 disks (named `sda` to `sde`).
@@ -154,6 +152,7 @@ Here's a few examples of custom storage layout configurations that a script coul
 Note that there's no need to add entries for those devices in the `layout` section if the disks are not explicitly partitioned, but just used by other devices (e.g. RAID or LVM).
 
 ## Simple single-disk layout with GPT partitioning
+
 ```text
 {
   "layout": {
@@ -203,9 +202,11 @@ Note that there's no need to add entries for those devices in the `layout` secti
   }
 }
 ```
+
 In the `mounts` section, options for mount points can be specified. For swap, an entry must be present (with any unique name that doesn't start with a `/`), otherwise the swap will be created but not activated.
 
 ## RAID 5 setup (with spare devices)
+
 ```text
 {
   "layout": {
@@ -231,9 +232,11 @@ In the `mounts` section, options for mount points can be specified. For swap, an
   }
 }
 ```
+
 Both full disks and partitions can be used as RAID members.
 
 ## LVM with pre-defined volumes
+
 ```text
 {
   "layout": {
@@ -269,9 +272,11 @@ Both full disks and partitions can be used as RAID members.
   }
 }
 ```
+
 If no volumes are specified, the volume group is still created.
 
 ## Bcache
+
 ```text
 {
   "layout": {
@@ -299,9 +304,11 @@ If no volumes are specified, the volume group is still created.
   }
 }
 ```
+
 The same cache set can be used by different bcaches by specifying the same `backing-device` for them.
 
 ## LVM on top of RAID with Bcache
+
 ```text
 {
   "layout": {
@@ -372,5 +379,5 @@ The same cache set can be used by different bcaches by specifying the same `back
   }
 }
 ```
-The RAID is created by using 5 bcache devices, each one using a different disk and the same SSD cache device. LVM is created on top of the RAID device and volumes are then created in it, to provide partitions.
 
+The RAID is created by using 5 bcache devices, each one using a different disk and the same SSD cache device. LVM is created on top of the RAID device and volumes are then created in it, to provide partitions.

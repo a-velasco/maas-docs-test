@@ -1,9 +1,6 @@
-(explanation-performance)=
 # Performance
 
-
 Performance directly affects how quickly MAAS can list, commission, and deploy machines. For large-scale environments, small slowdowns can add up. This page explains how we measure MAAS performance, what improvements we’ve made so far, and how you can track and share your own results.
-
 
 ## How we measure
 
@@ -29,7 +26,6 @@ Example result: In MAAS 3.2, machine listings through the REST API loaded 32% fa
 
 ![Dashboard](https://discourse-maas-io-uploads.s3.us-east-1.amazonaws.com/original/2X/f/f5f831164e70273e81b4120b442469f665e16b47.png)
 
-
 ## Work done so far
 
 Some recent highlights:
@@ -38,7 +34,6 @@ Some recent highlights:
 - Ongoing work by the [UI team](https://discourse.maas.io/t/maas-ui-improving-the-performance-of-maas-ui/5820) to make the interface faster and smoother.
 
 These efforts are part of a broader programme of optimisation across the product.
-
 
 ## How you can help
 
@@ -50,7 +45,6 @@ Your metrics and feedback are essential. Here’s how you can contribute:
 
 This input helps us validate improvements against real-world usage.
 
-
 ## What’s next
 
 We’re continuing to target areas that matter most in large environments. Expect further improvements in:
@@ -61,10 +55,8 @@ We’re continuing to target areas that matter most in large environments. Expec
 
 Your feedback helps prioritise where we focus next.
 
-
 ## Next steps for you
 
 - Learn [how to monitor MAAS](https://canonical.com/maas/docs/how-to-monitor-maas)
 - Peruse the [MAAS metrics reference](https://canonical.com/maas/docs/reference-maas-metrics)
 - Join the [performance forum](https://discourse.maas.io/c/maas-performance/26)
-

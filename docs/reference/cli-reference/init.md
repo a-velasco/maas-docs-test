@@ -1,4 +1,3 @@
-(reference-cli-reference-init)=
 # init
 
 Initialize MAAS in the specified run mode.
@@ -7,12 +6,14 @@ Initialize MAAS in the specified run mode.
 maas init [-h] {region+rack,region,rack} ... 
 ```
 
-#### Command-line options 
+#### Command-line options
+
 | Option     | Effect                          |
 |------------|---------------------------------|
 | -h, --help | show this help message and exit |
 
 #### Run modes
+
 | Mode        | Effect                           |
 |-------------|----------------------------------|
 | region+rack | Both region and rack controllers |
@@ -27,4 +28,3 @@ If you want to set up PostgreSQL for a non-production deployment on this machine
 sudo snap install maas-test-db
 sudo maas init region+rack --database-uri maas-test-db:///
 ```
-

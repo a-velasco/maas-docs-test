@@ -1,8 +1,6 @@
-(reference-cli-reference-config-tls)=
 # config-tls
 
 Enable or disable TLS for MAAS.
-
 
 ```bash
 maas config-tls enable [-h] [--cacert CACERT] [-p PORT] [--yes] key cert
@@ -13,12 +11,14 @@ maas config-tls disable [-h]
 ```
 
 #### Positional arguments
+
 | Argument | Effect                            |
 |----------|-----------------------------------|
 | key      | path to the private key           |
 | cert     | path to certificate in PEM format |
 
 #### Command-line options
+
 | Option               | Effect                                                |
 |----------------------|-------------------------------------------------------|
 | -h, --help           | show this help message and exit                       |
@@ -27,4 +27,3 @@ maas config-tls disable [-h]
 | -p PORT, --port PORT | HTTPS port (default: 5443)                            |
 | --yes                | Skip interactive confirmation (default: False)        |
 |                      |                                                       |
-

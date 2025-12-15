@@ -1,4 +1,3 @@
-(uncategorized-maas-3-0-release-notes)=
 # MAAS 3.0 release notes
 
 We are happy to announce the release of MAAS 3.0. This release provides new features, along with critical and high-priority [bug fixes](#maas-3-bug-fixes).
@@ -54,7 +53,7 @@ A helpful new feature is the ability to download the machine and installation ou
 ![image](upload://m0CtHR0E4GvNFqRQkcfcFpeSCId.png)
 
 ### Disabling boot methods
- 
+
 Individual boot methods may now be disabled. When a boot method is disabled MAAS will configure MAAS controlled isc-dhcpd to not respond to the associated [boot architecture code](https://www.iana.org/assignments/dhcpv6-parameters/dhcpv6-parameters.xhtml#processor-architecture). External DHCP servers must be configured manually.
 
 To allow different boot methods to be in different states on separate physical networks using the same VLAN ID configuration is done on the subnet in the UI or API. When using the API boot methods to be disabled may be specified using the MAAS internal name or [boot architecture code](https://www.iana.org/assignments/dhcpv6-parameters/dhcpv6-parameters.xhtml#processor-architecture) in octet or hex form. For example the following disabled i386/AMD64 PXE, AMD64 UEFI TFTP, and AMD64 UEFI HTTP
@@ -232,7 +231,6 @@ In MAAS 3.0, a fixed status bar has been added to the bottom of the screen, whic
 
 ![image](https://discourse.maas.io/uploads/default/original/2X/3/3a15d7e1d7251f3e928e3054a2aab71f414503bd.png)
 
-
 ## Bug fixes
 
 MAAS 3.0 incorporates a large number of bug fixes, summarised in the sections below. Please feel free to validate these fixes at your convenience and give us feedback if anything doesn't seem to work as presented in the bug request.
@@ -257,15 +255,15 @@ Here are the bugs that have been 'Fix Released' in MAAS 3.0 RC2:
 |[#1929552](https://bugs.launchpad.net/bugs/1929552)|Deb-based controller fails to run machine-resources|Critical|
 |[#1929576](https://bugs.launchpad.net/bugs/1929576)|Machines fail to commission using the 3.0 snap due to possible? DNS issue|Critical|
 |[#1930227](https://bugs.launchpad.net/bugs/1930227)|Failure to commission when interfaces has a /32 IP |Critical|  
-|[#1930554](https://bugs.launchpad.net/bugs/1930554)|vm-host CLI command is now named vmhosts  |Critical| 
+|[#1930554](https://bugs.launchpad.net/bugs/1930554)|vm-host CLI command is now named vmhosts  |Critical|
 |[#1930587](https://bugs.launchpad.net/bugs/1930587)|Different disks with same LUN detected as multipath  |Critical|  
-|[#1931215](https://bugs.launchpad.net/bugs/1931215)|[.0~rc2-10023 testing] two IPs assigned to one interface  |Critical| 
-|[#1931838](https://bugs.launchpad.net/bugs/1931838)|Reverse DNS lookup fails for subnets smaller than /24  |Critical| 
-|[#1835292](https://bugs.launchpad.net/bugs/1835292)|UI should add button to download curtin-logs.tar on deployment failure MAAS |High| 
+|[#1931215](https://bugs.launchpad.net/bugs/1931215)|[.0~rc2-10023 testing] two IPs assigned to one interface  |Critical|
+|[#1931838](https://bugs.launchpad.net/bugs/1931838)|Reverse DNS lookup fails for subnets smaller than /24  |Critical|
+|[#1835292](https://bugs.launchpad.net/bugs/1835292)|UI should add button to download curtin-logs.tar on deployment failure MAAS |High|
 |[#1908552](https://bugs.launchpad.net/bugs/1908552)|maas init fails; 'relation "maasserver_routable_pairs" does not exist'  |High|  
-|[#1929086](https://bugs.launchpad.net/bugs/1929086)|LXD VM hosts can't be refreshed if VLANs interfaces aren't named $parent.$vid  |High| 
+|[#1929086](https://bugs.launchpad.net/bugs/1929086)|LXD VM hosts can't be refreshed if VLANs interfaces aren't named $parent.$vid  |High|
 |[#1929643](https://bugs.launchpad.net/bugs/1929643)|MAAS often fails and and returns a Pickled object if request header is set to Accept: */*  |Medium|  
-|[#1924820](https://bugs.launchpad.net/bugs/1924820)|Trying to edit a disconnected NIC, then cancelling the edit and connecting the NIC via its drop-down menu, many drop-down menu options then disappear|Undecided| 
+|[#1924820](https://bugs.launchpad.net/bugs/1924820)|Trying to edit a disconnected NIC, then cancelling the edit and connecting the NIC via its drop-down menu, many drop-down menu options then disappear|Undecided|
 
 ### MAAS 3.0 RC1 bug fixes
 
@@ -366,39 +364,38 @@ Here are the bugs that have been `Fix Released` in MAAS 3.0 Beta 1:
 |[#1904245](https://bugs.launchpad.net/bugs/1904245)|MAAS Snap fails to build on PPC64 on Launchpad |Critical|
 |[#1912727](https://bugs.launchpad.net/bugs/1912727)|KVM Page Fails to load with error "An unexpected error has occurred, please try refreshing your browser window." |Critical|
 |[#1915869](https://bugs.launchpad.net/bugs/1915869)| maas snap cli renders SyntaxWarning in the stderr |Critical|
-|[#1916093](https://bugs.launchpad.net/bugs/1916093)|Unable to add more than 3 Promox VMs |Critical| 
-|[#1883824](https://bugs.launchpad.net/bugs/1883824)|Support LXD projects in power control |High| 
-|[#1884276](https://bugs.launchpad.net/bugs/1884276)|Terrible user experience adding existing LXD host |High| 
-|[#1902425](https://bugs.launchpad.net/bugs/1902425)|Failed to allocate the required AUTO IP addresses after 2 retries |High| 
-|[#1908087](https://bugs.launchpad.net/bugs/1908087)|Reverse DNS for non-maas RFC1918 zones fails inside maas |High| 
+|[#1916093](https://bugs.launchpad.net/bugs/1916093)|Unable to add more than 3 Promox VMs |Critical|
+|[#1883824](https://bugs.launchpad.net/bugs/1883824)|Support LXD projects in power control |High|
+|[#1884276](https://bugs.launchpad.net/bugs/1884276)|Terrible user experience adding existing LXD host |High|
+|[#1902425](https://bugs.launchpad.net/bugs/1902425)|Failed to allocate the required AUTO IP addresses after 2 retries |High|
+|[#1908087](https://bugs.launchpad.net/bugs/1908087)|Reverse DNS for non-maas RFC1918 zones fails inside maas |High|
 |[#1908356](https://bugs.launchpad.net/bugs/1908356)|Owner data websocket methods are not working |High|
-|[#1908434](https://bugs.launchpad.net/bugs/1908434)|Can't delete LXD VM in offline state |High| 
-|[#1913323](https://bugs.launchpad.net/bugs/1913323)|/MAAS/docs/ leads to 404 page |High| 
-|[#1914588](https://bugs.launchpad.net/bugs/1914588)|Enabling debug from snap traceback |High| 
-|[#1915021](https://bugs.launchpad.net/bugs/1915021)|Mapping subnet doesn't work from the MAAS snap |High| 
-|[#1915022](https://bugs.launchpad.net/bugs/1915022)|The MAAS snap doesn't include nmap |High| 
-|[#1915715](https://bugs.launchpad.net/bugs/1915715)|LXD VM additional disks all show 10Gb size |High| 
-|[#1915970](https://bugs.launchpad.net/bugs/1915970)|Facebook Wedge BMC detection fails on non-x86 architectures |High| 
-|[#1918997](https://bugs.launchpad.net/bugs/1918997)|MAAS does not set snap proxy |High| 
-|[#1919000](https://bugs.launchpad.net/bugs/1919000)|Unable to connect MAAS to an LXD VM host |High| 
-|[#1887797](https://bugs.launchpad.net/bugs/1887797)|Impossible to delete zombie LXD VM |Medium| 
-|[#1894116](https://bugs.launchpad.net/bugs/1894116)|Machines can't be deployed after deselecting all archs in the "Ubuntu extra architectures" package repo |Medium| 
-|[#1897946](https://bugs.launchpad.net/bugs/1897946)|hi1620-based ARM Servers are shown as "Unknown model" |Medium| 
-|[#1906212](https://bugs.launchpad.net/bugs/1906212)|timeout in testing scripts ignores the days if set to greater than 24 hours |Medium| Hemanth Nakkina 
-|[#1911825](https://bugs.launchpad.net/bugs/1911825)|Unable to use FQDN as power_address |Medium| 
-|[#1914165](https://bugs.launchpad.net/bugs/1914165)|Proxmox does not allow custom port |Medium| 
-|[#1917652](https://bugs.launchpad.net/bugs/1917652)|30-maas-01-bmc-config failing on commissioning Cisco UCSC-C220-M4L |Medium| 
-|[#1335175](https://bugs.launchpad.net/bugs/1335175)|maas does not combine kernel_opts when nodes have multiple tags with kernel options |Low| 
-|[#1915359](https://bugs.launchpad.net/bugs/1915359)|make sampledata can't find machine-resources |Low| 
-|[#1916844](https://bugs.launchpad.net/bugs/1916844)|Removing a machine that is a vm host tells you to remove the "pod" |Low| 
-|[#1920019](https://bugs.launchpad.net/bugs/1920019)|maas_remote_syslog_compress is unnecessarily chatty |Low| 
-|[#1887558](https://bugs.launchpad.net/bugs/1887558)|Multipath JBOD storage devices are not shown via /dev/mapper but each path as a single device. |Wishlist| 
-|[#1901944](https://bugs.launchpad.net/bugs/1901944)|tags field in machine edit page overtakes other fields |Undecided| 
-|[#1909985](https://bugs.launchpad.net/bugs/1909985)|Add commission timestamp to machine websocket api |Undecided| 
-|[#1913464](https://bugs.launchpad.net/bugs/1913464)|Drop RSD pods UI |Undecided| 
-|[#1914590](https://bugs.launchpad.net/bugs/1914590)|Support composing LXD VMs with multiple disks in the UI |Undecided| 
-|[#1915970](https://bugs.launchpad.net/bugs/1915970)|Facebook Wedge BMC detection fails on non-x86 architectures |Undecided| 
-|[#1916073](https://bugs.launchpad.net/bugs/1916073)|MAAS should install qemu-efi-aarch64 on arm64 KVM pods |Undecided| 
-|[#1916317](https://bugs.launchpad.net/bugs/1916317)|UI is using API to request scripts with full content |Undecided| 
+|[#1908434](https://bugs.launchpad.net/bugs/1908434)|Can't delete LXD VM in offline state |High|
+|[#1913323](https://bugs.launchpad.net/bugs/1913323)|/MAAS/docs/ leads to 404 page |High|
+|[#1914588](https://bugs.launchpad.net/bugs/1914588)|Enabling debug from snap traceback |High|
+|[#1915021](https://bugs.launchpad.net/bugs/1915021)|Mapping subnet doesn't work from the MAAS snap |High|
+|[#1915022](https://bugs.launchpad.net/bugs/1915022)|The MAAS snap doesn't include nmap |High|
+|[#1915715](https://bugs.launchpad.net/bugs/1915715)|LXD VM additional disks all show 10Gb size |High|
+|[#1915970](https://bugs.launchpad.net/bugs/1915970)|Facebook Wedge BMC detection fails on non-x86 architectures |High|
+|[#1918997](https://bugs.launchpad.net/bugs/1918997)|MAAS does not set snap proxy |High|
+|[#1919000](https://bugs.launchpad.net/bugs/1919000)|Unable to connect MAAS to an LXD VM host |High|
+|[#1887797](https://bugs.launchpad.net/bugs/1887797)|Impossible to delete zombie LXD VM |Medium|
+|[#1894116](https://bugs.launchpad.net/bugs/1894116)|Machines can't be deployed after deselecting all archs in the "Ubuntu extra architectures" package repo |Medium|
+|[#1897946](https://bugs.launchpad.net/bugs/1897946)|hi1620-based ARM Servers are shown as "Unknown model" |Medium|
+|[#1906212](https://bugs.launchpad.net/bugs/1906212)|timeout in testing scripts ignores the days if set to greater than 24 hours |Medium| Hemanth Nakkina
+|[#1911825](https://bugs.launchpad.net/bugs/1911825)|Unable to use FQDN as power_address |Medium|
+|[#1914165](https://bugs.launchpad.net/bugs/1914165)|Proxmox does not allow custom port |Medium|
+|[#1917652](https://bugs.launchpad.net/bugs/1917652)|30-maas-01-bmc-config failing on commissioning Cisco UCSC-C220-M4L |Medium|
+|[#1335175](https://bugs.launchpad.net/bugs/1335175)|maas does not combine kernel_opts when nodes have multiple tags with kernel options |Low|
+|[#1915359](https://bugs.launchpad.net/bugs/1915359)|make sampledata can't find machine-resources |Low|
+|[#1916844](https://bugs.launchpad.net/bugs/1916844)|Removing a machine that is a vm host tells you to remove the "pod" |Low|
+|[#1920019](https://bugs.launchpad.net/bugs/1920019)|maas_remote_syslog_compress is unnecessarily chatty |Low|
+|[#1887558](https://bugs.launchpad.net/bugs/1887558)|Multipath JBOD storage devices are not shown via /dev/mapper but each path as a single device. |Wishlist|
+|[#1901944](https://bugs.launchpad.net/bugs/1901944)|tags field in machine edit page overtakes other fields |Undecided|
+|[#1909985](https://bugs.launchpad.net/bugs/1909985)|Add commission timestamp to machine websocket api |Undecided|
+|[#1913464](https://bugs.launchpad.net/bugs/1913464)|Drop RSD pods UI |Undecided|
+|[#1914590](https://bugs.launchpad.net/bugs/1914590)|Support composing LXD VMs with multiple disks in the UI |Undecided|
+|[#1915970](https://bugs.launchpad.net/bugs/1915970)|Facebook Wedge BMC detection fails on non-x86 architectures |Undecided|
+|[#1916073](https://bugs.launchpad.net/bugs/1916073)|MAAS should install qemu-efi-aarch64 on arm64 KVM pods |Undecided|
+|[#1916317](https://bugs.launchpad.net/bugs/1916317)|UI is using API to request scripts with full content |Undecided|
 |[#1919381](https://bugs.launchpad.net/bugs/1919381)|typo "veryiying" in info message in smartctl-validate |Undecided|
-

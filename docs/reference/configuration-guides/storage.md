@@ -1,4 +1,3 @@
-(reference-configuration-guides-storage)=
 # Storage
 
 This page describes standard and custom storage layouts available in MAAS.
@@ -70,6 +69,7 @@ The following seven options are supported:
 7. `cache_no_part`: Whether or not to create a partition on the cache device. Default is false, meaning to create a partition using the given `cache_size`. If set to true, no partition will be created, and the raw cache device will be used as the cache.
 
 vmfs6 storage layout reference
+
 ### VMFS6 layout
 
 The VMFS6 layout is used for VMware ESXi deployments only. It is required when configuring VMware VMFS Datastores. This layout creates all operating system partitions, in addition to the default datastore. The datastore may be modified. New datastores may be created or extended to include other storage devices. The base operating system partitions may not be modified because VMware ESXi requires them. Once applied another storage layout must be applied to remove the operating system partitions.
@@ -97,7 +97,6 @@ The following options are supported:
 
 The blank layout removes all storage configuration from all storage devices. It is useful when needing to apply a custom storage configuration.
 
-
 Machines with the blank layout applied are not deployable; you must first configure storage manually.
 
 ## Custom storage layouts
@@ -107,6 +106,7 @@ This section provides examples of commonly-used custom storage layouts for MAAS-
 There is no need to add entries for those devices in the `layout` section if the disks are not explicitly partitioned, but just used by other devices (e.g. RAID or LVM).
 
 ### GPT partitioning
+
 Here is an example of a simple single-disk layout with GPT partitioning.
 
 ```text
@@ -158,9 +158,11 @@ Here is an example of a simple single-disk layout with GPT partitioning.
   }
 }
 ```
+
 In the `mounts` section, options for mount points can be specified. For swap, an entry must be present (with any unique name that doesn't start with a `/`), otherwise the swap will be created but not activated.
 
-### RAID 5 
+### RAID 5
+
 This example describes the reference setup for a RAID 5 configuration with spare devices.
 
 ```text
@@ -188,9 +190,11 @@ This example describes the reference setup for a RAID 5 configuration with spare
   }
 }
 ```
+
 Both full disks and partitions can be used as RAID members.
 
 ### Pre-defined LVM
+
 In this reference example, you can find an LVM with pre-defined volumes.
 
 ```text
@@ -228,9 +232,11 @@ In this reference example, you can find an LVM with pre-defined volumes.
   }
 }
 ```
+
 If no volumes are specified, the volume group is still created.
 
 ### Bcache
+
 Here is an example of a custom `bcache` setup.
 
 ```text
@@ -260,9 +266,11 @@ Here is an example of a custom `bcache` setup.
   }
 }
 ```
+
 The same cache set can be used by different bcaches by specifying the same `backing-device` for them.
 
 ### LVM RAID with bcache
+
 This more complex reference example describes an LVM on top of RAID with bcache enabled for read-intensive operations.
 
 ```text
@@ -335,5 +343,5 @@ This more complex reference example describes an LVM on top of RAID with bcache 
   }
 }
 ```
-The RAID is created by using 5 bcache devices, each one using a different disk and the same SSD cache device. LVM is created on top of the RAID device and volumes are then created in it, to provide partitions.
 
+The RAID is created by using 5 bcache devices, each one using a different disk and the same SSD cache device. LVM is created on top of the RAID device and volumes are then created in it, to provide partitions.

@@ -1,4 +1,3 @@
-(uncategorized-test-page)=
 # Test page
 
 This section provides practical, step-by-step guidance for getting the most out of MAAS—from planning your deployment to integrating with automation tools. Use this guide when you're ready to apply MAAS in real-world scenarios and want clear, operational documentation.
@@ -74,14 +73,14 @@ This section helps you observe and debug your MAAS deployment using tools like P
 * [Auditing with logs](https://maas.io/docs/how-to-use-logging#p-14514-auditing-maas)
 * [Troubleshooting machine behaviors](https://maas.io/docs/how-to-manage-machines#p-9078-rescue-recovery)
 * [Troubleshooting network issues](https://maas.io/docs/maas-troubleshooting-guide)
-* Troubleshooting performance 
+* Troubleshooting performance
 
 ## Scale and optimize
 
 Ready to grow? Learn how to replicate controllers for high availability, set up VM clusters, combine hardware and virtual setups, and handle complex deployments. This section is essential for production-grade MAAS installations.
 
- * Clustering VMs
- * Hybrid hardware/VM configurations
+* Clustering VMs
+* Hybrid hardware/VM configurations
 * [Setting up HA & controller replication](https://maas.io/docs/how-to-manage-high-availability)
 * [Advanced deployments](https://maas.io/docs/reference-terraform)
 
@@ -94,4 +93,3 @@ Finally, make MAAS part of your larger automation pipeline. Learn how to use the
 * Charmed MAAS
 * [Using Terraform](https://maas.io/docs/reference-terraform)
 * Integrating MAAS into a cloud-provisioning workflow
-

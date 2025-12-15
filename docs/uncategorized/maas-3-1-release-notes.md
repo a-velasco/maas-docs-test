@@ -1,4 +1,3 @@
-(uncategorized-maas-3-1-release-notes)=
 # MAAS 3.1 release notes
 
 We are happy to announce that MAAS 3.1 is now available. This release provides new features and critical bug fixes.
@@ -6,9 +5,9 @@ We are happy to announce that MAAS 3.1 is now available. This release provides n
 ## Features
 
 - [Support for LXD clusters](#lxd-clusters): MAAS 3.1 can use LXD clusters with MAAS KVMs.
- 
+
 - [Improved image sync performance](#image-sync-performance): After images are downloaded, rack controllers sync new images more quickly.
- 
+
 - [Ability to enlist deployed machines](#enlist-deployed-machines): Users can enlist deployed machines, a top feature poll request.
 
 - [Static Ubuntu image upload and reuse](#static-ubuntu-images): Users can upload, deploy and reuse a bootable ubuntu image
@@ -26,7 +25,7 @@ Critical and high-priority fixes also extend or repair MAAS features:
 - [Accurate storage pool sizes](https://bugs.launchpad.net/bugs/1949410): The UI now calculates storage pool sizes correctly for CEPH pools; shared pools are no longer stacked
 
 - [Refresh wipeout bug](https://bugs.launchpad.net/bugs/1949485): MAAS does not destroy existing VMs on a refresh, or when the memory overcommit ratio is changed
- 
+
 - [Cloning issue fixed](https://bugs.launchpad.net/bugs/1948500): UI cloning has been repaired to prevent "unsuccessful cloning" of storage
 
 ### LXD clusters
@@ -55,7 +54,7 @@ Once connected, you can select the project in that cluster:
 
 ![image](https://discourse.maas.io/uploads/default/original/2X/b/ba798351c1c2b37d0aa79bca8c44def38d4ab839.png)
 
-If the KVM host address is part of a cluster, it will show as a cluster on the listing page. 
+If the KVM host address is part of a cluster, it will show as a cluster on the listing page.
 
 ![image](https://discourse.maas.io/uploads/default/original/2X/0/069bae193cbb09ead3c811fd1a1d28582b946ff4.png)
 
@@ -114,9 +113,9 @@ Now you have enlisted a deployed machine, with no hardware information yet.
 To update hardware information for a deployed machine, we recommend that you download and run the maas-run-scripts script on the machine:
 
 ```text
-$ wget http://$MAAS_IP:5240/MAAS/maas-run-scripts
-$ chmod 755 maas-run-scripts
-$ ./maas-run-scripts report-results --config mymachine-creds.yaml
+wget http://$MAAS_IP:5240/MAAS/maas-run-scripts
+chmod 755 maas-run-scripts
+./maas-run-scripts report-results --config mymachine-creds.yaml
 ```
 
 If you created the machine with the maas-run-scripts, you should have such a mymachine-creds.yaml file already. If not, it should look like this:
@@ -189,27 +188,25 @@ As a user, you want to track of deployed static images. The standard MAAS dashbo
 
 Custom Ubuntu images can be uploaded with the MAAS CLI by creating a boot-resource:
 
-```text                                                                                                        	 
-	maas $PROFILE boot-resources create \
+```text                                                                                                          
+ maas $PROFILE boot-resources create \
         name='custom/ubuntu-custom'  \
         architecture=amd64/generic \
         title=’custom ubuntu’ \
         base_image=ubuntu/focal \
         filetype=ddraw \
         content@=./custom-ubuntu.img
-```	 
-
+```  
 
 When uploading a custom image, there is a new required field: `base_image`. This is not required for non-custom images; any image with the `custom` prefix will require it.
-
 
 ### Machine configuration cloning UI
 
 Extend machine cloning to UI, moving toward machine profile templates.
 
-#### About this feature 
+#### About this feature
 
-MAAS 3.1 allows you to quickly clone or copy a configuration between machines, via the MAAS UI -- a step towards machine templating. 
+MAAS 3.1 allows you to quickly clone or copy a configuration between machines, via the MAAS UI -- a step towards machine templating.
 
 Creating a machine profile is repetitive. We've learned that most users create multiple machines of the same configuration in batches. Some users loop a template through the API, while others rely on scripts. MAAS API cloning functionality is now being exposed in the UI.
 
@@ -217,22 +214,22 @@ Creating a machine profile is repetitive. We've learned that most users create m
 
 As a MAAS user, you may want to copy a machine configuration to multiple existing machines. Assuming that at least one machine is already configured, you should be able to apply these settings to a list of machines. This means that a user should be able to:
 
- - select the source machine to copy from.
- - validate that the source machine exists.
- - select at least 1 destination machine.
- - validate that the destination machine(s) exist.
- - edit the source machine or destination machines, if needed.
- - know at all times which machines are affected.
- - see the cloned machines when cloning is successful, or
- - get clear failure information, if cloning fails. 
+- select the source machine to copy from.
+- validate that the source machine exists.
+- select at least 1 destination machine.
+- validate that the destination machine(s) exist.
+- edit the source machine or destination machines, if needed.
+- know at all times which machines are affected.
+- see the cloned machines when cloning is successful, or
+- get clear failure information, if cloning fails.
 
 #### About choosing configuration items to copy
 
 As a MAAS user, you likely want to select whether storage, network, or both configurations should be cloned. The cloning API allows users to choose interfaces and storage separately. Thus, this new feature also allows you to:
 
- - clone only the interface (network) configuration.
- - clone only the storage configuration.
- - clone both configurations.
+- clone only the interface (network) configuration.
+- clone only the storage configuration.
+- clone both configurations.
 
 #### About cloning restrictions
 
@@ -280,13 +277,13 @@ While prior versions of MAAS support both ways of authentication (and automatica
 
 For these reasons, when adding a LXD host, MAAS 3.1 provides a way to generate a secret key and certificate pair to use specifically for that server, and show the certificate to the user, so that they can add it to the LXD server trust list. The user experience changes to something like the following:
 
- - MAAS generates a secret key and certificate pair for use with a LXD server.
- - The user can see the certificate and is guided to add it to the LXD server trust list.
- - The user can easily complete the registration of the LXD server once the certificate is trusted in LXD.
- - All racks use the same key when talking to the LXD server. 
- - If a new rack controller is added, it can communicate with the LXD server out of the box.
- - If the trust password is used, it’s not stored in MAAS persistently.
- - It’s possible to get the certificate for a LXD server from a URL (e.g. for curl use).
+- MAAS generates a secret key and certificate pair for use with a LXD server.
+- The user can see the certificate and is guided to add it to the LXD server trust list.
+- The user can easily complete the registration of the LXD server once the certificate is trusted in LXD.
+- All racks use the same key when talking to the LXD server.
+- If a new rack controller is added, it can communicate with the LXD server out of the box.
+- If the trust password is used, it’s not stored in MAAS persistently.
+- It’s possible to get the certificate for a LXD server from a URL (e.g. for curl use).
 
 #### About bringing your own certificates
 
@@ -294,9 +291,7 @@ As a MAAS user, you may want to register a LXD host into MAAS by providing a pri
 
 With MAAS 3.1, it’s possible to import an existing key/certificate pair for use with a LXD server when registering it with MAAS. MAAS stores the key/certificate instead of generating new ones.
 
-
 The imported key must not have a passphrase; otherwise, MAAS will not be able to use it.
-
 
 #### How to get started
 
@@ -419,4 +414,3 @@ MAAS 3.1 bug fixes can be found in the following milestones:
 - [MAAS 3.1 Beta3 bug fixes](https://launchpad.net/maas/+milestone/3.1.0-beta3)
 - [MAAS 3.1 Beta2 bug fixes](https://launchpad.net/maas/+milestone/3.1.0-beta2)
 - [MAAS 3.1 Beta1 bug fixes](https://launchpad.net/maas/+milestone/3.1.0-beta1)
-

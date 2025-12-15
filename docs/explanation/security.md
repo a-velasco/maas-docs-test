@@ -1,4 +1,3 @@
-(explanation-security)=
 # Security
 
 MAAS enforces strict access control and secure secret management to protect system integrity.
@@ -23,7 +22,7 @@ As a MAAS administrator, it's crucial to avoid storing secrets associated with y
 
 ## HashiCorp Vault
 
-Beginning with version 3.3, MAAS secrets are stored in [HashiCorp Vault](https://www.hashicorp.com/products/vault). 
+Beginning with version 3.3, MAAS secrets are stored in [HashiCorp Vault](https://www.hashicorp.com/products/vault).
 
 Vault employs identity for securing secrets and encryption keys. Its core component is the `kv` secrets engine, which utilizes key-value pairs to store secrets within an encrypted storage managed by Vault. You can explore more about [secrets engines](https://developer.hashicorp.com/vault/docs/secrets) if you're interested.
 
@@ -35,7 +34,7 @@ Vault is compatible with MAAS version 3.3 and above. Please upgrade if you're us
 
 ## PostgreSQL security
 
-PostgreSQL contains secrets, and should be encrypted for maximum protection. You should consider [full disk encryption ](https://help.ubuntu.com/community/Full_Disk_Encryption_Howto_2019). Also recommended is [TLS encryption between MAAS and PostgreSQL ](https://www.postgresql.org/docs/current/ssl-tcp.html).
+PostgreSQL contains secrets, and should be encrypted for maximum protection. You should consider [full disk encryption](https://help.ubuntu.com/community/Full_Disk_Encryption_Howto_2019). Also recommended is [TLS encryption between MAAS and PostgreSQL](https://www.postgresql.org/docs/current/ssl-tcp.html).
 
 ## Strong passwords
 
@@ -50,7 +49,7 @@ MAAS configuration files should be set to have permission `640`: readable by log
 | Snap     | `/var/snap/maas/current/regiond.conf` | `-rw-r-----` |
 |          | `/var/snap/maas/current/rackd.conf`   | `-rw-r-----` |
 | Packages | `/etc/maas/rackd.conf/regiond.conf`   | `-rw-r-----` |
-|          | `/etc/maas/rackd.conf/rackd.conf`     | `-rw-r-----` | 
+|          | `/etc/maas/rackd.conf/rackd.conf`     | `-rw-r-----` |
 
 ## Snap security
 
@@ -59,6 +58,7 @@ Snaps are fully confined or 'sandboxed,' offering inherent security for the encl
 ## Role-Based Access Control (RBAC)  
 
 MAAS assigns access based on roles:  
+
 - Administrator – Full access to all settings and machines.  
 - Operator – Admin privileges within assigned resource pools.  
 - User – Access to unallocated machines but no settings.  
@@ -77,6 +77,7 @@ MAAS supports multiple identity services via Candid, Canonical’s authenticatio
 ### RBAC & MAAS integration  
 
 RBAC associates roles with authenticated identities, not individual users. It governs:  
+
 - Machines in resource pools  
 - DNS, availability zones, images, and settings  
 
@@ -108,4 +109,3 @@ MAAS enforces role-based visibility. Users cannot access non-permitted machines,
 ## Security consulting
 
 If you need help implementing MAAS security, please [contact us](https://canonical.com/maas/docs/how-to-contact-us). We will be happy to assist you in arranging security consulting appropriate to your needs.
-

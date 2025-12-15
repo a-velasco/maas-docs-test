@@ -1,4 +1,3 @@
-(uncategorized-upgrade-to-postgresql-v14)=
 # Upgrade to PostgreSQL v14
 
 ## Create a data backup
@@ -18,13 +17,13 @@ sudo -u postgres pg_dumpall > backup.sql
     sudo apt-get install postgresql-14 postgresql-server-dev-14
 ```
   
-2. **Halt the old server**
+1. **Halt the old server**
 
 ```text
     sudo systemctl stop postgresql.service
 ```
   
-3. **Migrate configuration files**
+1. **Migrate configuration files**
 
 ```text
     sudo -u postgres /usr/lib/postgresql/14/bin/pg_upgrade \
@@ -38,21 +37,21 @@ sudo -u postgres pg_dumpall > backup.sql
 
 Note the output of this step as it may contain instructions that you need to do to finish the migration (see step 6).
   
-4. **Reconfigure server ports**
+1. **Reconfigure server ports**
 
 ```text
     sudo vim /etc/postgresql/14/main/postgresql.conf  # Set port to 5432
     sudo vim /etc/postgresql/12/main/postgresql.conf  # Set port to 5433
 ```
   
-5. **Activate new server and verify version**
+1. **Activate new server and verify version**
 
 ```text
     sudo systemctl start postgresql.service
     sudo -u postgres psql -c "SELECT version();"
 ```
 
-6. **Execute new cluster script**
+1. **Execute new cluster script**
 
 On Postgres 13 and below do
 
@@ -81,10 +80,9 @@ Or, modify `/etc/postgresql/14/main/pg_hba.conf` to switch back to `md5`. But be
     sudo apt-get remove postgresql-12 postgresql-server-dev-12
 ```
 
-2. **Delete configuration and data**
+1. **Delete configuration and data**
 
 ```text
     sudo rm -rf /etc/postgresql/12/
     sudo -u postgres ./delete_old_cluster.sh
 ```
-

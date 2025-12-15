@@ -1,4 +1,3 @@
-(how-to-guides-deploy-a-fips-kernel)=
 # Deploy a FIPS kernel
 
 This guide walks you through the steps to deploy an Ubuntu machine with a [FIPS-compliant kernel](https://ubuntu.com/security/certifications/docs/fips). The FIPS kernel comes with all [Ubuntu Pro](https://ubuntu.com/pro) subscriptions for Ubuntu 22.04 LTS. There is also a [tutorial](https://ubuntu.com/tutorials/using-the-ubuntu-pro-client-to-enable-fips#1-overview) on how to get access to the Ubuntu FIPS-compliant kernel.
@@ -26,9 +25,7 @@ The  kernel FIPS kernel isn't directly integrated into MAAS. Instead, cloud-init
 3. A host compatible with Ubuntu FIPS-compliant kernel.
 4. Internet connection.
 
-
 Offline installation of the  kernel FIPS-compliant kernel is not supported currently.
-
 
 ## Deploy FIPS kernel
 
@@ -64,7 +61,7 @@ Perform these steps in the MAAS UI:
     - yes | pro enable fips-updates
 ```
 
-5. **Start deployment**: Click `Start deployment for machine`.
+1. **Start deployment**: Click `Start deployment for machine`.
 
 ## Verify deployment
 
@@ -75,4 +72,3 @@ After deployment, execute these commands on the host to confirm RT kernel activa
 2. Check the output of `sudo pro status` to confirm that `fips-preview` and `fips-updates` are enabled.
 
 Your machine should now be up and running with a FIPS-compliant kernel.
-

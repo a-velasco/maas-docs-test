@@ -1,9 +1,9 @@
-(uncategorized-maas-glossary)=
 # MAAS glossary
 
 This page defines a number of terms specific to MAAS, in alphabetical order.
 
 ## A-C
+
 ### A
 
 #### Abort
@@ -34,8 +34,7 @@ The node is broken. See node action 'Mark broken'.
 
 #### Client
 
-In the client/server age, the lines between client and server are blurred and sometimes reversible. For the purposes of MAAS and general networking principles, we can define a [client](https://en.wikipedia.org/wiki/Client_%28computing%29#firstHeading) as a node that uses shared resources via a network. If that same client provides shared resources to other nodes, it could also be considered a server. 
-
+In the client/server age, the lines between client and server are blurred and sometimes reversible. For the purposes of MAAS and general networking principles, we can define a [client](https://en.wikipedia.org/wiki/Client_%28computing%29#firstHeading) as a node that uses shared resources via a network. If that same client provides shared resources to other nodes, it could also be considered a server.
 
 #### Cloud-init
 
@@ -101,6 +100,7 @@ A rack controller is attached to each "fabric". As the name implies, a typical s
 Both the region controller and the rack controller can be scaled-out as well as made highly available.
 
 ## D-E
+
 ### D
 
 #### Delete
@@ -115,7 +115,7 @@ The visible status will be the name of the chosen OS (e.g. 'Ubuntu 16.04 LTS').
 
 #### Deploy
 
-This action, which includes 'Power on,' deploys a node, changing a node's status from 'Ready' (or 'Allocated') to a deployed status. 
+This action, which includes 'Power on,' deploys a node, changing a node's status from 'Ready' (or 'Allocated') to a deployed status.
 
 During deployment, MAAS turns on the machine and installs a complete server operating system without manual intervention, configuring network interfaces, disk partitions and more automatically.
 
@@ -178,6 +178,7 @@ The node is in the process of exiting rescue mode. See node action 'Exit rescue 
 This action changes a node's status from 'Rescue mode' to the 'Exiting rescue mode' transitory status and then back to its original status when the operation is complete.
 
 ## F-I
+
 ### F
 
 #### Fabrics
@@ -188,17 +189,17 @@ A **fabric** connects VLANs. If you understand a VLAN, you know that they permit
 
 We can illustrate a network fabric more easily by rewinding the term to one of its earliest uses: the early phone system. In a telephone switchboard, subscriber lines (customer phone numbers) ran in a grid pattern in the back of the switchboard, but they didn't touch each other until the operator inserted the plugs of a patch cable to join them. With some "plugboards" (what a switchboard was actually called), an operator could conference multiple lines by adding more patch cords.
 
-These patch cords essentially acted like a VLAN, allowing only the subscribers whose lines were "patched in" to join the conversation. 
+These patch cords essentially acted like a VLAN, allowing only the subscribers whose lines were "patched in" to join the conversation.
 
 But the switchboard only covered one exchange, that is, one three-digit phone number prefix. If a subscriber wanted to conference someone from another exchange, there had to be patch from one exchange to another. This was handled by a long-distance operator. Each exchange had a more robust outgoing line, called a "trunk line," that connected exchanges in some central place. The long-distance operators could bridge trunks in a specific way, involving a local operator in each of the "bridged" exchanges.
 
 By now, you're probably starting to recognise a lot of network terms, which is completely appropriate. Almost all modern networking technology originated in the telephone system.
 
-Now imagine that you want to conference in six people, two in each of three distant exchanges. Each exchange operator had to patch two numbers and a trunk line. The long-distance operator had to patch three trunks in a specific way that prevented the conversation from going out to all numbers attached to the trunk. 
+Now imagine that you want to conference in six people, two in each of three distant exchanges. Each exchange operator had to patch two numbers and a trunk line. The long-distance operator had to patch three trunks in a specific way that prevented the conversation from going out to all numbers attached to the trunk.
 
 The details of the method aren't particularly relevant here, but it usually involved a pair of "bridge clips" that connected non-adjacent wire-crossings, with an insulated portion that laid across wires that weren't meant to be connected. It looked a lot like a little bridge when properly placed.
 
-Think of each of the local exchange conferences as a VLAN; the long-distance operator's patch cables created what was called a "fabric."  Our use of fabric is exactly the same idea: some number of private "conversations" (connections) connected to each other so that specific people in each "group" can all talk to each other. 
+Think of each of the local exchange conferences as a VLAN; the long-distance operator's patch cables created what was called a "fabric."  Our use of fabric is exactly the same idea: some number of private "conversations" (connections) connected to each other so that specific people in each "group" can all talk to each other.
 
 </details>
 
@@ -207,7 +208,6 @@ You could describe a fabric as a VLAN namespace. It's a switch or a combination 
 The following conceptual diagram shows two fabrics in the same data centre or region, each using distinct VLAN ranges and their associated subnets:
 
 ![image](https://discourse-maas-io-uploads.s3.us-east-1.amazonaws.com/original/1X/46177305128bf7f3190f8a7bbd037c33e96f6a9e.png)
-
 
 #### Failed Commissioning
 
@@ -247,10 +247,10 @@ An image is used to provision a machine. As soon as you install MAAS, images are
 
 You can reserve IP addresses by adding one or more reserved ranges to a subnet configuration. You can define two types of ranges:
 
--   **Reserved range** Mode operates differently depending on whether the subnet is managed or unmanaged:
-   -   **Managed (subnet)**: MAAS will never assign IP addresses inside this range. You can use this range for anything, such as infrastructure systems, network hardware, external DHCP, or an OpenStack namespace.
-   -   **Unmanaged (subnet)**: MAAS will only assign IP addresses inside this range.
--   **Reserved dynamic range** An IP range that MAAS will use for enlisting, commissioning and, if enabled, MAAS-managed DHCP on the node's VLAN during commissioning, deploying. An initial range is created as part of the DHCP enablement process if done with the web UI. MAAS never uses IP addresses from this range for an unmanaged subnet.
+- **Reserved range** Mode operates differently depending on whether the subnet is managed or unmanaged:
+- **Managed (subnet)**: MAAS will never assign IP addresses inside this range. You can use this range for anything, such as infrastructure systems, network hardware, external DHCP, or an OpenStack namespace.
+- **Unmanaged (subnet)**: MAAS will only assign IP addresses inside this range.
+- **Reserved dynamic range** An IP range that MAAS will use for enlisting, commissioning and, if enabled, MAAS-managed DHCP on the node's VLAN during commissioning, deploying. An initial range is created as part of the DHCP enablement process if done with the web UI. MAAS never uses IP addresses from this range for an unmanaged subnet.
 
 #### Isolating CPUs
 
@@ -259,6 +259,7 @@ For certain operations, it's useful to shield a CPU from having to execute gener
 When used with VMs, users can maximise performance by configuring isolcpus in the kernel, to prevent the general scheduler and other tasks from using bandwidth on your VM core(s).
 
 ## L-M
+
 ### L
 
 #### LAN
@@ -319,6 +320,7 @@ You can also mark a newly-commissioned node ('Ready') as 'Broken.'
 This action fixes a broken node, changing its status from 'Broken' to 'Ready'.
 
 ## N-P
+
 ### N
 
 #### Network cable
@@ -335,7 +337,6 @@ Network infrastructure is a catch-all term covering the physical components of a
 #### Network interface
 
 A network interface, often referred to as a "network interface card" or NIC, is either a separate physical card connected to a node, a set of circuits embedded on a node's motherboard, or a radio transceiver attached to a node in some way. All network connections require a NIC. The terms "port" and "adaptor" are also used to refer to a network interface.
-
 
 #### Network topology
 
@@ -439,6 +440,7 @@ This action turns off a node's underlying machine.
 This action turns on a node's underlying machine.
 
 ## R-S
+
 ### R
 
 #### Ready
@@ -474,6 +476,7 @@ The node is in rescue mode and is ready to accept SSH connections. See node acti
 #### Router
 
 A [router](https://en.wikipedia.org/wiki/Router_%28computing%29#firstHeading) is a device that transfers packets from one network to another. Unlike switches, which only ensure that pre-addressed packets get to the correct recipient machines, routers actually modify or encapsulate packets to ensure that they can travel on other networks to reach a remote destination. Choices about routing are so important that we'll spend a [great deal of time on the subject](#routing-still-rules) when we learn about cloud networking.
+
 ### S
 
 #### Series
@@ -483,7 +486,6 @@ A series is essentially an operating system version. For Ubuntu, a series takes 
 #### Server
 
 A [server](https://en.wikipedia.org/wiki/Server_%28computing%29#Classes_of_computers) is a node that provides shared resources to clients via a network. If that same server uses shared resources from other nodes, it could also be considered a client, but only in that context.
-
 
 #### Set Zone
 
@@ -521,6 +523,7 @@ A subnet is a "layer 3" network, defined by a network address and a network mask
 A [switch](https://en.wikipedia.org/wiki/Network_switch#firstHeading) is a "smart" device that connects cables from nodes to make networks. Like a hub, a switch amplifies signals, that is, it acts as a repeater. Switches learn by induction which cables receive which IP addresses. Over time a switch will direct each packet only to devices which indicate that they will accept the addresses associated with those packets.
 
 ## T-Z
+
 ### T
 
 #### Tags
@@ -582,6 +585,7 @@ A VLAN interface can be used to connect to a tagged VLAN, if the node is connect
 VM hosts, also called composable hardware, allow for the dynamic composition of machines from a pool of available hardware resources (e.g. disk space, memory, cores).
 
 ### W
+
 #### WAN
 
 A [WAN (wide area network)](https://en.wikipedia.org/wiki/Wide_area_network#firstHeading) is a network which connects LANs across large geographic distances, e.g., thousands of miles.
@@ -592,9 +596,8 @@ A [WAN (wide area network)](https://en.wikipedia.org/wiki/Wide_area_network#firs
 
 A physical zone, or just zone, is an organisational unit that contains nodes where each node is in one, and only one, zone. Later, while in production, a node can be taken (allocated) from a specific zone (or not from a specific zone). Since zones, by nature, are custom-designed (except for the 'default' zone), they provide more flexibility than a similar feature offered by a public cloud service (ex: availability zones).
 
-Some prime examples of zone usage include fault-tolerance, service performance, and power management. 
+Some prime examples of zone usage include fault-tolerance, service performance, and power management.
 
 A newly installed MAAS comes with a default zone which contains all nodes unless you create a new zone. You can therefore safely ignore the entire concept if you're not interested in leveraging zones.
 
 You cannot remove the 'default' zone or change its name.
-

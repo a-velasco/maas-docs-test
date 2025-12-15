@@ -1,4 +1,3 @@
-(how-to-guides-deploy-a-real-time-kernel)=
 # Deploy a real-time kernel
 
 This page walks you through the steps to deploy an Ubuntu machine with a [real-time (RT) kernel](https://ubuntu.com/blog/real-time-linux-qa). The RT kernel comes with all [Ubuntu Pro](https://ubuntu.com/pro) subscriptions for Ubuntu 22.04 LTS.
@@ -28,9 +27,7 @@ The RT kernel isn't directly integrated into MAAS. Instead, cloud-init is used t
 3. A host compatible with Ubuntu RT kernel.
 4. Internet connection.
 
-
 Offline installation of the RT kernel is not supported currently.
-
 
 ## RT kernel deployment
 
@@ -44,7 +41,7 @@ Perform these steps in the MAAS UI:
   
 4. **Configure cloud-init**: Select `Cloud-init user-data` and use the following templates. Replace `<ubuntu_pro_token>` with your valid token.
 
-    1. `cloud-init` >= 23.4 
+    1. `cloud-init` >= 23.4
 
 ```yaml
     #cloud-config
@@ -66,22 +63,24 @@ Perform these steps in the MAAS UI:
     - yes | pro enable realtime-kernel
 ```
 
-5. **Start deployment**: Click `Start deployment for machine`.
+1. **Start deployment**: Click `Start deployment for machine`.
 
 ## Verifying deployment
 
 After deployment, execute these commands on the host to confirm RT kernel activation:
 
 1. Check Pro status
+
 ```text
     sudo pro status
 ```
+
     You should see `realtime-kernel` as enabled.
   
 2. Confirm kernel version
+
 ```text
     uname -a
 ```
 
 Your machine should now be up and running with an RT kernel.
-

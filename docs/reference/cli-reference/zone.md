@@ -1,4 +1,3 @@
-(reference-cli-reference-zone)=
 # zone
 
 Enter keyword arguments in the form `key=value`.
@@ -10,9 +9,11 @@ maas $PROFILE zone delete [--help] [-d] [-k] name [data ...]
 ```
 
 #### Positional arguments
+
 - name
 
 #### Command-line options
+
 | Option | Effect |
 |-----|-----|
 | --help, -h | Show this help message and exit. |
@@ -26,9 +27,11 @@ maas $PROFILE zone read [--help] [-d] [-k] name [data ...]
 ```
 
 #### Positional arguments
+
 - name
 
 #### Command-line options
+
 | Option | Effect |
 |-----|-----|
 | --help, -h | Show this help message and exit. |
@@ -42,18 +45,21 @@ maas $PROFILE zone update [--help] [-d] [-k] name [data ...]
 ```
 
 #### Positional arguments
-- name
 
+- name
 
 Note that only 'name' and 'description' parameters are honored. Others, such as 'resource-uri' or 'id' will be ignored.
 
 #### Keyword "description"
+
 Optional String. A brief description of | the | new zone. |
 
 #### Keyword "name"
+
 Optional String. The zone's new name.
 
 #### Command-line options
+
 | Option | Effect |
 |-----|-----|
 | --help, -h | Show this help message and exit. |
@@ -66,20 +72,23 @@ Optional String. The zone's new name.
 maas $PROFILE zones create [--help] [-d] [-k] [data ...] 
 ```
 
-#### Keyword "name" Required. The new zone's name.
+#### Keyword "name" Required. The new zone's name
+
 Type: String.
 
 #### Keyword "description"
+
 Optional String. A brief description of | the | new zone. |
 
 #### Command-line options
+
 | Option | Effect |
 |-----|-----|
 | --help, -h | Show this help message and exit. |
 | -d, --debug | Display more information about API responses. |
 | -k, --insecure | Disable SSL certificate check |
 
-## Get a listing of all zones 
+## Get a listing of all zones
 
 Note that there is always at least one zone called "default."
 
@@ -88,8 +97,8 @@ maas $PROFILE zones read [--help] [-d] [-k] [data ...]
 ```
 
 #### Command-line options | Option | Effect |
+
 |-----|-----|
 | --help, -h | Show this help message and exit. |
 | -d, --debug | Display more information about API responses. |
 | -k, --insecure | Disable SSL certificate check |
-

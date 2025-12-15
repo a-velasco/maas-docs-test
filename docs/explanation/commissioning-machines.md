@@ -1,4 +1,3 @@
-(explanation-commissioning-machines)=
 # Commissioning machines
 
 Commissioning profiles machine hardware (vendor, BIOS, network, CPU, storage, USB/PCI) to tailor deployment. A commissioning failure is low-stakes -- it prevents deployment, avoiding errors.  Successful commissioning tests the hardware and sets the machine to "Ready," meaning  successful deployment is likely.
@@ -14,25 +13,25 @@ MAAS commissions a machine like this:
 
 Administrators can specify other ephemeral boot images.  The region controller tracks and reports commissioning status.
 
-## Built-in commissioning scripts 
+## Built-in commissioning scripts
 
 MAAS extracts six built-in commissioning scripts from the MAAS database and runs them in parallel:
 
-- **maas-support-info:** gathers information that helps to identify and characterize the machine for debugging purposes. 
+- **maas-support-info:** gathers information that helps to identify and characterize the machine for debugging purposes.
 
 - **maas-lshw:** pulls BIOS and vendor info, and generates user-defined tags for later use.
 
-- **maas-list-modaliases:** identifies the available hardware modules. 
+- **maas-list-modaliases:** identifies the available hardware modules.
 
-- **maas-get-fruid-api-data:** gathers information for the Facebook wedge power type. 
+- **maas-get-fruid-api-data:** gathers information for the Facebook wedge power type.
 
-- **maas-serial-ports:** finds the available serial ports. 
+- **maas-serial-ports:** finds the available serial ports.
 
-- **maas-capture-lldp:** gathers LLDP network information for logging. 
+- **maas-capture-lldp:** gathers LLDP network information for logging.
 
 MAAS extracts four additional scripts from the database and runs them in alphabetical order:
 
-- **20-maas-01-install-lldpd:** installs the link layer discovery protocol (LLDP) daemon to capture networking information. 
+- **20-maas-01-install-lldpd:** installs the link layer discovery protocol (LLDP) daemon to capture networking information.
 
 - **20-maas-02-dhcp-unconfigured-ifaces:** PXE comes online during boot; this script identifies other attached networks.
 
@@ -68,31 +67,31 @@ Change how commissioning runs with the following options:
 
 - **`parameters`**: Optional string. Scripts selected to run can define their own parameters. These parameters are passed using the parameter name. A parameter can have the script name prepended to have that parameter only apply to that specific script.
 
-## Commissioning logs 
+## Commissioning logs
 
 MAAS logs timestamped records of commissioning events for every machine.  If commissioning fails, check the logs first.
 
-## Debugging scripts 
+## Debugging scripts
 
-Scripts log full results regardless of success or failure. For more details, choose the option to leave the machine on after commissioning. You can then connect to the machine and examine its logs. 
+Scripts log full results regardless of success or failure. For more details, choose the option to leave the machine on after commissioning. You can then connect to the machine and examine its logs.
 
 If you've added your [SSH key](https://canonical.com/maas/docs/sshkey) to MAAS, you may connect with SSH to the machine's IP with a username of `ubuntu`. Enter `sudo -i` to get root access.
 
-## Automatic selection 
+## Automatic selection
 
 When selecting multiple machines, scripts declaring the `for_hardware` field will run only on machines with matching hardware. To automatically run a script when *Update firmware* or *Configure HBA* is selected, you must tag the script appropriately. Command-line scripts that specify `for_hardware` also run only on matching hardware.
 
-## NUMA and SR-IOV 
+## NUMA and SR-IOV
 
-MAAS assigns machines to a single NUMA node by default to avoid latency. Match VM boundaries to NUMA boundaries for best results.  Specify a node index for interfaces and physical block devices. 
+MAAS assigns machines to a single NUMA node by default to avoid latency. Match VM boundaries to NUMA boundaries for best results.  Specify a node index for interfaces and physical block devices.
 
 MAAS reports NUMA node details, such as the index, node count, CPU cores, memory, NICs, and node spaces. You can filter machines by CPU cores, memory, subnet, VLAN, fabric, space, storage, and RAID.
 
-## Disabling boot methods 
+## Disabling boot methods
 
 You can disable individual boot methods with the MAAS CLI on a VLAN/subnet basis. MAAS-provided DHCP will not respond to the associated boot architecture code for disabled methods. External DHCP servers must be configured manually.
 
-## Interpreting scripts 
+## Interpreting scripts
 
 Scripts write results to a YAML file in `RESULT_PATH` before exiting. The YAML file has two fields:
 
@@ -140,7 +139,7 @@ if result_path is not None:
 . .  yaml.safe_dump(results, results_file)
 ```
 
-## Tagging scripts 
+## Tagging scripts
 
 Tags make scripts easier to manage. These tags group together commissioning and testing scripts:
 
@@ -165,19 +164,18 @@ testing_scripts=$SCRIPT_NAME,$SCRIPT_TAG
 
 Any testing scripts tagged with `commissioning` will also run during commissioning.
 
-## Testing hardware 
+## Testing hardware
 
 You can test machine hardware using any available Linux utility. You can create your own testing scripts and read their logs. MAAS tests machines that that are **Ready**, **Broken**, or **Deployed**. If the hardware tests fail, you can't deploy the machine. Testing scripts don't always work with virtual machines.
 
-## Interpreting logs 
+## Interpreting logs
 
 You can also examine log details on any particular tests or just review the raw log output. Help interpreting these logs can be found under the [Logging](https://canonical.com/maas/docs/about-maas-logging) section of this documentation.
 
-## Testing networks 
+## Testing networks
 
 MAAS can test networks and links, including connection status and link speeds. You can test Internet connectivity against a user-provided list of URLs or IP addresses. Bonded NICS are separated during this testing to check each side of a dual interface. You can also provide custom scxripts with no restrictions.
 
-## Delayed NW config 
+## Delayed NW config
 
 Once commissioned, you can configure the machine's network interface(s). Specifically, when a machine's status is either "Ready" or "Broken", interfaces can be added/removed, attached to a fabric or subnet, and provided an IP assignment mode. Tags can also be assigned to specific network interfaces.
-

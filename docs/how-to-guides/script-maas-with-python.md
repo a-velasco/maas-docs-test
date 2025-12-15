@@ -1,4 +1,3 @@
-(how-to-guides-script-maas-with-python)=
 # Script MAAS with Python
 
 The `python-libmaas` client library provides access to various MAAS endpoints, so that you can write Python scripts to control MAAS.  This page provides links to the necessary references and instructions.
@@ -28,4 +27,3 @@ Kick-start your journey with these useful external links:
 For hands-on examples to get you up and running, visit the [Python libmaas client guide](https://maas.github.io/python-libmaas/client/index.html).
 
 For package details on PyPI, consult [this external link](https://pypi.python.org/pypi/python-libmaas).
-

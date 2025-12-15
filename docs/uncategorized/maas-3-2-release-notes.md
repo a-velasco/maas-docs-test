@@ -1,14 +1,12 @@
-(uncategorized-maas-3-2-release-notes)=
 # MAAS 3.2 release notes
 
 ## MAAS 3.2.10
 
-We are happy to announce that MAAS 3.2.10 has been released. 
+We are happy to announce that MAAS 3.2.10 has been released.
 
 ### Bug fixes
 
 This point release of MAAS 3.2 provides five bug fixes:
-
 
 [1999827](https://bugs.launchpad.net/maas/+bug/1999827) :  DNS entries for MAAS servers change to secondary IPs
 [2022084](https://bugs.launchpad.net/maas/+bug/2022084) :  secure boot enabled on RHEL image fails to boot local on 2nd reboot after deploy
@@ -20,7 +18,7 @@ This point release of MAAS 3.2 provides five bug fixes:
 
 We are happy to announce that MAAS 3.2.9 has been released.
 
-### Bug fixes 
+### Bug fixes
 
 The following high-profile bugs have been fixed in MAAS 3.2.9:
 
@@ -46,7 +44,7 @@ This point release of MAAS 3.2 provides a number of high-profile bug fixes:
 
 ### MAAS 3.2.7
 
-We are happy to announce that MAAS 3.2.7 has been released. 
+We are happy to announce that MAAS 3.2.7 has been released.
 
 ### Bug fixes
 
@@ -71,7 +69,7 @@ The following bugs have been fixed in MAAS 3.2.7:
 
 ## MAAS 3.2.6
 
-We are happy to announce that MAAS 3.2.6 has been released. 
+We are happy to announce that MAAS 3.2.6 has been released.
 
 ### Bug fixed
 
@@ -83,17 +81,17 @@ No other changes were made for this point release.
 
 ## MAAS 3.2.5
 
-MAAS 3.2.5 was an attempt to fix a critical issue in 3.2.4. This issue was resolved in MAAS 3.2.6, listed above. 
+MAAS 3.2.5 was an attempt to fix a critical issue in 3.2.4. This issue was resolved in MAAS 3.2.6, listed above.
 
 ## MAAS 3.2.4
 
-We are happy to announce that MAAS 3.2.4 has been released. 
+We are happy to announce that MAAS 3.2.4 has been released.
 
 ### Bug fixed
 
 This point release of MAAS 3.2 provides a fix for a critical bug that prevented the controllers page from displaying under certain conditions:
 
--  #1983624 [Fresh MAAS 3.2 install failed to find controller](https://bugs.launchpad.net/bugs/1983624)
+- #1983624 [Fresh MAAS 3.2 install failed to find controller](https://bugs.launchpad.net/bugs/1983624)
 
 This release also addresses build issues found in prior point releases.
 
@@ -103,7 +101,7 @@ MAAS 3.2.2 and MAAS 3.2.3 were successive attempts to fix issues in MAAS. These 
 
 ## MAAS 3.2.1
 
-We are happy to announce that MAAS 3.2.1 has been released. 
+We are happy to announce that MAAS 3.2.1 has been released.
 
 ### Bug fixes
 
@@ -119,10 +117,10 @@ This point release of MAAS 3.2.1 provides support for Rocky Linux UEFI ([bug num
 - #1929478: [Commissioning fails with binary data in IPMI Lan_Conf_Security_Keys](https://bugs.launchpad.net/bugs/1929478)
 - #1982208: [agent.yaml.example is missing when maas is installed via deb package](https://bugs.launchpad.net/bugs/1982208)
 - #1982846: [Missing update_interface method on controller websocket handler](https://bugs.launchpad.net/bugs/1982846)
-	
+ 
 ## MAAS 3.2
 
-We are happy to announce that MAAS 3.2 is now available. 
+We are happy to announce that MAAS 3.2 is now available.
 
 ### Features
 
@@ -145,7 +143,7 @@ You may know that Redfish is an alternative to the IPMI protocol for connecting 
 
 If the machine uses either IPMI or Redfish for its BMC, the ephemeral environment will automatically detect it, create a separate user for MAAS and configure the machine, so that MAAS may check and control the machine’s power status. Note that the name of the user that MAAS creates in the BMC is controlled by the `maas_auto_ipmi_user` config setting, both for IPMI and Redfish; nothing has changed in this regard with MAAS 3.2.
 
-You can check whether or not a machine can communicate via Redfish, with the command: 
+You can check whether or not a machine can communicate via Redfish, with the command:
 
 ```text
 dmidecode -t 42
@@ -162,7 +160,7 @@ MAAS 3.2 provides [native TLS](/). MAAS now has built-in TLS support for communi
 MAAS 3.2 allows you to [sync hardware changes for deployed machines](/). You can see real-time updates to storage, etc., for a running machine. This feature requires a special parameter be set prior to deployment. Coupled with the existing ability to commission deployed machines, MAAS 3.2 moves a step closer to real-time reconfiguration of active, deployed, bare-metal.
 
 #### Expanded tagging capability
- 
+
 MAAS 3.2 provides greatly [expanded tagging capability](/). You can auto-apply tags to machines that match a custom XPath expression. Setting up an automatic tag lets you recognise special hardware characteristics and settings, e.g., the gpu passthrough.
 
 #### More new features
@@ -219,7 +217,7 @@ Here is the breakdown of bugs fixed across the MAAS 3.2 release:
 - [MAAS 3.2 Beta 3](https://launchpad.net/maas/3.2/3.2.0-beta3)
 - [MAAS 3.2 Beta 2](https://launchpad.net/maas/+milestone/3.2.0-beta2)
 - [MAAS 3.2 Beta 1](https://launchpad.net/maas/3.2/3.2.0-beta1)
- 
+
 ### Known issues
 
 The following known issues exist for MAAS 3.2:
@@ -229,4 +227,3 @@ The following known issues exist for MAAS 3.2:
 If you attempt to update a list of tags of a device with an automatic tag, you get an error: "Cannot add tag tag-name to node because it has a definition".
 
 If you attempt to manually make the same API request, but send a list of tags with the automatic tag filtered out, the automatic tag will be removed from the device.
-

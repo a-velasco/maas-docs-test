@@ -1,4 +1,3 @@
-(reference-configuration-guides-troubleshooting)=
 # Troubleshooting
 
 ## MAAS OS deployment failing with cloud-init error
@@ -7,6 +6,7 @@
 Deployment of a JUJU controller or an OS directly on a node fails with the error "cloud-init Data source not found."
 
 **Environment:**
+
 - MAAS version: stable (2.8 mentioned)
 - Single NIC for MAAS node and JUJU controller node
 - Ubuntu 16.04 and 18.04 tried
@@ -19,7 +19,7 @@ Deployment of a JUJU controller or an OS directly on a node fails with the error
    **Solution:**
    - Verify that the DNS server in your environment is set to the MAAS region/rack controller IP. You can set this in the Subnet Summary under the MAAS UI.
    - Ensure that "Allow DNS resolution" is enabled and correctly configured with the MAAS server's IP.
-   
+
    ```bash
    maas $profile subnet update $subnet_id dns_servers="[$MAAS_IP]"
    ```
@@ -69,7 +69,7 @@ Deployment of a JUJU controller or an OS directly on a node fails with the error
    **Solution:**
    - Check MAAS and cloud-init logs for more details using the instructions provided in the [logging documentation](https://canonical.com/maas/docs/how-to-use-logging).
 
-### Example configuration and commands:
+### Example configuration and commands
 
 ```bash
 # Ensure DNS is correctly set
@@ -82,7 +82,7 @@ sudo systemctl restart maas-rackd maas-regiond
 # insert relevant commands here
 ```
 
-### Community tips:
+### Community tips
 
 - Adding a dynamic reserved range to the IPv6 subnet helped one user resolve the issue.
 - Ensuring the DNS IP in the subnet summary is set to the MAAS region/rack servers' IP.
@@ -96,13 +96,14 @@ MAAS restarted after an update, causing DNS to fail due to duplicate subnets and
 
 **Solution:**
 
-### Steps to decouple DNS from MAAS and resolve configuration issues:
+### Steps to decouple DNS from MAAS and resolve configuration issues
 
 1. **Identify the issue:**
    - The issue was identified by errors in the [MAAS log files](https://canonical.com/maas/docs/how-to-use-logging), indicating problems with BIND9 due to duplicate subnets.
 
 2. **Check for duplicate subnets:**
    - Run the following command to list all subnets and identify duplicates:
+
      ```bash
      maas $profile subnets read
      ```
@@ -110,18 +111,21 @@ MAAS restarted after an update, causing DNS to fail due to duplicate subnets and
 3. **Remove duplicate subnets:**
    - Identify any duplicate subnets in the output. Pay special attention to subnets with odd subnet masks or those that appear more than once.
    - Remove the duplicate subnets using the MAAS CLI or web interface:
+
      ```bash
      maas $profile subnet delete $subnet_id
      ```
 
 4. **Restart MAAS services:**
    - After removing the duplicate subnets, restart the MAAS services to apply the changes:
+
      ```bash
      sudo systemctl restart maas-regiond maas-rackd
      ```
 
 5. **Verify DNS configuration:**
    - Check the DNS configuration files to ensure there are no remaining issues. The relevant files can be found in:
+
      ```bash
      # deb
      /etc/bind/maas/
@@ -132,12 +136,15 @@ MAAS restarted after an update, causing DNS to fail due to duplicate subnets and
 
 6. **Decouple DNS from MAAS:**
    - If you wish to decouple DNS entirely from MAAS and use an external DNS server, you can disable the MAAS-managed DNS service:
+
      ```bash
      sudo maas $profile dns update 1 enabled=false
      ```
+
    - Configure your external DNS server to handle all DNS queries.
 
-### Example Commands:
+### Example Commands
+
 ```bash
 # List all subnets to find duplicates
 maas admin subnets read
@@ -152,7 +159,8 @@ sudo systemctl restart maas-regiond maas-rackd
 sudo maas admin dns update 1 enabled=false
 ```
 
-### Verification:
+### Verification
+
 - Ensure the DNS service is running smoothly without errors.
 - Verify that the external DNS server is correctly configured and resolving queries.
 
@@ -165,7 +173,7 @@ You have managed to deploy machines with two NICs using MAAS. The first NIC uses
 
 **Solution:**
 
-### Steps to configure the second NIC for external DHCP:
+### Steps to configure the second NIC for external DHCP
 
 1. **Commission the machine:**
    - Ensure the machine is commissioned in MAAS. After commissioning, MAAS should recognize both NICs.
@@ -182,7 +190,7 @@ You have managed to deploy machines with two NICs using MAAS. The first NIC uses
    - Edit the configuration of the second NIC.
    - Set the interface to "DHCP" to ensure it will acquire an IP address from the external DHCP server. This is different from "Auto assign," where MAAS would assign an IP before deployment.
 
-### Detailed steps in the MAAS UI:
+### Detailed steps in the MAAS UI
 
 1. **Access machine details:**
    - Go to the "Machines" tab.
@@ -199,7 +207,7 @@ You have managed to deploy machines with two NICs using MAAS. The first NIC uses
    - In the configuration dialog, select "DHCP" from the dropdown menu.
    - Save the changes.
 
-### Verify configuration:
+### Verify configuration
 
 1. **Deploy the machine:**
    - Deploy the machine from MAAS.
@@ -213,7 +221,7 @@ You have managed to deploy machines with two NICs using MAAS. The first NIC uses
 ip a
 ```
 
-3. **Troubleshoot if necessary:**
+1. **Troubleshoot if necessary:**
    - If the second NIC does not acquire an IP address, check the DHCP server configuration and ensure it is correctly set up to provide IP addresses on the intended subnet.
 
 By following these steps, you should be able to configure the second NIC on a machine deployed with MAAS to use an external DHCP server for IP address allocation.
@@ -225,10 +233,11 @@ A user was trying to set up MAAS with an existing DHCP server on an Edgerouter 1
 
 **Solution:**
 
-### Summary:
+### Summary
+
 The user ultimately resolved the issue by disabling the router's DHCP and using the built-in DHCP service in MAAS.
 
-### Detailed steps to configure MAAS with an existing DHCP server:
+### Detailed steps to configure MAAS with an existing DHCP server
 
 1. **Understand MAAS DHCP configuration:**
    - By default, MAAS manages DHCP for PXE booting. However, it is possible to integrate with an existing DHCP server.
@@ -257,13 +266,15 @@ The user ultimately resolved the issue by disabling the router's DHCP and using 
    - Ensure that the client machines are set to PXE boot from the network.
    - Reboot the machines and verify if they receive the PXE boot instructions from the existing DHCP server and proceed with commissioning and deployment via MAAS.
 
-### Additional considerations:
+### Additional considerations
+
 - **Network configuration:**
   - Ensure that the MAAS server and the existing DHCP server are on the same network segment to avoid any routing issues.
 - **Debugging:**
   - Use network tools like `tcpdump` or Wireshark to capture DHCP and TFTP traffic to troubleshoot any issues with PXE booting.
 
-### Final solution:
+### Final solution
+
 If integrating with the existing DHCP server proves too challenging or unreliable, consider using the built-in DHCP service in MAAS as Robert-datacare eventually did. This approach simplifies the setup and leverages MAAS's full capabilities for managing DHCP, DNS, and PXE booting seamlessly.
 
 By following these steps, you can configure MAAS to work with an existing DHCP server or switch to using the built-in MAAS DHCP service to manage network booting and machine provisioning effectively.
@@ -351,6 +362,7 @@ You can use manual DHCP allocations with MAAS, but you need to ensure that the D
    - Set the `next-server` option in your DHCP server configuration to point to the MAAS TFTP server.
 
    Example DHCP configuration snippet:
+
    ```bash
    host raspberrypi1 {
        hardware ethernet xx:xx:xx:xx:xx:xx;
@@ -383,6 +395,7 @@ MAAS 2.9.2 (snap) DHCP services stopped working after memory and disk issues wer
 1. **Check logs:**
    - Look into the [MAAS logs](https://canonical.com/maas/docs/how-to-use-logging).
    - The error log shows something like this:
+
      ```
      2021-06-09 08:58:43 maasserver.rack_controller: [critical] Failed configuring DHCP on rack controller 'id:1'.
        File "/snap/maas/12555/lib/python3.8/site-packages/maasserver/dhcp.py", line 864, in configure_dhcp
@@ -405,7 +418,7 @@ MAAS 2.9.2 (snap) DHCP services stopped working after memory and disk issues wer
      - Navigate to the "Subnets" section.
      - Open the subnet configuration page.
      - Reassign the subnet to the correct fabric.
-   
+
 4. **Restart MAAS services:**
    - After correcting the subnet assignment, restart the MAAS services.
 
@@ -702,6 +715,7 @@ Switching to an external proxy (standard HTTP proxy) resolves the issue, indicat
 
 1. **Identifying the issue:**
    The error may be related to the Squid proxy on the MAAS node. Errors similar to:
+
    ```
    Err:4 http://archive.ubuntu.com/ubuntu focal InRelease
    Clearsigned file isn't valid, got 'NOSPLIT' (does the network require authentication?)
@@ -717,6 +731,7 @@ Switching to an external proxy (standard HTTP proxy) resolves the issue, indicat
    - Restart the MAAS proxy service.
 
    **Commands:**
+
    ```bash
    sudo mv /var/spool/maas-proxy /var/spool/maas-proxy.old
    sudo mkdir -p /var/spool/maas-proxy
@@ -749,10 +764,10 @@ Clarification needed on how MAAS handles IP address allocation in subnets, parti
 
    - **Managed allocation:**
      When managed allocation is enabled for a subnet, MAAS takes charge of assigning IP addresses. It uses specific ranges for different purposes.
-     
+
      - **Dynamic range:**
        This is the range from which MAAS leases addresses for DHCP during commissioning or enlistment. MAAS DHCP server picks IPs from this range.
-     
+
      - **Reserved range:**
        IP addresses within the reserved range are not assigned by MAAS. These ranges are set aside for infrastructure systems, network hardware, external DHCP, or other uses outside of MAAS’s automatic management.
 
@@ -804,6 +819,7 @@ The MAAS UI was accessible until the network configuration was changed, putting 
 
 2. **Check MAAS configuration:**
    - Since the IP address of the MAAS server was changed, update the MAAS configuration to reflect the new IP address:
+
      ```sh
      sudo maas config --maas-url=http://<new-ip-address>:5240/MAAS
      ```
@@ -811,20 +827,26 @@ The MAAS UI was accessible until the network configuration was changed, putting 
 3. **Check PostgreSQL connection:**
    - The error logs may show an issue with the PostgreSQL connection. Verify that PostgreSQL is running and accepting connections on the new IP address.
    - Update the PostgreSQL configuration to allow connections from the new IP address:
+
      ```sh
      sudo nano /etc/postgresql/12/main/pg_hba.conf
      ```
+
      - Add or update the line to allow connections:
+
        ```
        host all all <new-ip-address>/32 md5
        ```
+
      - Restart PostgreSQL:
+
        ```sh
        sudo systemctl restart postgresql
        ```
 
 4. **Verify DHCP settings:**
    - Ensure that MAAS is configured to manage DHCP on the new network if needed:
+
      ```sh
      maas $PROFILE vlan update $FABRIC_ID $VLAN_TAG dhcp_on=True primary_rack=$PRIMARY_RACK_CONTROLLER
      ```
@@ -834,12 +856,14 @@ The MAAS UI was accessible until the network configuration was changed, putting 
 
 6. **Restart MAAS services:**
    - Restart the MAAS services to apply the new configurations:
+
      ```sh
      sudo systemctl restart maas-regiond maas-rackd
      ```
 
 7. **Validate networking configuration:**
    - Use the "Validate networking configuration" button in the MAAS UI or run the following command to ensure network settings are correct:
+
      ```sh
      maas $PROFILE subnet read $SUBNET_ID
      ```
@@ -880,13 +904,16 @@ MAAS is sending out DHCP leases to both a BMC and a machine set to PXE boot, but
    - Refer to the [official MAAS documentation](https://canonical.com/maas/docs/about-dhcp-in-maas) for detailed information on how MAAS works with DHCP and how to properly configure and troubleshoot it.
 
 **Example command for checking DHCP leases:**
-   - View the `dhcpd.leases` file to ensure that leases are being given out:
+
+- View the `dhcpd.leases` file to ensure that leases are being given out:
+
      ```sh
      cat /var/lib/dhcp/dhcpd.leases
      ```
 
 **Next steps:**
-   - If the machine is still not discovered, consider manually adding the machine to MAAS as a last resort.
+
+- If the machine is still not discovered, consider manually adding the machine to MAAS as a last resort.
 
 By following these steps, you should be able to diagnose and resolve the issue with MAAS not recognizing the used IP addresses and new machines in the subnet.
 
@@ -913,9 +940,11 @@ You have successfully set up a Dell server using MAAS, but network interfaces ar
 
 5. **Troubleshoot interface detection:**
    - On the server, try running the following command to manually bring up the eno2 interface and see if it gets detected by MAAS:
+
      ```sh
      sudo ip link set eno2 up
      ```
+
    - After running the command, check the MAAS UI again to see if the second interface is now recognized.
 
 6. **Check MAAS version:**
@@ -931,9 +960,11 @@ You have successfully set up a Dell server using MAAS, but network interfaces ar
    - Ensure that there are no physical disconnects or missing wires. Sometimes, issues can be caused by simple hardware problems like loose cables.
 
 **Example command for commissioning script:**
-   - To run a commissioning script, follow the steps in the MAAS UI to commission the machine. During commissioning, MAAS will run various scripts to validate the hardware configuration. The output of these scripts can be found in the logs section of the MAAS UI.
+
+- To run a commissioning script, follow the steps in the MAAS UI to commission the machine. During commissioning, MAAS will run various scripts to validate the hardware configuration. The output of these scripts can be found in the logs section of the MAAS UI.
 
 **Follow-up actions:**
+
 - If the BMC (Baseboard Management Controller) of the server is powered off, manually power it up and check if the network interfaces are detected correctly.
 - If the issue persists after all troubleshooting steps, consider reaching out to the MAAS support team or community forums for further assistance.
 
@@ -971,19 +1002,23 @@ You are experiencing an issue where MAAS is not responding to DHCP requests from
    - Ensure that both switches and the iDRAC firmware are up-to-date. Firmware bugs can sometimes cause unexpected behavior.
 
 **Example commands for switch troubleshooting:**
+
 - To display VLAN configuration on a Cisco switch:
+
   ```sh
   show vlan brief
   ```
 
 - To display interface configuration:
+
   ```sh
   show running-config interface <interface-id>
   ```
 
 **Follow-up actions:**
+
 - If you identify a misconfiguration on SWITCH1, correct it and test the DHCP process again.
-- If the issue persists after all troubleshooting steps, consider isolating the network further or engaging with the switch vendor's support for deeper diagnostics. 
+- If the issue persists after all troubleshooting steps, consider isolating the network further or engaging with the switch vendor's support for deeper diagnostics.
 
 By methodically verifying and comparing configurations, you should be able to pinpoint the cause of the VLAN misidentification and resolve the DHCP leasing issue.
 
@@ -1079,10 +1114,11 @@ This will retrieve the full list of DNS resources from the MAAS API, including a
 
 ## Addressing SNMP errors in MAAS
 
-### Error description:
+### Error description
+
 Encountering SNMP errors when attempting to query a device’s BMC. The errors include ‘Cannot find module’ for various MIBs and ‘Timeout’ when communicating with the target IP address.
 
-### Steps to resolve:
+### Steps to resolve
 
 1. **Check SNMP Configuration:**
    Ensure SNMP is correctly configured on the BMC device. Verify the community string, SNMP version, and access control settings.
@@ -1090,6 +1126,7 @@ Encountering SNMP errors when attempting to query a device’s BMC. The errors i
 2. **Install missing MIBs:**
    - Install the required MIBs on the MAAS server. Missing MIBs often cause 'Cannot find module' errors.
    - Update the SNMP MIB repository:
+
      ```bash
      sudo apt-get install snmp-mibs-downloader
      sudo download-mibs
@@ -1098,6 +1135,7 @@ Encountering SNMP errors when attempting to query a device’s BMC. The errors i
 3. **Verify network connectivity:**
    - Ensure the MAAS server can reach the BMC device. Check the network connectivity and firewall rules.
    - Use `ping` or `telnet` to verify:
+
      ```bash
      ping <BMC_IP>
      telnet <BMC_IP> 161
@@ -1105,13 +1143,16 @@ Encountering SNMP errors when attempting to query a device’s BMC. The errors i
 
 4. **Test SNMP communication:**
    - Use the `snmpwalk` command to test SNMP communication manually:
+
      ```bash
      snmpwalk -v 2c -c <community_string> <BMC_IP>
      ```
+
    - Check for timeout errors or specific MIB module errors.
 
 5. **Update MAAS and dependencies:**
    - Ensure you are using the latest version of MAAS and its dependencies. Update the system packages:
+
      ```bash
      sudo apt-get update
      sudo apt-get upgrade
@@ -1123,13 +1164,14 @@ Encountering SNMP errors when attempting to query a device’s BMC. The errors i
 
 7. **Check SNMP logs:**
    - Review the SNMP logs for detailed error messages:
-   
+
      ```bash
      sudo journalctl -u maas
      ```
 
 8. **Restart services:**
    - Restart the MAAS and SNMP services to apply the changes:
+
      ```bash
      sudo systemctl restart maas-regiond
      sudo systemctl restart maas-rackd
@@ -1137,6 +1179,7 @@ Encountering SNMP errors when attempting to query a device’s BMC. The errors i
 
 9. **SNMP timeout troubleshooting:**
    - If timeouts persist, increase the SNMP timeout value and retry:
+
      ```bash
      snmpwalk -v 2c -c <community_string> -t 60 <BMC_IP>
      ```
@@ -1230,10 +1273,13 @@ Ensure that DNS SRV records are created correctly and troubleshoot potential iss
    - Log in to the MAAS web interface.
    - Navigate to the DNS settings and add the desired SRV records.
    - Ensure the format is correct:
+
      ```
      _service._protocol.name. TTL class SRV priority weight port target.
      ```
+
    - Example:
+
      ```
      _myservice._tcp.test. 30 IN SRV 10 10 1234 t1.test.
      ```
@@ -1242,10 +1288,13 @@ Ensure that DNS SRV records are created correctly and troubleshoot potential iss
 
    - Access the MAAS server and check the DNS zone file for the domain.
    - Verify that the SRV record appears correctly in the zone file.
+
      ```bash
      cat /var/lib/bind/maas/zone.test
      ```
+
    - Example:
+
      ```bash
      ; Zone file modified: 2023-12-09 16:00:59.338123.
      $TTL 30
@@ -1266,10 +1315,13 @@ Ensure that DNS SRV records are created correctly and troubleshoot potential iss
 3. **Test SRV record resolution:**
 
    - Use the `dig` command to query the SRV record and check the response.
+
      ```bash
      dig @localhost SRV _myservice._tcp.test
      ```
+
    - Expected output:
+
      ```bash
      ; <<>> DiG 9.18.18-0ubuntu0.22.04.1-Ubuntu <<>> @localhost SRV _myservice._tcp.test
      ; (1 server found)
@@ -1295,6 +1347,7 @@ Ensure that DNS SRV records are created correctly and troubleshoot potential iss
    - If records do not appear or resolve correctly, manually edit the zone file and named configuration.
    - Ensure there are no stale or incorrectly formatted entries.
    - Restart the DNS service to apply changes:
+
      ```bash
      sudo systemctl restart bind9
      ```
@@ -1302,6 +1355,7 @@ Ensure that DNS SRV records are created correctly and troubleshoot potential iss
 5. **Check named configuration:**
 
    - Ensure that the named configuration includes the correct zone settings and paths to the zone files.
+
      ```bash
      cat /etc/bind/named.conf
      ```
@@ -1313,18 +1367,21 @@ Ensure that DNS SRV records are created correctly and troubleshoot potential iss
 
 2. **Verify zone file:**
    - Confirm the zone file has the correct entries.
+
      ```bash
      cat /var/lib/bind/maas/zone.test
      ```
 
 3. **Test resolution:**
    - Use `dig` to test the SRV record.
+
      ```bash
      dig @localhost SRV _myservice._tcp.test
      ```
 
 4. **Manual edit and restart (if needed):**
    - Edit zone file if the GUI fails and restart DNS service.
+
      ```bash
      sudo nano /var/lib/bind/maas/zone.test
      sudo systemctl restart bind9
@@ -1357,7 +1414,7 @@ The issue is likely due to the limitation that, until MAAS version 3.5, booting 
 
 1. **Access BIOS/UEFI settings:**
    - Restart the machine and enter the BIOS/UEFI setup (usually by pressing F2, F10, F12, or Delete during boot).
-   
+
 2. **Set boot order:**
    - Navigate to the boot settings and set the first NIC as the primary boot device for PXE booting.
 
@@ -1365,8 +1422,9 @@ The issue is likely due to the limitation that, until MAAS version 3.5, booting 
 
 1. **Re-add machine with first NIC:**
    - In the MAAS UI, ensure the machine is enlisted with the MAC address of the first NIC.
-   
+
    **Example command to add machine with first NIC:**
+
    ```bash
    maas $PROFILE machines add mac_addresses=$FIRST_NIC_MAC
    ```
@@ -1375,10 +1433,12 @@ The issue is likely due to the limitation that, until MAAS version 3.5, booting 
    - Ensure DHCP is correctly configured for the first NIC in the subnet used for PXE booting.
 
 **Example DHCP configuration check:**
+
    ```bash
    sudo nano /etc/dhcp/dhcpd.conf
    ```
-   - Ensure the correct interface and subnet are specified.
+
+- Ensure the correct interface and subnet are specified.
 
 **c. Re-commission the machine:**
 
@@ -1386,6 +1446,7 @@ The issue is likely due to the limitation that, until MAAS version 3.5, booting 
    - Re-commission the machine in MAAS using the first NIC for PXE booting.
 
    **Example command to commission machine:**
+
    ```bash
    maas $PROFILE machine commission $MACHINE_ID
    ```
@@ -1399,16 +1460,19 @@ The issue is likely due to the limitation that, until MAAS version 3.5, booting 
    - Ensure the first NIC is set as the primary boot device.
 
 2. **Add machine to MAAS with first NIC:**
+
    ```bash
    maas $PROFILE machines add mac_addresses=$FIRST_NIC_MAC
    ```
 
 3. **Configure and verify DHCP for first NIC:**
+
    ```bash
    sudo nano /etc/dhcp/dhcpd.conf
    ```
 
 4. **Commission the machine:**
+
    ```bash
    maas $PROFILE machine commission $MACHINE_ID
    ```
@@ -1439,6 +1503,7 @@ To resolve this issue, you need to ensure that TFTP and other necessary services
    - Ensure that ProxyDHCP is enabled on the MAAS server to handle PXE boot requests.
 
    **Example command to enable ProxyDHCP:**
+
    ```bash
    maas $PROFILE maas set-config name=enable_proxy value=true
    ```
@@ -1447,15 +1512,18 @@ To resolve this issue, you need to ensure that TFTP and other necessary services
    - Verify that the TFTP server on the MAAS rack controller is properly configured to serve requests from both subnets.
 
    **Example TFTP configuration check:**
+
    ```bash
    sudo nano /etc/default/tftpd-hpa
    ```
+
    - Ensure the TFTP server is listening on the correct interfaces.
 
 5. **Ensure IP forwarding:**
    - Verify that IP forwarding is enabled on the MAAS server to allow routing between the subnets.
 
    **Example command to enable IP forwarding:**
+
    ```bash
    sudo sysctl -w net.ipv4.ip_forward=1
    ```
@@ -1464,6 +1532,7 @@ To resolve this issue, you need to ensure that TFTP and other necessary services
    - Double-check that there are no firewall rules blocking traffic between the subnets.
 
    **Example firewall check:**
+
    ```bash
    sudo ufw status
    ```
@@ -1472,6 +1541,7 @@ To resolve this issue, you need to ensure that TFTP and other necessary services
    - Ensure that network devices (routers/switches) are configured to forward TFTP and HTTP requests from devices in the 10.20.20.0/24 subnet to the MAAS server in the 10.10.10.0/24 subnet.
 
    **Example network configuration:**
+
    ```text
    Router Configuration:
    - DHCP relay pointing to 10.10.10.2
@@ -1486,22 +1556,27 @@ To resolve this issue, you need to ensure that TFTP and other necessary services
    - Ensure that all routers and switches are correctly configured to allow TFTP traffic.
 
 3. **Enable ProxyDHCP on MAAS:**
+
    ```bash
    maas $PROFILE maas set-config name=enable_proxy value=true
    ```
 
 4. **Check TFTP server configuration:**
+
    ```bash
    sudo nano /etc/default/tftpd-hpa
    ```
+
    - Ensure it listens on the correct interfaces.
 
 5. **Enable IP forwarding:**
+
    ```bash
    sudo sysctl -w net.ipv4.ip_forward=1
    ```
 
 6. **Check firewall status:**
+
    ```bash
    sudo ufw status
    ```
@@ -1530,9 +1605,10 @@ The issue is likely due to missing repository components in the local mirror con
 4. **Detailed steps:**
 
    **a. Verify local mirror configuration:**
-   - Ensure your local mirror configuration includes the `universe` component. 
+   - Ensure your local mirror configuration includes the `universe` component.
 
    **Example local mirror configuration:**
+
    ```bash
    deb http://192.168.1.100/repos/archive.ubuntu.com/ubuntu focal main universe restricted multiverse
    ```
@@ -1541,6 +1617,7 @@ The issue is likely due to missing repository components in the local mirror con
    - Ensure MAAS is configured to use the local mirror as a proxy and includes all components.
 
    **Example MAAS proxy configuration:**
+
    ```bash
    sudo maas $PROFILE maas set-config name=http_proxy value="http://192.168.1.100:8000/"
    ```
@@ -1549,11 +1626,13 @@ The issue is likely due to missing repository components in the local mirror con
    - Access the preseed configuration to ensure it includes all necessary repository components.
 
    **Example command to access preseed:**
+
    ```bash
    http://<maas_ip>:5240/MAAS/metadata/latest/by-id/<system_id>/?op=get_preseed
    ```
 
    **Example preseed configuration:**
+
    ```yaml
    sources:
      repo_infra_3:
@@ -1564,6 +1643,7 @@ The issue is likely due to missing repository components in the local mirror con
    - Since the environment is disconnected from the internet, disable the official repositories to avoid errors.
 
    **Example configuration to disable official repositories:**
+
    ```yaml
    sources:
      repo_infra_3:
@@ -1575,6 +1655,7 @@ The issue is likely due to missing repository components in the local mirror con
 
 5. **Verify package availability:**
    - Confirm that the `lldpd` package is available in the local mirror by running the following command on a test machine:
+
    ```bash
    sudo apt-get update
    sudo apt-get install lldpd
@@ -1599,6 +1680,7 @@ To add additional domains to the DNS search list for a subnet in MAAS, you can u
    - Create a cloud-init script that adds the desired search domains to the `resolv.conf` file.
 
    **Example cloud-init script:**
+
    ```yaml
    #cloud-config
    write_files:
@@ -1615,6 +1697,7 @@ To add additional domains to the DNS search list for a subnet in MAAS, you can u
    - Apply this cloud-init script to the machines managed by MAAS. You can do this by adding the script to the custom commissioning and deployment scripts in the MAAS UI or via the CLI.
 
    **Example command to apply custom cloud-init script:**
+
    ```bash
    maas $PROFILE machine update $MACHINE_ID user_data="$(base64 -w 0 /path/to/your/cloud-init.yaml)"
    ```
@@ -1623,6 +1706,7 @@ To add additional domains to the DNS search list for a subnet in MAAS, you can u
    - After the machines have been deployed, verify that the `resolv.conf` file has the correct DNS search list entries.
 
    **Example command to check `resolv.conf`:**
+
    ```bash
    cat /etc/resolv.conf
    ```
@@ -1631,6 +1715,7 @@ To add additional domains to the DNS search list for a subnet in MAAS, you can u
    - Since cloud-init might overwrite the network configuration on reboot, ensure that your custom cloud-init script disables network configuration management by cloud-init.
 
    **Example configuration to disable network configuration by cloud-init:**
+
    ```yaml
    network:
      config: disabled
@@ -1641,6 +1726,7 @@ To add additional domains to the DNS search list for a subnet in MAAS, you can u
 **Example workflow:**
 
 1. **Create custom cloud-init script:**
+
    ```yaml
    #cloud-config
    write_files:
@@ -1654,12 +1740,14 @@ To add additional domains to the DNS search list for a subnet in MAAS, you can u
    ```
 
 2. **Apply script to MAAS machine:**
+
    ```bash
    maas $PROFILE machine update $MACHINE_ID user_data="$(base64 -w 0 /path/to/your/cloud-init.yaml)"
    ```
 
 3. **Deploy and verify:**
    - Deploy the machine and verify the DNS configuration.
+
    ```bash
    cat /etc/resolv.conf
    ```
@@ -1690,6 +1778,7 @@ This issue could be due to network misconfiguration or incorrect settings in MAA
    - Ensure that the DHCP server on MAAS is correctly configured to provide IP addresses to the VMs on the correct VLAN.
 
    **Example command to check DHCP configuration:**
+
    ```bash
    maas $PROFILE dhcps read
    ```
@@ -1711,6 +1800,7 @@ This issue could be due to network misconfiguration or incorrect settings in MAA
    - Make sure the VMs are commissioning correctly and check their status in MAAS.
 
    **Example command to check commissioning status:**
+
    ```bash
    maas $PROFILE machines read
    ```
@@ -1721,6 +1811,7 @@ This issue could be due to network misconfiguration or incorrect settings in MAA
 **Example workflow:**
 
 1. **Check DHCP and network configuration:**
+
    ```bash
    maas $PROFILE dhcps read
    ```
@@ -1731,6 +1822,7 @@ This issue could be due to network misconfiguration or incorrect settings in MAA
    - Ensure VMs are set to boot from the network (PXE).
 
 4. **Check commissioning status:**
+
    ```bash
    maas $PROFILE machines read
    ```
@@ -1760,6 +1852,7 @@ To achieve HA for DHCP services in relayed subnets with MAAS, follow these steps
    - Update the VLAN configuration to set the primary and secondary rack controllers.
 
    **Example commands:**
+
    ```bash
    maas $PROFILE vlan update $FABRIC_ID $VLAN_TAG dhcp_on=True \
        primary_rack=$PRIMARY_RACK_CONTROLLER \
@@ -1770,6 +1863,7 @@ To achieve HA for DHCP services in relayed subnets with MAAS, follow these steps
    - Use the CLI to set up the DHCP relay, ensuring both rack controllers can handle the relayed DHCP traffic.
 
    **Example command:**
+
    ```bash
    maas $PROFILE vlan update $FABRIC_ID $VLAN_ID_SRC relay_vlan=$VLAN_ID_TARGET
    ```
@@ -1786,12 +1880,14 @@ To achieve HA for DHCP services in relayed subnets with MAAS, follow these steps
 **Example workflow:**
 
 1. **Get fabric and VLAN IDs:**
+
    ```bash
    maas $PROFILE fabrics read
    maas $PROFILE vlans read $FABRIC_ID
    ```
 
 2. **Update VLAN for DHCP and relay:**
+
    ```bash
    maas $PROFILE vlan update $FABRIC_ID $VLAN_TAG dhcp_on=True \
        primary_rack=$PRIMARY_RACK_CONTROLLER \
@@ -1834,6 +1930,7 @@ To resolve issues related to external DHCP configuration in MAAS, follow these s
    - Confirm that network discovery is enabled and set to check every 10 minutes.
 
    **Example:**
+
    ```bash
    maas admin subnet update <subnet-id> manage_discovery=true
    ```
@@ -1845,6 +1942,7 @@ To resolve issues related to external DHCP configuration in MAAS, follow these s
    - If the issue persists, configure the server's network settings to use a static IP address. This is particularly useful for virtual environments where DHCP might not function as expected.
 
    **Example netplan configuration (static IP):**
+
    ```yaml
    network:
      ethernets:
@@ -1862,6 +1960,7 @@ To resolve issues related to external DHCP configuration in MAAS, follow these s
    ```
 
    **Apply the changes:**
+
    ```bash
    sudo netplan apply
    ```
@@ -1894,6 +1993,7 @@ This issue can often be related to external DHCP configuration or network miscon
    - Check the network configuration on the deployed machine to ensure it has the correct IP settings and can reach the MAAS server.
 
    **Example commands:**
+
    ```bash
    ip addr show
    ip route show
@@ -1909,6 +2009,7 @@ This issue can often be related to external DHCP configuration or network miscon
    - Modify the cloud-init configuration to disable attempts to contact the MAAS metadata server if it is not reachable.
 
    **Example cloud-init script:**
+
    ```bash
    #!/bin/bash
    # disable cloud-init network configuration after deployment
@@ -1919,6 +2020,7 @@ This issue can often be related to external DHCP configuration or network miscon
    - Update the network configuration files on the deployed machine to ensure it uses the correct network settings.
 
    **Example netplan configuration:**
+
    ```yaml
    network:
      version: 2
@@ -1932,6 +2034,7 @@ This issue can often be related to external DHCP configuration or network miscon
    ```
 
    **Apply the changes:**
+
    ```bash
    sudo netplan apply
    ```
@@ -1964,6 +2067,7 @@ MAAS does not support reassigning a deployed machine to a new subnet directly. T
    - Ensure cloud-init does not attempt to contact the MAAS metadata server on the isolated network once the VM is moved.
 
    **Example script:**
+
    ```bash
    #!/bin/bash
    # disable cloud-init network configuration after deployment
@@ -1974,6 +2078,7 @@ MAAS does not support reassigning a deployed machine to a new subnet directly. T
    - Manually update the network configuration files on the VM to match the new network settings.
 
    **Example netplan configuration:**
+
    ```yaml
    network:
      version: 2
@@ -1986,6 +2091,7 @@ MAAS does not support reassigning a deployed machine to a new subnet directly. T
    - Apply the changes to ensure the VM uses the new network configuration.
 
    **Example commands:**
+
    ```bash
    sudo netplan apply
    ```
@@ -2026,6 +2132,7 @@ To address these issues and better manage network interfaces and subnets in MAAS
    - Prevent MAAS from using the `docker0` interface by configuring the system to exclude it. Create a script to modify the network configuration.
 
    **Example script:**
+
    ```bash
    #!/bin/bash
    # Exclude docker0 interface from MAAS management
@@ -2043,6 +2150,7 @@ To address these issues and better manage network interfaces and subnets in MAAS
    - Modify the `named.conf` file to prevent `named` from using specific subnets.
 
    **Example configuration:**
+
    ```bash
    options {
      ...
@@ -2055,6 +2163,7 @@ To address these issues and better manage network interfaces and subnets in MAAS
    - Adjust the network configuration files to ensure MAAS services bind only to the desired interface.
 
    **Example for `nginx`:**
+
    ```bash
    server {
        listen <your-desired-interface-ip>:80;
@@ -2067,6 +2176,7 @@ To address these issues and better manage network interfaces and subnets in MAAS
    - Use MAAS CLI to disable subnet management features on undesired subnets.
 
    **Example CLI commands:**
+
    ```bash
    maas admin subnet update <subnet-id> manage_allocation=false
    maas admin subnet update <subnet-id> manage_discovery=false
@@ -2077,6 +2187,7 @@ To address these issues and better manage network interfaces and subnets in MAAS
    - After making these changes, restart the MAAS services to apply the new configuration.
 
    **Restart MAAS services:**
+
    ```bash
    sudo systemctl restart maas-regiond
    sudo systemctl restart maas-rackd
@@ -2106,6 +2217,7 @@ To add VLAN interfaces to LXD VMs, follow these steps:
    - Add a subnet and VLAN in MAAS and enable DHCP on the VLAN.
 
    **Example:**
+
    ```bash
    # Add VLAN 500 to physical interface eth0
    sudo ip link add link eth0 name eth0.500 type vlan id 500
@@ -2115,8 +2227,9 @@ To add VLAN interfaces to LXD VMs, follow these steps:
 
    **b. Create bridge interface:**
    - Create a bridge interface with the new VLAN interface as a member.
-   
+
    **Example:**
+
    ```bash
    # Create bridge br500 and add eth0.500 as a member
    sudo brctl addbr br500
@@ -2128,6 +2241,7 @@ To add VLAN interfaces to LXD VMs, follow these steps:
    - Update the Netplan configuration to persist the VLAN and bridge setup.
 
    **Example:**
+
    ```yaml
    network:
      version: 2
@@ -2144,7 +2258,9 @@ To add VLAN interfaces to LXD VMs, follow these steps:
          interfaces: [eth0.500]
          dhcp4: no
    ```
+
    - Apply the Netplan configuration:
+
    ```bash
    sudo netplan apply
    ```
@@ -2175,6 +2291,7 @@ To ensure the network configuration is correctly applied during deployment, foll
    - Use a bash script within `cloud-init` to manually write the Netplan configuration and apply it. This can be done using the `runcmd` section of the `cloud-init` script.
 
    Example `cloud-init` script with bash workaround:
+
    ```yaml
    #cloud-config
    packages:
@@ -2237,6 +2354,7 @@ To address this issue and implement workarounds, follow these steps:
    - Write a Python script that updates the BMC IP address for each machine using the MAAS API. Schedule this script to run periodically (e.g., every 5 minutes) using `cron`.
 
    Example Python script:
+
    ```python
    import maas.client
    from maas.client import login
@@ -2261,6 +2379,7 @@ To address this issue and implement workarounds, follow these steps:
    ```
 
    - Add the script to `crontab` to run every 5 minutes:
+
      ```bash
      */5 * * * * /usr/bin/python3 /path/to/update_bmc_ips.py
      ```
@@ -2282,6 +2401,7 @@ To automate the initial configuration settings for new machines in MAAS, follow 
    - Modify `curtin_userdata` to include early commands for setting network interfaces to DHCP and power configuration to Manual. Add these configurations to the preseed file.
 
    Example preseed configuration:
+
    ```yaml
    early_commands:
      10_dhcp: |
@@ -2297,6 +2417,7 @@ To automate the initial configuration settings for new machines in MAAS, follow 
    - Use the MAAS CLI to automate the setting of DHCP and power configuration for newly added machines. Create a script to be run after the machine is added to MAAS.
 
    Example script:
+
    ```bash
    #!/bin/bash
    MACHINE_ID=$1
@@ -2331,6 +2452,7 @@ To troubleshoot and resolve VLAN issues in MAAS, follow these steps:
 
 1. **Configure VLAN interfaces:**
    - Ensure that VLAN interfaces are correctly configured on the rack controller with proper IDs, links, and IP addresses. Use `netplan` to apply configurations:
+
      ```bash
      sudo netplan apply
      ```
@@ -2375,6 +2497,7 @@ To release old DHCP leases and resolve IP allocation issues, follow these steps:
 
 1. **Check for orphaned IP addresses:**
    - Run the following SQL query to identify orphaned IP addresses in the MAAS database:
+
      ```sql
      sudo -u postgres psql -d maasdb -c "
      SELECT count(*)
@@ -2386,26 +2509,32 @@ To release old DHCP leases and resolve IP allocation issues, follow these steps:
        AND maasserver_staticipaddress.alloc_type = 6;
      "
      ```
+
    - This will help you identify any orphaned addresses that are not properly allocated.
 
 2. **Clean neighbor discoveries:**
    - Use the MAAS CLI to clear discovered neighbors, which might be causing IP conflicts:
+
      ```bash
      maas admin discoveries clear all=True -k
      ```
 
 3. **Verify cleared discoveries:**
    - After clearing, check if the discoveries were successfully removed:
+
      ```bash
      maas admin discoveries read -k
      ```
 
 4. **Clear ARP table (optional):**
    - If necessary, clear the ARP table on the Rack server to ensure no stale entries exist:
+
      ```bash
      arp -d [IP address]
      ```
+
    - Example to clear all entries:
+
      ```bash
      arp -d 172.21.68.79
      arp -d 172.21.68.69
@@ -2413,6 +2542,7 @@ To release old DHCP leases and resolve IP allocation issues, follow these steps:
 
 5. **Run deployment again:**
    - Attempt to deploy the server again to check if the issue persists. If the error still occurs, check the discoveries once more without cleaning:
+
      ```bash
      maas admin discoveries read -k
      ```
@@ -2456,10 +2586,12 @@ To troubleshoot and resolve this issue, follow these steps:
 
 1. **Check current IP ranges and static addresses:**
    - Use the following SQL queries to check the current IP ranges and static IP addresses in the MAAS database:
+
      ```sql
      SELECT * FROM maasserver_iprange;
      SELECT * FROM maasserver_staticipaddress WHERE text(ip) LIKE '192.168.0.%' ORDER BY ip;
      ```
+
    - Identify any existing IP addresses that may conflict with the desired new range.
 
 2. **Identify sticky addresses:**
@@ -2515,14 +2647,14 @@ Feel free to contribute additional issues and solutions.
 
 When you try to run `packer` or execute a `make` command, you may encounter an error message indicating that `packer` is not installed. The issue can be resolved by [referring to this section](https://canonical.com/maas/docs/how-to-build-custom-images#p-17423-gather-components).
 
-## Error with `packer`:
+## Error with `packer`
 
 ```text
 stormrider@neuromancer:~$ packer
 Command 'packer' not found...
 ```
 
-## Error with `make`:
+## Error with `make`
 
 ```text
 stormrider@neuromancer:~/mnt/Dropbox/src/git/packer-maas/ubuntu$ make
@@ -2691,4 +2823,3 @@ where key = 'your-leaked-api-key';
 ```
 
 To remove the leaked API key, log in to the MAAS UI and delete it. Then reconfigure your MAAS CLI and hardware sync as needed.
-

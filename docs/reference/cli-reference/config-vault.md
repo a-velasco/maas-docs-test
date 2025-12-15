@@ -1,4 +1,3 @@
-(reference-cli-reference-config-vault)=
 # config-vault
 
 Configure HashiCorp Vault for use with MAAS.
@@ -16,6 +15,7 @@ maas config-vault status [-h]
 ```
 
 #### Positional arguments
+
 | Argument      | Effect                                           |
 |---------------|--------------------------------------------------|
 | url           | Vault URL                                        |
@@ -24,9 +24,9 @@ maas config-vault status [-h]
 | secrets_path  | Path prefix for MAAS secrets in Vault KV storage |
 
 #### Command-line options
+
 | Option        | Effect                                         |
 |---------------|------------------------------------------------|
 | -h, --help    | show this help message and exit                |
 | --mount MOUNT | Vault KV mount path (default: secret)          |
 | --yes         | Skip interactive confirmation (default: False) |
-

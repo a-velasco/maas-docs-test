@@ -1,4 +1,3 @@
-(uncategorized-manage-vmfs-datastores)=
 # Manage VMFS datastores
 
 You can manipulate VMFS datastores with the MAAS CLI.  Note that VMFS datastores cannot be managed via the MAAS UI.
@@ -238,4 +237,3 @@ maas $PROFILE vmfs-datastore read $SYSTEM_ID $VMFS_DATASTORE_ID
     "resource_uri": "/MAAS/api/2.0/nodes/b66fn6/vmfs-datastore/18/"
 }
 ```
-

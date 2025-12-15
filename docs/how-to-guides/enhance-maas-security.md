@@ -1,4 +1,3 @@
-(how-to-guides-enhance-maas-security)=
 # Enhance MAAS security
 
 MAAS security depends on encryption, logging, and user access management.  This document describes how to keep all of these in reliable working order.
@@ -9,7 +8,7 @@ Learn more about [TLS termination](https://canonical.com/maas/docs/ensuring-secu
 
 ### Configure TLS (3.3+)
 
-Manage TLS settings in MAAS with `config-tls`. 
+Manage TLS settings in MAAS with `config-tls`.
 
 ```text
 usage: maas config-tls [-h] COMMAND ...
@@ -68,9 +67,9 @@ optional arguments:
 
 ### Check TLS status
 
-Confirm TLS is active at *Settings* > *Configuration* > *Security*: 
+Confirm TLS is active at *Settings* > *Configuration* > *Security*:
 
-- CN 
+- CN
 - Expiration date
 - Fingerprint
 - Certificate
@@ -112,7 +111,7 @@ Certificates provided via `--cacerts` will be stored in your profile for future 
 Renew a certificate the same way you enable TLS:
 
 ```text
-$ ​​sudo maas config-tls enable new-server-key.pem new-server.pem --port 5443
+​​sudo maas config-tls enable new-server-key.pem new-server.pem --port 5443
 ```
 
 Place the certificate and key in an accessible directory, such as `/var/snap/maas/common` if you're using the MAAS snap.
@@ -124,7 +123,7 @@ You can setup your own Certificate Authority (CA) server that supports the ACME 
 - [step-ca from Smallstep](https://smallstep.com/docs/step-ca)
 - [Caddy server with ACME support](https://caddyserver.com/docs/caddyfile/directives/acme_server)  (available since version 2.5)
 
-If you have a CA server with ACME protocol support, you can use any ACME client for an automated certificate renewal and use crontab to renew on a desired time interval. For example, [acme.sh](https://github.com/acmesh-official/acme.sh): 
+If you have a CA server with ACME protocol support, you can use any ACME client for an automated certificate renewal and use crontab to renew on a desired time interval. For example, [acme.sh](https://github.com/acmesh-official/acme.sh):
 
 ```text
 $> acme.sh --issue -d mymaas.internal --standalone --server https://ca.internal/acme/acme/directory
@@ -149,7 +148,6 @@ $> sudo acme.sh --installcert -d maas.internal \
 
 [certbot](https://certbot.eff.org) can be used to renew certificates, using a post-renewal hook to update MAAS:
 
-
 ```text
 #!/bin/bash -e
 
@@ -172,7 +170,7 @@ Don’t forget to make the script executable:
 chmod +x /etc/letsencrypt/renewal-hooks/post/001-update-maas.sh
 ```
 
-When obtaining a new certificate. 
+When obtaining a new certificate.
 
 ```text
 sudo REQUESTS_CA_BUNDLE=ca.pem certbot certonly --standalone -d maas.internal     --server https://ca.internal/acme/acme/directory
@@ -336,6 +334,7 @@ Manage users carefully to maintain strong, proactive security.
 Check the appropriate box to grant administrative rights.
 
 **CLI**
+
 ```text
     maas $PROFILE users create username=$USERNAME \
     email=$EMAIL_ADDRESS password=$PASSWORD is_superuser=0
@@ -352,6 +351,7 @@ Check the appropriate box to grant administrative rights.
 *Settings* > *Users* > *[User]* > *Pencil* > *[Follow key import steps]*
 
 **CLI**
+
 ```text
     ubuntu@maas:~$ maas $PROFILE sshkeys create key="$(cat /home/ubuntu/.ssh/id_rsa.pub)"
 ```
@@ -377,57 +377,59 @@ Here's an illustrative example on how to set up this integration using the `vaul
 1. **Enable the `approle` engine**
 
 ```text
-$ vault auth list
+vault auth list
 ```
+
 If `approle/` isn't mounted, enable it:
 
 ```text
-$ vault auth enable approle
+vault auth enable approle
 ```
 
-2. **Confirm or mount the KV v2 engine**
+1. **Confirm or mount the KV v2 engine**
 
 ```text
-$ vault secrets enable -path $SECRETS_MOUNT kv-v2
+vault secrets enable -path $SECRETS_MOUNT kv-v2
 ```
 
-3. **Create a suitable policy**
+1. **Create a suitable policy**
 
 ```text
 path "$SECRETS_MOUNT/metadata/$SECRETS_PATH/" {
-	capabilities = ["list"]
+ capabilities = ["list"]
 }
 
 path "$SECRETS_MOUNT/metadata/$SECRETS_PATH/*" {
-	capabilities = ["read", "update", "delete", "list"]
+ capabilities = ["read", "update", "delete", "list"]
 }
 
 path "$SECRETS_MOUNT/data/${SECRETS_PATH}/*" {
-	capabilities = ["read", "create", "update", "delete"]
+ capabilities = ["read", "create", "update", "delete"]
 }
 ```
-4. **Apply the policy in Vault**
+1. **Apply the policy in Vault**
 
 ```text
-$ vault policy write $MAAS_POLICY $POLICY_FILE
+vault policy write $MAAS_POLICY $POLICY_FILE
 ```
 
-5. **Associate each MAAS region controller with the policy**
+1. **Associate each MAAS region controller with the policy**
 
 ```text
 $ vault write auth/approle/role/$ROLE_NAME \
 policies=$MAAS_POLICY token_ttl=5m
 ```
+
 Fetch the role ID:
 
 ```text
-$ vault read auth/approle/role/$ROLE_NAME/role-id
+vault read auth/approle/role/$ROLE_NAME/role-id
 ```
 
-6. **Generate a secret ID for each role**
+1. **Generate a secret ID for each role**
 
 ```text
-$ vault write -wrap-ttl=5m auth/approle/role/$ROLE_NAME/secret-id
+vault write -wrap-ttl=5m auth/approle/role/$ROLE_NAME/secret-id
 ```
 
 Post-setup, you can integrate MAAS with Vault using:
@@ -439,7 +441,7 @@ sudo maas config-vault configure $URL $APPROLE_ID $WRAPPED_TOKEN $SECRETS_PATH -
 Complete the integration by migrating the secrets:
 
 ```text
-$ sudo maas config-vault migrate
+sudo maas config-vault migrate
 ```
-For detailed information, it's recommended to refer to the [Vault documentation](https://developer.hashicorp.com/vault/docs) and consider [Vault certification](https://developer.hashicorp.com/vault/tutorials/associate-cert).
 
+For detailed information, it's recommended to refer to the [Vault documentation](https://developer.hashicorp.com/vault/docs) and consider [Vault certification](https://developer.hashicorp.com/vault/tutorials/associate-cert).

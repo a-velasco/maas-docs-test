@@ -1,7 +1,6 @@
-(explanation-logging)=
 # Logging
 
-This page describes basic MAAS logging operations. 
+This page describes basic MAAS logging operations.
 
 ## Logging updates in MAAS 3.5
 
@@ -116,7 +115,7 @@ HTTP logs to its own files (`/var/snap/maas/common/log/http/(access|error).log`)
 less /var/snap/maas/common/log/http/access.log (or error.log)
 ```
 
-##### `stdout` redirected by Pebble:
+##### `stdout` redirected by Pebble
 
 ```text
 journalctl -u snap.maas.pebble.service --case-sensitive -g "^[0-9TZ:.-]{24} \[http\]"
@@ -126,8 +125,7 @@ journalctl -u snap.maas.pebble.service --case-sensitive -g "^[0-9TZ:.-]{24} \[ht
 
 The squid proxy logs to its own files (`/var/snap/maas/common/log/proxy/(access|cache|store).log`), while `stdout` (redirected by Pebble) contains init messages and errors.
 
-#### Pebble proxied log format:
-
+#### Pebble proxied log format
 
 ```text
 2023-06-23T13:54:41.114Z [proxy] 2023/06/23 13:54:41| Starting Squid Cache version 5.2
@@ -139,7 +137,7 @@ The squid proxy logs to its own files (`/var/snap/maas/common/log/proxy/(access|
 less /var/snap/maas/common/log/proxy/access.log (or other log)
 ```
 
-##### `stdout` redirected by Pebble:
+##### `stdout` redirected by Pebble
 
 ```text
 journalctl -u snap.maas.pebble.service --case-sensitive -g "^[0-9TZ:.-]{24} \[proxy\]"
@@ -149,8 +147,7 @@ journalctl -u snap.maas.pebble.service --case-sensitive -g "^[0-9TZ:.-]{24} \[pr
 
 At first glance, `chrony` seems to have a separate directory for log files (`/var/snap/maas/common/log/chrony`), but no log files are typically present there.  Instead, used `stdout` (redirected by Pebble), which contains init message and errors.
 
-#### Pebble proxied log format:
-
+#### Pebble proxied log format
 
 ```text
 2023-06-26T12:48:01.272Z [ntp] 2023-06-26T12:48:01Z chronyd version 4.2 starting
@@ -158,12 +155,11 @@ At first glance, `chrony` seems to have a separate directory for log files (`/va
 
 #### Own log format
 
-
 ```text
 2023-06-26T12:48:01Z chronyd version 4.2 starting
 ```
 
-##### `stdout` redirected by Pebble:
+##### `stdout` redirected by Pebble
 
 ```text
 journalctl -u snap.maas.pebble.service --case-sensitive -g "^[0-9TZ:.-]{24} \[ntp\]"
@@ -173,8 +169,7 @@ journalctl -u snap.maas.pebble.service --case-sensitive -g "^[0-9TZ:.-]{24} \[nt
 
 DNS logs everything to `stdout`, ignoring any configuration parameters defined in the snap. As usual, `stdout` is redirected by Pebble.
 
-#### Pebble proxied log format:
-
+#### Pebble proxied log format
 
 ```text
 2023-06-23T13:54:43.268Z [bind9] 23-Jun-2023 13:54:43.264 BIND 9 is maintained by Internet Systems Consortium
@@ -196,8 +191,7 @@ journalctl -u snap.maas.pebble.service --case-sensitive -g "^[0-9TZ:.-]{24} \[bi
 
 Syslog logs machines enlistment and boot syslogs to `/var/snap/maas/common/log/rsyslog/%HOSTNAME%/`, and logs various MAAS-tagged records to `/var/snap/maas/common/log/maas.log`. Otherwise, `stdout` (redirected by Pebble) contains internal messages/errors.
 
-#### Pebble proxied log format:
-
+#### Pebble proxied log format
 
 ```text
 2023-07-24T05:38:56.522Z [syslog] Message
@@ -215,7 +209,7 @@ Syslog logs machines enlistment and boot syslogs to `/var/snap/maas/common/log/r
 less /var/snap/maas/common/log/rsyslog/PATH/TO/LOG
 ```
 
-##### `stdout` redirected by Pebble:
+##### `stdout` redirected by Pebble
 
 ```text
 journalctl -u snap.maas.pebble.service --case-sensitive -g "^[0-9TZ:.-]{24} \[syslog\]"
@@ -229,14 +223,13 @@ DHCP logs everything through `syslogd`, while `stdout` (redirected by Pebble) co
 journalctl -et dhcpd -u snap.maas.pebble.service SYSLOG_PID=25799
 ```
 
-#### Pebble proxied log format:
-
+#### Pebble proxied log format
 
 ```text
 2023-06-27T11:24:47.674Z [dhcpd] Internet Systems Consortium DHCP Server 4.4.1
 ```
 
-#### Own log format 
+#### Own log format
 
 ```text
 <plain old DHCP message>
@@ -248,13 +241,13 @@ journalctl -et dhcpd -u snap.maas.pebble.service SYSLOG_PID=25799
 journalctl -t dhcpd -u snap.maas.pebble.service
 ```
 
-##### `stdout` redirected by Pebble:
+##### `stdout` redirected by Pebble
 
 ```text
 journalctl -u snap.maas.pebble.service --case-sensitive -g "^[0-9TZ:.-]{24} \[dhcpd\]"
 ```
 
-## Remote syslog (3.4 UI) 
+## Remote syslog (3.4 UI)
 
 To enable remote logging, choose *Settings* > *Network* > *Syslog*, and enter your syslog server's IP/URL under *Remote syslog server to forward machine logs*.
 
@@ -331,4 +324,3 @@ Example usage of these filters can narrow down event listings significantly.
 Audit events, tagged with `AUDIT`, record MAAS configuration changes and machine state transitions. They're essential for tracking user actions and system updates, especially in multi-user environments.
 
 Use audit events alongside `jq` and command-line text tools to analyze actions like machine deletions, configuration changes, and user activities. This can provide insights into system changes and help identify areas for attention or improvement.
-

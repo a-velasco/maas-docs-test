@@ -1,4 +1,3 @@
-(reference-configuration-guides-installation-requirements)=
 # Installation requirements
 
 Confirm that your system has adequate resources for your use-case, prior to installation. Proof-of-concept and production setups are available.
@@ -11,7 +10,7 @@ LXD versions older than 5.21 will not work correctly with MAAS.
 
 From version 3.5, MAAS [requires PostgreSQL 14](https://discourse.maas.io/t/postgresql-deprecation-notices/8089) and a different PostgreSQL default user.
 
-> **Warning**: PostgreSQL defaults may not support HA deployments.  Consider using 20-50 extra connections per additional region controller.  Check settings using `psql` or by inspecting the configuration file. 
+> **Warning**: PostgreSQL defaults may not support HA deployments.  Consider using 20-50 extra connections per additional region controller.  Check settings using `psql` or by inspecting the configuration file.
 
 ### Getting information using psql
 
@@ -90,6 +89,5 @@ Factors affecting these numbers:
 - Service distribution
 - Use of [high availability/load balancing](https://canonical.com/maas/docs/how-to-manage-controllers#p-9026-enable-ha).
 - Number and type of stored images
-- A local image mirror will increase disk requirements. 
+- A local image mirror will increase disk requirements.
 - Rack controllers have a 1000-machine cap per subnet
-

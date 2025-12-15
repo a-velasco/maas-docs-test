@@ -1,4 +1,3 @@
-(explanation-controllers)=
 # Controllers
 
 Understanding controllers within the MAAS ecosystem helps to metal infrastructure. You may find it useful to [tweak your controller settings](https://canonical.com/maas/docs/how-to-manage-controllers) based on your specific network and machine count. Even consider opting for a [high availability setup](https://canonical.com/maas/docs/how-to-manage-controllers#p-9026-enable-ha) for robustness.
@@ -21,10 +20,10 @@ It manages either an entire data centre or a specific region and orchestrates a 
 
 Rack controllers manage fabrics, offering four key services:
 
-- DHCP
-- TFTP
-- HTTP (for images)
-- Power management
+* DHCP
+* TFTP
+* HTTP (for images)
+* Power management
 
 Racks caches essential resources like OS install images for better performance.
 
@@ -50,4 +49,3 @@ The `next-server` directive specifies the host from which a machine should load 
 </details>
 
 ![MAAS Architecture](https://discourse-maas-io-uploads.s3.us-east-1.amazonaws.com/original/1X/02a7ca58b989c67c74421b9d5e0c8b32907a2de1.jpeg)
-

@@ -1,4 +1,3 @@
-(reference-cli-reference-space)=
 # space
 
 Enter keyword arguments in the form `key=value`.
@@ -10,11 +9,13 @@ maas $PROFILE space delete [--help] [-d] [-k] id [data ...]
 ```
 
 #### Positional arguments
+
 - id
 
 Deletes a space with the given ID.
 
 #### Command-line options
+
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
 | --help, -h     | Show this help message and exit.              |
@@ -28,11 +29,13 @@ maas $PROFILE space read [--help] [-d] [-k] id [data ...]
 ```
 
 #### Positional arguments
+
 - id
 
 Gets a space with the given ID.
 
 #### Command-line options
+
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
 | --help, -h     | Show this help message and exit.              |
@@ -46,18 +49,21 @@ maas $PROFILE space update [--help] [-d] [-k] id [data ...]
 ```
 
 #### Positional arguments
-- id
 
+- id
 
 Updates a space with the given ID.
 
 #### Keyword "name"
+
 Required String. The name of the new space.
 
 #### Keyword "description"
+
 Optional String. A description of the new space.
 
 #### Command-line options
+
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
 | --help, -h     | Show this help message and exit.              |
@@ -73,12 +79,15 @@ maas $PROFILE spaces create [--help] [-d] [-k] [data ...]
 Create a new space.
 
 #### Keyword "name"
+
 Required String. The name of the new space.
 
 #### Keyword "description"
+
 Optional String. A description of the new space.
 
 #### Command-line options
+
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
 | --help, -h     | Show this help message and exit.              |
@@ -91,12 +100,12 @@ Optional String. A description of the new space.
 maas $PROFILE spaces read [--help] [-d] [-k] [data ...] 
 ```
 
-Generates a list of all spaces. 
+Generates a list of all spaces.
 
 #### Command-line options
+
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
 | --help, -h     | Show this help message and exit.              |
 | -d, --debug    | Display more information about API responses. |
 | -k, --insecure | Disable SSL certificate check                 |
-

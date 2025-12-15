@@ -1,12 +1,13 @@
-(reference-cli-reference-configauth)=
 # configauth
 
-Configure external authentication. 
+Configure external authentication.
 
 ```bash
 maas configauth [-h] [--candid-agent-file CANDID_AGENT_FILE] [--candid-domain CANDID_DOMAIN] [--candid-admin-group CANDID_ADMIN_GROUP] [--rbac-url RBAC_URL]  [--rbac-service-name RBAC_SERVICE_NAME] [--json]
 ```
+
 #### Command-line options
+
 | Option                                  | Effect                                                |
 |-----------------------------------------|-------------------------------------------------------|
 | -h, --help                              | show this help message and exit                       |
@@ -22,4 +23,3 @@ maas configauth [-h] [--candid-agent-file CANDID_AGENT_FILE] [--candid-domain CA
 |                                         | choose from                                          |
 | --json                                  | Return the current authentication configuration as    |
 |                                         | JSON                                                  |
-

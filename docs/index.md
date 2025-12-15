@@ -14,28 +14,26 @@
 * Simplify testing pipelines with fast, disposable hardware labs.
 
 ## In this documentation
+
 | | |
 |----|----|
 | [Tutorial](/tutorial)</br>  Hands-on introduction to MAAS features       | [How-to guides](/how-to-guides/index) </br> Step-by-step guides covering key operations |
 | [Explanation](/explanation/index) </br> Detailed theory on the inner workings of MAAS  | [Reference](/reference/index) </br> Technical specifications |
 
-
 ## Project and community
 
 MAAS is a member of the Ubuntu family. It is an open source project that warmly welcomes community projects, contributions, suggestions, fixes and constructive feedback.
 
-- [Read our code of conduct](https://ubuntu.com/community/code-of-conduct)
-- [Get support](https://ubuntu.com/pro)
-- [Learn about MAAS performance](/explanation/performance)
-- [Join our forum](/uncategorized/join-our-forum)
-- [Contribute code](https://launchpad.net/maas)
-- [Improve our documentation](/uncategorized/improve-our-documentation)
-- [Request a feature](/uncategorized/request-a-feature)
-- [Report a bug](/uncategorized/report-a-bug)
+* [Read our code of conduct](https://ubuntu.com/community/code-of-conduct)
+* [Get support](https://ubuntu.com/pro)
+* [Learn about MAAS performance](/explanation/performance)
+* [Join our forum](/uncategorized/join-our-forum)
+* [Contribute code](https://launchpad.net/maas)
+* [Improve our documentation](/uncategorized/improve-our-documentation)
+* [Request a feature](/uncategorized/request-a-feature)
+* [Report a bug](/uncategorized/report-a-bug)
 
 Considering MAAS for your next project? [Get in touch](/uncategorized/contact-us)
-
-
 
 ```{toctree}
 :titlesonly:

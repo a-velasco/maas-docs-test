@@ -1,4 +1,3 @@
-(reference-supported-maas-versions)=
 # Supported MAAS versions
 
 The four most recent MAAS versions are supported. When a new version of MAAS is released, the oldest version goes out of support. The release cadence for MAAS is every 6 months (tentatively), aiming to release around the same time as Ubuntu. There are currently no LTS versions of MAAS.
@@ -17,4 +16,3 @@ The table below lists dependencies for each MAAS release, including the base Ubu
 | 3.0 | Ubuntu 20.04</br>PostgreSQL 12 |  April 2021  | Unsupported |
 | 2.9 | Ubuntu 20.04</br>PostgreSQL 10 (12 recommended) |  October 2020  | Unsupported |
 | 2.8 | Ubuntu 18.04</br>PostgreSQL 10 |  April 2020  | Unsupported |
-

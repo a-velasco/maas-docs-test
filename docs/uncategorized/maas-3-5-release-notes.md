@@ -1,12 +1,13 @@
-(uncategorized-maas-3-5-release-notes)=
 # MAAS 3.5 release notes
 
 ## Release history
 
 This section recaps the release history of MAAS version 3.5.
+
 ### MAAS 3.5.6 has been released
 
 We are happy to announce that MAAS 3.5.6 has been released, with the following bug fixes
+
 - [2063458](https://bugs.launchpad.net/maas/+bug/2063458): Node has no address family in common with server" when deploying a LXD VM on an IPv6-only bridge
 - [2109360](https://bugs.launchpad.net/bugs/2109360):  MAAS incorrectly calculates cache_size for SNAP
 - [2109681](https://bugs.launchpad.net/bugs/2109681): Proxmox power driver regression fix
@@ -15,6 +16,7 @@ We are happy to announce that MAAS 3.5.6 has been released, with the following b
 ### MAAS 3.5.5 has been released
 
 We are happy to announce that MAAS 3.5.5 has been released, with the following bug fixes
+
 - [2103903](https://bugs.launchpad.net/bugs/2103903): Deployment fails when using interface with OVS bridge
 - [2104260](https://bugs.launchpad.net/bugs/2104260):  Cloud-init 24.04.1 requires OVS bridge interface not to be optional in the netplan preseed network
 - [2104278](https://bugs.launchpad.net/bugs/2104278): MAAS KVM deploy with 24.04 fails sshd.service not found
@@ -25,9 +27,10 @@ We are happy to announce that MAAS 3.5.5 has been released, with the following b
 ### MAAS 3.5.4 has been released
 
 We are happy to announce that MAAS 3.5.4 has been released, with the following bug fixes
+
 - [2095477](https://bugs.launchpad.net/maas/+bug/2095477): boot-resources read is slow when there are a lot of images that have been deployed a lot of times
 - [2092172](https://bugs.launchpad.net/bugs/2092172):  Redfish powerdriver I/O operation on closed file.
-- [2099949](https://bugs.launchpad.net/bugs/2099949):  Redfish power driver requests fails with 412 status code 
+- [2099949](https://bugs.launchpad.net/bugs/2099949):  Redfish power driver requests fails with 412 status code
 - (No bug link) HW sync fails due to MAAS/metadata/2012-03-01 HTTP Error 409: Conflict.
 - [2095019](https://bugs.launchpad.net/maas/+bug/2095019): read the global configurations disk_erase_with_secure_erase and disk_erase_with_quick_erase when releasing a machine
 - [2091370](https://bugs.launchpad.net/maas/+bug/2091370): MAAS snap build pulls python modules from outside Ubuntu Archive / MAAS PPAs
@@ -35,28 +38,30 @@ We are happy to announce that MAAS 3.5.4 has been released, with the following b
 ### MAAS 3.5.3 has been released
 
 We are happy to announce that MAAS 3.5.3 has been released, with the following bug fixes
- - [2040324](https://bugs.launchpad.net/maas/3.5/+bug/2040324) : Power configuration change fails with <image> is not a valid distro series error
- - [2058496](https://bugs.launchpad.net/maas/3.5/+bug/2058496) : Commissioning failed during 1st pxe install 24.04
- - [2072155](https://bugs.launchpad.net/maas/3.5/+bug/2072155) : Discovered ip addresses mapped to an invalid name (ending with -)
- - [2055347](https://bugs.launchpad.net/maas/3.5/+bug/2055347) : MAAS IPMI k_g validation error
- - [2073501](https://bugs.launchpad.net/maas/3.5/+bug/2073501) : Bionic not available for commissioning on pro-enabled systems
- - [2078810](https://bugs.launchpad.net/maas/3.5/+bug/2078810) : Can't filter by system id in the UI
- - [2084788](https://bugs.launchpad.net/maas/3.5/+bug/2084788) : MAAS 3.5.1 machines staying forever at commissioning
- - [2063457](https://bugs.launchpad.net/maas/3.5/+bug/2063457) : dhcpd6.conf can contain IPv4 nameserver options
- - [2091001](https://bugs.launchpad.net/maas/3.5/+bug/2091001) : Listing images is slow if you have many images in a busy MAAS
- - [2089185](https://bugs.launchpad.net/maas/3.5/+bug/2089185) : Releasing fails with latest cloud-init on image 20241113
- - [2058063](https://bugs.launchpad.net/maas/3.5/+bug/2058063) : Controllers show different versions when installed with debs
+
+- [2040324](https://bugs.launchpad.net/maas/3.5/+bug/2040324) : Power configuration change fails with <image> is not a valid distro series error
+- [2058496](https://bugs.launchpad.net/maas/3.5/+bug/2058496) : Commissioning failed during 1st pxe install 24.04
+- [2072155](https://bugs.launchpad.net/maas/3.5/+bug/2072155) : Discovered ip addresses mapped to an invalid name (ending with -)
+- [2055347](https://bugs.launchpad.net/maas/3.5/+bug/2055347) : MAAS IPMI k_g validation error
+- [2073501](https://bugs.launchpad.net/maas/3.5/+bug/2073501) : Bionic not available for commissioning on pro-enabled systems
+- [2078810](https://bugs.launchpad.net/maas/3.5/+bug/2078810) : Can't filter by system id in the UI
+- [2084788](https://bugs.launchpad.net/maas/3.5/+bug/2084788) : MAAS 3.5.1 machines staying forever at commissioning
+- [2063457](https://bugs.launchpad.net/maas/3.5/+bug/2063457) : dhcpd6.conf can contain IPv4 nameserver options
+- [2091001](https://bugs.launchpad.net/maas/3.5/+bug/2091001) : Listing images is slow if you have many images in a busy MAAS
+- [2089185](https://bugs.launchpad.net/maas/3.5/+bug/2089185) : Releasing fails with latest cloud-init on image 20241113
+- [2058063](https://bugs.launchpad.net/maas/3.5/+bug/2058063) : Controllers show different versions when installed with debs
 
 ### MAAS 3.5.2 has been released
 
 We are happy to announce that MAAS 3.5.2 has been released, with the following bug fixes
-- [2079987](https://bugs.launchpad.net/bugs/2079987):  LeaseSocketService is sending 10 RPC calls to the region every second even if there are no updates 
-- [2079797](https://bugs.launchpad.net/bugs/2079797):  Redfish powerdriver should be able to handle the reset power status 
-- [2075555](https://bugs.launchpad.net/bugs/2075555):  Custom OSes fail to deploy 'in memory' 
-- [2069059](https://bugs.launchpad.net/bugs/2069059):  Ubuntu 24.04 doesn't deploy on any ARM64 machine 
-- [2078941](https://bugs.launchpad.net/bugs/2078941):  When the snap is initialized again the certificates are not cleaned up 
-- [2004661](https://bugs.launchpad.net/bugs/2004661):  MAAS deployment failures on server with Redfish 
-- [2076910](https://bugs.launchpad.net/bugs/2076910):  'crypto/rsa: verification error' while trying to verify candidate authority certificate 'maas-ca' 
+
+- [2079987](https://bugs.launchpad.net/bugs/2079987):  LeaseSocketService is sending 10 RPC calls to the region every second even if there are no updates
+- [2079797](https://bugs.launchpad.net/bugs/2079797):  Redfish powerdriver should be able to handle the reset power status
+- [2075555](https://bugs.launchpad.net/bugs/2075555):  Custom OSes fail to deploy 'in memory'
+- [2069059](https://bugs.launchpad.net/bugs/2069059):  Ubuntu 24.04 doesn't deploy on any ARM64 machine
+- [2078941](https://bugs.launchpad.net/bugs/2078941):  When the snap is initialized again the certificates are not cleaned up
+- [2004661](https://bugs.launchpad.net/bugs/2004661):  MAAS deployment failures on server with Redfish
+- [2076910](https://bugs.launchpad.net/bugs/2076910):  'crypto/rsa: verification error' while trying to verify candidate authority certificate 'maas-ca'
 - [2077602](https://bugs.launchpad.net/bugs/2077602):   Unknown power configuration error for new machines registered with IPMI
 - [2078052](https://bugs.launchpad.net/bugs/2078052):   Squid initialization issue with pebble - [2039737](https://bugs.launchpad.net/bugs/2039737):   Page sizing on machine table doesn't work
 - [2081262](https://bugs.launchpad.net/bugs/2081262):   Missing module in MAAS snap, required for AMT power
@@ -64,13 +69,13 @@ We are happy to announce that MAAS 3.5.2 has been released, with the following b
 ### MAAS 3.5.1 has been released
 
 We are happy to announce that MAAS 3.5.1 has been released, with the following bug fixes
+
 - [2073731](https://bugs.launchpad.net/bugs/2073731): BMC commissioning error on HPE Gen 10 with ILO 5
 - [1953049](https://bugs.launchpad.net/bugs/1953049): Error while calling ScanNetworks: Unable to get RPC connection for rack controller
 - [1980000](https://bugs.launchpad.net/bugs/1980000): dhcpd.conf not written due to byte size of hosts value in rpc
 - [2073575](https://bugs.launchpad.net/bugs/2073575): Incorrect display of bondig options
 - [2076292](https://bugs.launchpad.net/bugs/2076292): Installing MAAS does not install the required simplestream version
-- [2073540](https://bugs.launchpad.net/bugs/2073540): 	Error: ('Connection aborted.', FileNotFoundError(2, 'No such file or directory'))
-
+- [2073540](https://bugs.launchpad.net/bugs/2073540):  Error: ('Connection aborted.', FileNotFoundError(2, 'No such file or directory'))
 
 MAAS 3.5 delivers substantial improvements in core functionality.  We've integrated Temporal for enhanced process and thread management, and started a transition to Go, re-implementing some of the rack controller functions as the "MAAS agent."  We've standardised logging and monitoring to use tools like syslogd, stepping away from the custom code we had been using.  We've also expanded the capabilities of existing features to include comprehensive service monitoring and support for deploying ephemeral (RAM-only) OS images.  And we've made great strides in visibly improving the performance of MAAS.
 
@@ -82,11 +87,11 @@ MAAS previously stored the boot resources (boot-loaders, kernels and disk images
 
 #### Storing boot resources in the Region Controllers
 
-All boot resources are stored in the local disk in each Controller host (`/var/lib/maas/image-storage` for *deb* or `$SNAP_COMMON/maas/image-storage` for *snap*). MAAS checks the contents of these directories on every start-up, removing unknown/stale files and downloading any missing resource. 
+All boot resources are stored in the local disk in each Controller host (`/var/lib/maas/image-storage` for *deb* or `$SNAP_COMMON/maas/image-storage` for *snap*). MAAS checks the contents of these directories on every start-up, removing unknown/stale files and downloading any missing resource.
 
 MAAS checks the amount of disk space available before downloading any resource, and stops synchronising files if there isn't enough free space. This error will be reported in the logs and a banner in the Web UI.
 
-#### Storage use by the Rack Controller 
+#### Storage use by the Rack Controller
 
 Images are no longer copied from the MAAS database to the rack. Instead, the rack downloads images from the region on-demand.  This works well with the redesign of the rack controller (now known as the *MAAS agent*), which has been re-imagined as a 4G LRU caching agent.  The MAAS agent has limited storage space, managing cache carefully, but it is possible to configure the size of this cache if you need to do so.
 
@@ -94,7 +99,7 @@ As boot resources are now downloaded from a Region controller on-demand, a fast 
 
 #### One-time image migration process
 
-The first Region controller that upgrades will try to move all images out of the database. This is a background operation performed after all database migrations are applied, and **it's not reversible**. This is also a blocking operation, so MAAS might be un-available for some time (i.e., you should plan for some downtime during the upgrade process). 
+The first Region controller that upgrades will try to move all images out of the database. This is a background operation performed after all database migrations are applied, and **it's not reversible**. This is also a blocking operation, so MAAS might be un-available for some time (i.e., you should plan for some downtime during the upgrade process).
 
 MAAS will check if the host has enough disk space before starting to export the resources, and it will not proceed otherwise. In order to discover how much disk space you need for all your images, you can run the following SQL query in MAAS database before upgrading:
 
@@ -120,22 +125,22 @@ MAAS 3.5 allows you to execute a "soft" power-off for one or more machines.  Rat
 
 ### Improved "Select All" in the machine list
 
-With MAAS 3.5, you can select only the machines that are visible on the current page. 
+With MAAS 3.5, you can select only the machines that are visible on the current page.
 
 ### Improved support for multipath storage devices
 
 MAAS support of multipath storage devices has been reviewed and improved, and now it's capable of correctly identifying the following technologies:
 
-* SCSI
-* iSCSI
-* Fiber Channel
-* SAS (including wide port and expanders)
+- SCSI
+- iSCSI
+- Fiber Channel
+- SAS (including wide port and expanders)
 
 When one of these devices is detected by the commissioning scripts, MAAS will suppress the duplicated disks.
 
 ### MAAS services exposed as Prometheus metrics
 
-All services found in the *Hardware > Controllers > <controller> > Services* panel are now exposed as Prometheus metrics, to include: 
+All services found in the *Hardware > Controllers > <controller> > Services* panel are now exposed as Prometheus metrics, to include:
 
 - regiond
 - bind9
@@ -245,7 +250,7 @@ You can inspect release script results via the MAAS CLI:
 ```text
 maas $PROFILE node-script-results read $SYSTEM_ID type=release
 ```
- 
+
 ## Updates to the MAAS UI
 
 - The header of the "Deploy" form now sticks to the top of the screen when you scroll down
@@ -265,7 +270,7 @@ maas $PROFILE node-script-results read $SYSTEM_ID type=release
 - Migrated the maas-ui tooling from "create-react-app" to Vite
  -- Less JavaScript code has to be fetched on the initial page load
  -- Increased performance of the development environment of the UI
- 
+
 ### "Agent" and "Temporal" controller services
 
 MAAS 3.5 makes some internal changes to improve the operation of MAAS, including:
@@ -290,7 +295,7 @@ There are no exposed controls, and there is no need for users to take any action
 - Fixed label positioning for KVM CPU resources on smaller screens
 - On mobile devices, the side navigation will now collapse after a link is tapped
 - The "name" column on the partitions table will now re-enable after the "Create volume group" form is closed
-- Adding an SSL key no longer shows a "Removed" message 
+- Adding an SSL key no longer shows a "Removed" message
 - Adding/editing a user no longer shows a "Deleted" message
 - The "Change storage layout" form now has a correct title, and closes after submission
 - Adding/editing an API key no longer shows a "Deleted" message
@@ -323,30 +328,30 @@ There are no exposed controls, and there is no need for users to take any action
 - Made the tool-tip message for "Automatically sync images" a bit more concise
 
 ## Back-end bug fixes
- - [2055009](https://bugs.launchpad.net/maas/+bug/2055009) : Default zone can not be renamed
- - [2049508](https://bugs.launchpad.net/maas/+bug/2049508) : MAAS has orphan ip addresses and dns records that are slowing down the entire service
- - [2054377](https://bugs.launchpad.net/maas/+bug/2054377) : Temporal worker pool configuration failure
- - [2053033](https://bugs.launchpad.net/maas/+bug/2053033) : Creating MAAS Virsh VM does not work (libvirt: error)
- - [2052958](https://bugs.launchpad.net/maas/+bug/2052958) : PPC64 machines without disk serial fail condense LUNs
- - [2052503](https://bugs.launchpad.net/maas/+bug/2052503) : Additional Power States in Redfish Schema
- - [2049626](https://bugs.launchpad.net/maas/+bug/2049626) : Failed to update NTP configuration
- - [2044396](https://bugs.launchpad.net/maas/+bug/2044396) : allow_dns accepts boolean instead of Int in the help
- - [2046255](https://bugs.launchpad.net/maas/+bug/2046255) : For every interface MAAS is adding an A record for the name <machine>.<domain>
- - [2045228](https://bugs.launchpad.net/maas/+bug/2045228) : DNS updates are consumed concurrently, leading to an incorrect nsupdate payload
- - [2042645](https://bugs.launchpad.net/maas/+bug/2042645) : Power management using ProxMox is broken
- - [2040188](https://bugs.launchpad.net/maas/+bug/2040188) : MAAS config option for IPMI cipher suite ID is not passed to bmc-config script
- - [2042540](https://bugs.launchpad.net/maas/+bug/2042540) : Machine sometimes revert to old status after power control
- - [2041854](https://bugs.launchpad.net/maas/+bug/2041854) : maas config-vault migrate failed due to region not restarting
- - [2039455](https://bugs.launchpad.net/maas/+bug/2039455) : Temporal system status traceback
- - [2015411](https://bugs.launchpad.net/maas/+bug/2015411) : StaticIPAddress matching query does not exist
- - [1923315](https://bugs.launchpad.net/maas/+bug/1923315) : MaaS API ignores osystem and distro parameters
- - [1979058](https://bugs.launchpad.net/maas/+bug/1979058) : "space" option still exists as available on Subnet API while being deprecated
- - [2036759](https://bugs.launchpad.net/maas/+bug/2036759) : Adding a custom MAAS sstreams image source without trailing / fails
- - [2037420](https://bugs.launchpad.net/maas/+bug/2037420) : MAAS metadata_url contains a domain name even when DNS resolution is disallowed
- - [2029417](https://bugs.launchpad.net/maas/+bug/2029417) : RPC failure to contact rack/region - operations on closed handler
- - [1993916](https://bugs.launchpad.net/maas/+bug/1993916) : ThinkSystem SR645 failed commissioning ERROR: Failed to commit `User3:Password': Invalid/Unsupported Config
- - [1999152](https://bugs.launchpad.net/maas/+bug/1999152) : websocket API support for stop_mode
- - [2020397](https://bugs.launchpad.net/maas/+bug/2020397) : Custom images which worked ok is not working with 3.2
- - [2019216](https://bugs.launchpad.net/maas/+bug/2019216) : Flaky test- dhcp notify test_sends_notification_over_socket_for_processing
- - [2026283](https://bugs.launchpad.net/maas/+bug/2026283) : TestDynamicDNSUpdate.test_as_reverse_record_update flaky test
 
+- [2055009](https://bugs.launchpad.net/maas/+bug/2055009) : Default zone can not be renamed
+- [2049508](https://bugs.launchpad.net/maas/+bug/2049508) : MAAS has orphan ip addresses and dns records that are slowing down the entire service
+- [2054377](https://bugs.launchpad.net/maas/+bug/2054377) : Temporal worker pool configuration failure
+- [2053033](https://bugs.launchpad.net/maas/+bug/2053033) : Creating MAAS Virsh VM does not work (libvirt: error)
+- [2052958](https://bugs.launchpad.net/maas/+bug/2052958) : PPC64 machines without disk serial fail condense LUNs
+- [2052503](https://bugs.launchpad.net/maas/+bug/2052503) : Additional Power States in Redfish Schema
+- [2049626](https://bugs.launchpad.net/maas/+bug/2049626) : Failed to update NTP configuration
+- [2044396](https://bugs.launchpad.net/maas/+bug/2044396) : allow_dns accepts boolean instead of Int in the help
+- [2046255](https://bugs.launchpad.net/maas/+bug/2046255) : For every interface MAAS is adding an A record for the name <machine>.<domain>
+- [2045228](https://bugs.launchpad.net/maas/+bug/2045228) : DNS updates are consumed concurrently, leading to an incorrect nsupdate payload
+- [2042645](https://bugs.launchpad.net/maas/+bug/2042645) : Power management using ProxMox is broken
+- [2040188](https://bugs.launchpad.net/maas/+bug/2040188) : MAAS config option for IPMI cipher suite ID is not passed to bmc-config script
+- [2042540](https://bugs.launchpad.net/maas/+bug/2042540) : Machine sometimes revert to old status after power control
+- [2041854](https://bugs.launchpad.net/maas/+bug/2041854) : maas config-vault migrate failed due to region not restarting
+- [2039455](https://bugs.launchpad.net/maas/+bug/2039455) : Temporal system status traceback
+- [2015411](https://bugs.launchpad.net/maas/+bug/2015411) : StaticIPAddress matching query does not exist
+- [1923315](https://bugs.launchpad.net/maas/+bug/1923315) : MaaS API ignores osystem and distro parameters
+- [1979058](https://bugs.launchpad.net/maas/+bug/1979058) : "space" option still exists as available on Subnet API while being deprecated
+- [2036759](https://bugs.launchpad.net/maas/+bug/2036759) : Adding a custom MAAS sstreams image source without trailing / fails
+- [2037420](https://bugs.launchpad.net/maas/+bug/2037420) : MAAS metadata_url contains a domain name even when DNS resolution is disallowed
+- [2029417](https://bugs.launchpad.net/maas/+bug/2029417) : RPC failure to contact rack/region - operations on closed handler
+- [1993916](https://bugs.launchpad.net/maas/+bug/1993916) : ThinkSystem SR645 failed commissioning ERROR: Failed to commit `User3:Password': Invalid/Unsupported Config
+- [1999152](https://bugs.launchpad.net/maas/+bug/1999152) : websocket API support for stop_mode
+- [2020397](https://bugs.launchpad.net/maas/+bug/2020397) : Custom images which worked ok is not working with 3.2
+- [2019216](https://bugs.launchpad.net/maas/+bug/2019216) : Flaky test- dhcp notify test_sends_notification_over_socket_for_processing
+- [2026283](https://bugs.launchpad.net/maas/+bug/2026283) : TestDynamicDNSUpdate.test_as_reverse_record_update flaky test

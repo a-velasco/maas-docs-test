@@ -1,4 +1,3 @@
-(uncategorized-manage-partitions)=
 # Manage partitions
 
 You can manipulate storage partitions via the MAAS CLI.  Note that partitions cannot be managed through the MAAS UI.
@@ -207,4 +206,3 @@ Machine-readable output follows:
     "size": 2000003072
 }
 ```
-

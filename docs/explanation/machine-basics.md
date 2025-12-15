@@ -1,8 +1,6 @@
-(explanation-machine-basics)=
 # Machine basics
 
 In MAAS, a machine is a physical or virtual server that MAAS can provision, configure, and manage. To understand how MAAS treats machines, it helps to start with the basics: what a machine is at the hardware level, how it boots, how it is controlled, and how MAAS represents those components.
-
 
 ## What is a machine?
 
@@ -13,7 +11,6 @@ A *machine* is any server that can:
 - Be controlled remotely: Machines expose a BMC (Baseboard Management Controller) or equivalent power interface (IPMI, Redfish, iLO, etc.) so MAAS can power them on/off and reconfigure them without human intervention.
 
 Machines can be bare-metal servers, VMs on a hypervisor, or even virtual hardware defined in a cloud environment — as long as they can PXE boot and present a controllable power interface.
-
 
 ## Machine components
 
@@ -29,7 +26,6 @@ When MAAS talks about machines, it models the following dimensions:
 
 This structured representation lets MAAS track, allocate, and configure machines consistently.
 
-
 ## How machines boot under MAAS
 
 1. PXE/iPXE request: The machine firmware requests a boot image from the network.
@@ -39,7 +35,6 @@ This structured representation lets MAAS track, allocate, and configure machines
 5. Operational state: The machine reboots into its installed OS and is ready for workloads.
 
 At every step, MAAS uses the BMC interface to ensure the machine can be powered on/off or rebooted reliably.
-
 
 ## Machines in the MAAS UI
 
@@ -59,7 +54,6 @@ Clicking a machine opens its summary, which shows:
 - Power settings: Configured power type and credentials.
 - Tags & Notes: Metadata for organizing workloads.
 
-
 ## CLI equivalent
 
 The same data can be retrieved programmatically. For example:
@@ -70,7 +64,6 @@ maas $PROFILE machines read | jq -r '(["FQDN","POWER","STATUS","OWNER","POOL","Z
 ```
 
 This command lists machines with their state, ownership, pool, and zone.
-
 
 ## Normal machine behaviour
 
@@ -88,6 +81,5 @@ A machine in MAAS is not just an entry in a table. It’s a full representation 
 
 ## Next steps
 
- - Learn about the [MAAS machine life-cycle](https://canonical.com/maas/docs/about-the-machine-life-cycle).
- - Understand how and why to [commission machines](https://canonical.com/maas/docs/about-commissioning-machines).
-
+- Learn about the [MAAS machine life-cycle](https://canonical.com/maas/docs/about-the-machine-life-cycle).
+- Understand how and why to [commission machines](https://canonical.com/maas/docs/about-commissioning-machines).

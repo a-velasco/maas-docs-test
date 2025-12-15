@@ -1,4 +1,3 @@
-(reference-cli-reference-createadmin)=
 # createadmin
 
 Create a MAAS administrator account.
@@ -8,6 +7,7 @@ maas createadmin [-h] [--username USERNAME] [--password PASSWORD] [--email EMAIL
 ```
 
 #### Command-line options | Option | Effect |
+
 |-------------------------|-------------------------------------------------------|
 | -h, --help              | show this help message and exit                       |
 | --username USERNAME     | Username for the new account.                         |
@@ -15,4 +15,3 @@ maas createadmin [-h] [--username USERNAME] [--password PASSWORD] [--email EMAIL
 | --email EMAIL           | Specifies the email for the admin.                    |
 | --ssh-import SSH_IMPORT | Import SSH keys from Launchpad (lp:user-id) or Github |
 |                         | (gh:user-id).                                         |
-

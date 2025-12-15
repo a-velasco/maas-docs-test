@@ -1,9 +1,9 @@
-(explanation-machine-groups)=
 # Machine groups
 
-MAAS provides several built-in grouping mechanisms them can be used to help find suitable machines faster.  Some of these groups support special use cases for tools like Juju or OpenStack, but none of them are limited. These groups are just labels to MAAS; you decide how much structure to impose. 
+MAAS provides several built-in grouping mechanisms them can be used to help find suitable machines faster.  Some of these groups support special use cases for tools like Juju or OpenStack, but none of them are limited. These groups are just labels to MAAS; you decide how much structure to impose.
 
 ## Options for grouping
+
 MAAS exposes three main grouping tools: tags, availability zones, and resource pools. Each was originally designed for a slightly different problem, but all three can be used more flexibly if your environment calls for it. MAAS also provides notes and dynamic annotations. While they’re not formal grouping tools, they give you extra ways to mark machines with context or live metadata that can help characterize machines quickly.
 
 ## Tags: flexible labels
@@ -47,4 +47,3 @@ For example, if you run the IT department of a large hospital, you may want to r
 ## Notes and dynamic annotations
 
 In addition to formal grouping, MAAS lets you attach notes or dynamic annotations to machines. These aren’t designed as grouping tools, but they can provide context that helps you reason about why a machine is in a particular tag, zone, or pool. Notes are human-readable reminders that persist through any state from Ready to Deployed.  Annotations are dynamic and persist only while a machine is deployed, but they can be updated programmatically to reflect changing conditions.
-

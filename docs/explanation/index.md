@@ -1,4 +1,3 @@
-(explanation-index)=
 # Explanation
 
 Understand MAAS better through three key areas: machine life-cycle, MAAS-managed infrastructure, and reliability tools.
@@ -13,7 +12,7 @@ Machines are the core component of MAAS and the primary driver of the provisioni
 - Discover all the ways you can [customize](https://canonical.com/maas/docs/about-customising-machines) deployment to suit your use case.
 - Find out about [deployment](https://canonical.com/maas/docs/about-deploying-machines) and why it's valuable to also [deploy already-provisioned machines](https://canonical.com/maas/docs/about-deploying-running-machines).
 - Learn about [LXD projects](https://canonical.com/maas/docs/about-lxd) to simplify VM deployments.
-- Understand the value and utility of [grouping machines](https://canonical.com/maas/docs/labelling-devices). 
+- Understand the value and utility of [grouping machines](https://canonical.com/maas/docs/labelling-devices).
 
 ## MAAS-managed infrastructure
 
@@ -35,7 +34,6 @@ Keep your data center intact and reliable.
 - Learn about the MAAS catalog of [events](https://canonical.com/maas/docs/an-overview-of-maas-events) for auditing and debugging issues.
 - Dive deep into the MAAS [logging](https://canonical.com/maas/docs/about-log-files) domain to understand what is captured.
 - Get a better handle on the thinking behind [MAAS security](https://canonical.com/maas/docs/ensuring-security-in-maas) to help you design and maintain a hardened stance.
-
 
 ```{toctree}
 :titlesonly:

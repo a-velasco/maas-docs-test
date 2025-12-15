@@ -1,4 +1,3 @@
-(explanation-images)=
 # Images
 
 MAAS can deploy standard (Ubuntu) or custom images.
@@ -37,7 +36,7 @@ You can create MAAS-compatible images in two ways:
 1. **Hand-build images** (requires deep understanding of curtin/cloud-init).  
 2. **Use [Packer](https://www.packer.io)** to automate the process.  
 
-The former is the recommenced way of building images. For selected operating systems, Canonical provides [Packer templates](https://github.com/canonical/packer-maas) to easy the process. 
+The former is the recommenced way of building images. For selected operating systems, Canonical provides [Packer templates](https://github.com/canonical/packer-maas) to easy the process.
 
 Custom images cannot be distributed by Canonical due to licensing. The users must build these and upload them to MAAS themselves. These templates are available in a *as-is* basis.
 
@@ -72,6 +71,7 @@ The MAAS dashboard tracks the number of deployed static images.
 [Packer](https://www.packer.io/docs) automates OS image creation for MAAS deployment. It uses **HCL2 templates** to define build, provisioning, and post-processing steps.  
 
 > *Note: Packer is the recommended approach to build custom images. Use `cloud-init` or `curtin` instead of custom images for minimal customizations.*
+>
 ### Packer workflow  
 
 1. **Define a template** (HCL2 format).  
@@ -160,4 +160,3 @@ maas $ADMIN boot-resources create \
     filetype='tgz' \
     content@=ubuntu-custom.tar.gz
 ```
-

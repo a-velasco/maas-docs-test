@@ -1,4 +1,3 @@
-(reference-configuration-guides-cloud-init)=
 # Cloud-init
 
 Cloud-init is a powerful part of the MAAS customization suite.  This article walks through specific usage of cloud-init scripts to customize and automate MAAS instances. Cloud-init helps you set up machines automatically; here are some common examples.
@@ -86,7 +85,7 @@ ssh-keygen -f "/path/to/.ssh/known_hosts" -R "<ip_address>"
 ```text
 ssh -i /.ssh/id_rsa maas_user@10.192.226.195
 ```
-3. When logged in, you can try a few commands that require `sudo` to verify that your `cloud-init` was successful.
+1. When logged in, you can try a few commands that require `sudo` to verify that your `cloud-init` was successful.
 
 ### Setting up SSH keys for multiple users
 
@@ -420,4 +419,3 @@ How to use it:
 ## Conclusion
 
 By using these cloud-init scripts, you can easily automate and customize your machines in MAAS, making deployments faster and more efficient. Feel free to mix and match the examples to fit your needs, and remember that cloud-init is a powerful tool that can help you manage your servers more effectively. Happy deploying!
-

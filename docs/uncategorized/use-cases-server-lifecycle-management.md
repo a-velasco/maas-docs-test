@@ -1,4 +1,3 @@
-(uncategorized-use-cases-server-lifecycle-management)=
 # Use cases: Server lifecycle management
 
 Here are three sets of detailed use cases, covering the domain of server lifecycle management.
@@ -71,7 +70,7 @@ Edge sites often have constrained hardware – maybe one or two powerful servers
 
 Edge sites might have unreliable connectivity to the central data center. MAAS’s distributed design means that the Rack Controller at an edge site can continue to function even if disconnected from the Region for a time. The rack controller caches images and can handle DHCP/boot locally, so you could still enlist or reboot machines at the site without constant round-trips to the central region. This is important for remote locations with intermittent networks. Moreover, if an edge location has multiple servers and one acts as the MAAS controller, it’s doing double duty – but MAAS is efficient enough to handle that. In telco edge scenarios, often a pair of small controllers might be deployed for HA (so provisioning isn’t blocked if one fails). MAAS’s support for high availability can extend to edge as well, albeit typically on a smaller scale than a big data center (maybe two low-power nodes ensuring the site’s MAAS functions are redundant).
 
-## Use in telco 5G/MEC deployments:
+## Use in telco 5G/MEC deployments
 
 Telecommunications providers are heavily investing in edge computing for 5G (MEC – Multi-access Edge Computing). MAAS is quite relevant here. For instance, Canonical joined initiatives like the O-RAN Alliance and has demonstrated telco edge solutions where 96% of CSPs plan to launch 5G edge compute in 1-2 years.– and tooling like MAAS is key to enabling that. Telcos need to deploy many small data centers at cell sites or central offices. MAAS can be part of the “baseline infrastructure layer” at each site, automating the bring-up of the physical servers which then host telco cloud software (like OpenStack, Kubernetes, or containerized network functions). We’ve already touched on how MAAS on a switch or small box can manage a site. The benefit is consistent automation and the ability to replicate deployments rapidly to new sites. BT (British Telecom), for example, in selecting Canonical for their 5G core, would utilize MAAS to manage the hardware under their NFV cloud. Essentially, MAAS provides the bare-metal agility that matches the rapid rollout needs of telco edge.
 
@@ -79,7 +78,7 @@ Telecommunications providers are heavily investing in edge computing for 5G (MEC
 
 Outside of telco, consider retail chains or bank branches – these often have a couple of servers or appliances in each location (for point-of-sale, local processing, etc.). Keeping those updated and consistent is a challenge. With MAAS, an IT team could centrally manage the OS deployments of all branch servers. If a branch server fails or needs reinstall, a technician on-site might only need to replace it with a blank server and plug it in; MAAS will detect and provision it to the company standard build remotely. This can significantly reduce on-site IT visits. Moreover, MAAS’s ability to manage networks means if a branch has a unique subnet or VLAN for certain systems, MAAS can ensure the server is correctly configured for it every time. Overall, MAAS helps deliver edge infrastructure as a service – making the edge feel like an extension of your centrally managed data center.
 
-## Edge/remote example use cases:
+## Edge/remote example use cases
 
 ### IoT gateway deployment
 
@@ -127,7 +126,7 @@ Beyond CI, individual developers or ops engineers can use MAAS to carve out sand
 
 Some teams use MAAS to test changes to infrastructure itself. For instance, before rolling out a new OS image or kernel to production, they use MAAS to spin up a few test nodes with that image and run workloads to see if everything holds. Because MAAS can quickly bring up machines with the exact config you intend for production (including RAID layout, network bonds, etc.), it’s ideal for staging environment creation. And since it’s automated, you can recreate a fresh staging environment whenever needed (for example, for every major code release, deploy a staging cluster via MAAS, deploy the application onto it, do final end-to-end tests, then discard it). This concept of immutable infrastructure – where servers are not patched in place but replaced with new ones from a gold image – can be extended to bare metal with MAAS in the loop, boosting reliability.
 
-## Dev/test example use cases:
+## Dev/test example use cases
 
 ### CI pipeline with bare metal
 
@@ -146,4 +145,3 @@ A DevOps engineer is developing an Ansible playbook that will run in production 
 As an advanced use, some teams might use MAAS to perform chaos engineering or security drills. For instance, spin up a realistic multi-node environment via MAAS, then run penetration tests or failure injection on it, and when done, tear it all down. The ephemeral nature means you can simulate dangerous scenarios without risking any long-lived environment. MAAS guarantees that after tests, the hardware can be wiped and returned to normal use (with disks securely erased if needed, using MAAS’s disk erasure in decommission). This encourages more frequent testing of disaster recovery or security patches on real hardware, which otherwise might be too cumbersome to do regularly.
 
 Overall, MAAS brings a level of automation and consistency to bare-metal dev/test workflows that was previously hard to achieve. By leveraging it, technical teams can accelerate their software delivery and improve quality, using real hardware when it counts, without manual effort each time. It effectively extends continuous integration to the metal, which is increasingly valuable in a world where performance and hardware-specific optimizations (e.g., for AI or high-frequency trading) matter.
-

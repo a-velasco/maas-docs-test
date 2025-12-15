@@ -1,4 +1,3 @@
-(reference-configuration-guides-logging)=
 # Logging
 
 Pinpoint issues with four types of log files:
@@ -14,7 +13,7 @@ You can also account for user activities with audit logs.
 
 ## Firewall logs
 
-Ubuntu's UncomplicatedFirewall ([UFW](https://wiki.ubuntu.com/UncomplicatedFirewall)) serves as a front-end for [iptables](https://help.ubuntu.com/community/IptablesHowTo). To secure your MAAS setup, regularly review logs located in `/var/log/ufw*`. 
+Ubuntu's UncomplicatedFirewall ([UFW](https://wiki.ubuntu.com/UncomplicatedFirewall)) serves as a front-end for [iptables](https://help.ubuntu.com/community/IptablesHowTo). To secure your MAAS setup, regularly review logs located in `/var/log/ufw*`.
 
 Find red flags in UFW and iptables logs by looking for key patterns:
 
@@ -31,7 +30,7 @@ Find red flags in UFW and iptables logs by looking for key patterns:
 ```text
     blocked incoming tcp connection request from 96.39.208.43:49343 to 64.242.119.18:31337
 ```
-    
+
 - Examine repeated, errant messages from within your network, which may indicate a Trojan horse:.
 
 ```text
@@ -113,4 +112,3 @@ Read the following information from MAAS audit logs.
 |               |          | None         | "Updated `package_repository.name`."                           |
 | SETTINGS      |          | None         | "Saved script `script.name`."                                  |
 | SETTINGS      | CLI      | None         | "Updated configuration setting `key`."                         |
-

@@ -1,4 +1,3 @@
-(how-to-guides-build-custom-images)=
 # Build custom images
 
 MAAS supports custom images built with [Packer](https://developer.hashicorp.com/packer). These images allow you to deploy operating systems beyond the default Ubuntu set, and to customize Ubuntu images for your own environment.
@@ -26,7 +25,6 @@ All templates are community supported.
 
 > ⚠️ Note: Templates marked as *EOL* are for operating systems that no longer receive upstream support. They are not recommended for new deployments.
 
-
 ## Key considerations
 
 * ISO images: Most non-Ubuntu templates require you to supply an ISO manually. Licensing restrictions prevent Packer from downloading these automatically.
@@ -50,4 +48,3 @@ For full build instructions:
   * Customize installer configuration (e.g., Kickstart, autoinstall, YAML)
   * Build the image
   * Upload it to MAAS
-

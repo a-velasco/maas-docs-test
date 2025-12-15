@@ -1,4 +1,3 @@
-(uncategorized-maas-2-9-release-notes)=
 # MAAS 2.9 release notes
 
 ## MAAS 2.9.2
@@ -81,7 +80,7 @@ A number of MAAS issues have actually been issues with an older version of Curti
 
 ### HTTP boot disabled
 
-MAAS 2.9 disables HTTP boot. There are known issues with HTTP boot in MAAS, as well as known issues for HTTP boot with grub (e.g. https://bugs.launchpad.net/maas/+bug/1899581 )  This shouldn’t affect machine boot, as machines will normally try PXE as a fallback boot method if HTTP boot fails. Be aware, though, that machine boot will fail if the BIOS is configured to boot only over HTTP; those machines need to be reconfigured to use PXE.
+MAAS 2.9 disables HTTP boot. There are known issues with HTTP boot in MAAS, as well as known issues for HTTP boot with grub (e.g. <https://bugs.launchpad.net/maas/+bug/1899581> )  This shouldn’t affect machine boot, as machines will normally try PXE as a fallback boot method if HTTP boot fails. Be aware, though, that machine boot will fail if the BIOS is configured to boot only over HTTP; those machines need to be reconfigured to use PXE.
 
 ### New commissioning parameters
 
@@ -100,7 +99,7 @@ Two new global IPMI configuration options have been added:
 
 - maas_auto_ipmi_k_g_bmc_key - sets a global default IPMI BMC key.
 - maas_auto_ipmi_user_privilege_level - sets a global default IPMI BMC user privilege level.
-    
+
 ### IPMI config via UI
 
 You may now set the global configuration options `maas_auto_ipmi_user`, `maas_auto_ipmi_k_g_bmc_key`, and `maas_auto_ipmi_user_privilege_level` on the "Settings" page in the UI under "Commissioning."
@@ -114,11 +113,11 @@ Available in all MAAS 2.9 releases is the new `maas.power` CLI command. This com
 This release adds two improvements to IPMI BMC detection capability:
 
 - The IPMI cipher suite ID will now be automatically detected. MAAS tries to find the most secure cipher suite available. Preference order is 17, 3, 8, 12. If detection fails MAAS will fall back to using freeipmi-tool default, 3, which is what previous versions of MAAS use.
-- The IPMI K_g BMC key will now be automatically detected if previously set. 
+- The IPMI K_g BMC key will now be automatically detected if previously set.
 
 ### RAD
 
-This release features Reader Adaptive Documentation, which allows you to adapt individual pages to your install method (Snap vs. Deb), version (2.7/2.8/2.9), and preferred interface (CLI/UI). 
+This release features Reader Adaptive Documentation, which allows you to adapt individual pages to your install method (Snap vs. Deb), version (2.7/2.8/2.9), and preferred interface (CLI/UI).
 
 ### Offline documentation
 
@@ -128,7 +127,7 @@ This release will include offline documentation for those users whose MAAS insta
 
 Three substantial improvements to BMC usage have been released:
 
-- IPMI, HP Moonshot, and Facebook Wedge BMC detection and configuration scripts have been migrated to the commissioning script `30-maas-01-bmc-config `.
+- IPMI, HP Moonshot, and Facebook Wedge BMC detection and configuration scripts have been migrated to the commissioning script `30-maas-01-bmc-config`.
 - BMC detection and configuration are now logged to commissioning results.
 - If BMC configuration is skipped a ScriptResult will log this result, and indicate which user chose to skip the configuration step.
 
@@ -137,7 +136,7 @@ Three substantial improvements to BMC usage have been released:
 Three new configuration options have been added to the IPMI power driver:
 
 - K_g - The BMC Key of the IPMI device. Used to encrypt all traffic to and from the device during communication.
-- Cipher Suite ID - The cipher suite to use when communicating with the IPMI BMC. Only 3, 8, 12, and 17 are available as only those enable ciphers for authentication, integrity, and confidentiality. Defaults to 3, freeipmi-tools default. See http://fish2.com/ipmi/bp.pdf  for more information.
+- Cipher Suite ID - The cipher suite to use when communicating with the IPMI BMC. Only 3, 8, 12, and 17 are available as only those enable ciphers for authentication, integrity, and confidentiality. Defaults to 3, freeipmi-tools default. See <http://fish2.com/ipmi/bp.pdf>  for more information.
 - Privilege Level - The IPMI privilege level to use when communicating with the BMC. Defaults to OPERATOR.
 
 See the [power management page](/reference/configuration-guides/power-drivers) for details.
@@ -148,17 +147,17 @@ Script flow and capabilities have been improved in three ways:
 
 1. `maas-run-remote-scripts` can now enlist machines.
 2. Enlistment `user_data` scripts have been removed.
-3.  The metadata endpoints `http://<MAAS>:5240/<latest or 2012-03-01>/` and `http://<MAAS>:5240/<latest or 2012-03-01>/meta-data/` are now available anonymously for use during enlistment.
+3. The metadata endpoints `http://<MAAS>:5240/<latest or 2012-03-01>/` and `http://<MAAS>:5240/<latest or 2012-03-01>/meta-data/` are now available anonymously for use during enlistment.
 
 ### Commissioning script upgrades
 
 Seven major improvements were made to commissioning script flow and capabilities:
 
 1. Commissioning scripts can now send BMC configuration data
-2. Commissioning scripts can now be used to configure BMC data. 
-3. The environment variable BMC_CONFIG_PATH is passed to serially run commissioning scripts. 
-4. These scripts may write BMC power credentials to BMC_CONFIG_PATH in a YAML format where each key is the power parameter. 
-5. If the commissioning script returns 0, it will be sent to MAAS. 
+2. Commissioning scripts can now be used to configure BMC data.
+3. The environment variable BMC_CONFIG_PATH is passed to serially run commissioning scripts.
+4. These scripts may write BMC power credentials to BMC_CONFIG_PATH in a YAML format where each key is the power parameter.
+5. If the commissioning script returns 0, it will be sent to MAAS.
 6. The first script to write BMC_CONFIG_PATH is the only script that may configure the BMC, allowing you to override MAAS's builtin BMC detection.
 7. All builtin commissioning scripts have been migrated into the database.
 
@@ -189,7 +188,6 @@ See the [How to read commissioning logs](how-to-read-commissioning-logs/5248) fo
 ### Commissioning is faster now
 
 Four improvements have been made to speed up the commissioning process, mostly by running scripts in parallel (see above):
-
 
 1. Commissioning should now take 60s.
 2. Logging has been added to 20-maas-01-install-lldpd  (commissioning log output).
@@ -251,4 +249,3 @@ Running migrations:
 ```
 
 This warning message has no effect on the installation or operation of MAAS, so it can be safely ignored.
-

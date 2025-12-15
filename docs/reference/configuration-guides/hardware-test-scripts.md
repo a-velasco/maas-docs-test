@@ -1,4 +1,3 @@
-(reference-configuration-guides-hardware-test-scripts)=
 # Hardware test scripts
 
 This page enumerates standard MAAS test scripts and explains how to create your own custom scripts.
@@ -48,4 +47,3 @@ sudo -n stress-ng --matrix 0 --ignite-cpu --log-brief --metrics-brief --times \
 ```
 
 This Bash snippet features metadata comments that help configure the environment and handle any package dependencies. It ends with a line that triggers `stress-ng`, the workhorse that stresses your CPU to its core.
-

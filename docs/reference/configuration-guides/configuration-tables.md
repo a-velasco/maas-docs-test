@@ -1,4 +1,3 @@
-(reference-configuration-guides-configuration-tables)=
 # Configuration tables
 
 Configure several aspects of MAAS:
@@ -10,6 +9,7 @@ Configure several aspects of MAAS:
 ## MAAS behavior settings
 
 Change MAAS settings and behavior to suit your environment.  For the CLI, prefix the listed commands with:
+
 ```bash
 maas $PROFILE maas set-config ...
 ```
@@ -49,12 +49,14 @@ maas $PROFILE maas set-config ...
 
 ### Special commands
 
-To enable TLS for secure communication: 
-```bash 
+To enable TLS for secure communication:
+
+```bash
 sudo maas config-tls enable $key $cert --port YYYY
 ```
 
 To enable Vault for secure secrets management:
+
 ```bash
 sudo maas config-vault configure ...
 ```
@@ -69,7 +71,7 @@ Essential TCP ports for MAAS communication:
 | `5241` - `5247` | Allocated for MAAS internal services.                                                    |
 | `5248`          | Designated for rack HTTP communication.                                                  |
 | `5250` - `5270` | Reserved for region workers (RPC).                                                       |
-| `5271` - `5274` | Required for communication between Rack Controller (specifically maas-agent) and Region Controller | 
+| `5271` - `5274` | Required for communication between Rack Controller (specifically maas-agent) and Region Controller |
 | `5281` - `5284` | Region Controller Temporal cluster membership gossip communication         |
 
 ## Interface parameters
@@ -77,6 +79,7 @@ Essential TCP ports for MAAS communication:
 The following tables may be needed to manage MAAS interfaces.
 
 ### Bond interface parameters
+
 | Parameter               | Description                 | Req'd? | Allowable values  |
 |-------------------------|-----------------------------|--------|-------------------|
 | `name`                  | I/F name                    | Yes    | String data       |
@@ -96,7 +99,8 @@ The following tables may be needed to manage MAAS interfaces.
 
 > *See [Bond two interfaces](https://canonical.com/maas/docs/how-to-manage-maas-networks#p-9070-bond-two-interfaces) for instructions on how to use and apply these parameters.*
 
-### Physical interface parameters 
+### Physical interface parameters
+
 | key         | value                    | format  | type     |
 |-------------|--------------------------|---------|----------|
 | name        | name of the interface    | string  | optional |
@@ -108,7 +112,8 @@ The following tables may be needed to manage MAAS interfaces.
 
 > *Note that if no VLAN is specified, the interface is considered disconnected.*
 
-### VLAN interface parameters 
+### VLAN interface parameters
+
 | key       | value                    | format  | type     |
 |-----------|--------------------------|---------|----------|
 | tags      | tags                     | string  | optional |
@@ -117,7 +122,8 @@ The following tables may be needed to manage MAAS interfaces.
 | mtu       | max transmission unit    | integer | optional |
 | accept_ra | accept router adverts    | boolean | optional |
 
-### Interface-subnet link parameters 
+### Interface-subnet link parameters
+
 | key             | value                 | format  | type     | mode    |
 |-----------------|-----------------------|---------|----------|---------|
 | mode            | See table below       | string  | required | ----    |
@@ -127,12 +133,11 @@ The following tables may be needed to manage MAAS interfaces.
 | default_gateway | subnet gateway IP     | string  | optional | AUTO    |
 | ^^              |                       |         |          | STATIC  |
 
-
 #### Interface-subnet link modes
+
 | mode    | description                                                                                                                                                                       |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | AUTO    | Assign this interface a static IP address from the provided subnet. The subnet must be a managed subnet. The IP address will not  be assigned until the node goes to be deployed. |
 | DHCP    | Bring this interface up with DHCP on the given subnet. Only one subnet can be set to ``DHCP``. If the subnet is managed this interface will pull from the dynamic IP range.       |
 | STATIC  | Bring this interface up with a static IP address on the given subnet. Any number of static links can exist on an interface.                                                       |
 | LINK_UP | Bring this interface up only on the given subnet. No IP address will be assigned to this interface. The interface cannot have any current ``AUTO``, ``DHCP`` or ``STATIC`` links. |
-

@@ -1,4 +1,3 @@
-(reference-cli-reference-version)=
 # version
 
 Get MAAS version information.
@@ -7,12 +6,12 @@ Get MAAS version information.
 maas $PROFILE version read [--help] [-d] [-k] [data ...] 
 ```
 
-Read version and capabilities of this MAAS instance. 
+Read version and capabilities of this MAAS instance.
 
 #### Command-line options
+
 | Option         | Effect                                        |
 |----------------|-----------------------------------------------|
 | --help, -h     | Show this help message and exit.              |
 | -d, --debug    | Display more information about API responses. |
 | -k, --insecure | Disable SSL certificate check                 |
-

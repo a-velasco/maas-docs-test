@@ -1,7 +1,7 @@
-(uncategorized-maas-2-8-release-notes)=
 # MAAS 2.8 release notes
 
 ## Release history
+
 ### MAAS 2.8.4 released
 
 MAAS 2.8.4 has been released, replacing the `2.8/stable` channel in snap and the [ppa:maas/2.8](https://launchpad.net/~maas/+archive/ubuntu/2.8) . You can update your 2.8 release to 2.8.4 with the command:
@@ -10,7 +10,7 @@ MAAS 2.8.4 has been released, replacing the `2.8/stable` channel in snap and the
     snap refresh --channel=2.8/stable
 ```
 
-or by using the aforementioned PPA. 2.8.4 has a single [bug fix - LP:1917372 ](https://bugs.launchpad.net/maas/+bug/1917372) in it. No other changes have been made to MAAS with this release.
+or by using the aforementioned PPA. 2.8.4 has a single [bug fix - LP:1917372](https://bugs.launchpad.net/maas/+bug/1917372) in it. No other changes have been made to MAAS with this release.
 
 ### MAAS 2.8.3 released
 
@@ -35,14 +35,16 @@ Here's a summary of the bugs that were fixed in 2.8.3:
 - [cannot use release API on stuck observed IPs](https://bugs.launchpad.net/maas/+bug/1898122): The CLI/API provide commands for forcing the release of an IP, but MAAS 2.8.2 was not allowing these commands to run successfully. This was fixed. There is also a workaround for those who cannot upgrade to 2.8.3 right away:
 
 ```text
-    $ sudo -u postgres psql $MAAS_DB -c "UPDATE maasserver_staticipaddress SET alloc_type=5 WHERE ip = '$IP_ADDRESS' AND alloc_type=6;"
-    $ maas $PROFILE ipaddresses release ip='$IP_ADDRESS' force=true
+    sudo -u postgres psql $MAAS_DB -c "UPDATE maasserver_staticipaddress SET alloc_type=5 WHERE ip = '$IP_ADDRESS' AND alloc_type=6;"
+    maas $PROFILE ipaddresses release ip='$IP_ADDRESS' force=true
 ```
+
 - [MAAS is unable to handle duplicate UUIDs](https://bugs.launchpad.net/maas/+bug/1893690): The firmware for Dell servers (and possibly others) has a bug whereby they use the service number for the UUID, which is not guaranteed to be unique. This caused MAAS commissioning to fail. The code was modified in 2.8.3 to detect and remove duplicate UUIDs, allowing MAAS to fall back to the MAC address. There is also a database workaround for those who cannot upgrade to 2.8.3 right away:
 
 ```text
-     $ sudo -u postgres psql $MAAS_DB -c "UPDATE maasserver_node SET hardware_uuid=NULL where hardware_uuid='$DUPLICATE_UUID'";
+     sudo -u postgres psql $MAAS_DB -c "UPDATE maasserver_node SET hardware_uuid=NULL where hardware_uuid='$DUPLICATE_UUID'";
 ```
+
 - [Ubuntu 20.04 pxe installation fails...](https://bugs.launchpad.net/curtin/+bug/1876258):
 When trying to PXE install Ubuntu 20.04, the installation fails with "no such file or directory, /dev/disk/by-id exception." This was an issue with block devices being created without serial numbers, bug fixed in curtin and released with 2.8.3.
 
@@ -88,7 +90,8 @@ Thanks to everyone who reported the issues with previous 2.7 releases and helped
 Following on from MAAS 2.7, we are happy to announce that MAAS 2.8 is now available. This release features some critical bug fixes, along with some exciting new features.
 
 ## Features
-### FAQ:
+
+### FAQ
 
 - [What are the new features and fixes for 2.8?](#2-8-release-notes)
 - [What known issues should I be aware of?](#2-8-known-issues)
@@ -105,7 +108,7 @@ MAAS 2.8 adds the beta capability to use LXD-based VM hosts and virtual machines
 
 Within MAAS 2.8, we have made a number of performance improvements to everything related to the machine listing. Some of the most visible changes involve the way that long lists are presented within categories (see the example below), but there are a number of other changes that make the list easier and more efficient to use.
 
-![image](https://discourse-maas-io-uploads.s3.us-east-1.amazonaws.com/original/1X/b4ec4124225f052fb8646f754c22d287fffcc850.jpeg) 
+![image](https://discourse-maas-io-uploads.s3.us-east-1.amazonaws.com/original/1X/b4ec4124225f052fb8646f754c22d287fffcc850.jpeg)
 
 Among those other changes are persisting UI state for grouping, new grouping options, bookmark-able URLs with filter and search parameters, and many other performance improvements. If you're interested in more details, see this [blog post](https://ubuntu.com/blog/building-a-cross-framework-ui-with-single-spa-in-maas-2-8).
 
@@ -136,16 +139,15 @@ We've also fixed number of bugs (see the [list in Launchpad](https://bugs.launch
 - **Browser caching issue:** There is a known issue with browser caching on some MAAS pages. If you initially encounter a page which does not appear to be correctly formatted, please manually clear your browser cache (**not Ctrl-F5**) and it should restore the page to normal. You manually clear your browser cache, for example, in the "History" section of the menu on a Chrome browser.
 
 - **Extra power types when adding chassis:** ([see bug report](https://bugs.launchpad.net/maas/+bug/1883743)) When adding a chassis, the "Power type" drop-down will show power types not supported by a chassis. Selecting one of the non-supported power types will result in the UI blocking the action. Here is a list of power types supported for chassis creation:
-  * `mscm` - Moonshot Chassis Manager
-  * `msftocs` - Microsoft OCS Chassis Manager
-  * `powerkvm` - Virtual Machines on Power KVM, managed by Virsh
-  * `recs_box` - Christmann RECS|Box servers
-  * `sm15k` - SeaMicro 1500 Chassis
-  * `ucsm` - Cisco UCS Manager
-  * `virsh` - virtual machines managed by Virsh
-  * `vmware` - virtual machines managed by VMware
+  - `mscm` - Moonshot Chassis Manager
+  - `msftocs` - Microsoft OCS Chassis Manager
+  - `powerkvm` - Virtual Machines on Power KVM, managed by Virsh
+  - `recs_box` - Christmann RECS|Box servers
+  - `sm15k` - SeaMicro 1500 Chassis
+  - `ucsm` - Cisco UCS Manager
+  - `virsh` - virtual machines managed by Virsh
+  - `vmware` - virtual machines managed by VMware
 
 - **MAAS keys count in user list is bogus:** ([see bug report](https://bugs.launchpad.net/maas/+bug/1884112)) The count of keys shown in the User list in the UI is wrong.
 
 - **Leftover lock files may be present under some conditions:** Even if you purge an old MAAS Debian package, it can leave lock files in `/run/lock/maas*`. This can cause issues if you later reinstall MAAS, and the previous MAAS user UID has been reassigned. At that point, MAAS can't remove those files and create new ones. If this occurs, it is easily fixed by removing those files manually before reinstallin.g
-

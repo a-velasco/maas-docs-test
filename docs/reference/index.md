@@ -1,4 +1,3 @@
-(reference-index)=
 # Reference
 
 Find the precise details to set parameters, make informed decisions, and take the right actions in MAAS.
@@ -18,7 +17,7 @@ Every feature available in the UI is also accessible through the MAAS API and CL
 
 ## Configuration guides
 
-These essential reference materials will help make better choices, resolve issues, and clarify ambiguities. 
+These essential reference materials will help make better choices, resolve issues, and clarify ambiguities.
 
 - [Installation requirements](https://maas.io/docs/installation-requirements).
 - [cloud-init](https://maas.io/docs/how-to-use-cloud-init-with-maas).
@@ -31,7 +30,6 @@ These essential reference materials will help make better choices, resolve issue
 - [Custom storage layouts](https://maas.io/docs/reference-maas-storage#p-17455-custom-storage-layouts).
 - [Terraform](https://maas.io/docs/reference-terraform).
 - [Troubleshooting guide](https://maas.io/docs/maas-troubleshooting-guide).
-
 
 ```{toctree}
 :titlesonly:

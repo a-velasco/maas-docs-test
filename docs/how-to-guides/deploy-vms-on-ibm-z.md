@@ -1,4 +1,3 @@
-(how-to-guides-deploy-vms-on-ibm-z)=
 # Deploy VMs on IBM Z
 
 You can deploy virtual machines on the IBM Z series with MAAS version 3.0 or higher.
@@ -35,8 +34,8 @@ The system requirements to host MAAS and its virtual machines on the IBM Z platf
 
 - IBM z14 GA2 (or newer) or IBM LinuxONE III (or newer)
 - HMC running in DPM mode (mandatory, traditional mode is not supported!)
-- HMC firmware level H39 - (HMC at H40 and SE at S55) 
-- HMCs Rest-API enabled 
+- HMC firmware level H39 - (HMC at H40 and SE at S55)
+- HMCs Rest-API enabled
 - python-zhmcclient (0.29 or later) running on the MAAS controller system, connected to the HMC
 - HMC user ID for the zhmcclient access to the HMC API (must have permissions for the “Manage Web Services API Logs” role and “Manage Web Services API Logs” role)
 - I/O auto-configuration enabled for the ‘machine’ LPARs
@@ -94,7 +93,6 @@ On the “General” tab, edit the partition details to suit your proposed MAAS 
 
 ![image](https://discourse-maas-io-uploads.s3.us-east-1.amazonaws.com/original/2X/6/60ff5ca98d8b615ee4a947607872c973cf2c7f41.png)
 
-
 Next, you will set up the networking details for this partition, as shown in the following section.
 
 ## Set up IBM Z networking for a MAAS machine
@@ -114,7 +112,6 @@ Confirm that the parameters on this screen are consistent with your planned MAAS
 Ensure that all settings on the “General” tab conform to your planned MAAS deployment; then select the “Network Interface Cards” tab on the left-hand navigation:
 
 ![image](https://discourse-maas-io-uploads.s3.us-east-1.amazonaws.com/original/2X/0/0a0873d7cd40147884c861d1fcde15ddc37c8853.png)
-
 
 Again, ensure that the parameters associated with the networking arrangement are consistent with your planned MAAS deployment.
 
@@ -153,4 +150,3 @@ Change any settings as necessary to support your planned MAAS deployment.
 ## Set up your IBM Z virtual machine for enlistment
 
 To cause IBM Z KVM partition guests to enlist, it’s necessary to manually put in the BMC information for each guest. MAAS can then detect the guest, enlist it, and boot it as necessary.
-

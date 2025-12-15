@@ -1,4 +1,3 @@
-(reference-cli-reference-migrate)=
 # migrate
 
 Perform migrations on connected database.
@@ -7,8 +6,8 @@ Perform migrations on connected database.
 maas migrate [-h] 
 ```
 
-#### Command-line options 
+#### Command-line options
+
 | Option     | Effect                          |
 |------------|---------------------------------|
 | -h, --help | show this help message and exit |
-

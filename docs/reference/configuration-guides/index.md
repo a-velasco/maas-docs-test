@@ -1,4 +1,3 @@
-(reference-configuration-guides-index)=
 # Configuration-Guides
 
 ```{toctree}

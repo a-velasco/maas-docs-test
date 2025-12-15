@@ -1,4 +1,3 @@
-(reference-cli-reference-login)=
 # login
 
 Log in to a remote API, and remember its description and credentials.
@@ -7,13 +6,14 @@ Log in to a remote API, and remember its description and credentials.
 maas login [-h] [--cacerts CACERTS] [-k] profile-name url [credentials] 
 ```
 
-#### Positional arguments 
+#### Positional arguments
+
 | Argument     | Effect                                                   |
 |--------------|----------------------------------------------------------|
 | profile-name | The name with which you will later refer to this remote  |
 |              | server and credentials within this tool                  |
-| url          | The URL of the remote API, e.g. http://example.com/MAAS/ |
-|              | or http://example.com/MAAS/api/2.0/ if you wish to       |
+| url          | The URL of the remote API, e.g. <http://example.com/MAAS/> |
+|              | or <http://example.com/MAAS/api/2.0/> if you wish to       |
 |              | specify the API version                                  |
 | credentials  | The credentials, also known as the API key, for the      |
 |              | remote MAAS server. These can be found in the user       |
@@ -21,8 +21,8 @@ maas login [-h] [--cacerts CACERTS] [-k] profile-name url [credentials]
 |              | long random-looking string composed of three parts,      |
 |              | separated by colons                                      |
 
-
 #### Command-line options
+
 | Option            | Effect                            |
 |-------------------|-----------------------------------|
 | -h, --help        | show this help message and exit   |
@@ -31,4 +31,3 @@ maas login [-h] [--cacerts CACERTS] [-k] profile-name url [credentials]
 |                   |                                   |
 
 If credentials are not provided on the command-line, they will be prompted for interactively.
-

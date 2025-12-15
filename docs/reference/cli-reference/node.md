@@ -1,4 +1,3 @@
-(reference-cli-reference-node)=
 # node
 
 Enter keyword arguments in the form `key=value`.
@@ -10,11 +9,13 @@ maas $PROFILE node delete [--help] [-d] [-k] system_id [data ...]
 ```
 
 #### Positional arguments
+
 - system_id
 
 Deletes a node with a given system_id.
 
 #### Command-line options
+
 | Option | Effect |
 |-----|-----|
 | --help, -h | Show this help message and exit. |
@@ -28,6 +29,7 @@ maas $PROFILE node details [--help] [-d] [-k] system_id [data ...]
 ```
 
 #### Positional arguments
+
 - system_id
 
 Returns system details -- for example, LLDP and ``lshw`` XML dumps.
@@ -37,6 +39,7 @@ Returns a ``{detail_type: xml, ...}`` map, where ``detail_type`` is something li
 Note that this is returned as BSON and not JSON. This is for efficiency, but mainly because JSON can't do binary content without applying additional encoding like base-64. The example output below is represented in ASCII using ``bsondump example.bson`` and is for demonstrative purposes.
 
 #### Command-line options
+
 | Option | Effect |
 |-----|-----|
 | --help, -h | Show this help message and exit. |
@@ -50,6 +53,7 @@ maas $PROFILE node power-parameters [--help] [-d] [-k] system_id [data ...]
 ```
 
 #### Positional arguments
+
 - system_id
 
 Gets power parameters for a given system_id, if any. For some types of power control this will include private information such as passwords and secret keys.
@@ -57,6 +61,7 @@ Gets power parameters for a given system_id, if any. For some types of power con
 Note that this method is reserved for admin users and returns a 403 if the user is not one.
 
 #### Command-line options
+
 | Option | Effect |
 |-----|-----|
 | --help, -h | Show this help message and exit. |
@@ -70,14 +75,15 @@ maas $PROFILE node read [--help] [-d] [-k] system_id [data ...]
 ```
 
 #### Positional arguments
+
 - system_id
 
 Reads a node with the given system_id.
 
 #### Command-line options
+
 | Option | Effect |
 |-----|-----|
 | --help, -h | Show this help message and exit. |
 | -d, --debug | Display more information about API responses. |
 | -k, --insecure | Disable SSL certificate check |
-

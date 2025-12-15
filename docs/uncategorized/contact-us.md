@@ -1,9 +1,6 @@
-(uncategorized-contact-us)=
 # Contact us
 
-
 Your experience helps shape the future of MAAS. Whether you’re troubleshooting, proposing features, or exploring enterprise adoption, there are several ways to engage with the team and the wider community.
-
 
 ## Join the community
 
@@ -13,7 +10,6 @@ Your experience helps shape the future of MAAS. Whether you’re troubleshooting
 - [Launchpad](https://launchpad.net/maas)
   Contribute bug reports, track issues, and review or propose code changes.
 
-
 ## Work with Canonical
 
 - Business & partnerships
@@ -22,10 +18,8 @@ Your experience helps shape the future of MAAS. Whether you’re troubleshooting
 - Premium support
   Organisations that need professional services or enterprise-grade support can visit the [Ubuntu Pro shop](https://buy.ubuntu.com/) to explore tailored support options.
 
-
 ## Next steps
 
 - [How to report and review bugs](https://canonical.com/maas/docs/how-to-report-and-review-bugs)
 - [How to file a feature request](https://canonical.com/maas/docs/how-to-request-features)
 - [How to improve our documentation](https://canonical.com/maas/docs/how-to-contribute-to-maas-documentation)
-

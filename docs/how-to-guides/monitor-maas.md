@@ -1,4 +1,3 @@
-(how-to-guides-monitor-maas)=
 # Monitor MAAS
 
 To keep your MAAS setup transparent, we've engineered it for observability — you can gauge its internal state purely through telemetry data. Depending on your MAAS version, your monitoring toolkit will differ.
@@ -24,7 +23,7 @@ Both hosts need internet access for installation. While we employ LXD for a sing
 
 ### Configuring O11y
 
-In monitoring MAAS, you'll need to follow three key steps: set up your tool stack, export telemetry data, and validate that it's all running smoothly. 
+In monitoring MAAS, you'll need to follow three key steps: set up your tool stack, export telemetry data, and validate that it's all running smoothly.
 
 ### Configure the stack
 
@@ -211,6 +210,7 @@ chmod a+x /opt/agent/grafana-agent-linux-amd64
 ```
 
 Copy the agent example configuration from MAAS based on the installation method and start the agent:
+
 ```
 mkdir -p /var/lib/grafana-agent/positions \
          /var/lib/grafana-agent/wal
@@ -261,7 +261,7 @@ Both hosts need internet access for installation. While we employ LXD for a sing
 
 ### Configuring O11y
 
-In monitoring MAAS, you'll need to follow three key steps: set up your tool stack, export telemetry data, and validate that it's all running smoothly. 
+In monitoring MAAS, you'll need to follow three key steps: set up your tool stack, export telemetry data, and validate that it's all running smoothly.
 
 ### Configure the stack
 
@@ -503,11 +503,11 @@ MAAS services can provide [Prometheus](https://prometheus.io/) endpoints for col
 
 MAAS can provide five endpoints of particular interest to MAAS users:
 
-1.  TFTP server file transfer latency
-2.  HTTP requests latency
-3.  Websocket requests latency
-4.  RPC calls (between MAAS services) latency
-5.  Per request DB queries counts
+1. TFTP server file transfer latency
+2. HTTP requests latency
+3. Websocket requests latency
+4. RPC calls (between MAAS services) latency
+5. Per request DB queries counts
 
 All available metrics are prefixed with `maas_`, to make it easier to look them up in Prometheus and Grafana UIs.
 
@@ -525,10 +525,10 @@ For a Snap-based MAAS setup, you're in luck: the necessary libraries are bundled
 
 MAAS also provides optional stats about resources registered with the MAAS server itself. These include four broad categories of information:
 
-1.  The number of nodes by type, arch, ...
-2.  Number of networks, spaces, fabrics, VLANs and subnets
-3.  Total counts for machines CPU cores, memory and storage
-4.  Counters for VM host resources
+1. The number of nodes by type, arch, ...
+2. Number of networks, spaces, fabrics, VLANs and subnets
+3. Total counts for machines CPU cores, memory and storage
+4. Counters for VM host resources
 
 After installing the `python3-prometheus-client` library as describe above, run the following to enable stats:
 
@@ -583,4 +583,3 @@ To follow the progress of the deployment, run the following:
 Once you deploy everything, the Grafana UI is accessible on port `3000` with the credentials `admin`/`grafana`. The Prometheus UI will be available on port `9090`.
 
 The repository also provides some sample dashboard covering the most common use cases for graphs. These are available under `grafana/dashboards`. You can import them from the Grafana UI or API.
-

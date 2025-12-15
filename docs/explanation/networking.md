@@ -1,4 +1,3 @@
-(explanation-networking)=
 # Networking
 
 MAAS provisions bare metal servers and virtual machines. It creates a single point of control that removes a lot of the logistical errors associated with manual hookup, configuration, and discovery. MAAS also makes it very easy to run your racks -- or even your whole datacenter -- remotely.  MAAS networking makes all this possible.
@@ -29,41 +28,41 @@ DHCP also offers several optional services, which MAAS uses to specify:
 
 Because MAAS needs to configure DHCP with these options, the bundled MAAS DHCP server should be used. You can use external DHCP servers or relays, but it is not recommended.  This bundled server redefines DHCP management by integrating advanced features:
 
-- Setting lease times and boot options: MAAS sets short lease times suitable for PXE booting and high-turnover environments, with specialized options for PXE and iPXE to support network-based system deployments.
+* Setting lease times and boot options: MAAS sets short lease times suitable for PXE booting and high-turnover environments, with specialized options for PXE and iPXE to support network-based system deployments.
 
-- Dynamic configuration and templating: MAAS employs a dynamic approach through an API and database, allowing real-time generation of DHCP settings based on the current network status and deployment requirements.
+* Dynamic configuration and templating: MAAS employs a dynamic approach through an API and database, allowing real-time generation of DHCP settings based on the current network status and deployment requirements.
 
-- Failover and high availability: MAAS includes robust failover settings and can configure DHCP on multiple rack controllers per VLAN for enhanced reliability.
+* Failover and high availability: MAAS includes robust failover settings and can configure DHCP on multiple rack controllers per VLAN for enhanced reliability.
 
-- OMAPI integration and key management: MAAS utilizes OMAPI extensively to manage DHCP settings and leases programmatically, enhancing security and control.
+* OMAPI integration and key management: MAAS utilizes OMAPI extensively to manage DHCP settings and leases programmatically, enhancing security and control.
 
-- Advanced network interface handling: MAAS automatically selects the optimal network interface for DHCP services, considering various types such as physical, VLAN, and bonds.
+* Advanced network interface handling: MAAS automatically selects the optimal network interface for DHCP services, considering various types such as physical, VLAN, and bonds.
 
-- Notification hooks and state management: MAAS uses notification hooks for commit, expiry, and release events, and employs the `DHCPState` class to monitor and react to changes in configuration states dynamically.
+* Notification hooks and state management: MAAS uses notification hooks for commit, expiry, and release events, and employs the `DHCPState` class to monitor and react to changes in configuration states dynamically.
 
-- Service integration: MAAS integrates DHCP configuration with DNS and NTP settings management, ensuring that all network services are synchronized and responsive to each machine's needs.
+* Service integration: MAAS integrates DHCP configuration with DNS and NTP settings management, ensuring that all network services are synchronized and responsive to each machine's needs.
 
-- Service monitoring and immediate feedback: MAAS integrates with service monitors to manage DHCP states effectively, applying changes instantly without needing restarts.
+* Service monitoring and immediate feedback: MAAS integrates with service monitors to manage DHCP states effectively, applying changes instantly without needing restarts.
 
-- Asynchronous and concurrent operations: MAAS supports asynchronous operations and uses concurrency controls to ensure that DHCP management is efficient and non-disruptive.
+* Asynchronous and concurrent operations: MAAS supports asynchronous operations and uses concurrency controls to ensure that DHCP management is efficient and non-disruptive.
 
 ### Implied user capabilities with MAAS-managed DHCP
 
 MAAS also introduces non-standard capabilities for the bundled DHCP server:
 
-- Dynamic reconfiguration of DHCP settings: MAAS allows users to dynamically reconfigure DHCP settings via a web UI or API without the need for server restarts. This capability is essential for environments where network configurations frequently change, such as in data centers or development labs.
+* Dynamic reconfiguration of DHCP settings: MAAS allows users to dynamically reconfigure DHCP settings via a web UI or API without the need for server restarts. This capability is essential for environments where network configurations frequently change, such as in data centers or development labs.
 
-- Integrated IP Address Management (IPAM): MAAS integrates DHCP with IPAM to automatically manage the allocation, tracking, and reclamation of IP addresses across large networks. This integration helps in efficiently using IP resources, reducing conflicts, and ensuring that all devices have appropriate network configurations.  This means that user IP configuration takes on a new level of reliability and granularity.
+* Integrated IP Address Management (IPAM): MAAS integrates DHCP with IPAM to automatically manage the allocation, tracking, and reclamation of IP addresses across large networks. This integration helps in efficiently using IP resources, reducing conflicts, and ensuring that all devices have appropriate network configurations.  This means that user IP configuration takes on a new level of reliability and granularity.
 
-- Automated provisioning of network-dependent services: MAAS automates the provisioning of network-dependent services like DNS, NTP, and PXE boot configurations along with DHCP leases. This means that when MAAS manages a device's DHCP settings, it can also configure these devices to use specific DNS servers or NTP servers, streamlining network setup tasks.  This equates to a series of error-prone steps that the user does *not* need to worry about.
+* Automated provisioning of network-dependent services: MAAS automates the provisioning of network-dependent services like DNS, NTP, and PXE boot configurations along with DHCP leases. This means that when MAAS manages a device's DHCP settings, it can also configure these devices to use specific DNS servers or NTP servers, streamlining network setup tasks.  This equates to a series of error-prone steps that the user does *not* need to worry about.
 
-- Real-time network bootstrapping: MAAS supports complex network bootstrapping scenarios including the use of next-server (PXE boot server) and bootfile-name parameters which are critical for deploying operating systems in a network environment. This is particularly useful in automated data center management where servers may need to be re-imaged or upgraded without manual intervention.  Again, this automates actions that users might normally need to undertake manually.
+* Real-time network bootstrapping: MAAS supports complex network bootstrapping scenarios including the use of next-server (PXE boot server) and bootfile-name parameters which are critical for deploying operating systems in a network environment. This is particularly useful in automated data center management where servers may need to be re-imaged or upgraded without manual intervention.  Again, this automates actions that users might normally need to undertake manually.
 
-- Granular access control and security policies: MAAS offers granular control over DHCP options and includes security policies that can be customized for different nodes or subnets. Features like DHCP snooping and dynamic ARP inspection can be integrated into the DHCP process to enhance security and control over the network.
+* Granular access control and security policies: MAAS offers granular control over DHCP options and includes security policies that can be customized for different nodes or subnets. Features like DHCP snooping and dynamic ARP inspection can be integrated into the DHCP process to enhance security and control over the network.
 
-- Advanced monitoring and reporting: MAAS provides advanced monitoring and reporting features for DHCP interactions, meaning that users do not have to be as fluent with command-line network diagnostics.  Administrators can view detailed logs of DHCP transactions, monitor the state of DHCP scopes, and track the historical usage of IP addresses, enabling effective troubleshooting and network management.
+* Advanced monitoring and reporting: MAAS provides advanced monitoring and reporting features for DHCP interactions, meaning that users do not have to be as fluent with command-line network diagnostics.  Administrators can view detailed logs of DHCP transactions, monitor the state of DHCP scopes, and track the historical usage of IP addresses, enabling effective troubleshooting and network management.
 
-- Seamless integration with hardware enrollments: MAAS seamlessly integrates DHCP services with the hardware enrollment processes. As new machines are added to the network, MAAS can automatically enroll them, provision them based on predefined templates, and manage their lifecycle directly from the initial DHCP handshake.  This eliminates the need for users and administrators to constantly inventory the physical network to keep the headcount up-to-date.
+* Seamless integration with hardware enrollments: MAAS seamlessly integrates DHCP services with the hardware enrollment processes. As new machines are added to the network, MAAS can automatically enroll them, provision them based on predefined templates, and manage their lifecycle directly from the initial DHCP handshake.  This eliminates the need for users and administrators to constantly inventory the physical network to keep the headcount up-to-date.
 
 ## IP range management and static IP assignments
 
@@ -141,62 +140,61 @@ Network bonding is crucial for high-availability environments, and MAAS makes it
 
 MAAS supports a range of bond parameters:
 
-- **`mac_address`**: Specifies the unique Media Access Control (MAC) address assigned to the network interface, serving as its hardware identifier on the network.
+* **`mac_address`**: Specifies the unique Media Access Control (MAC) address assigned to the network interface, serving as its hardware identifier on the network.
 
-- **`tags`**: Assigns descriptive labels to the interface, facilitating organization, management, or application of specific configurations within MAAS.
+* **`tags`**: Assigns descriptive labels to the interface, facilitating organization, management, or application of specific configurations within MAAS.
 
-- **`vlan`**: Designates the Virtual Local Area Network (VLAN) ID that the interface connects to. If omitted, the interface is treated as not connected to any VLAN.
+* **`vlan`**: Designates the Virtual Local Area Network (VLAN) ID that the interface connects to. If omitted, the interface is treated as not connected to any VLAN.
 
-- **`parents`**: Lists the IDs of interfaces that are combined to form a bonded interface, indicating which physical interfaces are aggregated.
+* **`parents`**: Lists the IDs of interfaces that are combined to form a bonded interface, indicating which physical interfaces are aggregated.
 
-- **`bond_mode`**: Defines the bonding policy determining how the bonded interface manages traffic across its member interfaces.
+* **`bond_mode`**: Defines the bonding policy determining how the bonded interface manages traffic across its member interfaces.
 
-- **`bond_miimon`**: Sets the frequency (in milliseconds) at which the bond verifies the link status of its member interfaces, with a default of 100 ms.
+* **`bond_miimon`**: Sets the frequency (in milliseconds) at which the bond verifies the link status of its member interfaces, with a default of 100 ms.
 
-- **`bond_downdelay`**: Specifies the time (in milliseconds) the bond waits before marking a member interface as inactive after detecting a link failure.
+* **`bond_downdelay`**: Specifies the time (in milliseconds) the bond waits before marking a member interface as inactive after detecting a link failure.
 
-- **`bond_updelay`**: Indicates the time (in milliseconds) the bond waits before marking a member interface as active after detecting a link recovery.
+* **`bond_updelay`**: Indicates the time (in milliseconds) the bond waits before marking a member interface as active after detecting a link recovery.
 
-- **`bond_lacp_rate`**: Determines the frequency at which Link Aggregation Control Protocol Data Units (LACPDUs) are sent in 802.3ad mode. Options are "fast" (every 1 second) or "slow" (every 30 seconds), with "slow" as the default.
+* **`bond_lacp_rate`**: Determines the frequency at which Link Aggregation Control Protocol Data Units (LACPDUs) are sent in 802.3ad mode. Options are "fast" (every 1 second) or "slow" (every 30 seconds), with "slow" as the default.
 
-- **`bond_xmit_hash_policy`**: Specifies the method used to select a slave interface for outgoing traffic in certain bonding modes, influencing load balancing behavior.
+* **`bond_xmit_hash_policy`**: Specifies the method used to select a slave interface for outgoing traffic in certain bonding modes, influencing load balancing behavior.
 
-- **`bond_num_grat_arp`**: Sets the number of gratuitous ARP messages sent after a failover event to update peer devices about the new MAC address location.
+* **`bond_num_grat_arp`**: Sets the number of gratuitous ARP messages sent after a failover event to update peer devices about the new MAC address location.
 
-- **`mtu`**: Defines the Maximum Transmission Unit, indicating the largest size (in bytes) of packets that the interface can transmit.
+* **`mtu`**: Defines the Maximum Transmission Unit, indicating the largest size (in bytes) of packets that the interface can transmit.
 
-- **`accept_ra`**: Indicates whether the interface accepts IPv6 Router Advertisements, which are used for automatic network configuration.
+* **`accept_ra`**: Indicates whether the interface accepts IPv6 Router Advertisements, which are used for automatic network configuration.
 
 MAAS also supports many bonding modes:
 
-- **`balance-rr`**: Transmit packets in sequential order from the first
+* **`balance-rr`**: Transmit packets in sequential order from the first
   available slave through the last. This mode provides load balancing
   and fault tolerance.
 
-- **`active-backup`**: Only one slave in the bond is active. A different
+* **`active-backup`**: Only one slave in the bond is active. A different
   slave becomes active if, and only if, the active slave fails. The
   bond's MAC address is externally visible on only one port (network
   adapter) to avoid confusing the switch.
 
-- **`balance-xor`**: Transmit based on the selected transmit hash policy.
+* **`balance-xor`**: Transmit based on the selected transmit hash policy.
   The default policy is a simple [(source MAC address XOR'd with
   destination MAC address XOR packet type ID) modulo slave count].
 
-- **`broadcast`**: Transmits everything on all slave interfaces. This
+* **`broadcast`**: Transmits everything on all slave interfaces. This
   mode provides fault tolerance.
 
-- **`802.3ad`**: IEEE 802.3ad dynamic link aggregation. Creates
+* **`802.3ad`**: IEEE 802.3ad dynamic link aggregation. Creates
   aggregation groups that share the same speed and duplex settings.
   Uses all slaves in the active aggregator according to the 802.3ad
   specification.
 
-- **`balance-tlb`**: Adaptive transmit load balancing: channel bonding
+* **`balance-tlb`**: Adaptive transmit load balancing: channel bonding
   that does not require any special switch support.
 
-- ``balance-alb``: Adaptive load balancing: includes balance-tlb plus
+* ``balance-alb``: Adaptive load balancing: includes balance-tlb plus
   receive load balancing (rlb) for IPV4 traffic, and does not require
   any special switch support. The receive load balancing is achieved by
   ARP negotiation.
   
 > *See [Bond two interfaces](https://canonical.com/maas/docs/how-to-manage-maas-networks#p-9070-bond-two-interfaces) for how-to instructions.*
-

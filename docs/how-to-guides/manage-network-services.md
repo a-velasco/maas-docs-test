@@ -1,4 +1,3 @@
-(how-to-guides-manage-network-services)=
 # Manage network services
 
 MAAS-configured network services simplify deployment and reduce setup friction by automating DHCP, DNS, and time sync. But while enabling these services is straightforward, it helps to understand when, why, and how to configure them --- especially in environments where external services already exist or where high availability matters.
@@ -15,11 +14,12 @@ Generally, only use this when MAAS is the only DHCP provider for the VLAN.  You 
 *Subnets > (Select VLAN) > Configure DHCP > Fill in fields > Configure DHCP*
 
 **CLI:**
+
 ```bash
 maas $PROFILE vlan update $FABRIC_ID $VLAN_ID dhcp_on=True primary_rack=$PRIMARY_RACK
 ```
 
-Enabling MAAS DHCP on a VLAN already served by another DHCP server (like your router or a VM host) can lead to conflicts and failed deployments.   
+Enabling MAAS DHCP on a VLAN already served by another DHCP server (like your router or a VM host) can lead to conflicts and failed deployments.
 
 ### An example
 
@@ -46,6 +46,7 @@ Use this when DHCP must be relayed from one VLAN to another — common in enterp
 *Subnets > (Select VLAN) > Configure DHCP > Relay to another VLAN > Select > Configure*
 
 **CLI:**
+
 ```bash
 maas $PROFILE vlan update $FABRIC_ID $VLAN_VID_SRC relay_vlan=$VLAN_ID_TARGET
 ```
@@ -116,4 +117,3 @@ Use this if MAAS should forward DNS queries it can’t resolve.
 ```bash
 maas $PROFILE maas set-config name=upstream_dns value=$MY_UPSTREAM_DNS
 ```
-

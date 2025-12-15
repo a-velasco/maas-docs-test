@@ -1,4 +1,3 @@
-(reference-cli-reference-file)=
 # file
 
 Enter keyword arguments in the form `key=value`.
@@ -10,11 +9,13 @@ maas $PROFILE file delete [--help] [-d] [-k] filename [data ...]
 ```
 
 #### Positional arguments
+
 - filename
 
 Delete a file with the given file name.
 
 #### Command-line options
+
 | Option | Effect |
 |-----|-----|
 | --help, -h | Show this help message and exit. |
@@ -28,11 +29,13 @@ maas $PROFILE file read [--help] [-d] [-k] filename [data ...]
 ```
 
 #### Positional arguments
+
 - filename
 
 Reads a stored file with the given file name. The content of the file is base64-encoded.
 
 #### Command-line options
+
 | Option | Effect |
 |-----|-----|
 | --help, -h | Show this help message and exit. |
@@ -46,11 +49,13 @@ maas $PROFILE file delete [--help] [-d] [-k] filename [data ...]
 ```
 
 #### Positional arguments
+
 - filename
 
 Delete a file with the given file name.
 
 #### Command-line options
+
 | Option | Effect |
 |-----|-----|
 | --help, -h | Show this help message and exit. |
@@ -66,9 +71,11 @@ maas $PROFILE files get [--help] [-d] [-k] [data ...]
 Get a named file from the file storage.
 
 #### Keyword "filename"
+
 Required String. The name of the file.
 
 #### Command-line options
+
 | Option | Effect |
 |-----|-----|
 | --help, -h | Show this help message and exit. |
@@ -84,9 +91,11 @@ maas $PROFILE files get-by-key [--help] [-d] [-k] [data ...]
 Get a file from the file storage with the given key.
 
 #### Keyword "key"
+
 Required String. The file's key.
 
 #### Command-line options
+
 | Option | Effect |
 |-----|-----|
 | --help, -h | Show this help message and exit. |
@@ -102,12 +111,13 @@ maas $PROFILE files read [--help] [-d] [-k] [data ...]
 List the files from the file storage. The returned files are ordered by file name and the content is excluded.
 
 #### Keyword "prefix"
+
 Optional String. Prefix used to filter returned files.
 
 #### Command-line options
+
 | Option | Effect |
 |-----|-----|
 | --help, -h | Show this help message and exit. |
 | -d, --debug | Display more information about API responses. |
 | -k, --insecure | Disable SSL certificate check |
-

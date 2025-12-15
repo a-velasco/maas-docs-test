@@ -1,4 +1,3 @@
-(uncategorized-upgrade-to-postgresql-v16)=
 # Upgrade to PostgreSQL v16
 
 Starting with MAAS 3.6, you must upgrade PostgreSQL from version 14 to version 16.  This guide will explain the process.
@@ -15,7 +14,7 @@ Backup all existing data: optional, but strongly advised.
 
 If you're running PostgreSQL v14 on  your MAAS machine, you must upgrade before installing MAAS version 3.6.
 
-### [Install](https://www.postgresql.org/download/linux/ubuntu/) PostgreSQL 16.
+### [Install](https://www.postgresql.org/download/linux/ubuntu/) PostgreSQL 16
 
 ```bash
     sudo apt update
@@ -92,4 +91,3 @@ Finally, delete configuration files and data from the old version:
 ```
 
 This completes the upgrade from PostgreSQL v14 to v16.
-
