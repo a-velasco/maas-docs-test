@@ -40,19 +40,19 @@ LXD clusters in MAAS allow you to view and manage existing VM host clusters and 
 
 MAAS assumes you have already configured an LXD cluster. You then need to configure the cluster with a single trust which MAAS uses to communicate it. Adding a LXD cluster is like adding a single LXD host: you provide authentication in a similar way, and then select a project. MAAS then connects to the provided host to discover other hosts within the cluster, renaming the cluster host with a name you supply.
 
-![image](https://discourse.maas.io/uploads/default/original/2X/3/3aba7d6e30eda61623f66cb162ca85814128864a.png)
+![MAAS dashboard with "Add LXD host" circled in red](https://discourse.maas.io/uploads/default/original/2X/3/3aba7d6e30eda61623f66cb162ca85814128864a.png)
 
 First, add an LXD KVM:
 
-![image](https://discourse.maas.io/uploads/default/original/2X/c/c7d35ad0d8e1d9038dd39a8965307a49f57d453a.png)
+!["Credentials" tab for LXD addition](https://discourse.maas.io/uploads/default/original/2X/c/c7d35ad0d8e1d9038dd39a8965307a49f57d453a.png)
 
 Next, set up credentials and let LXD trust your MAAS certificate:
 
-![image](https://discourse.maas.io/uploads/default/original/2X/b/b3ea7559edc066e899e41f41846a268b2459b1a5.png)
+!["Authentication" tab for LXD addition](https://discourse.maas.io/uploads/default/original/2X/b/b3ea7559edc066e899e41f41846a268b2459b1a5.png)
 
 Once connected, you can select the project in that cluster:
 
-![image](https://discourse.maas.io/uploads/default/original/2X/b/ba798351c1c2b37d0aa79bca8c44def38d4ab839.png)
+!["Project selection" tab for LXD addition](https://discourse.maas.io/uploads/default/original/2X/b/ba798351c1c2b37d0aa79bca8c44def38d4ab839.png)
 
 If the KVM host address is part of a cluster, it will show as a cluster on the listing page.
 
@@ -64,17 +64,17 @@ Composing a VM in a LXD cluster via MAAS is similar to composing a VM for a sing
 
 From the KVM host listing page, click on the `+` icon to add a VM to a specific host:
 
-![image](https://discourse.maas.io/uploads/default/original/2X/2/219a302c245992a390cd44ada341cfe5a93a7b5a.png)
+![KVM host listing page, circling a "plus" icon on the lower right](https://discourse.maas.io/uploads/default/original/2X/2/219a302c245992a390cd44ada341cfe5a93a7b5a.png)
 
 If you are in a specific KVM host page, you can click `+ add virtual machine`:
 
-![image](https://discourse.maas.io/uploads/default/original/2X/2/219a302c245992a390cd44ada341cfe5a93a7b5a.png)
+![KVM host listing page, circling a "plus" icon on the lower right](https://discourse.maas.io/uploads/default/original/2X/2/219a302c245992a390cd44ada341cfe5a93a7b5a.png)
 
 #### How to delete LXD clusters
 
 To delete an LXD cluster, simply delete any VM host within the cluster:
 
-![image](https://discourse.maas.io/uploads/default/original/2X/e/ea7cd2476ae8cafe6d8e78f2b029d0cd41afa592.png)
+![Cluster settings page, highlighting "Remove KVM" option with a red circle](https://discourse.maas.io/uploads/default/original/2X/e/ea7cd2476ae8cafe6d8e78f2b029d0cd41afa592.png)
 
 ### Enlist deployed machines
 
@@ -188,7 +188,7 @@ As a user, you want to track of deployed static images. The standard MAAS dashbo
 
 Custom Ubuntu images can be uploaded with the MAAS CLI by creating a boot-resource:
 
-```text                                                                                                          
+```text
  maas $PROFILE boot-resources create \
         name='custom/ubuntu-custom'  \
         architecture=amd64/generic \
@@ -243,19 +243,19 @@ In order for cloning to succeed, a few restrictions must be met:
 
 Assume you have two machines available, like this:
 
-![](https://discourse.maas.io/uploads/default/original/2X/6/6f662618011e3eb1f8e0bfe85748825db4a6ac25.png)
+![List of two machines](https://discourse.maas.io/uploads/default/original/2X/6/6f662618011e3eb1f8e0bfe85748825db4a6ac25.png)
 
 Select the machine *to which you want to clone configuration*, and select "Clone from..."
 
-![](https://discourse.maas.io/uploads/default/original/2X/b/b4e42a59f1d4bc6d63f2cd24d77316eea3aada1b.png)
+![Dropdown with clone from](https://discourse.maas.io/uploads/default/original/2X/b/b4e42a59f1d4bc6d63f2cd24d77316eea3aada1b.png)
 
 Under "1. Select the source machine" -- choose a machine from the attached list:
 
-![](https://discourse.maas.io/uploads/default/original/2X/2/287bbf3db4bbc3253a976ecde8965c341fc1bee3.png)
+![Source machine selection](https://discourse.maas.io/uploads/default/original/2X/2/287bbf3db4bbc3253a976ecde8965c341fc1bee3.png)
 
 Under "2. Select what to clone", choose "Network", "Storage", or both (here, we've chosen "Storage"):
 
-![](https://discourse.maas.io/uploads/default/original/2X/6/622afe3c0bcd4775ef4c19460cf0f1f480c11efb.png)
+![Page divided in two parts: 1. Select the source machine, 2. Select what to close](https://discourse.maas.io/uploads/default/original/2X/6/622afe3c0bcd4775ef4c19460cf0f1f480c11efb.png)
 
 Click "Clone to machine". MAAS will report the status of the attempt.
 
@@ -297,11 +297,11 @@ The imported key must not have a passphrase; otherwise, MAAS will not be able to
 
 Suppose that you're creating a new LXD KVM, beginning from the top tab in MAAS:
 
-![](upload://5Rn9eea7n648iKo1sjohP7r5ARY.png)
+![MAAS top tab, containing an existing lxd entry example](upload://5Rn9eea7n648iKo1sjohP7r5ARY.png)
 
 Select "Add KVM", which brings you to the definition screen:
 
-![](upload://2uPyI3yDteiWizFUhOM95C5B1Hg.png)
+![definition screen requiring name, zone, resource pool and lxd address](upload://2uPyI3yDteiWizFUhOM95C5B1Hg.png)
 
 From here, you'll continue by choosing your authentication method.
 
@@ -309,7 +309,7 @@ From here, you'll continue by choosing your authentication method.
 
 If you choose "Generate new certificate", as shown above, you'll come to a screen like this one:
 
-![](upload://vc5IuTP53xKYzCDYkkPhLxcZFUE.png)
+![certificate screen containing a lxc command to run and a "Use trust password" checkbox](upload://vc5IuTP53xKYzCDYkkPhLxcZFUE.png)
 
 You can still choose to use the LXD trust password (entered when you ran `lxd init` during LXD installation). You can also, though, choose to use the certificate MAAS has just generated for you. To do that, select the entire contents of the text box, copy it, and paste it into a terminal window -- then hit "Enter":
 

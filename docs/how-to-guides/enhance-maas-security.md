@@ -407,6 +407,7 @@ path "$SECRETS_MOUNT/data/${SECRETS_PATH}/*" {
  capabilities = ["read", "create", "update", "delete"]
 }
 ```
+
 1. **Apply the policy in Vault**
 
 ```text

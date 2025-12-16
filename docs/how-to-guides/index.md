@@ -7,6 +7,7 @@ This section provides practical, step-by-step guidance for getting the most out 
 Before installing anything, make sure MAAS is the right fit. Confirm that your intended use matches the reference architecture. Clarify your environment's requirements, choose the right installation method (Snap vs. Deb), and decide on deployment targets: bare metal, VMs, or a mix. These choices will shape your entire setup.
 
 <!-- * *Confirm intended use matches reference architecture* -->
+
 * [Examine and confirm requirements](https://canonical.com/maas/docs/installation-requirements)
 * [Choose the installation type](https://canonical.com/maas/docs/how-to-get-maas-up-and-running#p-9034-install-maas-snap-or-packages)
 
@@ -30,6 +31,7 @@ This section covers how to enlist machines into MAAS, test and commission them, 
 * Special deployments
   * [Custom images: building, using, and maintaining](https://canonical.com/maas/docs/how-to-build-custom-images)
   * [Ephemeral deployments](https://canonical.com/maas/docs/how-to-manage-machines#p-9078-deploy-to-ram-ephemeral-deployment)
+
 <!--  * *Enlisting running machines (as if deployed by MAAS)* -->
 
 ## Manage MAAS
@@ -42,16 +44,20 @@ Once your systems are running, it's time to manage them effectively. Learn how t
   * [Availability zones](https://canonical.com/maas/docs/how-to-manage-machine-groups#p-19384-availability-zones)
   * [Notes](https://canonical.com/maas/docs/how-to-manage-machine-groups#p-19384-manage-notes)
   * [Annotations](https://canonical.com/maas/docs/how-to-manage-machine-groups#p-19384-manage-dynamic-annotations)
+
 * Storage
   * [Storage types](https://canonical.com/maas/docs/reference-maas-storage)
   * [Storage layout](https://canonical.com/maas/docs/how-to-manage-machines#p-9078-configure-storage-layout)
+
 * [Networks](https://canonical.com/maas/docs/how-to-manage-networks)
   * [VLANs](https://canonical.com/maas/docs/how-to-manage-networks#p-9070-manage-vlans)
   * [Subnets](https://canonical.com/maas/docs/how-to-manage-networks#p-9070-manage-subnets)
   * [Special DNS / DHCP / NTP settings](https://canonical.com/maas/docs/how-to-manage-network-services)
   * [Creating an air gap](https://canonical.com/maas/docs/how-to-set-up-air-gapped-maas)
+
 * [Power control](https://canonical.com/maas/docs/how-to-manage-machines#p-9078-control-machine-power)
   * [Specific machine types](https://canonical.com/maas/docs/how-to-manage-machines#p-9078-set-power-type)
+
  <!-- * Generic IPMI -->
 <!--  * Webhook -->
 <!--  * Other generic power types -->
@@ -73,6 +79,7 @@ This section helps you observe and debug your MAAS deployment using tools like P
 * [Auditing with logs](https://canonical.com/maas/docs/how-to-use-logging#p-14514-auditing-maas)
 * [Troubleshooting machine behaviors](https://canonical.com/maas/docs/how-to-manage-machines#p-9078-rescue-recovery)
 * [Troubleshooting network issues](https://canonical.com/maas/docs/maas-troubleshooting-guide)
+
 <!-- * Troubleshooting performance -->
 
 ## Scale and optimize
@@ -81,6 +88,7 @@ Ready to grow? Learn how to replicate controllers for high availability, set up 
 
 * [Setting up HA & controller replication](https://canonical.com/maas/docs/how-to-manage-high-availability)
 * [Advanced deployments](https://canonical.com/maas/docs/reference-terraform)
+
 <!-- * Clustering VMs -->
 <!-- * Hybrid hardware/VM configurations -->
 
@@ -90,6 +98,7 @@ Finally, make MAAS part of your larger automation pipeline. Learn how to use the
 
 * [Using the MAAS API](https://canonical.com/maas/docs/api) <!-- & webhooks -->
 * [Using Terraform](https://canonical.com/maas/docs/reference-terraform)
+
 <!-- * Integrating MAAS into a cloud-provisioning workflow -->
 <!-- * Scripting with the MAAS CLI -->
 <!-- * Charmed MAAS -->

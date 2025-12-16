@@ -85,6 +85,7 @@ ssh-keygen -f "/path/to/.ssh/known_hosts" -R "<ip_address>"
 ```text
 ssh -i /.ssh/id_rsa maas_user@10.192.226.195
 ```
+
 1. When logged in, you can try a few commands that require `sudo` to verify that your `cloud-init` was successful.
 
 ### Setting up SSH keys for multiple users
