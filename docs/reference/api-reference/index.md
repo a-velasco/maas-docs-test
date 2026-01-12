@@ -3,9 +3,7 @@
 ```{toctree}
 :titlesonly:
 :maxdepth: 2
-:glob:
-:hidden:
 
-*
-*/index
+api-login
+api-profile
 ```

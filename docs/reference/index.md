@@ -34,9 +34,11 @@ These essential reference materials will help make better choices, resolve issue
 ```{toctree}
 :titlesonly:
 :maxdepth: 2
-:glob:
 :hidden:
 
-*
-*/index
+api-reference/index
+cli-reference/index
+configuration-guides/index
+release-notes
+supported-maas-versions
 ```

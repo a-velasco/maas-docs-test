@@ -38,9 +38,22 @@ Keep your data center intact and reliable.
 ```{toctree}
 :titlesonly:
 :maxdepth: 2
-:glob:
 :hidden:
 
-*
-*/index
+commissioning-machines
+commissioning-scripts
+controllers
+deploying-machines
+deploying-running-machines
+events
+images
+logging
+lxd-projects
+machine-basics
+machine-customization
+machine-groups
+networking
+performance
+security
+the-machine-life-cycle
 ```
