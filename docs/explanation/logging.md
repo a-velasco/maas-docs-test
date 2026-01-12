@@ -99,7 +99,7 @@ INFO:     Started server process [24428]
 journalctl -u snap.maas.pebble.service --case-sensitive -g "^[0-9TZ:.-]{24} \[apiserver\]"
 ```
 
-## HTTP (nginx)
+### HTTP (nginx)
 
 HTTP logs to its own files (`/var/snap/maas/common/log/http/(access|error).log`), while `stdout` (redirected by Pebble) contains only critical errors that cannot be redirected to the error log.
 
