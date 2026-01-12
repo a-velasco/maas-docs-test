@@ -1,4 +1,4 @@
-## MAAS documentation
+# MAAS documentation
 
 **What is MAAS?** MAAS (Metal as a Service) is Canonical’s private cloud infrastructure management system. It enables physical servers to behave like cloud instances: deploy, manage, and scale your infrastructure through automated, repeatable processes.
 
