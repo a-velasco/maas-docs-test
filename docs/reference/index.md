@@ -36,9 +36,9 @@ These essential reference materials will help make better choices, resolve issue
 :maxdepth: 2
 :hidden:
 
+release-notes
+supported-maas-versions
 api-reference/index
 cli-reference/index
 configuration-guides/index
-release-notes
-supported-maas-versions
 ```

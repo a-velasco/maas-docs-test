@@ -40,20 +40,20 @@ Keep your data center intact and reliable.
 :maxdepth: 2
 :hidden:
 
+machine-basics
+the-machine-life-cycle
 commissioning-machines
 commissioning-scripts
-controllers
+machine-customization
 deploying-machines
 deploying-running-machines
-events
-images
-logging
 lxd-projects
-machine-basics
-machine-customization
 machine-groups
 networking
+controllers
+images
 performance
+events
+logging
 security
-the-machine-life-cycle
 ```

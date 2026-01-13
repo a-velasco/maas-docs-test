@@ -108,22 +108,22 @@ Finally, make MAAS part of your larger automation pipeline. Learn how to use the
 :maxdepth: 2
 :hidden:
 
-back-up-maas
-build-custom-images
-build-ubuntu-images
-deploy-a-fips-kernel
-deploy-a-real-time-kernel
-deploy-vms-on-ibm-z
-enhance-maas-security
 get-maas-up-and-running
-manage-high-availability
-manage-images
-manage-machine-groups
-manage-machines
-manage-network-services
+back-up-maas
 manage-networks
-monitor-maas
-script-maas-with-python
-set-up-air-gapped-maas
+manage-network-services
+manage-machines
+manage-machine-groups
+manage-images
+build-ubuntu-images
+build-custom-images
+manage-high-availability
 use-logging
+monitor-maas
+enhance-maas-security
+deploy-a-real-time-kernel
+deploy-a-fips-kernel
+set-up-air-gapped-maas
+script-maas-with-python
+deploy-vms-on-ibm-z
 ```
