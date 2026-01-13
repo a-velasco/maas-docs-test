@@ -207,6 +207,6 @@ sudo maas status # Verify services running
 
 ## Related documentation
 
-- [About controllers](https://canonical.com/maas/docs/about-controllers)
-- [Back up MAAS](https://canonical.com/maas/docs/how-to-back-up-maas)
-- [Networking in MAAS](https://canonical.com/maas/docs/about-maas-networking)
+- [About controllers](explanation/controllers.md)
+- [Back up MAAS](how-to-guides/back-up-maas.md)
+- [Networking in MAAS](explanation/networking.md)

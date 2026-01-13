@@ -125,6 +125,6 @@ Replace `$MIRROR` with your mirror server hostname.
 
 ## Next steps
 
-- Learn [About MAAS images](https://canonical.com/maas/docs/about-images)
-- Discover [How to build custom images](https://canonical.com/maas/docs/how-to-build-custom-images)
-- Find out [How to deploy a real-time kernel](https://canonical.com/maas/docs/how-to-deploy-a-real-time-kernel)
+- Learn [About MAAS images](explanation/images.md)
+- Discover [How to build custom images](how-to-guides/build-custom-images.md)
+- Find out [How to deploy a real-time kernel](how-to-guides/deploy-a-real-time-kernel.md)

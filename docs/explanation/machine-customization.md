@@ -1,7 +1,5 @@
 # Machine customization
 
-# Customising machines in MAAS
-
 MAAS allows you to tailor machines before and during deployment. This includes configuring storage, setting kernel options, and applying preseeds. Some modifications can also be detected post-deployment, although MAAS itself cannot change a deployed machine’s hardware profile.
 
 ## Pre-deployment customisation

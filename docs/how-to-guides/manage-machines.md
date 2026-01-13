@@ -453,7 +453,7 @@ Periodically check your machine list.
 
 ## Next steps
 
-- Understand [machine basics](https://canonical.com/maas/docs/about-machine-basics)
-- Learn about the [machine life-cycle](https://canonical.com/maas/docs/about-the-machine-life-cycle)
-- Learn more about [commissioning machines](https://canonical.com/maas/docs/about-commissioning-machines)
-- Discover more about [deploying machines](https://canonical.com/maas/docs/about-deploying-machines)
+- Understand [machine basics](explanation/machine-basics.md)
+- Learn about the [machine life-cycle](explanation/the-machine-life-cycle.md)
+- Learn more about [commissioning machines](explanation/commissioning-machines.md)
+- Discover more about [deploying machines](explanation/deploying-machines.md)

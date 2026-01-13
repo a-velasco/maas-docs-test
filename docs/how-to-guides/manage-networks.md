@@ -1,6 +1,6 @@
 # Manage networks
 
-MAAS provides pre-configured [networks](https://canonical.com/maas/docs/about-maas-networking) for convenience. You can reconfigure these networks to match your environment.
+MAAS provides pre-configured [networks](explanation/networking.md) for convenience. You can reconfigure these networks to match your environment.
 
 This page shows you how to:
 
@@ -176,7 +176,7 @@ Interfaces control how machines connect to subnets. MAAS supports physical NICs,
 - Bond (group NICs for redundancy or throughput)
 - Bridge (share NICs with VMs/containers or route traffic)
 
-Each has UI and CLI creation commands. See [interface reference](https://canonical.com/maas/docs/interface) for details.
+Each has UI and CLI creation commands. See [interface reference](reference/cli-reference/interface.md) for details.
 
 ## Manage routes and links
 
@@ -257,6 +257,6 @@ You can fine-tune discovery (force re-scan, use ping, slow scan, limit threads) 
 
 ## Next steps
 
-- Explore [about MAAS networking](https://canonical.com/maas/docs/about-maas-networking) for deeper context.
-- Investigate [how to tune MAAS network services](https://canonical.com/maas/docs/how-to-manage-network-services) to improve performance or create special configurations.
-- If you need redundancy, learn [how to manage high availability](https://canonical.com/maas/docs/how-to-manage-high-availability).
+- Explore [about MAAS networking](explanation/networking.md) for deeper context.
+- Investigate [how to tune MAAS network services](how-to-guides/manage-network-services.md) to improve performance or create special configurations.
+- If you need redundancy, learn [how to manage high availability](how-to-guides/manage-high-availability.md).

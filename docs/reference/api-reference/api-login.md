@@ -58,5 +58,5 @@ http $MAAS_URL/api/2.0/users/ Authorization:"OAuth oauth_version=1.0, oauth_sign
 
 ## Next steps
 
-- Learn more about [MAAS API endpoints](https://canonical.com/maas/docs/api).
-- Learn how to login to the [MAAS CLI](https://canonical.com/maas/docs/login).
+- Learn more about [MAAS API endpoints](reference/api-reference/index.md).
+- Learn how to login to the [MAAS CLI](reference/cli-reference/login.md).

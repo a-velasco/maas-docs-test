@@ -89,4 +89,4 @@ Once submitted:
 
 ## Next steps
 
-* [Troubleshooting MAAS](https://canonical.com/maas/docs/maas-troubleshooting-guide)
+* [Troubleshooting MAAS](reference/configuration-guides/troubleshooting.md)

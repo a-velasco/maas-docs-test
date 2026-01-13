@@ -227,4 +227,4 @@ Use port 80 instead of 5240 for API/UI access.
 
 ## Next steps
 
-- [About controllers](https://canonical.com/maas/docs/about-controllers)
+- [About controllers](explanation/controllers.md)

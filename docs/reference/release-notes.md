@@ -11,13 +11,13 @@ These release notes for MAAS summarize new features, bug fixes and backwards-inc
 
 ### Older releases
 
- [MAAS 3.3 release notes](https://maas.io/docs/reference-release-notes-maas-3-3)
- [MAAS 3.2 release notes](https://maas.io/docs/reference-release-notes-maas-3-2)
- [MAAS 3.1 release notes](https://maas.io/docs/reference-release-notes-maas-3-1)
- [MAAS 3.0 release notes](https://maas.io/docs/reference-release-notes-maas-3-0)
- [MAAS 2.9 release notes](https://maas.io/docs/reference-release-notes-maas-2-9)
- [MAAS 2.8 release notes](https://maas.io/docs/reference-release-notes-maas-2-8)
- [MAAS 2.7 release notes](https://maas.io/docs/reference-release-notes-maas-2-7)
+ [MAAS 3.3 release notes](/docs/uncategorized/maas-3-3-release-notes.md)
+ [MAAS 3.2 release notes](/docs/uncategorized/maas-3-2-release-notes.md)
+ [MAAS 3.1 release notes](/docs/uncategorized/maas-3-1-release-notes.md)
+ [MAAS 3.0 release notes](/docs/uncategorized/maas-3-0-release-notes.md)
+ [MAAS 2.9 release notes](/docs/uncategorized/maas-2-9-release-notes.md)
+ [MAAS 2.8 release notes](/docs/uncategorized/maas-2-8-release-notes.md)
+ [MAAS 2.7 release notes](/docs/uncategorized/maas-2-7-release-notes.md)
 
 <!--
 ## Release policy and schedule
@@ -538,6 +538,7 @@ We are happy to announce that MAAS 3.5.3 has been released, with the following b
 ### MAAS 3.5.2 has been released
 
 We are happy to announce that MAAS 3.5.2 has been released, with the following bug fixes
+
 * [2079987](https://bugs.launchpad.net/bugs/2079987):  LeaseSocketService is sending 10 RPC calls to the region every second even if there are no updates
 * [2079797](https://bugs.launchpad.net/bugs/2079797):  Redfish powerdriver should be able to handle the reset power status
 * [2075555](https://bugs.launchpad.net/bugs/2075555):  Custom OSes fail to deploy 'in memory'
@@ -552,6 +553,7 @@ We are happy to announce that MAAS 3.5.2 has been released, with the following b
 ### MAAS 3.5.1 has been released
 
 We are happy to announce that MAAS 3.5.1 has been released, with the following bug fixes
+
 * [2073731](https://bugs.launchpad.net/bugs/2073731): BMC commissioning error on HPE Gen 10 with ILO 5
 * [1953049](https://bugs.launchpad.net/bugs/1953049): Error while calling ScanNetworks: Unable to get RPC connection for rack controller
 * [1980000](https://bugs.launchpad.net/bugs/1980000): dhcpd.conf not written due to byte size of hosts value in rpc
@@ -878,6 +880,7 @@ We are happy to announce that MAAS 3.4.6 has been released, with the following b
 ### MAAS 3.4.5 has been released
 
 We are happy to announce that MAAS 3.4.5 has been released, with the following bug fixes
+
 * [2004661](https://bugs.launchpad.net/bugs/2004661): MAAS deployment failures on server with Redfish
 * [2024242](https://bugs.launchpad.net/bugs/2024242): Unable to Deploy Machines; get() returned more than one Neighbour -- it returned 2!
 * [2052503](https://bugs.launchpad.net/bugs/2052503): Additional Power States in Redfish Schema
@@ -886,12 +889,14 @@ We are happy to announce that MAAS 3.4.5 has been released, with the following b
 ### MAAS 3.4.4 has been released
 
 We are happy to announce that MAAS 3.4.4 has been released, with the following bug fixes
+
 * [2073731](https://bugs.launchpad.net/bugs/2073731): BMC commissioning error on HPE Gen 10 with ILO 5
 * [1953049](https://bugs.launchpad.net/bugs/1953049): Error while calling ScanNetworks: Unable to get RPC connection for rack controller
 
 ### MAAS 3.4.3 has been released
 
 We are happy to announce that MAAS 3.4.3 has been released, with the following bug fixes
+
 * [2029522](https://bugs.launchpad.net/bugs/2029522): stacktrace on _reap_extra_connection()
 * [2031482](https://bugs.launchpad.net/bugs/2031482): Subnet changed to wrong fabric, impacting DHCP
 * [2066276](https://bugs.launchpad.net/bugs/2066276): IPv6 test failures: AttributeError: 'RRHeader' object has no attribute '_address'

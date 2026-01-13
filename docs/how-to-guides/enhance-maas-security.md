@@ -4,7 +4,7 @@ MAAS security depends on encryption, logging, and user access management.  This 
 
 ## Use TLS termination (MAAS 3.3+)
 
-Learn more about [TLS termination](https://canonical.com/maas/docs/ensuring-security-in-maas#p-13983-tls-termination).
+Learn more about [TLS termination](#use-tls-termination-maas-33).
 
 ### Configure TLS (3.3+)
 
@@ -197,7 +197,7 @@ Include your root and intermediate CA certificates in the same PEM file, if requ
 
 ## Use TLS termination (3.2-)
 
-MAAS versions 3.2 and below don't support native TLS encryption. If you are not interested in [setting up an HAProxy](https://canonical.com/maas/docs/how-to-enable-high-availability#p-9026-api-ha-with-haproxy), you can still enable TLS.
+MAAS versions 3.2 and below don't support native TLS encryption. If you are not interested in [setting up an HAProxy](/docs/how-to-guides/manage-high-availability.md#highly-available-api-with-haproxy), you can still enable TLS.
 
 ### Configure nginx
 
@@ -261,7 +261,7 @@ sudo ufw allow 5250:5270/udp
 
 Your specifics may vary, so refer to the relevant firewall documentation and the required MAAS controller port settings.
 
-See [MAAS network port reference table](https://canonical.com/maas/docs/configuration-reference#p-17901-controller-port-settings) for a complete active port listing.
+See [MAAS network port reference table](reference/configuration-guides/configuration-tables.md#controller-port-settings) for a complete active port listing.
 
 ## Deploy HAProxy
 
@@ -320,7 +320,7 @@ Enable [HAProxy logging](https://www.digitalocean.com/community/tutorials/how-to
 
 Use MAAS log files to find potential security issues.
 
-See the [MAAS logging reference](https://canonical.com/maas/docs/maas-logging-reference) for detailed examples & log file locations.
+See the [MAAS logging reference](reference/configuration-guides/logging.md) for detailed examples & log file locations.
 
 ## Manage users
 
@@ -364,11 +364,11 @@ Check the appropriate box to grant administrative rights.
 
 *Settings* > *Users* > *[User]* > *Pencil* > [Follow instructions]
 
-> *Note that administrators can change any user's password.  Learn more about [strong passwords](https://canonical.com/maas/docs/ensuring-security-in-maas#p-13983-strong-passwords).*
+> *Note that administrators can change any user's password.  Learn more about [strong passwords]().*
 
 ## Manage Vault
 
-Learn more about [MAAS and Hashicorp Vault](https://canonical.com/maas/docs/ensuring-security-in-maas#p-13983-hashicorp-vault).
+Learn more about [MAAS and Hashicorp Vault](explanation/security.md).
 
 To ensure seamless integration between MAAS and Vault, you'll first need to obtain a `role_id` and `wrapped_token` through Vault's CLI. For detailed guidance, check [Hashicorp Vault's tutorial](https://learn.hashicorp.com/tutorials/vault/approle-best-practices?in=vault/auth-methods#approle-response-wrapping).
 

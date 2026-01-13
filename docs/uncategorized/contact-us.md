@@ -20,6 +20,6 @@ Your experience helps shape the future of MAAS. Whether you’re troubleshooting
 
 ## Next steps
 
-- [How to report and review bugs](https://canonical.com/maas/docs/how-to-report-and-review-bugs)
-- [How to file a feature request](https://canonical.com/maas/docs/how-to-request-features)
-- [How to improve our documentation](https://canonical.com/maas/docs/how-to-contribute-to-maas-documentation)
+- [How to report and review bugs](uncategorized/report-a-bug.md)
+- [How to file a feature request](uncategorized/request-a-feature.md)
+- [How to improve our documentation](uncategorized/improve-our-documentation.md)

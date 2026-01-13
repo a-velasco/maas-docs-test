@@ -354,7 +354,7 @@ This update should make it much simpler to use custom-built Windows images with 
 
 ### Shifting the MAAS API documentation to OpenAPI standards
 
-MAAS API User want to experience the MAAS API in a more standard way, along the lines of the OpenAPI definition. MAAS 3.3 begins this process by providing most of the MAAS API functionality in a discover-able form. You should now be able to easily retrieve human-readable service documentation and API definitions using standard methods. Consult [the API documentation](https://canonical.com/maas/docs/api) for details.
+MAAS API User want to experience the MAAS API in a more standard way, along the lines of the OpenAPI definition. MAAS 3.3 begins this process by providing most of the MAAS API functionality in a discover-able form. You should now be able to easily retrieve human-readable service documentation and API definitions using standard methods. Consult [the API documentation](reference/api-reference/index.md) for details.
 
 ### MAAS configuration settings reference
 
@@ -981,7 +981,7 @@ More bug-fixes are planned for later 3.3 releases.
 - [1997191](https://bugs.launchpad.net/bugs/1997191): Uncaught exception when configuring DNS
 - [1997281](https://bugs.launchpad.net/bugs/1997281): machine.count fails for new filter options
 - [1997599](https://bugs.launchpad.net/bugs/1997599): Losing LXD certificate
- 
+
 ### MAAS 3.3 RC1 bug list
 
 - [1997975](https://bugs.launchpad.net/maas/+bug/1997975): Update grafana_agent/agent.yaml.example

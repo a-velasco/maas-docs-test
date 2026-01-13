@@ -81,5 +81,5 @@ A machine in MAAS is not just an entry in a table. It’s a full representation 
 
 ## Next steps
 
-- Learn about the [MAAS machine life-cycle](https://canonical.com/maas/docs/about-the-machine-life-cycle).
-- Understand how and why to [commission machines](https://canonical.com/maas/docs/about-commissioning-machines).
+- Learn about the [MAAS machine life-cycle](explanation/the-machine-life-cycle.md).
+- Understand how and why to [commission machines](explanation/commissioning-machines.md).
